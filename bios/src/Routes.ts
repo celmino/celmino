@@ -20,9 +20,10 @@ export const Routes = () => {
 
 
 
-                UIRoute('/login', LoginController),
-                UIRoute('/logout', LoginController)
-            )
+               
+            ),
+            UIRoute('/login', LoginController),
+            UIRoute('/logout', LoginController)
         )
     )
 }

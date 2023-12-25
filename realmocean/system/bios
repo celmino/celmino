@@ -1379,7 +1379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Routes = function () {
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoutes)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/', _LayoutController__WEBPACK_IMPORTED_MODULE_1__.LayoutController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('*', _controllers_HomeController_HomeController__WEBPACK_IMPORTED_MODULE_2__.HomeController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('organization/:organizationId', _controllers_OrganizationController__WEBPACK_IMPORTED_MODULE_5__.OrganizationController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('workspace/:workspaceId', _controllers_HomeController_HomeController__WEBPACK_IMPORTED_MODULE_2__.HomeController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('applet/:appletId/*', _controllers_AppletController__WEBPACK_IMPORTED_MODULE_4__.AppletController)), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/login', _controllers_LoginController__WEBPACK_IMPORTED_MODULE_3__.LoginController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/logout', _controllers_LoginController__WEBPACK_IMPORTED_MODULE_3__.LoginController))));
+    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoutes)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/', _LayoutController__WEBPACK_IMPORTED_MODULE_1__.LayoutController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('*', _controllers_HomeController_HomeController__WEBPACK_IMPORTED_MODULE_2__.HomeController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('organization/:organizationId', _controllers_OrganizationController__WEBPACK_IMPORTED_MODULE_5__.OrganizationController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('workspace/:workspaceId', _controllers_HomeController_HomeController__WEBPACK_IMPORTED_MODULE_2__.HomeController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('applet/:appletId/*', _controllers_AppletController__WEBPACK_IMPORTED_MODULE_4__.AppletController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/login', _controllers_LoginController__WEBPACK_IMPORTED_MODULE_3__.LoginController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/logout', _controllers_LoginController__WEBPACK_IMPORTED_MODULE_3__.LoginController)));
 };
 
 
@@ -1482,7 +1482,7 @@ var OpaLoader = function (_a) {
             var app_path = "/realmocean/store/app/open-testing/".concat(opa_name);
             // alert(app_path)
             var app_path_local = "/system/".concat(opa_name);
-            _tuval_core__WEBPACK_IMPORTED_MODULE_0__.ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then(function (_app) {
+            _tuval_core__WEBPACK_IMPORTED_MODULE_0__.ModuleLoader.LoadBundledModule(app_path_local, opa_name).then(function (_app) {
                 if (_app != null) {
                     var app = new _app();
                     AppCache[opa_name] = app.GetMainController();

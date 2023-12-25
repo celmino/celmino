@@ -1,3 +1,4 @@
+/// <reference types="react" />
 declare const SortableTaskItem: ({ id, task: item, status }: {
     id: any;
     task: any;

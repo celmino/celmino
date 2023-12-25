@@ -18,9 +18,9 @@ if (container_name) {
 
 shell.echo('App file creating...');
 
-tuval.appPackager('./dist/index.js', `../../../realmocean/system/${appName}`);
+//tuval.appPackager('./dist/index.js', `../../../realmocean/system/${appName}`);
 
-
+shell.cp('-Rf', './dist/index.js',  `../../../realmocean/system/${appName}`);
 shell.cd('../../..');
 shell.exec(`docker-compose restart`);
 

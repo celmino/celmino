@@ -66,7 +66,7 @@ export const OpaLoader = ({ opa_name }) => {
             const app_path = `/realmocean/store/app/open-testing/${opa_name}`;
             // alert(app_path)
             const app_path_local = `/system/${opa_name}`;
-            ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then((_app: any) => {
+            ModuleLoader.LoadBundledModule(app_path_local, opa_name).then((_app: any) => {
                 if (_app != null) {
                     const app = new _app();
                     AppCache[opa_name] = app.GetMainController();
