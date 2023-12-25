@@ -33467,7 +33467,7 @@ var OpaLoader = function (_a) {
         else {
             var app_path = "/realmocean/store/app/open-testing/".concat(opa_name);
             // alert(app_path)
-            var app_path_local = "/static/applications/".concat(opa_name, ".app");
+            var app_path_local = "/system/".concat(opa_name, ".app");
             _tuval_core__WEBPACK_IMPORTED_MODULE_1__.ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then(function (_app) {
                 if (_app != null) {
                     var app = new _app();

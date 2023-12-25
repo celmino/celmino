@@ -18,15 +18,11 @@ if (container_name) {
 
 shell.echo('App file creating...');
 
-tuval.appPackager('./dist/index.js', `./dist/${appName}.app`);
+
+tuval.appPackager('./dist/index.js', `../../../realmocean/system/${appName}.app`);
 
 
-shell.echo('Exposing appstore info to realm container');
-//shell.exec(`docker cp  ./dist/${appName}.app  ${container_name}:/app/public/static/applications/${appName}.app`)
-shell.exec(`docker cp  ./dist/${appName}.app  appwrite:/usr/src/code/app/realm/static/applications/${appName}.app`)
-/* shell.echo(`Exposing ${appName}.app to realm container appstore`);
-shell.exec(`docker cp  ../../realm/applications/${appName}.app  ${container_name}:/server/portal/static/applications/${appName}.app`) */
-shell.cd('../../web-app');
+shell.cd('../../..');
 shell.exec(`docker-compose restart`);
 
 shell.echo(`All done.`);

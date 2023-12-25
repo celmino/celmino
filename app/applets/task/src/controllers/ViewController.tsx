@@ -59,7 +59,7 @@ export const OpaLoader = ({ view_qn, content, onSave }) => {
         } else {
             const app_path = `/realmocean/store/app/open-testing/${opa_name}`;
             // alert(app_path)
-            const app_path_local = `/static/applications/${opa_name}.app`;
+            const app_path_local = `/system/${opa_name}.app`;
             ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then((_app: any) => {
                 if (_app != null) {
                     const app = new _app();

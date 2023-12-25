@@ -1,4 +1,5 @@
-import { cTopLeading, cVertical, getAppFullName, HStack, ReactView, ScrollView, Text, UIFormController, UIView, UIViewBuilder, UIWidget, useDialogStack, useNavigate, useParams, VStack } from '@tuval/forms';
+import { cTopLeading, cVertical, getAppFullName, HStack, ReactView, ScrollView, Text, UIFormController,
+     UIView, UIViewBuilder, UIWidget, useDialogStack, useNavigate, useParams, VStack } from '@tuval/forms';
 import React from 'react';
 //import './styles/global.scss';
 
@@ -7,7 +8,7 @@ import React from 'react';
 import { DialogStack } from '@tuval/forms';
 import { ActionPanel } from './views/ActionPanel';
 import { ViewHeader } from './views/ViewHeader';
-import { ID, Services, useCreateDocument, useCreateStringAttribute, useGetDocument, useListDocuments, useUpdateDocument } from '@celmino/sdk';
+import { ID, Services, useCreateDocument, useCreateStringAttribute, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 //import { ActionPanel } from './views/ActionPanel';
 //import { ViewHeader } from './views/ViewHeader';
 
