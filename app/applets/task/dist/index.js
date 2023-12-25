@@ -33133,8 +33133,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _celmino_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @celmino/sdk */ "@celmino/sdk");
-/* harmony import */ var _celmino_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _dialogs_DynoDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dialogs/DynoDialog */ "./src/dialogs/DynoDialog.ts");
 /* harmony import */ var _dialogs_ListStatusesDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dialogs/ListStatusesDialog */ "./src/dialogs/ListStatusesDialog.ts");
 /* harmony import */ var _dialogs_SelectViewDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dialogs/SelectViewDialog */ "./src/dialogs/SelectViewDialog.ts");
@@ -33177,18 +33177,18 @@ var ListController = /** @class */ (function (_super) {
     ListController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
-        var document = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
+        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
             projectId: workspaceId,
             databaseId: 'work_management',
             collectionId: 'wm_lists',
             documentId: listId
         }).document;
-        var _b = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
-        var views = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').documents;
-        var _c = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
-        var createTask = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId).createDocument;
-        var createView = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').createDocument;
-        var updateDocument = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdateDocument)(workspaceId).updateDocument;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
+        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').documents;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
+        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId).createDocument;
+        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').createDocument;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdateDocument)(workspaceId).updateDocument;
         return ((isLoading || isItemsLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
             //  ActionPanel(),
@@ -33389,8 +33389,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ViewController": () => (/* binding */ ViewController),
 /* harmony export */   "getAppName": () => (/* binding */ getAppName)
 /* harmony export */ });
-/* harmony import */ var _celmino_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @celmino/sdk */ "@celmino/sdk");
-/* harmony import */ var _celmino_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_celmino_sdk__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
 /* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
@@ -33497,7 +33497,7 @@ var ViewController = /** @class */ (function (_super) {
         var _this = this;
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
         // alert(viewId)
-        var _b = (0,_celmino_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
             projectId: workspaceId,
             databaseId: 'work_management',
             collectionId: "wm_list_".concat(listId, "_views"),
@@ -35135,14 +35135,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ "@celmino/sdk":
-/*!******************************!*\
-  !*** external "celmino$sdk" ***!
-  \******************************/
+/***/ "@realmocean/sdk":
+/*!*********************************!*\
+  !*** external "realmocean$sdk" ***!
+  \*********************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = celmino$sdk;
+module.exports = realmocean$sdk;
 
 /***/ }),
 

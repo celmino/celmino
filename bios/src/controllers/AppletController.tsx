@@ -65,7 +65,7 @@ export const OpaLoader = ({ opa_name }) => {
         } else {
             const app_path = `/realmocean/store/app/open-testing/${opa_name}`;
             // alert(app_path)
-            const app_path_local = `/static/applications/${opa_name}`;
+            const app_path_local = `/system/${opa_name}`;
             ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then((_app: any) => {
                 if (_app != null) {
                     const app = new _app();
@@ -94,7 +94,7 @@ export class AppletController extends UIFormController {
 
     public override LoadView(): UIView {
 
-        const { applet_id } = useParams();
+        const { appletId } = useParams();
 
         const { applet, isLoading } = {} as any; //useGetApplet(applet_id);
 
@@ -120,7 +120,7 @@ export class AppletController extends UIFormController {
                                                 </Fragment>
                                             } >
                                                 <ErrorBoundary>
-                                                    <OpaLoader opa_name={applet_id}></OpaLoader>
+                                                    <OpaLoader opa_name={appletId}></OpaLoader>
                                                 </ErrorBoundary>
                                             </React.Suspense>
                                         ).frame(true).width('100%').height('100%')

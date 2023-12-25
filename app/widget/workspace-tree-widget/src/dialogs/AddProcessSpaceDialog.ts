@@ -18,7 +18,7 @@ export const AddSpaceDialogData = ()=> ({
             },
             {
                 "type": "navigate",
-                "url": `/app/${getAppFullName()}/workspace/{{id}}`
+                "url": `/workspace/{{id}}`
             }
             ]
         }

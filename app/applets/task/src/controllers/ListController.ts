@@ -12,7 +12,7 @@ import {
     useParams
 } from "@tuval/forms";
 
-import { useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from "@celmino/sdk";
+import { useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from "@realmocean/sdk";
 import { DynoDialog } from "../dialogs/DynoDialog";
 import { ListStatusesDialog } from "../dialogs/ListStatusesDialog";
 import { SelectViewDialog } from "../dialogs/SelectViewDialog";

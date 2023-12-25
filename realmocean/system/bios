@@ -1481,7 +1481,7 @@ var OpaLoader = function (_a) {
         else {
             var app_path = "/realmocean/store/app/open-testing/".concat(opa_name);
             // alert(app_path)
-            var app_path_local = "/static/applications/".concat(opa_name);
+            var app_path_local = "/system/".concat(opa_name);
             _tuval_core__WEBPACK_IMPORTED_MODULE_0__.ModuleLoader.LoadBundledModuleWithDecode(app_path_local, opa_name).then(function (_app) {
                 if (_app != null) {
                     var app = new _app();
@@ -1508,7 +1508,7 @@ var AppletController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     AppletController.prototype.LoadView = function () {
-        var applet_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().applet_id;
+        var appletId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().appletId;
         var _a = {}, applet = _a.applet, isLoading = _a.isLoading; //useGetApplet(applet_id);
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Applet Loading...') :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })(
@@ -1517,7 +1517,7 @@ var AppletController = /** @class */ (function (_super) {
             //  NotesLeftMenu(note_id),
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Suspense), { fallback: react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)()).render()) },
                 react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ErrorBoundary, null,
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement(OpaLoader, { opa_name: applet_id })))).frame(true).width('100%').height('100%'))).overflow('hidden')).background('white'))).background('#FAFBFC')));
+                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement(OpaLoader, { opa_name: appletId })))).frame(true).width('100%').height('100%'))).overflow('hidden')).background('white'))).background('#FAFBFC')));
     };
     return AppletController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIFormController));
