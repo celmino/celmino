@@ -1,6 +1,6 @@
 import { UIController } from '@tuval/forms';
 import { MyTestController } from './AppController';
-import { FormBuilder } from '@celmino/ui';
+import { FormBuilder } from '@realmocean/ui';
 import { GenericAction } from './dialogs/Actions/GenericAction';
 
 

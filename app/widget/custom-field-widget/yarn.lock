@@ -62,54 +62,6 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@celmino/sdk@^20.3.313":
-  version "20.3.474"
-  resolved "https://registry.npmjs.org/@celmino/sdk/-/sdk-20.3.474.tgz"
-  integrity sha512-F2I6GcVi16w9FG/1lXNQ7CLZ24BqLAUxSHkyd74pP41bbZ5uXVpEQvfKbv2/pJSf0g8+BM4kMBz46856uT/ipA==
-  dependencies:
-    "@editorjs/image" "^2.8.1"
-    "@editorjs/inline-code" "^1.4.0"
-    "@editorjs/link" "^2.5.0"
-    "@editorjs/list" "^1.8.0"
-    "@editorjs/marker" "^1.3.0"
-    "@editorjs/paragraph" "^2.9.0"
-    "@editorjs/quote" "^2.5.0"
-    "@editorjs/raw" "^2.4.0"
-    "@editorjs/simple-image" "^1.5.1"
-    "@editorjs/table" "^2.2.2"
-    "@editorjs/warning" "^1.3.0"
-    "@tanstack/react-query" "^4.35.7"
-    css-loader "^6.8.1"
-    react-editor-js "^2.1.0"
-    sass "^1.63.6"
-    sass-loader "^13.3.2"
-    style-loader "^3.3.3"
-    to-string-loader "^1.2.0"
-
-"@celmino/ui@^1.3.178":
-  version "1.3.178"
-  resolved "https://registry.npmjs.org/@celmino/ui/-/ui-1.3.178.tgz"
-  integrity sha512-HtCCjU/Vrku9YHvjHwBqQoICdKMwLfFsNGRcqPGe+OUWddMn9lR7eYKMt4Npv6FgoPgkT/VQyEbQrU8hEboodA==
-  dependencies:
-    "@editorjs/image" "^2.8.1"
-    "@editorjs/inline-code" "^1.4.0"
-    "@editorjs/link" "^2.5.0"
-    "@editorjs/list" "^1.8.0"
-    "@editorjs/marker" "^1.3.0"
-    "@editorjs/paragraph" "^2.9.0"
-    "@editorjs/quote" "^2.5.0"
-    "@editorjs/raw" "^2.4.0"
-    "@editorjs/simple-image" "^1.5.1"
-    "@editorjs/table" "^2.2.2"
-    "@editorjs/warning" "^1.3.0"
-    "@tanstack/react-query" "^4.35.7"
-    css-loader "^6.8.1"
-    react-editor-js "^2.1.0"
-    sass "^1.63.6"
-    sass-loader "^13.3.2"
-    style-loader "^3.3.3"
-    to-string-loader "^1.2.0"
-
 "@codemirror/lang-json@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@codemirror/lang-json/-/lang-json-6.0.1.tgz"
@@ -561,6 +513,31 @@
   resolved "https://registry.npmjs.org/@realmocean/spreadsheet/-/spreadsheet-19.37.7.tgz"
   integrity sha512-uil1FxGm1g5mtAJxEgin4ctFRqvGBOAo6GkpvgCPtKKrQENk57iJ1IjKxvjjLdXfOnmN7TuwVIOloxXcS+2bow==
 
+"@realmocean/ui@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@realmocean/ui/-/ui-1.0.2.tgz"
+  integrity sha512-A6RDETWnongTRywLkP7X+LfNpuRVrq1Xpv0hVIxZWL28KcZJyBGLFQl9FQmuAf0SleBMQ1Uv6Ip+Q62Spoo45Q==
+  dependencies:
+    "@editorjs/image" "^2.8.1"
+    "@editorjs/inline-code" "^1.4.0"
+    "@editorjs/link" "^2.5.0"
+    "@editorjs/list" "^1.8.0"
+    "@editorjs/marker" "^1.3.0"
+    "@editorjs/paragraph" "^2.9.0"
+    "@editorjs/quote" "^2.5.0"
+    "@editorjs/raw" "^2.4.0"
+    "@editorjs/simple-image" "^1.5.1"
+    "@editorjs/table" "^2.2.2"
+    "@editorjs/warning" "^1.3.0"
+    "@tanstack/react-query" "^4.35.7"
+    "@tuval/forms" "^1.0.109"
+    css-loader "^6.8.1"
+    react-editor-js "^2.1.0"
+    sass "^1.63.6"
+    sass-loader "^13.3.2"
+    style-loader "^3.3.3"
+    to-string-loader "^1.2.0"
+
 "@storybook/channels@7.6.4":
   version "7.6.4"
   resolved "https://registry.npmjs.org/@storybook/channels/-/channels-7.6.4.tgz"
@@ -625,7 +602,7 @@
   resolved "https://registry.npmjs.org/@tuval/core/-/core-0.0.103.tgz"
   integrity sha512-yE9X6hLavSknUZWiN5sfu1hbVdZ2taaL+wJAUbpRa2glfepBsBYDHGooe11oQ5EqYEq6NZnbmYJRW9eIjPi1Gg==
 
-"@tuval/forms@^1.0.132":
+"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.132":
   version "1.0.132"
   resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.132.tgz"
   integrity sha512-LD1iuk8e49wN81X9eI6zpiJJfQ8ApytZBCxoCgzbC63+qXV10czqP0PdE95KHY3L3e4evBkJ3Co91mrtVe/4/A==
@@ -3208,9 +3185,9 @@ postcss-modules-scope@^2.2.0:
     postcss-selector-parser "^6.0.0"
 
 postcss-modules-scope@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-3.0.0.tgz"
-  integrity sha512-hncihwFA2yPath8oZ15PZqvWGkWf+XUfQgUGamS4LqoP1anQLOsOJw0vr7J7IwLpoY9fatA2qiGUGmuZL0Iqlg==
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/postcss-modules-scope/-/postcss-modules-scope-3.1.0.tgz"
+  integrity sha512-SaIbK8XW+MZbd0xHPf7kdfA/3eOt7vxJ72IRecn3EzuZVLr1r0orzf0MX/pN8m+NMDoo6X/SQd8oeKqGZd8PXg==
   dependencies:
     postcss-selector-parser "^6.0.4"
 
@@ -3780,9 +3757,9 @@ safe-regex-test@^1.0.0:
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
 sass-loader@^13.3.2:
-  version "13.3.2"
-  resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-13.3.2.tgz"
-  integrity sha512-CQbKl57kdEv+KDLquhC+gE3pXt74LEAzm+tzywcA0/aHZuub8wTErbjAoNI57rPUWRYRNC5WUnNl8eGJNbDdwg==
+  version "13.3.3"
+  resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-13.3.3.tgz"
+  integrity sha512-mt5YN2F1MOZr3d/wBRcZxeFgwgkH44wVc2zohO2YF6JiOMkiXe4BYRZpSu2sO1g71mo/j16txzUhsKZlqjVGzA==
   dependencies:
     neo-async "^2.6.2"
 

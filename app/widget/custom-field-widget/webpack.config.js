@@ -72,7 +72,7 @@ const umdConfig = {
         '@realmocean/treegrid': 'realmocean$treegrid',
         '@realmocean/richtexteditor': 'realmocean$richtexteditor',
         '@realmocean/gantt': 'realmocean$gantt',
-        '@celmino/ui': 'celmino$ui',
+        '@realmocean/ui': 'realmocean$ui',
 
 
         'react': 'tuval$react',

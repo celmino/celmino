@@ -12,7 +12,7 @@ import {
 } from '@tuval/forms';
 import React from 'react';
 import { Icons } from './Icons';
-import { DynoDialog } from '@celmino/ui';
+import { DynoDialog } from '@realmocean/ui';
 import { AddBooleanFieldDialog } from './dialogs/AddBooleanFieldDialog';
 import { AddDatetimeFieldDialog } from './dialogs/AddDatetimeField';
 import { AddNumberFieldDialog } from './dialogs/AddNumberFieldDialog';

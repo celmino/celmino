@@ -32,8 +32,8 @@ const manifest = require('./src/manifest');
 
 const umdConfig = {
     target: 'web',
-    mode: 'development',
-    devtool: 'source-map',
+    //mode: 'development',
+    //devtool: 'source-map',
     //devtool: 'none',
     entry: manifest.application.path,
     externals: {
