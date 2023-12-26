@@ -111,6 +111,7 @@
         "@realmocean/inputs": "^21.0.0-beta.3",
         "@realmocean/navigations": "^21.0.0-beta.28",
         "@realmocean/query-builder": "^0.0.2",
+        "@realmocean/sdk": "^1.0.13",
         "@realmocean/services": "^21.0.0-beta.5",
         "@realmocean/spreadsheet": "^19.37.7",
         "@tuval/cg": "^0.0.16",
@@ -129,8 +130,5 @@
         "typescript": "^4.3.5",
         "webpack": "^5.47.0",
         "webpack-cli": "^4.7.2"
-    },
-    "dependencies": {
-        "@celmino/sdk": "^20.3.285"
     }
 }

@@ -2,10 +2,10 @@ import { Fragment, HStack, Icon, Icons, MenuButton, UIViewBuilder, VDivider, cHo
 
 import { DynoDialog } from "../DynoDialog";
 import { PowerUps } from "../PowerUps";
-import { Models } from "@celmino/sdk";
+import { Models } from "@realmocean/sdk";
 
 
-export function TabItem(objectView: Models.ObjectView, index, selectedIndex, selectedColor, onClick) {
+export function TabItem(objectView: any, index, selectedIndex, selectedColor, onClick) {
     return (
         UIViewBuilder(() => {
 

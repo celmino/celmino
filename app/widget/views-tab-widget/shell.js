@@ -12,8 +12,9 @@ if (shell.exec('npm run wbuild').code !== 0) {
 
 
 
-shell.echo('App file creating...');
 
-tuval.appPackager('./dist/index.js', `./dist/${appName}`);
+shell.cp('-Rf', './dist/index.js',  `../../../realmocean/system/${appName}`);
+shell.cd('../../..');
+shell.exec(`docker-compose restart`);
 
-shell.cp('-Rf', `./dist/${appName}`, '../../web-app/public/static/applications');
+shell.echo(`All done.`);

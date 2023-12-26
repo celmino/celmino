@@ -4,7 +4,7 @@ import { ForEach, HStack, Icon, Icons, Spinner, Text, UIController,
 import { TabItem } from './views/TabItem';
 import { SelectAnalyseDialog } from './SelectAnalyseDialog';
 import { is } from '@tuval/core';
-import { Models } from '@celmino/sdk';
+import { Models } from '@realmocean/sdk';
 
 const colors = [
     '#4A4A4A',
@@ -33,7 +33,7 @@ export class MyTestController extends UIController {
             HStack({ alignment: cLeading })(
                 isLoading ? HStack(Spinner()).height().padding(cHorizontal, 20) :
                     HStack({ alignment: cLeading, spacing: 10 })(
-                        ...ForEach(views as Models.ObjectView[])((view: Models.ObjectView, index) =>
+                        ...ForEach(views as any[])((view: any, index) =>
                             TabItem(view, index, selectedIndexState,colors[index] ?? '#AAAAAA', () => { setSelectedIndexState(index); onChange?.(index); })
                         )
                     ).width(),
