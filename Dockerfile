@@ -24,6 +24,8 @@ RUN docker-compose --version
 
 COPY ./installer /install/data
 
+COPY ./installer/.env /install/data/.env
+
 COPY ./realmocean /install/realmocean
 
 RUN ls -ll /install/data
