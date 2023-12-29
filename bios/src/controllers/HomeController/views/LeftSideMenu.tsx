@@ -1,5 +1,5 @@
 
-import { Query, useCreateDatabase, useCreateProject, useListDatabases, useListDocuments } from "@realmocean/sdk";
+import { Query, useCreateDatabase, useCreateRealm, useListDatabases, useListDocuments } from "@realmocean/sdk";
 import { is } from "@tuval/core";
 import {
     ForEach,
@@ -248,7 +248,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                             ),
                             HStack(
                                 UIViewBuilder(() => {
-                                    const { createProject } = useCreateProject();
+                                    const { createRealm } = useCreateRealm();
                                     const { workspace_id } = useParams();
                                     return (
                                         HStack({ spacing: 5 })(

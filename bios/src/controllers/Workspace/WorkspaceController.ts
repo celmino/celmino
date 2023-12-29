@@ -1,5 +1,4 @@
-import { useGetProject } from "@realmocean/sdk";
-import { HStack, Text, UIController, UIRouteOutlet, UIView, useParams } from "@tuval/forms";
+import { HStack, UIController, UIRouteOutlet, UIView, useParams } from "@tuval/forms";
 
 
 export class WorkspaceController extends UIController {

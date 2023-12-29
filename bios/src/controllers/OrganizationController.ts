@@ -1,4 +1,4 @@
-import { ID, Models, Services, useCreateDatabase, useCreateProject } from "@realmocean/sdk";
+import { ID, Models, Services, useCreateDatabase, useCreateRealm } from "@realmocean/sdk";
 import { ButtonRenderer, InputRenderer } from "@realmocean/antd";
 import { HStack, UIFormController, UIRouteOutlet, UIView, cTopLeading, useParams, Text, VStack, Input, Button, useState, useNavigate } from "@tuval/forms";
 
@@ -7,7 +7,7 @@ export class OrganizationController extends UIFormController {
     public override LoadView(): UIView {
         const { organizationId } = useParams();
         const [workspaceName, setWorkspaceName] = useState();
-        const { createProject } = useCreateProject();
+        const { createRealm } = useCreateRealm();
         const navigate = useNavigate();
 
         return (
@@ -17,7 +17,7 @@ export class OrganizationController extends UIFormController {
                 }),
                 Button().renderer(ButtonRenderer).label('Submit').onClick(async () => {
 
-                    createProject({
+                    createRealm({
                         name: workspaceName,
                         teamId: organizationId,
                     }, async (workspace) => {
