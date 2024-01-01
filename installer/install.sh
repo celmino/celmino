@@ -11,5 +11,5 @@ cd /install
 
 docker cp  ./realmocean  realmocean:/usr/src/code/app
 
-cd /install/data
-docker-compose restart
+#cd /install/data
+#docker-compose restart
