@@ -1,3 +1,22 @@
+
+/*! *****************************************************************************************************************************
+* Copyright (c) Tuvalsoft Corporation. All rights reserved.                                                                     *
+*                                                                                                                               *
+* ████████╗██╗   ██╗██╗   ██╗ █████╗ ██╗         ███████╗██████╗  █████╗ ███╗   ███╗███████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗ *
+* ╚══██╔══╝██║   ██║██║   ██║██╔══██╗██║         ██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝ *
+*    ██║   ██║   ██║██║   ██║███████║██║         █████╗  ██████╔╝███████║██╔████╔██║█████╗  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝  *
+*    ██║   ██║   ██║╚██╗ ██╔╝██╔══██║██║         ██╔══╝  ██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝  ██║███╗██║██║   ██║██╔══██╗██╔═██╗  *
+*    ██║   ╚██████╔╝ ╚████╔╝ ██║  ██║███████╗    ██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗ *
+*    ╚═╝    ╚═════╝   ╚═══╝  ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ *
+*                                                                                                                               *
+*                                                                                                                               *
+* This file is part of Tuval Framework.                                                                                         *
+* Copyright (c) Tuvalsoft 2019 All rights reserved.                                                                             *
+*                                                                                                                               *
+* Licensed under the GNU General Public License v3.0.                                                                           *
+* More info at: https://choosealicense.com/licenses/gpl-3.0/                                                                    *
+* Tuval Framework Created By Tuvalsoft in 2019                                                                                  *
+******************************************************************************************************************************@*/
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -2296,12 +2315,13 @@ var OrganizationController = /** @class */ (function (_super) {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Input)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_1__.InputRenderer).onChange(function (e) {
             setWorkspaceName(e.target.value);
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_1__.ButtonRenderer).label('Submit').onClick(function () { return __awaiter(_this, void 0, void 0, function () {
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_1__.ButtonRenderer).label('Submit')
+            .onClick(function () { return __awaiter(_this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 createRealm({
                     name: workspaceName,
-                    teamId: organizationId,
+                    organizationId: organizationId,
                 }, function (workspace) { return __awaiter(_this, void 0, void 0, function () {
                     var database, appletCol, nameAttr, opaAttr;
                     return __generator(this, function (_a) {
@@ -7076,6 +7096,7 @@ var params = new Proxy(new URLSearchParams(window.location.search), {
 });
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
 //let value = params.some_key; // "some_value"
+//StartBios(MainController);
 window.addEventListener("load", function (event) {
     (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.StartBios)(_NewBiosController__WEBPACK_IMPORTED_MODULE_2__.MainController);
     /*  if (params.tenant_id) {
@@ -7127,3 +7148,5 @@ window.addEventListener("load", function (event) {
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
+                tuval$core.ModuleLoader.FireModuleLoadedEvent('bios', tuval$core['__APPS__']['bios']);
+                

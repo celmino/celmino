@@ -809,14 +809,6 @@ services:
     networks:
       - realmocean
 
-  adminer:
-    image: adminer
-    container_name: realmocean-adminer
-    restart: always
-    ports:
-      - 9506:8080
-    networks:
-      - realmocean
 
   # redis-commander:
   #   image: rediscommander/redis-commander:latest

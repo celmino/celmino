@@ -21,3 +21,7 @@ git push -u origin main
 
 git tag v0.9.1
 git push origin --tags
+
+ docker stop $(docker ps -a -q)
+ docker rmi -f  $(docker images  'realmocean/realmocean' -a -q)
+ docker run -it --rm     --volume /var/run/docker.sock:/var/run/docker.sock     realmocean/celmino:1.0.13

@@ -829,16 +829,6 @@ services:
     networks:
       - realmocean
 
-  adminer:
-    image: adminer
-    container_name: realmocean-adminer
-    <<: *x-logging
-    restart: always
-    ports:
-      - 9506:8080
-    networks:
-      - realmocean
-
   graphql-explorer:
     container_name: realmocean-graphql-explorer
     image: realmocean/altair:0.3.0

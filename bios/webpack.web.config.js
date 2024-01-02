@@ -1,5 +1,28 @@
 const path = require('path');
+const manifest = require('./src/manifest');
 
+const fs = require('fs');
+
+const copyright = `
+/*! *****************************************************************************************************************************
+* Copyright (c) Tuvalsoft Corporation. All rights reserved.                                                                     *
+*                                                                                                                               *
+* ████████╗██╗   ██╗██╗   ██╗ █████╗ ██╗         ███████╗██████╗  █████╗ ███╗   ███╗███████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗ *
+* ╚══██╔══╝██║   ██║██║   ██║██╔══██╗██║         ██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝ *
+*    ██║   ██║   ██║██║   ██║███████║██║         █████╗  ██████╔╝███████║██╔████╔██║█████╗  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝  *
+*    ██║   ██║   ██║╚██╗ ██╔╝██╔══██║██║         ██╔══╝  ██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝  ██║███╗██║██║   ██║██╔══██╗██╔═██╗  *
+*    ██║   ╚██████╔╝ ╚████╔╝ ██║  ██║███████╗    ██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗ *
+*    ╚═╝    ╚═════╝   ╚═══╝  ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ *
+*                                                                                                                               *
+*                                                                                                                               *
+* This file is part of Tuval Framework.                                                                                         *
+* Copyright (c) Tuvalsoft 2019 All rights reserved.                                                                             *
+*                                                                                                                               *
+* Licensed under the GNU General Public License v3.0.                                                                           *
+* More info at: https://choosealicense.com/licenses/gpl-3.0/                                                                    *
+* Tuval Framework Created By Tuvalsoft in 2019                                                                                  *
+******************************************************************************************************************************@*/
+`;
 
 const opts = {
     WEB: true,
@@ -132,9 +155,31 @@ const webConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist_web'),
     },
-    plugins: [
-        // new BundleAnalyzerPlugin(),
-    ]
+    plugins: [{
+        apply: (compiler) => {
+            compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
+                const file = './dist_web/index.js';
+                var data = fs.readFileSync(file); //read existing contents into data
+                //var fd = fs.openSync(file, 'w+');
+                var buffer = new Buffer(copyright);
+                fs.writeFileSync(file, buffer);
+                fs.appendFileSync(file, data);
+
+                var bufferEnd = new Buffer(`
+                tuval$core.ModuleLoader.FireModuleLoadedEvent('${manifest.application.name}', tuval$core['__APPS__']['${manifest.application.name}']);
+                `);
+                fs.appendFileSync(file, bufferEnd);
+                /*  fs.appendFile('./dist/index.js', `
+        tuval$core.ModuleLoader.FireModuleLoadedEvent('${manifest.application.name}', tuval$core['__APPS__']['${manifest.application.name}']);
+`, (err) => {
+        if (err) throw err;
+        console.log('The lyrics were updated!');
+    }); */
+            });
+        }
+    }
+
+]
 };
 
 module.exports = [webConfig /* webClientConfig */ /* umdConfig */ /* , umdWebProcess */ ];

@@ -15,11 +15,11 @@ export class OrganizationController extends UIFormController {
                 Input().renderer(InputRenderer).onChange((e: any) => {
                     setWorkspaceName(e.target.value)
                 }),
-                Button().renderer(ButtonRenderer).label('Submit').onClick(async () => {
-
+                Button().renderer(ButtonRenderer).label('Submit')
+                .onClick(async () => {
                     createRealm({
                         name: workspaceName,
-                        teamId: organizationId,
+                        organizationId: organizationId,
                     }, async (workspace) => {
 
 

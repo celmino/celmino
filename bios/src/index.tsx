@@ -40,49 +40,53 @@ const params: any = new Proxy(new URLSearchParams(window.location.search), {
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
 //let value = params.some_key; // "some_value"
 
+
+//StartBios(MainController);
+
 window.addEventListener("load", (event) => {
     StartBios(MainController);
-   /*  if (params.tenant_id) {
-        RealmBrokerClient.SetTenantAndGetSessionInfo(params.tenant_id).then((session_info: any) => {
+
+    /*  if (params.tenant_id) {
+         RealmBrokerClient.SetTenantAndGetSessionInfo(params.tenant_id).then((session_info: any) => {
+           
+             StateService.SetStateVariable('session', session_info);
+             StateService.SetSessionId(session_info.session_id);
+ 
+             container.register('IStateService', { useValue: StateService });
+ 
+             Tracker.configure({
+                 userId: session_info.account_id,
+                 sessionId: session_info.session_id
+             });
+ 
+ 
+             Tracker.addMetadata('realm', useSessionService().RealmId);
+             Tracker.addMetadata('tenant', useSessionService().TenantId);
+ 
+ 
+             StartBios(BiosController);
+ 
+         })
+     } else {
+         RealmBrokerClient.GetSessionInfo().then((session_info: any) => {
           
-            StateService.SetStateVariable('session', session_info);
-            StateService.SetSessionId(session_info.session_id);
-
-            container.register('IStateService', { useValue: StateService });
-
-            Tracker.configure({
-                userId: session_info.account_id,
-                sessionId: session_info.session_id
-            });
-
-
-            Tracker.addMetadata('realm', useSessionService().RealmId);
-            Tracker.addMetadata('tenant', useSessionService().TenantId);
-
-
-            StartBios(BiosController);
-
-        })
-    } else {
-        RealmBrokerClient.GetSessionInfo().then((session_info: any) => {
-         
-            StateService.SetStateVariable('session', session_info);
-            StateService.SetSessionId(session_info.session_id);
-
-            container.register('IStateService', { useValue: StateService });
-
-            Tracker.configure({
-                userId: session_info.account_id,
-                sessionId: session_info.session_id
-            });
-
-            Tracker.addMetadata('realm', useSessionService().RealmId);
-            Tracker.addMetadata('tenant', useSessionService().TenantId);
-
-            StartBios(BiosController);
-
-        })
-    } */
+             StateService.SetStateVariable('session', session_info);
+             StateService.SetSessionId(session_info.session_id);
+ 
+             container.register('IStateService', { useValue: StateService });
+ 
+             Tracker.configure({
+                 userId: session_info.account_id,
+                 sessionId: session_info.session_id
+             });
+ 
+             Tracker.addMetadata('realm', useSessionService().RealmId);
+             Tracker.addMetadata('tenant', useSessionService().TenantId);
+ 
+             StartBios(BiosController);
+ 
+         })
+     } */
 });
 
 //StartBios(BiosController)

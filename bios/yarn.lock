@@ -614,10 +614,10 @@
   resolved "https://registry.npmjs.org/@realmocean/navigations/-/navigations-0.0.3.tgz"
   integrity sha512-zsNno1NP0GIP53xaFy0m+DpqPiyGD0bOb8TFl5PjjiUd/ndlPbupoZdligDHvCAIJ2U7v+NnJ9LWO6OA8sChUQ==
 
-"@realmocean/sdk@^1.0.26":
-  version "1.0.26"
-  resolved "https://registry.npmjs.org/@realmocean/sdk/-/sdk-1.0.26.tgz"
-  integrity sha512-LviCSjpnIdADp0HoeiYA2lwsjQvcgYlENSKhtFqp+bmgC5SpJIX8VXCOFbJa8byKmtmV/0F7/aG7wnLQPAl+qw==
+"@realmocean/sdk@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.npmjs.org/@realmocean/sdk/-/sdk-1.0.29.tgz"
+  integrity sha512-fJiYweO4umwC4RE/u+cVqUF6wTOxZQtyxJOheNvWJ++oeOfGRGaOCE4xoolfKAiBqnB5mPBGIWsqUcSezsgSfA==
   dependencies:
     "@editorjs/image" "^2.8.1"
     "@editorjs/inline-code" "^1.4.0"
@@ -638,10 +638,10 @@
     style-loader "^3.3.3"
     to-string-loader "^1.2.0"
 
-"@realmocean/services@^21.0.2":
-  version "21.0.2"
-  resolved "https://registry.npmjs.org/@realmocean/services/-/services-21.0.2.tgz"
-  integrity sha512-vf9fh+CZOh+55PC2vs6d5kWfM0Y8ozbty95cU0KfZ/VA/IUv9qdJO2GULxMCLJoUgao17XSsiYfbBqF9JiiU/g==
+"@realmocean/services@^21.0.0-beta.8":
+  version "21.0.0-beta.8"
+  resolved "https://registry.npmjs.org/@realmocean/services/-/services-21.0.0-beta.8.tgz"
+  integrity sha512-chUEyI0TMHds7KKU1QcVbCEfLifhez9inzHP5xa8wh/tG7dtvWLqgwXBHI0ypdCndV5TwLCi2RX4m41910sz8A==
 
 "@tanstack/query-core@4.36.1":
   version "4.36.1"
