@@ -135,7 +135,7 @@ var MyTestController = /** @class */ (function (_super) {
                         }, function () {
                             resolve(true);
                             setTimeout(function () {
-                                return navigate("/app/".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.getAppFullName)(), "/workspace/").concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(listId, "/view/").concat(viewId));
+                                return navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(listId, "/view/").concat(viewId));
                             }, 1000);
                         });
                     }));
@@ -146,7 +146,7 @@ var MyTestController = /** @class */ (function (_super) {
                         return __generator(this, function (_b) {
                             switch (_b.label) {
                                 case 0:
-                                    if (!(type == 'string')) return [3 /*break*/, 3];
+                                    if (!(type === 'text')) return [3 /*break*/, 3];
                                     return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false)];
                                 case 1:
                                     _b.sent();
@@ -158,8 +158,10 @@ var MyTestController = /** @class */ (function (_super) {
                                         })];
                                 case 2:
                                     _b.sent();
-                                    return [3 /*break*/, 6];
-                                case 3: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];
+                                    _b.label = 3;
+                                case 3:
+                                    if (!(type === 'number')) return [3 /*break*/, 6];
+                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];
                                 case 4:
                                     _b.sent();
                                     return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
@@ -170,8 +172,11 @@ var MyTestController = /** @class */ (function (_super) {
                                         })];
                                 case 5:
                                     _b.sent();
-                                    _b.label = 6;
-                                case 6: return [2 /*return*/];
+                                    return [3 /*break*/, 7];
+                                case 6:
+                                    alert('field type not found');
+                                    _b.label = 7;
+                                case 7: return [2 /*return*/];
                             }
                         });
                     });

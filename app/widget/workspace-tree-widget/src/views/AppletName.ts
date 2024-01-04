@@ -66,7 +66,7 @@ export function AppletName(applet: any, onClickCallback: Function) {
                                 .height(32)
                                 .onClick(() => {
                                     //alert(getAppletUrl(access_type, applet.id))
-                                    navigate(`/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${applet.$id}/view/${applet.defaultViewId}`);
+                                    navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${applet.$id}/view/${applet.defaultViewId}`);
                                 })
 
                             ,

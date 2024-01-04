@@ -36,10 +36,7 @@ function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
     });
     return str;
 }
-const aaa = 'sfdlfk'
-const b = a`hjkhsdf
-${aaa}
-sdfsdfsdf`
+
 
 export const CollapseRightIcon = props => (
     <svg viewBox="0 0 24 24" style={{ color: 'gray' }} width="24" height="24" aria-hidden="true">
@@ -186,32 +183,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
             return (
                 VStack({ alignment: cTopLeading })(
-                    Text('dsfds'),
-                    Text(workspaceId),
-                    HStack(
-                        TextField()
-                            .paddingLeft('30px')
-                            .cornerRadius(5)
-                            .background('#F6F7F9')
-                            .border('unset'),
-                        //FontIcon(FontIcons.Search, '1x', '#292d3466').position(PositionTypes.Absolute).left('18px').top('18px'),
-                    ).height().padding(10),
-                    VStack({ alignment: cTopLeading })(
-                        ...ForEach(menuModel)(menuItem =>
-                            UIRouteLink(menuItem.link)(
-                                HStack({ alignment: cLeading })(
-                                    menuItem.icon().padding(7).foregroundColor(selectedItem === menuItem.title ? '#7b68ee' : '#7c828d'),
-                                    Text(menuItem.title).fontSize(13).fontWeight('400').foregroundColor(selectedItem === menuItem.title ? '#7b68ee' : '#53575e')
-                                )
-                                    .borderLeft(selectedItem === menuItem.title ? 'solid 1px #7B68EE' : '')
-                                    .background({ default: selectedItem === menuItem.title ? '#F5F3FD' : '', hover: '#f6f7f9' })
-                                    .height(32).padding('0 10px')
-                            ).width('100%')
-                        )
-                    ).height(),
-                    HDivider().height(1).background('#e9ebf0'),
-
-
+                 
                     VStack({ alignment: cTopLeading })(
 
                         HDivider().height(1).background('#e9ebf0'),

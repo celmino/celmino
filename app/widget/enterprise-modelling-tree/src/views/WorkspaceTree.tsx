@@ -30,10 +30,7 @@ function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
     });
     return str;
 }
-const aaa = 'sfdlfk'
-const b = a`hjkhsdf
-${aaa}
-sdfsdfsdf`
+
 
 export const CollapseRightIcon = props => (
     <svg viewBox="0 0 24 24" style={{ color: 'gray' }} width="24" height="24" aria-hidden="true">

@@ -16,7 +16,6 @@ import {
 
 
 
-import { useListDocuments } from '@celmino/sdk';
 import { UIKanban } from '@realmocean/kanban';
 
 

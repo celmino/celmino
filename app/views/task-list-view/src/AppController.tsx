@@ -1,5 +1,7 @@
-import { cTopLeading, cVertical, getAppFullName, HStack, ReactView, ScrollView, Text, UIFormController,
-     UIView, UIViewBuilder, UIWidget, useDialogStack, useNavigate, useParams, VStack } from '@tuval/forms';
+import {
+    cTopLeading, cVertical, getAppFullName, HStack, ReactView, ScrollView, Text, UIFormController,
+    UIView, UIViewBuilder, UIWidget, useDialogStack, useNavigate, useParams, VStack
+} from '@tuval/forms';
 import React from 'react';
 //import './styles/global.scss';
 
@@ -76,15 +78,15 @@ export class MyTestController extends UIFormController {
                                                                         }, () => {
                                                                             resolve(true);
                                                                             setTimeout(() =>
-                                                                                navigate(`/app/${getAppFullName()}/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${listId}/view/${viewId}`)
+                                                                                navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${listId}/view/${viewId}`)
                                                                                 , 1000)
                                                                         })
                                                                     })
                                                                 )
                                                             },
                                                             onNewFieldAddded: async ({ name, type, key }) => {
-                                                                // alert(JSON.stringify(field))
-                                                                if (type == 'string') {
+                                                                // alert(JSON.stringify(type))
+                                                                if (type === 'text') {
                                                                     await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
                                                                     await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: name,
@@ -92,7 +94,7 @@ export class MyTestController extends UIFormController {
                                                                         type: 'string',
                                                                         hidden: false
                                                                     });
-                                                                } else {
+                                                                } if (type === 'number') {
                                                                     await Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false);
                                                                     await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: name,
@@ -100,6 +102,9 @@ export class MyTestController extends UIFormController {
                                                                         type: 'number',
                                                                         hidden: false
                                                                     });
+                                                                }
+                                                                else {
+                                                                    alert('field type not found')
                                                                 }
 
 

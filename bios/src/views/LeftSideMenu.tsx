@@ -1,11 +1,12 @@
 import { Convert, EventBus, is } from "@tuval/core"
 import {
     HDivider, Spacer, VStack, cTopLeading, HStack, Color, PositionTypes, UIImage, ForEach, useState,
-    Text, Spinner, ReactView, UIRouteLink, PopupButton,  useEffect, TooltipPositions, DialogPosition, getAppName, getAppFullName, Fragment
+    Text, Spinner, ReactView, UIRouteLink, PopupButton,  useEffect, TooltipPositions, DialogPosition, getAppName, getAppFullName, Fragment, useNavigate
 } from "@tuval/forms"
 import React from "react"
 
 import { RealmOceanDataContext } from "../DataContext"
+import { useDeleteSession, useDeleteSessions } from "@realmocean/sdk"
 
 
 
@@ -71,6 +72,8 @@ const getTypedView = (type: string) => {
 export const LeftSidemenu = (isLoading: boolean = false) => {
     const [selectedMenuItem, setSelectedMenuItem] = useState(null);
     // const [currentAppName, setCurrentAppName] = useState(getAppName());
+    const {deleteSession} = useDeleteSession('console');
+    const navigate = useNavigate();
 
     const menu = [
         {
@@ -218,8 +221,9 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                     UIImage(accountImage).width(44).height(44).imageBorder('2px solid white')
                 ).height().width()
                     .onClick(() => {
-                        window.localStorage.setItem('tenant', null)
-                        window.location.replace('/logout')
+                        deleteSession({sessionId : 'current'});
+                       // window.localStorage.setItem('tenant', null)
+                       // window.location.replace('/logout')
                     })
 
             )

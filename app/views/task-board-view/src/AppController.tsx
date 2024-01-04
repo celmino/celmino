@@ -7,7 +7,7 @@ import React from 'react';
 import { DialogStack } from '@tuval/forms';
 import { ActionPanel } from './views/ActionPanel';
 import { ViewHeader } from './views/ViewHeader';
-import { useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from '@celmino/sdk';
+import { useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 //import { ActionPanel } from './views/ActionPanel';
 //import { ViewHeader } from './views/ViewHeader';
 
@@ -22,7 +22,12 @@ export class MyTestController extends UIFormController {
 
         const { workspaceId, listId, viewId } = useParams();
 
-        const { document } = useGetDocument(workspaceId, 'work_management', 'wm_lists', listId);
+        const { document } = useGetDocument({
+            projectId: workspaceId,
+            databaseId: 'work_management',
+            collectionId: 'wm_lists',
+            documentId: listId
+        });
 
 
         const { documents: attributes, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId + '_att');

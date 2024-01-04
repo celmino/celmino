@@ -6,7 +6,7 @@ export class SignupController extends UIController {
 
         const { createAccount, isSuccess: isCreateAccountSuccess, isError: isCreateAccountError, error: createAccountError } = useCreateAccount('console');
         const { createEmailSession, isSuccess, isError, error } = useCreateEmailSession('console');
-        
+
         const [userName, setUserName] = useState('');
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
@@ -17,14 +17,20 @@ export class SignupController extends UIController {
 
             HStack(
                 HStack().width('50%'),
-                VStack({ alignment: cLeading, spacing: 10 })(
+                VStack({ alignment: cLeading, spacing: 20 })(
                     Heading('Sign up').size(HeadingSizes.LARGE),
-                    Text('Name'),
-                    TextField().onChange(e => setUserName(e)),
-                    Text('Email'),
-                    TextField().onChange(e => setEmail(e)),
-                    Text('Password'),
-                    SecureField().onChange(e => setPassword(e)),
+                    VStack({ alignment: cLeading, spacing: 10 })(
+                        Text('Name'),
+                        TextField().onChange(e => setUserName(e))
+                    ).height(),
+                    VStack({ alignment: cLeading, spacing: 10 })(
+                        Text('Email'),
+                        TextField().onChange(e => setEmail(e))
+                    ).height(),
+                    VStack({ alignment: cLeading, spacing: 10 })(
+                        Text('Password'),
+                        SecureField().onChange(e => setPassword(e))
+                    ).height(),
                     Button(
                         Text('Signup')
                     ).width('100%')
@@ -37,11 +43,11 @@ export class SignupController extends UIController {
                                 createEmailSession({
                                     email: email,
                                     password: password
-                                }, () => navigate('/main'))
+                                }, () => navigate('/'))
                             })
                         }),
-                    isError && Text(error?.message),
-                    isSuccess && UINavigate('/main')
+                    (isError || isCreateAccountError) && Text(createAccountError?.message),
+                    (isCreateAccountSuccess && isSuccess) && UINavigate('/')
                 ).width('50%').padding(100)
             )
 

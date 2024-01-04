@@ -29,7 +29,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MyTestController: () => (/* binding */ MyTestController)
+/* harmony export */   "MyTestController": () => (/* binding */ MyTestController)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
@@ -56,14 +56,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 
 
@@ -123,10 +119,10 @@ var MyTestController = /** @class */ (function (_super) {
                     .width()
                     .background('#ececec')
                     .foregroundColor('#6b6b6b');
-            }), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIAvatar)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('ST'))], false)).height())
+            })), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(),
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIAvatar)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('ST'))])).height())
                 .minHeight(110)
-                .borderLeft("solid 4px ".concat(e.Color)).padding(7)
+                .borderLeft("solid 4px " + e.Color).padding(7)
                 .onClick(function () {
                 // console.log();
                 onItemClick(items.find(function (item) { return item.$id === e.Id; }));
@@ -270,7 +266,7 @@ var __webpack_exports__ = {};
   \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RatingWidget: () => (/* binding */ RatingWidget)
+/* harmony export */   "RatingWidget": () => (/* binding */ RatingWidget)
 /* harmony export */ });
 /* harmony import */ var _AppController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppController */ "./src/AppController.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {

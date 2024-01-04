@@ -33318,7 +33318,7 @@ var ListController = /** @class */ (function (_super) {
                 views: views,
                 onChange: function (index) {
                     var _a;
-                    navigate("/app/".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.getAppFullName)(), "/workspace/").concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(listId, "/view/").concat((_a = views[index]) === null || _a === void 0 ? void 0 : _a.$id));
+                    navigate("/workspace/".concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(listId, "/view/").concat((_a = views[index]) === null || _a === void 0 ? void 0 : _a.$id));
                 },
                 actions: [
                     {
