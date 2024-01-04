@@ -158,7 +158,7 @@ var MyTestController = /** @class */ (function (_super) {
                                         })];
                                 case 2:
                                     _b.sent();
-                                    _b.label = 3;
+                                    return [3 /*break*/, 7];
                                 case 3:
                                     if (!(type === 'number')) return [3 /*break*/, 6];
                                     return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];

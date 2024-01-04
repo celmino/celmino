@@ -94,7 +94,7 @@ export class MyTestController extends UIFormController {
                                                                         type: 'string',
                                                                         hidden: false
                                                                     });
-                                                                } if (type === 'number') {
+                                                                } else if (type === 'number') {
                                                                     await Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false);
                                                                     await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: name,
