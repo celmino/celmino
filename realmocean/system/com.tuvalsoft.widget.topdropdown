@@ -102,7 +102,8 @@ var MyTestController = /** @class */ (function (_super) {
         if (dataSource == null) {
             dataSource = [];
         }
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(config.value || config.selectedValue), selectedValue = _b[0], setSelectedValue = _b[1];
+        //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
+        var selectedValue = config.value || config.selectedValue;
         var selectedItem = dataSource.find(function (item) { return item.value === (config.value || selectedValue); });
         var itemHeight = 50;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
@@ -124,9 +125,9 @@ var MyTestController = /** @class */ (function (_super) {
                 .background({ default: '#DDE4EB', hover: '#4879d9' })
                 .onClick(function () {
                 setModalOpen(false);
-                if (config.value == null) {
-                    setSelectedValue(dataSourceItem.value);
-                }
+                /*  if (config.value == null) {
+                     setSelectedValue(dataSourceItem.value);
+                 } */
                 config.onClick(dataSourceItem);
             });
         }))).maxHeight('80vh')

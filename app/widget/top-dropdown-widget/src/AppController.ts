@@ -43,7 +43,8 @@ export class MyTestController extends UIController {
         }
 
 
-        const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
+      //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
+      const selectedValue = config.value || config.selectedValue;
         const selectedItem = dataSource.find(item => item.value ===  (config.value || selectedValue));
 
         const itemHeight = 50;
@@ -81,9 +82,9 @@ export class MyTestController extends UIController {
                                 .background({ default: '#DDE4EB', hover: '#4879d9' })
                                 .onClick(() => {
                                     setModalOpen(false);
-                                    if (config.value == null) {
+                                   /*  if (config.value == null) {
                                         setSelectedValue(dataSourceItem.value);
-                                    }
+                                    } */
                                     config.onClick(dataSourceItem);
                                 }),
                         )
