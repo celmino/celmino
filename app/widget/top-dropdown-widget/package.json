@@ -115,7 +115,7 @@
         "@realmocean/spreadsheet": "^19.37.7",
         "@tuval/cg": "^0.0.16",
         "@tuval/core": "^0.0.103",
-        "@tuval/forms": "^1.0.56",
+        "@tuval/forms": "^1.0.141",
         "@tuval/graphics": "^0.0.11",
         "css-loader": "^3.2.0",
         "d3-graphviz": "^4.0.0",

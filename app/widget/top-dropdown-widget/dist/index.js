@@ -74,11 +74,20 @@ var convertVhToPx = function (vh) {
     return oneVhInPx * vh;
 };
 var defaultConfig = {
-    title: '',
+    header: {
+        content: '',
+        color: '#c0cbd6',
+        font: {
+            family: '"Mulish",sans-serif',
+            size: '10px',
+            weight: '400'
+        }
+    },
     selectedValue: '',
     placeholder: '',
     width: '100%',
     onClick: void 0,
+    titleColor: '#c0cbd6',
     value: null
 };
 var defaultData = {
@@ -108,8 +117,20 @@ var MyTestController = /** @class */ (function (_super) {
         var itemHeight = 50;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
         // selected
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })(_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.nullOrEmpty(config.title) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(config.title).textTransform('uppercase').fontSize('.6em').lineHeight('1.2em').foregroundColor('#c0cbd6'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedItem ? selectedItem.text : config.placeholder).fontSize(18).fontFamily('"Mulish",sans-serif').fontWeight('700')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)('\\e5c5').fontSize(25)).height(60)
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })(_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.nullOrEmpty(config.header) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+            config.header.content instanceof _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilderClass ?
+                config.header.content :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(config.header.content)
+                    .textTransform('uppercase')
+                    .fontSize(config.header.font.size)
+                    .lineHeight('1.2em')
+                    .foregroundColor(config.header.color), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedItem ? selectedItem.text : config.placeholder)
+            .fontSize(18)
+            .fontFamily('"Mulish",sans-serif')
+            .fontWeight('700')
+            .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
+            .onClick(function (e) { return e.stopPropagation(); }))
+            .paddingRight('20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')).height(60)
             //.borderRight('solid 1px #DDE4EB')
             .padding().cursor('pointer')
             .background(isModalOpen ? '#DDE4EB' : '')
@@ -136,8 +157,9 @@ var MyTestController = /** @class */ (function (_super) {
             .shadow('rgba(0,0,0,.3) 0 3px 4px 0')
             .position('absolute').top('60px').left('0px').transition('height 100ms, opacity 10ms')
             .opacity(isModalOpen ? 1 : 0))
-            .ref(ref)
-            .height().width(config.width).zIndex(100));
+            .onClickAway(function () { return setModalOpen(false); })
+            .height()
+            .width(config.width).zIndex(100));
     };
     return MyTestController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

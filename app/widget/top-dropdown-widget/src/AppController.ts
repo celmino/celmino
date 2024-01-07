@@ -1,4 +1,4 @@
-import { ForEach, Fragment, HStack, Icon, ScrollView, State, Text, UIController, UIView, VStack, cLeading, cTopLeading, cVertical, useState } from '@tuval/forms';
+import { ForEach, Fragment, HStack, Icon, ScrollView, State, Text, UIController, UIView, UIViewBuilderClass, VStack, cHorizontal, cLeading, cTopLeading, cVertical, useState } from '@tuval/forms';
 import { useRef } from 'react';
 import { useOnClickOutside } from './views/useOnClickOutside';
 import { IConfig, IData, IDataSourceItem } from './types';
@@ -11,11 +11,20 @@ const convertVhToPx = (vh = 50) => {
 
 
 const defaultConfig: IConfig = {
-    title: '',
+    header: {
+        content: '',
+        color: '#c0cbd6',
+        font: {
+            family: '"Mulish",sans-serif',
+            size: '10px',
+            weight: '400'
+        }
+    },
     selectedValue: '',
     placeholder: '',
     width: '100%',
     onClick: void 0,
+    titleColor: '#c0cbd6',
     value: null
 }
 
@@ -43,9 +52,9 @@ export class MyTestController extends UIController {
         }
 
 
-      //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
-      const selectedValue = config.value || config.selectedValue;
-        const selectedItem = dataSource.find(item => item.value ===  (config.value || selectedValue));
+        //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
+        const selectedValue = config.value || config.selectedValue;
+        const selectedItem = dataSource.find(item => item.value === (config.value || selectedValue));
 
         const itemHeight = 50;
 
@@ -55,11 +64,24 @@ export class MyTestController extends UIController {
                 // selected
                 HStack(
                     VStack({ alignment: cLeading })(
-                        is.nullOrEmpty(config.title) ? Fragment() :
-                            Text(config.title).textTransform('uppercase').fontSize('.6em').lineHeight('1.2em').foregroundColor('#c0cbd6'),
-                        Text(selectedItem ? selectedItem.text : config.placeholder).fontSize(18).fontFamily('"Mulish",sans-serif').fontWeight('700')
-                    ),
-                    Icon('\\e5c5').fontSize(25)
+                        is.nullOrEmpty(config.header) ? Fragment() :
+                            config.header.content instanceof UIViewBuilderClass ?
+                                config.header.content :
+                                Text(config.header.content)
+                                    .textTransform('uppercase')
+                                    .fontSize(config.header.font.size)
+                                    .lineHeight('1.2em')
+                                    .foregroundColor(config.header.color),
+
+                        Text(selectedItem ? selectedItem.text : config.placeholder)
+                            .fontSize(18)
+                            .fontFamily('"Mulish",sans-serif')
+                            .fontWeight('700')
+                            .foregroundColor({default:'rgb(46, 65, 88)',hover:'blue'})
+                            .onClick((e) => e.stopPropagation()),
+                    )
+                    .paddingRight('20px'),
+                    Icon('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')
                 ).height(60)
                     //.borderRight('solid 1px #DDE4EB')
                     .padding().cursor('pointer')
@@ -72,7 +94,7 @@ export class MyTestController extends UIController {
                 ScrollView({ axes: convertVhToPx(80) > dataSource.length * itemHeight ? 'none' as any : cVertical, alignment: cTopLeading })(
                     VStack(
                         ...ForEach(dataSource)((dataSourceItem: IDataSourceItem) =>
-                      
+
                             HStack({ alignment: cLeading })(
                                 Text(dataSourceItem.text).fontWeight('600').fontSize(18).fontFamily('"Mulish",sans-serif')
                             )
@@ -82,24 +104,26 @@ export class MyTestController extends UIController {
                                 .background({ default: '#DDE4EB', hover: '#4879d9' })
                                 .onClick(() => {
                                     setModalOpen(false);
-                                   /*  if (config.value == null) {
-                                        setSelectedValue(dataSourceItem.value);
-                                    } */
+                                    /*  if (config.value == null) {
+                                         setSelectedValue(dataSourceItem.value);
+                                     } */
                                     config.onClick(dataSourceItem);
                                 }),
                         )
                     )
 
                 ).maxHeight('80vh')
-                    .height(isModalOpen ? dataSource.length  * itemHeight : 0)
+                    .height(isModalOpen ? dataSource.length * itemHeight : 0)
                     .cursor('pointer')
                     .shadow('rgba(0,0,0,.3) 0 3px 4px 0')
                     .position('absolute').top('60px').left('0px').transition('height 100ms, opacity 10ms')
                     .opacity(isModalOpen ? 1 : 0)
 
             )
-            .ref(ref)
-            .height().width(config.width).zIndex(100)
+            
+                .onClickAway(() => setModalOpen(false))
+                .height()
+                .width(config.width).zIndex(100)
         )
     }
 
