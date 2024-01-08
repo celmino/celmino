@@ -7,6 +7,7 @@ export interface IConfig {
     value?: string;
     width?: string;
     onClick: (selectedItem: any) => void;
+    onSelectedClick?: (selectedItem: any) => void;
 }
 export interface IHeaderConfig {
     content?: string | UIViewBuilderClass;

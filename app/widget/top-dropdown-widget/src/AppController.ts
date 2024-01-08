@@ -23,7 +23,8 @@ const defaultConfig: IConfig = {
     selectedValue: '',
     placeholder: '',
     width: '100%',
-    onClick: void 0,
+    onClick: () => void 0,
+    onSelectedClick: () => void 0,
     titleColor: '#c0cbd6',
     value: null
 }
@@ -64,7 +65,7 @@ export class MyTestController extends UIController {
                 // selected
                 HStack(
                     VStack({ alignment: cLeading })(
-                        is.nullOrEmpty(config.header) ? Fragment() :
+                        config.header == null ? Fragment() :
                             config.header.content instanceof UIViewBuilderClass ?
                                 config.header.content :
                                 Text(config.header.content)
@@ -77,10 +78,15 @@ export class MyTestController extends UIController {
                             .fontSize(18)
                             .fontFamily('"Mulish",sans-serif')
                             .fontWeight('700')
-                            .foregroundColor({default:'rgb(46, 65, 88)',hover:'blue'})
-                            .onClick((e) => e.stopPropagation()),
+                            .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
+                            .onClick((e) => {
+                                config.onSelectedClick(selectedItem);
+                                e.stopPropagation();
+                            })
+                            .padding(cVertical, '5px'),
                     )
-                    .paddingRight('20px'),
+                    
+                        .paddingRight('20px'),
                     Icon('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')
                 ).height(60)
                     //.borderRight('solid 1px #DDE4EB')
@@ -120,7 +126,7 @@ export class MyTestController extends UIController {
                     .opacity(isModalOpen ? 1 : 0)
 
             )
-            
+
                 .onClickAway(() => setModalOpen(false))
                 .height()
                 .width(config.width).zIndex(100)

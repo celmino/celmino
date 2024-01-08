@@ -9,6 +9,7 @@ export interface IConfig {
     value?:string;
     width?: string;
     onClick: (selectedItem) => void
+    onSelectedClick?: (selectedItem) => void
 }
 
 export interface IHeaderConfig {

@@ -86,7 +86,8 @@ var defaultConfig = {
     selectedValue: '',
     placeholder: '',
     width: '100%',
-    onClick: void 0,
+    onClick: function () { return void 0; },
+    onSelectedClick: function () { return void 0; },
     titleColor: '#c0cbd6',
     value: null
 };
@@ -117,7 +118,7 @@ var MyTestController = /** @class */ (function (_super) {
         var itemHeight = 50;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
         // selected
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })(_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.nullOrEmpty(config.header) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })(config.header == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             config.header.content instanceof _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilderClass ?
                 config.header.content :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(config.header.content)
@@ -129,7 +130,11 @@ var MyTestController = /** @class */ (function (_super) {
             .fontFamily('"Mulish",sans-serif')
             .fontWeight('700')
             .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
-            .onClick(function (e) { return e.stopPropagation(); }))
+            .onClick(function (e) {
+            config.onSelectedClick(selectedItem);
+            e.stopPropagation();
+        })
+            .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, '5px'))
             .paddingRight('20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')).height(60)
             //.borderRight('solid 1px #DDE4EB')
             .padding().cursor('pointer')
