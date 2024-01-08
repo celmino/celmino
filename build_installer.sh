@@ -1,1 +1,1 @@
-docker buildx build --platform linux/amd64,linux/arm64 -t realmocean/celmino:1.0.18 --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t realmocean/celmino:1.0.20 --push .

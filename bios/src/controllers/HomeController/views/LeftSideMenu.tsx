@@ -195,7 +195,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                     .fontWeight('700'),
 
                             ).height(40).padding('1px 18px 0 20px'),
-                            ...ForEach(databases.databases)(database =>
+                            ...ForEach(databases)(database =>
                                 //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
                                 DatabaseNameView(database, false, () => { })
                                 //    )

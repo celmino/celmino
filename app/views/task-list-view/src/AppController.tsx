@@ -78,7 +78,7 @@ export class MyTestController extends UIFormController {
                                                                         }, () => {
                                                                             resolve(true);
                                                                             setTimeout(() =>
-                                                                                navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${listId}/view/${viewId}`)
+                                                                                navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/list/${listId}/view/${viewId}`)
                                                                                 , 1000)
                                                                         })
                                                                     })

@@ -192,7 +192,7 @@ export class ListController extends UIFormController {
                                 .config({
                                     views: views,
                                     onChange: (index) => {
-                                        navigate(`/workspace/${workspaceId}/applet/com.celmino.applet.work-management/list/${listId}/view/${views[index]?.$id}`);
+                                        navigate(`/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/list/${listId}/view/${views[index]?.$id}`);
 
                                     },
                                     actions: [

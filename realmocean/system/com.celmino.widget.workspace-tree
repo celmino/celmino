@@ -1494,7 +1494,7 @@ function AppletName(applet, onClickCallback) {
                     .height(32)
                     .onClick(function () {
                     //alert(getAppletUrl(access_type, applet.id))
-                    navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(applet.$id, "/view/").concat(applet.defaultViewId));
+                    navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/list/").concat(applet.$id, "/view/").concat(applet.defaultViewId));
                 }), mode === 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.TextField)().value(newName)
                     .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
@@ -1802,7 +1802,7 @@ function DocumentName(document, onClickCallback) {
                     .height(32)
                     .onClick(function () {
                     //alert(getAppletUrl(access_type, applet.id))
-                    navigate("/workspace/".concat(workspaceId, "/applet/com.celmino.applet.work-management/document/").concat(document.$id));
+                    navigate("/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/document/").concat(document.$id));
                 }), mode === 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.TextField)().value(newName)
                     .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')

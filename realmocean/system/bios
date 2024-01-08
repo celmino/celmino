@@ -1894,7 +1894,7 @@ var LeftSideMenuView = function (selectedItem) {
         ]).documents;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#e9ebf0'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('APPLETS')
                 .fontSize(11)
-                .fontWeight('700')).height(40).padding('1px 18px 0 20px')], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases.databases)(function (database) {
+                .fontWeight('700')).height(40).padding('1px 18px 0 20px')], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
             //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
             return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
         }

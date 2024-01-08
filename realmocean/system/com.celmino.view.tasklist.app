@@ -135,7 +135,7 @@ var MyTestController = /** @class */ (function (_super) {
                         }, function () {
                             resolve(true);
                             setTimeout(function () {
-                                return navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.work-management/list/").concat(listId, "/view/").concat(viewId));
+                                return navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/list/").concat(listId, "/view/").concat(viewId));
                             }, 1000);
                         });
                     }));
