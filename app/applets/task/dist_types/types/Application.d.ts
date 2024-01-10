@@ -1,4 +1,4 @@
-import { RouteController } from './RouteController';
+import { RouteController } from './routes/+routes';
 export declare class ProcessMining {
     GetMainController(): typeof RouteController;
 }

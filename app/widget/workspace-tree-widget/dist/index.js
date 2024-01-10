@@ -1404,7 +1404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppletName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppletName */ "./src/views/AppletName.ts");
+/* harmony import */ var _AppletName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppletName */ "./src/views/AppletName.tsx");
 
 
 var AppletItem = function (applet) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
@@ -1421,10 +1421,10 @@ var AppletItem = function (applet) { return (0,_tuval_forms__WEBPACK_IMPORTED_MO
 
 /***/ }),
 
-/***/ "./src/views/AppletName.ts":
-/*!*********************************!*\
-  !*** ./src/views/AppletName.ts ***!
-  \*********************************/
+/***/ "./src/views/AppletName.tsx":
+/*!**********************************!*\
+  !*** ./src/views/AppletName.tsx ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1443,6 +1443,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialogs_SelectOpaDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dialogs/SelectOpaDialog */ "./src/dialogs/SelectOpaDialog.ts");
 /* harmony import */ var _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./WorkbenchIcons */ "./src/views/WorkbenchIcons.tsx");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_8__);
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -1454,6 +1456,7 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 
 
 
@@ -1476,14 +1479,15 @@ function AppletName(applet, onClickCallback) {
         // const {applet:_applet} = useGetApplet(applet.$id);
         return (mode === 'readonly' ?
             //UIRouteLink(team ? `/app/${getAppFullName()}/team/${team.id}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}` : `/app/${getAppFullName()}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}`)(
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
-                .config({
-                selectedIcon: applet === null || applet === void 0 ? void 0 : applet.icon_name,
-                selectedCategory: applet === null || applet === void 0 ? void 0 : applet.icon_category,
-                width: 16,
-                height: 16,
-                padding: 1
-            }))
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(applet === null || applet === void 0 ? void 0 : applet.icon_name) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_6__.WorkbenchIcons.ListIcon) :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
+                    .config({
+                    selectedIcon: applet === null || applet === void 0 ? void 0 : applet.icon_name,
+                    selectedCategory: applet === null || applet === void 0 ? void 0 : applet.icon_category,
+                    width: 16,
+                    height: 16,
+                    padding: 1
+                }))
                 //.background('#FCE8E8')
                 .width().height()
                 .cornerRadius(5), mode !== 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
@@ -1686,6 +1690,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _localStorageState__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./localStorageState */ "./src/views/localStorageState.tsx");
+/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @realmocean/ui */ "@realmocean/ui");
+/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_realmocean_ui__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -1694,20 +1701,15 @@ __webpack_require__.r(__webpack_exports__);
 var DocumentItem = function (document) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
     var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useOptions)(), workspaceId = _a.workspaceId, applet_id = _a.applet_id;
     var documentInLinkId = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.getDocumentId)();
-    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__.useGetDocument)({
-        projectId: workspaceId,
-        databaseId: 'work_management',
-        collectionId: 'wm_documents',
-        documentId: documentInLinkId
-    }, { enabled: documentInLinkId != null }), documentInLink = _b.document, isDocumentLoading = _b.isLoading;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+    return ((0,_realmocean_ui__WEBPACK_IMPORTED_MODULE_5__.UIDocument)(function (_a) {
+        var documentInLink = _a.document;
         var expandedFromUrl = (documentInLink === null || documentInLink === void 0 ? void 0 : documentInLink.path.indexOf(document.$id)) > -1;
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
             if (expandedFromUrl) {
                 setExpanded(true);
             }
         }, []);
-        var _a = (0,_localStorageState__WEBPACK_IMPORTED_MODULE_4__.useLocalStorageState)(document.$id, (documentInLink === null || documentInLink === void 0 ? void 0 : documentInLink.path.indexOf(document.$id)) > -1), expanded = _a[0], setExpanded = _a[1];
+        var _b = (0,_localStorageState__WEBPACK_IMPORTED_MODULE_4__.useLocalStorageState)(document.$id, (documentInLink === null || documentInLink === void 0 ? void 0 : documentInLink.path.indexOf(document.$id)) > -1), expanded = _b[0], setExpanded = _b[1];
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_DocumentName__WEBPACK_IMPORTED_MODULE_1__.DocumentName)(document, function () {
             setExpanded(!expanded);
         }), !expanded ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
@@ -1722,8 +1724,11 @@ var DocumentItem = function (document) { return (0,_tuval_forms__WEBPACK_IMPORTE
             }))
             .height());
     })
-    //  .allWidth('calc(100% - 20px)')
-    );
+        .realmId(workspaceId)
+        .databaseId('work_management')
+        .collectionId('wm_documents')
+        .documentId(documentInLinkId)
+        .enabled(documentInLinkId != null));
 }); };
 
 
@@ -1751,6 +1756,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WorkbenchIcons */ "./src/views/WorkbenchIcons.tsx");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 /* harmony import */ var _dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dialogs/AddDocumentDialog */ "./src/dialogs/AddDocumentDialog.ts");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_8__);
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -1762,6 +1769,7 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 
 
 
@@ -1784,14 +1792,15 @@ function DocumentName(document, onClickCallback) {
         // const {applet:_applet} = useGetApplet(applet.$id);
         return (mode === 'readonly' ?
             //UIRouteLink(team ? `/app/${getAppFullName()}/team/${team.id}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}` : `/app/${getAppFullName()}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}`)(
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
-                .config({
-                selectedIcon: document === null || document === void 0 ? void 0 : document.icon_name,
-                selectedCategory: document === null || document === void 0 ? void 0 : document.icon_category,
-                width: 16,
-                height: 16,
-                padding: 1
-            }))
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(document === null || document === void 0 ? void 0 : document.icon_name) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__.WorkbenchIcons.DocIcon2) :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
+                    .config({
+                    selectedIcon: document === null || document === void 0 ? void 0 : document.icon_name,
+                    selectedCategory: document === null || document === void 0 ? void 0 : document.icon_category,
+                    width: 16,
+                    height: 16,
+                    padding: 1
+                })).foregroundColor('rgba(109,122,131,0.9)')
                 //.background('#FCE8E8')
                 .width().height()
                 .cornerRadius(5), mode !== 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
@@ -1802,7 +1811,7 @@ function DocumentName(document, onClickCallback) {
                     .height(32)
                     .onClick(function () {
                     //alert(getAppletUrl(access_type, applet.id))
-                    navigate("/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/document/").concat(document.$id));
+                    navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/document/").concat(document.$id));
                 }), mode === 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.TextField)().value(newName)
                     .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
@@ -2467,6 +2476,9 @@ var WorkbenchIcons;
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M8.407 2.06a.6.6 0 0 0-.814 0l-6.5 6a.6.6 0 1 0 .814.881l.493-.455V13A1.6 1.6 0 0 0 4 14.6h3.1V11a.4.4 0 0 1 .4-.4h1c.22 0 .4.18.4.4v3.6H12a1.6 1.6 0 0 0 1.6-1.6V8.486l.493.455a.6.6 0 0 0 .814-.881l-6.5-6zM12.4 7.378 8 3.317 3.6 7.378V13a.4.4 0 0 0 .4.4h1.9V11a1.6 1.6 0 0 1 1.6-1.6h1a1.6 1.6 0 0 1 1.6 1.6v2.4H12a.4.4 0 0 0 .4-.4V7.378z", "clip-rule": "evenodd" }))); };
     WorkbenchIcons.DocIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M6 5a1 1 0 0 1 1-1h6.172a1 1 0 0 1 .707.293l3.828 3.828a1 1 0 0 1 .293.707V19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5zm1-3a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8.828a3 3 0 0 0-.879-2.12l-3.828-3.83A3 3 0 0 0 13.172 2H7zm2 6a1 1 0 0 0 0 2h3a1 1 0 1 0 0-2H9zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9zm-1 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1z", "clip-rule": "evenodd" }))); };
+    WorkbenchIcons.DocIcon2 = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "20", height: "25", fill: "currentColor", "aria-hidden": "true" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6 4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4.286v-4.286c0-.789.64-1.428 1.428-1.428H16V12h-4v4l4-4V6a2 2 0 0 0-2-2H6Z" })))); };
     var DraftIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M19 5H5v3h14V5zm.983 4.742A2 2 0 0 0 21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3a2 2 0 0 0 1.016 1.742A2.18 2.18 0 0 0 4 10v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9c0-.087-.006-.174-.017-.258zM18 10H6v9h12v-9zm-9 3a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1z", "clip-rule": "evenodd" }))); };
     WorkbenchIcons.WhiteboardIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },

@@ -4,6 +4,7 @@ export declare namespace WorkbenchIcons {
     const CollapseRightIcon: (props: any) => React.JSX.Element;
     const CollapseLeftIcon: (props: any) => React.JSX.Element;
     const DocIcon: (props: any) => React.JSX.Element;
+    const DocIcon2: (props: any) => React.JSX.Element;
     const WhiteboardIcon: (props: any) => React.JSX.Element;
     const AddFolder: (props: any) => React.JSX.Element;
     const FolderClosed: (props: any) => React.JSX.Element;

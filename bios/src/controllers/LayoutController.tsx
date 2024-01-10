@@ -19,7 +19,7 @@ export class LayoutController extends UIController {
 
 
 
-        const { team_id, project_id } = useParams();
+        const { organizationId, workspaceId } = useParams();
 
         return (
             isLoading ? Text('Loading...') :
@@ -59,15 +59,29 @@ export class LayoutController extends UIController {
                                         UIViewBuilder(() => {
                                             const { teams } = useListTeams('console');
                                             // const { setTeam } = Hooks.Teams.useSetTeam();
-                                            const [team, setTeam] = useLocalStorage('teamId', null);
+                                           // const [team, setTeam] = useLocalStorage('teamId', null);
                                             // alert(team)
                                             //   const {team, isLoading} = useGetCurrentTeam();
-                                            const [org, setOrg] = useState(null);
+                                           // const [org, setOrg] = useState(null);
                                             return (
 
                                                 UIWidget('com.tuvalsoft.widget.topdropdown')
                                                     .config({
-                                                        title: 'Organization',
+                                                        header: {
+                                                            content: 'Organization',
+                                                            color: 'white',
+                                                            font : {
+                                                             size: '10px'
+                                                            }
+                                                         },
+                                                         selected: {
+                                                            content: (selectedItem) => selectedItem.text,
+                                                            font: {
+                                                                family: '"Mulish",sans-serif',
+                                                                size: '18px',
+                                                                weight: '700'
+                                                            }
+                                                        },
                                                         selectedValue: me?.prefs?.organization,
                                                         width: '350px',
                                                         onClick: (selectedItem) => {
@@ -104,14 +118,14 @@ export class LayoutController extends UIController {
 
                                     HStack(
                                         UIViewBuilder(() => {
-                                            const [team, setTeam] = useLocalStorage('teamId', null);
+                                            
                                             const { realm }: { realm: Models.Realm } = useGetRealm({
-                                                realmId: project_id,
-                                                enabled: (team_id == null && project_id != null)
+                                                realmId: workspaceId,
+                                                enabled: (organizationId == null && workspaceId != null)
                                             });
 
-                                            const { realms } = useListRealms((team != null || realm?.teamId != null), [
-                                                Query.equal('teamId', team ?? realm?.teamId)
+                                            const { realms } = useListRealms((organizationId != null || realm?.teamId != null), [
+                                                Query.equal('teamId', organizationId ?? realm?.teamId)
                                             ]);
                                             // const [currentProject, setCurrentProject] = useLocalStorage('projectId', null);
 
@@ -119,7 +133,21 @@ export class LayoutController extends UIController {
                                                 //  (team_id || project?.teamId) ?
                                                 UIWidget('com.tuvalsoft.widget.topdropdown')
                                                     .config({
-                                                        title: 'Workspace',
+                                                        header: {
+                                                           content: 'Workspace',
+                                                           color: 'white',
+                                                           font : {
+                                                            size: '10px'
+                                                           }
+                                                        },
+                                                        selected: {
+                                                            content: (selectedItem) => selectedItem.text,
+                                                            font: {
+                                                                family: '"Mulish",sans-serif',
+                                                                size: '18px',
+                                                                weight: '700'
+                                                            }
+                                                        },
                                                         selectedValue: me?.prefs?.workspace,
                                                         width: '350px',
                                                         onClick: (selectedItem) => {

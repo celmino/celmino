@@ -83,6 +83,15 @@ var defaultConfig = {
             weight: '400'
         }
     },
+    selected: {
+        content: function () { return void 0; },
+        color: '#c0cbd6',
+        font: {
+            family: '"Mulish",sans-serif',
+            size: '10px',
+            weight: '400'
+        }
+    },
     selectedValue: '',
     placeholder: '',
     width: '100%',
@@ -100,11 +109,12 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
+        var _a;
         var config = Object.assign(__assign({}, defaultConfig), this.props.config);
         var data = Object.assign(__assign({}, defaultData), this.props.data);
         var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
         // State for our modal
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isModalOpen = _a[0], setModalOpen = _a[1];
+        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isModalOpen = _b[0], setModalOpen = _b[1];
         // Call hook passing in the ref and a function to call on outside click
         (0,_views_useOnClickOutside__WEBPACK_IMPORTED_MODULE_2__.useOnClickOutside)(ref, function () { return setModalOpen(false); });
         //config and data fine tunes
@@ -113,7 +123,7 @@ var MyTestController = /** @class */ (function (_super) {
             dataSource = [];
         }
         //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
-        var selectedValue = config.value || config.selectedValue;
+        var selectedValue = config.value || config.selectedValue || ((_a = config.selected) === null || _a === void 0 ? void 0 : _a.value);
         var selectedItem = dataSource.find(function (item) { return item.value === (config.value || selectedValue); });
         var itemHeight = 50;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
@@ -125,16 +135,25 @@ var MyTestController = /** @class */ (function (_super) {
                     .textTransform('uppercase')
                     .fontSize(config.header.font.size)
                     .lineHeight('1.2em')
-                    .foregroundColor(config.header.color), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedItem ? selectedItem.text : config.placeholder)
-            .fontSize(18)
-            .fontFamily('"Mulish",sans-serif')
-            .fontWeight('700')
-            .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
-            .onClick(function (e) {
-            config.onSelectedClick(selectedItem);
-            e.stopPropagation();
-        })
-            .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, '5px'))
+                    .foregroundColor(config.header.color)
+                    .fontWeight(config.header.font.weight), selectedItem ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+            var view = config.selected.content(selectedItem);
+            return view instanceof _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilderClass ? view :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(view).foregroundColor(config.selected.color)
+                    .fontFamily(config.selected.font.family)
+                    .fontSize(config.selected.font.size)
+                    .fontWeight(config.selected.font.weight);
+        }) :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(/* selectedItem.text :  */ config.placeholder)
+                .fontSize(18)
+                .fontFamily('"Mulish",sans-serif')
+                .fontWeight('700')
+                .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
+                .onClick(function (e) {
+                config.onSelectedClick(selectedItem);
+                e.stopPropagation();
+            })
+                .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, '5px'))
             .paddingRight('20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')).height(60)
             //.borderRight('solid 1px #DDE4EB')
             .padding().cursor('pointer')

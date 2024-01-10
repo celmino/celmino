@@ -21,6 +21,7 @@ import { SelectOpaDialog } from "../dialogs/SelectOpaDialog";
 import { WorkbenchIcons } from "./WorkbenchIcons";
 import { getDocumentId, getListId } from "../utils";
 import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
+import { is } from "@tuval/core";
 
 export function DocumentName(document: any, onClickCallback: Function) {
 
@@ -45,6 +46,7 @@ export function DocumentName(document: any, onClickCallback: Function) {
                     HStack({ alignment: cLeading, spacing: 5 })(
                         HStack({ alignment: cLeading })(
                             HStack(
+                                is.nullOrEmpty(document?.icon_name) ? Icon(WorkbenchIcons.DocIcon2) :
                                 UIWidget("com.tuvalsoft.widget.icons")
                                     .config({
                                         selectedIcon: document?.icon_name,
@@ -53,7 +55,7 @@ export function DocumentName(document: any, onClickCallback: Function) {
                                         height: 16,
                                         padding: 1
                                     })
-                            )
+                            ).foregroundColor('rgba(109,122,131,0.9)')
                                 //.background('#FCE8E8')
                                 .width().height()
                                 .cornerRadius(5),
@@ -67,7 +69,8 @@ export function DocumentName(document: any, onClickCallback: Function) {
                                 .height(32)
                                 .onClick(() => {
                                     //alert(getAppletUrl(access_type, applet.id))
-                                    navigate(`/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/document/${document.$id}`);
+                              
+                                    navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/document/${document.$id}`);
                                 })
 
                             ,

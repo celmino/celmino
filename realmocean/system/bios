@@ -2036,7 +2036,7 @@ var LayoutController = /** @class */ (function (_super) {
         var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading, isError = _a.isError;
         var deleteSessions = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSessions)('console').deleteSessions;
         var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)(), team_id = _b.team_id, project_id = _b.project_id;
+        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)(), organizationId = _b.organizationId, workspaceId = _b.workspaceId;
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Loading...') :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
                 return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIScene)(isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') :
@@ -2052,13 +2052,27 @@ var LayoutController = /** @class */ (function (_super) {
                         var _a;
                         var teams = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListTeams)('console').teams;
                         // const { setTeam } = Hooks.Teams.useSetTeam();
-                        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useLocalStorage)('teamId', null), team = _b[0], setTeam = _b[1];
+                        // const [team, setTeam] = useLocalStorage('teamId', null);
                         // alert(team)
                         //   const {team, isLoading} = useGetCurrentTeam();
-                        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(null), org = _c[0], setOrg = _c[1];
+                        // const [org, setOrg] = useState(null);
                         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)('com.tuvalsoft.widget.topdropdown')
                             .config({
-                            title: 'Organization',
+                            header: {
+                                content: 'Organization',
+                                color: 'white',
+                                font: {
+                                    size: '10px'
+                                }
+                            },
+                            selected: {
+                                content: function (selectedItem) { return selectedItem.text; },
+                                font: {
+                                    family: '"Mulish",sans-serif',
+                                    size: '18px',
+                                    weight: '700'
+                                }
+                            },
                             selectedValue: (_a = me === null || me === void 0 ? void 0 : me.prefs) === null || _a === void 0 ? void 0 : _a.organization,
                             width: '350px',
                             onClick: function (selectedItem) {
@@ -2086,20 +2100,33 @@ var LayoutController = /** @class */ (function (_super) {
                     }))
                         .width(250), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VDivider)().width(1).height(30).background('#e6e6e6').marginLeft(15), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
                         var _a;
-                        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useLocalStorage)('teamId', null), team = _b[0], setTeam = _b[1];
                         var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
-                            realmId: project_id,
-                            enabled: (team_id == null && project_id != null)
+                            realmId: workspaceId,
+                            enabled: (organizationId == null && workspaceId != null)
                         }).realm;
-                        var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)((team != null || (realm === null || realm === void 0 ? void 0 : realm.teamId) != null), [
-                            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', team !== null && team !== void 0 ? team : realm === null || realm === void 0 ? void 0 : realm.teamId)
+                        var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)((organizationId != null || (realm === null || realm === void 0 ? void 0 : realm.teamId) != null), [
+                            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', organizationId !== null && organizationId !== void 0 ? organizationId : realm === null || realm === void 0 ? void 0 : realm.teamId)
                         ]).realms;
                         // const [currentProject, setCurrentProject] = useLocalStorage('projectId', null);
                         return (
                         //  (team_id || project?.teamId) ?
                         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)('com.tuvalsoft.widget.topdropdown')
                             .config({
-                            title: 'Workspace',
+                            header: {
+                                content: 'Workspace',
+                                color: 'white',
+                                font: {
+                                    size: '10px'
+                                }
+                            },
+                            selected: {
+                                content: function (selectedItem) { return selectedItem.text; },
+                                font: {
+                                    family: '"Mulish",sans-serif',
+                                    size: '18px',
+                                    weight: '700'
+                                }
+                            },
                             selectedValue: (_a = me === null || me === void 0 ? void 0 : me.prefs) === null || _a === void 0 ? void 0 : _a.workspace,
                             width: '350px',
                             onClick: function (selectedItem) {

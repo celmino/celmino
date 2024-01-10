@@ -20,10 +20,12 @@ import { AppletDescriptionDialog } from "../dialogs/AppletDescriptionDialog";
 import { SelectOpaDialog } from "../dialogs/SelectOpaDialog";
 import { WorkbenchIcons } from "./WorkbenchIcons";
 import { getListId } from "../utils";
+import { is } from "@tuval/core";
+
 
 export function AppletName(applet: any, onClickCallback: Function) {
 
-    const  selected = getListId() === applet.$id;
+    const selected = getListId() === applet.$id;
     return (
         UIViewBuilder(() => {
 
@@ -44,14 +46,15 @@ export function AppletName(applet: any, onClickCallback: Function) {
                     HStack({ alignment: cLeading, spacing: 5 })(
                         HStack({ alignment: cLeading })(
                             HStack(
-                                UIWidget("com.tuvalsoft.widget.icons")
-                                    .config({
-                                        selectedIcon: applet?.icon_name,
-                                        selectedCategory: applet?.icon_category,
-                                        width: 16,
-                                        height: 16,
-                                        padding: 1
-                                    })
+                                is.nullOrEmpty(applet?.icon_name) ? Icon(WorkbenchIcons.ListIcon) :
+                                    UIWidget("com.tuvalsoft.widget.icons")
+                                        .config({
+                                            selectedIcon: applet?.icon_name,
+                                            selectedCategory: applet?.icon_category,
+                                            width: 16,
+                                            height: 16,
+                                            padding: 1
+                                        })
                             )
                                 //.background('#FCE8E8')
                                 .width().height()
@@ -63,11 +66,11 @@ export function AppletName(applet: any, onClickCallback: Function) {
                                         .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
                                         .foregroundColor(selected ? '#7b68ee' : '#151719')
                                 )
-                                .height(32)
-                                .onClick(() => {
-                                    //alert(getAppletUrl(access_type, applet.id))
-                                    navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/list/${applet.$id}/view/${applet.defaultViewId}`);
-                                })
+                                    .height(32)
+                                    .onClick(() => {
+                                        //alert(getAppletUrl(access_type, applet.id))
+                                        navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/list/${applet.$id}/view/${applet.defaultViewId}`);
+                                    })
 
                             ,
                             mode === 'readonly' ? Fragment() :
@@ -111,7 +114,7 @@ export function AppletName(applet: any, onClickCallback: Function) {
                                 .icon(Icons.Add),
                             MenuButton()
                                 .model([
-                                   
+
                                     {
                                         title: 'Applet Options',
                                         type: 'Title'
@@ -210,8 +213,8 @@ export function AppletName(applet: any, onClickCallback: Function) {
                                 .icon(Icons.Menu)
 
                         )
-                        .width(64)
-                        .height(32).padding(cHorizontal, 5)
+                            .width(64)
+                            .height(32).padding(cHorizontal, 5)
                             .display('var(--show-applet-action-buttons)')
                             .onClick((e) => {
                                 e.preventDefault();

@@ -1,6 +1,7 @@
 import { UIViewBuilderClass } from "@tuval/forms";
 export interface IConfig {
     header?: IHeaderConfig;
+    selected?: ISelectedConfig;
     titleColor?: string;
     placeholder?: string;
     selectedValue?: string;
@@ -11,6 +12,12 @@ export interface IConfig {
 }
 export interface IHeaderConfig {
     content?: string | UIViewBuilderClass;
+    color?: string;
+    font?: IFontConfig;
+}
+export interface ISelectedConfig {
+    value?: string;
+    content?: (selectedItem: any) => UIViewBuilderClass;
     color?: string;
     font?: IFontConfig;
 }

@@ -1,4 +1,4 @@
-import { ForEach, Fragment, HStack, Icon, ScrollView, State, Text, UIController, UIView, UIViewBuilderClass, VStack, cHorizontal, cLeading, cTopLeading, cVertical, useState } from '@tuval/forms';
+import { ForEach, Fragment, HStack, Icon, ScrollView, State, Text, UIController, UIView, UIViewBuilder, UIViewBuilderClass, VStack, cHorizontal, cLeading, cTopLeading, cVertical, useState } from '@tuval/forms';
 import { useRef } from 'react';
 import { useOnClickOutside } from './views/useOnClickOutside';
 import { IConfig, IData, IDataSourceItem } from './types';
@@ -13,6 +13,15 @@ const convertVhToPx = (vh = 50) => {
 const defaultConfig: IConfig = {
     header: {
         content: '',
+        color: '#c0cbd6',
+        font: {
+            family: '"Mulish",sans-serif',
+            size: '10px',
+            weight: '400'
+        }
+    },
+    selected: {
+        content: () => void 0,
         color: '#c0cbd6',
         font: {
             family: '"Mulish",sans-serif',
@@ -54,7 +63,7 @@ export class MyTestController extends UIController {
 
 
         //  const [selectedValue, setSelectedValue] = useState<string>(config.value || config.selectedValue);
-        const selectedValue = config.value || config.selectedValue;
+        const selectedValue = config.value || config.selectedValue || config.selected?.value;
         const selectedItem = dataSource.find(item => item.value === (config.value || selectedValue));
 
         const itemHeight = 50;
@@ -72,20 +81,29 @@ export class MyTestController extends UIController {
                                     .textTransform('uppercase')
                                     .fontSize(config.header.font.size)
                                     .lineHeight('1.2em')
-                                    .foregroundColor(config.header.color),
+                                    .foregroundColor(config.header.color)
+                                    .fontWeight(config.header.font.weight as any),
+                        selectedItem ? UIViewBuilder(() => {
+                            const view = config.selected.content(selectedItem);
+                            return view instanceof UIViewBuilderClass ? view :
+                                Text(view).foregroundColor(config.selected.color)
+                                .fontFamily(config.selected.font.family)
+                                .fontSize(config.selected.font.size)
+                                .fontWeight(config.selected.font.weight as any)
+                        }) :
 
-                        Text(selectedItem ? selectedItem.text : config.placeholder)
-                            .fontSize(18)
-                            .fontFamily('"Mulish",sans-serif')
-                            .fontWeight('700')
-                            .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
-                            .onClick((e) => {
-                                config.onSelectedClick(selectedItem);
-                                e.stopPropagation();
-                            })
-                            .padding(cVertical, '5px'),
+                            Text( /* selectedItem.text :  */config.placeholder)
+                                .fontSize(18)
+                                .fontFamily('"Mulish",sans-serif')
+                                .fontWeight('700')
+                                .foregroundColor({ default: 'rgb(46, 65, 88)', hover: 'blue' })
+                                .onClick((e) => {
+                                    config.onSelectedClick(selectedItem);
+                                    e.stopPropagation();
+                                })
+                                .padding(cVertical, '5px'),
                     )
-                    
+
                         .paddingRight('20px'),
                     Icon('\\e5c5').fontSize(25).foregroundColor('rgb(46, 65, 88)')
                 ).height(60)

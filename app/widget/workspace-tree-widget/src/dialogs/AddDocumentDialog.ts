@@ -35,7 +35,6 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                 
                 createDocument(
                     {
-                       
                         data: {
                             ...data
                         }
