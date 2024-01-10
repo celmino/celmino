@@ -1,6 +1,6 @@
 import { FormBuilder, UIController } from '@tuval/forms';
 import { MyTestController } from './AppController';
-import { RouteController } from './RouteController';
+import { RouteController } from './routes/+routes';
 import { ListStatusWidget } from './widget/ListStatusWidget';
 
 const manifest = require('./manifest');

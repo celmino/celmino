@@ -1,6 +1,6 @@
 import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack } from "@tuval/forms";
-import { ActionPanel } from "../views/ActionPanel";
-import { ViewHeader } from "../views/ViewHeader";
+import { ActionPanel } from "../../views/ActionPanel";
+import { ViewHeader } from "../../views/ViewHeader";
 import React from "react";
 
 export class DocumentController extends UIController {

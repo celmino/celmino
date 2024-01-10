@@ -1,8 +1,8 @@
 import { UIController, UIRoute, UIRoutes, UIView, UIViewBuilder, VStack } from "@tuval/forms";
-import { MyTestController } from "./AppController";
-import { ViewController } from "./controllers/ViewController";
-import { DocumentController } from "./controllers/DocumentController";
-import { ListController } from "./controllers/ListController";
+import { MyTestController } from "../AppController";
+import { ViewController } from "./list-[listId]/view-[viewId]/+controller";
+import { DocumentController } from "./document-[documentId]/+controller";
+import { ListController } from "./list-[listId]/+controller.ts";
 
 
 export class RouteController extends UIController {
