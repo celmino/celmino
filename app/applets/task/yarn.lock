@@ -925,6 +925,18 @@
   resolved "https://registry.npmjs.org/@realmocean/spreadsheet/-/spreadsheet-19.37.10.tgz"
   integrity sha512-cTJR/QcAqvIE55WVz3+nqSJXDMo5aGaLFiOTe3oDuXG6G2E1SCA1q5qgYGTyYMvSvt3Q+Po2pgbGV1F9yRCBxw==
 
+"@realmocean/ui@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@realmocean/ui/-/ui-1.0.6.tgz"
+  integrity sha512-SupdMkVc30uv1DGvwKyjSpF34qCT5yv2WQifzcXURup7f16+4IUXbxnyvH4RicVbEGpmEVDkXj0F/jfN+9uW6Q==
+  dependencies:
+    "@tuval/forms" "^1.0.109"
+    css-loader "^6.8.1"
+    sass "^1.63.6"
+    sass-loader "^13.3.2"
+    style-loader "^3.3.3"
+    to-string-loader "^1.2.0"
+
 "@storybook/channels@7.6.2":
   version "7.6.2"
   resolved "https://registry.npmjs.org/@storybook/channels/-/channels-7.6.2.tgz"
@@ -999,7 +1011,7 @@
   resolved "https://registry.npmjs.org/@tuval/core/-/core-0.0.103.tgz"
   integrity sha512-yE9X6hLavSknUZWiN5sfu1hbVdZ2taaL+wJAUbpRa2glfepBsBYDHGooe11oQ5EqYEq6NZnbmYJRW9eIjPi1Gg==
 
-"@tuval/forms@^1.0.132":
+"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.132":
   version "1.0.132"
   resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.132.tgz"
   integrity sha512-LD1iuk8e49wN81X9eI6zpiJJfQ8ApytZBCxoCgzbC63+qXV10czqP0PdE95KHY3L3e4evBkJ3Co91mrtVe/4/A==

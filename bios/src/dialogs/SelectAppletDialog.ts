@@ -109,11 +109,11 @@ export class SelectAppletDialog extends DialogView {
                                                             const col = await Services.Databases.createCollection(this.workspaceId, db.$id, id, name, [], false);
 
                                                             for (let i = 0; i < attributes.length; i++) {
-                                                                const { key, type } = attributes[i];
+                                                                const { key, type, size = 255 } = attributes[i];
                                                                 switch (type) {
                                                                     case 'string':
                                                                         console.log('1');
-                                                                        await Services.Databases.createStringAttribute(this.workspaceId, db.$id, col.$id, key, 256, false, '', false);
+                                                                        await Services.Databases.createStringAttribute(this.workspaceId, db.$id, col.$id, key, size, false, '', false);
                                                                         break;
                                                                     case 'number':
                                                                         console.log('1');

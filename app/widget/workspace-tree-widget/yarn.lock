@@ -532,10 +532,10 @@
   resolved "https://registry.npmjs.org/@realmocean/spreadsheet/-/spreadsheet-19.37.7.tgz"
   integrity sha512-uil1FxGm1g5mtAJxEgin4ctFRqvGBOAo6GkpvgCPtKKrQENk57iJ1IjKxvjjLdXfOnmN7TuwVIOloxXcS+2bow==
 
-"@realmocean/ui@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/@realmocean/ui/-/ui-1.0.5.tgz"
-  integrity sha512-HM8A5dR7Doc49UnRYYCTmsPr9M0wa8OK0Ut2MUvZFBAYDslxOoAauZRae+ZbGlaGVixnB9sEydkPSo9obbmrHw==
+"@realmocean/ui@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@realmocean/ui/-/ui-1.0.6.tgz"
+  integrity sha512-SupdMkVc30uv1DGvwKyjSpF34qCT5yv2WQifzcXURup7f16+4IUXbxnyvH4RicVbEGpmEVDkXj0F/jfN+9uW6Q==
   dependencies:
     "@tuval/forms" "^1.0.109"
     css-loader "^6.8.1"

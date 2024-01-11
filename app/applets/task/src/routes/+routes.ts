@@ -17,7 +17,7 @@ export class RouteController extends UIController {
                                 UIRoute('view/:viewId', class extends  ViewController {}),
                             ),
                           
-                            UIRoute('document/:documentId',   DocumentController ),
+                            UIRoute('document/:documentId',   class extends  DocumentController {} ),
                             UIRoute(':view_id', ViewController),
                             UIRoute(':view_id/*', ViewController)
                         )

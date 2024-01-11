@@ -6362,6 +6362,17 @@ var Applets = [
                         ],
                     },
                     {
+                        "name": "Document Contents",
+                        "id": "wm_document_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+                    },
+                    {
                         "name": "views",
                         "id": "wm_views",
                         "attributes": [
@@ -6571,37 +6582,37 @@ var SelectAppletDialog = /** @class */ (function (_super) {
                                         case 2:
                                             db_1 = _b.sent();
                                             _loop_2 = function (j) {
-                                                var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d;
-                                                return __generator(this, function (_e) {
-                                                    switch (_e.label) {
+                                                var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, size, _e;
+                                                return __generator(this, function (_f) {
+                                                    switch (_f.label) {
                                                         case 0:
                                                             collection = collections[j];
                                                             name_2 = collection.name, id_1 = collection.id, attributes = collection.attributes, documents = collection.documents;
                                                             return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createCollection(this_1.workspaceId, db_1.$id, id_1, name_2, [], false)];
                                                         case 1:
-                                                            col = _e.sent();
+                                                            col = _f.sent();
                                                             i_1 = 0;
-                                                            _e.label = 2;
+                                                            _f.label = 2;
                                                         case 2:
                                                             if (!(i_1 < attributes.length)) return [3 /*break*/, 8];
-                                                            _c = attributes[i_1], key = _c.key, type = _c.type;
-                                                            _d = type;
-                                                            switch (_d) {
+                                                            _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.size, size = _d === void 0 ? 255 : _d;
+                                                            _e = type;
+                                                            switch (_e) {
                                                                 case 'string': return [3 /*break*/, 3];
                                                                 case 'number': return [3 /*break*/, 5];
                                                             }
                                                             return [3 /*break*/, 7];
                                                         case 3:
                                                             console.log('1');
-                                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, 256, false, '', false)];
+                                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
                                                         case 4:
-                                                            _e.sent();
+                                                            _f.sent();
                                                             return [3 /*break*/, 7];
                                                         case 5:
                                                             console.log('1');
                                                             return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
                                                         case 6:
-                                                            _e.sent();
+                                                            _f.sent();
                                                             return [3 /*break*/, 7];
                                                         case 7:
                                                             i_1++;

@@ -25,7 +25,7 @@ import { is } from "@tuval/core";
 
 export function DocumentName(document: any, onClickCallback: Function) {
 
-    const  selected = getDocumentId() === document.$id;
+    const selected = getDocumentId() === document.$id;
     return (
         UIViewBuilder(() => {
 
@@ -47,14 +47,14 @@ export function DocumentName(document: any, onClickCallback: Function) {
                         HStack({ alignment: cLeading })(
                             HStack(
                                 is.nullOrEmpty(document?.icon_name) ? Icon(WorkbenchIcons.DocIcon2) :
-                                UIWidget("com.tuvalsoft.widget.icons")
-                                    .config({
-                                        selectedIcon: document?.icon_name,
-                                        selectedCategory: document?.icon_category,
-                                        width: 16,
-                                        height: 16,
-                                        padding: 1
-                                    })
+                                    UIWidget("com.tuvalsoft.widget.icons")
+                                        .config({
+                                            selectedIcon: document?.icon_name,
+                                            selectedCategory: document?.icon_category,
+                                            width: 16,
+                                            height: 16,
+                                            padding: 1
+                                        })
                             ).foregroundColor('rgba(109,122,131,0.9)')
                                 //.background('#FCE8E8')
                                 .width().height()
@@ -66,12 +66,12 @@ export function DocumentName(document: any, onClickCallback: Function) {
                                         .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
                                         .foregroundColor(selected ? '#7b68ee' : '#151719')
                                 )
-                                .height(32)
-                                .onClick(() => {
-                                    //alert(getAppletUrl(access_type, applet.id))
-                              
-                                    navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/document/${document.$id}`);
-                                })
+                                    .height(32)
+                                    .onClick(() => {
+                                        //alert(getAppletUrl(access_type, applet.id))
+
+                                        navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/document/${document.$id}`);
+                                    })
 
                             ,
                             mode === 'readonly' ? Fragment() :
@@ -114,7 +114,7 @@ export function DocumentName(document: any, onClickCallback: Function) {
                                 .icon(Icons.Add),
                             MenuButton()
                                 .model([
-                                   
+
                                     {
                                         title: 'Applet Options',
                                         type: 'Title'
@@ -213,8 +213,8 @@ export function DocumentName(document: any, onClickCallback: Function) {
                                 .icon(Icons.Menu)
 
                         )
-                        .width(64)
-                        .height(32).padding(cHorizontal, 5)
+                            .width(64)
+                            .height(32).padding(cHorizontal, 5)
                             .display('var(--show-applet-action-buttons)')
                             .onClick((e) => {
                                 e.preventDefault();
@@ -223,6 +223,7 @@ export function DocumentName(document: any, onClickCallback: Function) {
 
 
                     )
+
                         // .borderLeft(selected ? 'solid 1px #7B68EE' : '')
                         .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
                         .allHeight(32)

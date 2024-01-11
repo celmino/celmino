@@ -589,6 +589,7 @@ var SaveDocumentAction = function (formMeta, action) { return (0,_tuval_forms__W
     var views = [];
     var _a = formController.GetFormData(), databaseId = _a.databaseId, collectionId = _a.collectionId, workspaceId = _a.workspaceId;
     var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDocument)(workspaceId, 'work_management', 'wm_documents'), createDocument = _b.createDocument, isLoading = _b.isLoading;
+    var createDocumentContent = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDocument)(workspaceId, 'work_management', 'wm_document_contents').createDocument;
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Save'))
         .loading(isLoading)
         .onClick(function () {
@@ -598,8 +599,13 @@ var SaveDocumentAction = function (formMeta, action) { return (0,_tuval_forms__W
         delete data.workspaceId;
         createDocument({
             data: __assign({}, data)
-        }, function () {
-            dialog.Hide();
+        }, function (document) {
+            createDocumentContent({
+                documentId: document.$id,
+                data: {
+                    content: ''
+                }
+            }, function () { return dialog.Hide(); });
         });
     }));
 }); };
@@ -1362,7 +1368,7 @@ __webpack_require__.r(__webpack_exports__);
 function getListId() {
     var url = window.location.href;
     // Regex deseni
-    var regexPattern = /\/list\/([^\/]+)\//;
+    var regexPattern = /\/list\/([^\/]+)/;
     // Regex eşleşmesi
     var matches = url.match(regexPattern);
     // Eğer eşleşme varsa, list parametresini al
@@ -1376,7 +1382,7 @@ function getListId() {
 function getDocumentId() {
     var url = window.location.href;
     // Regex deseni
-    var regexPattern = /\/document\/([^\/]+)\//;
+    var regexPattern = /\/document\/([^\/]+)/;
     // Regex eşleşmesi
     var matches = url.match(regexPattern);
     // Eğer eşleşme varsa, list parametresini al
@@ -1702,7 +1708,7 @@ var DocumentItem = function (document) { return (0,_tuval_forms__WEBPACK_IMPORTE
     var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useOptions)(), workspaceId = _a.workspaceId, applet_id = _a.applet_id;
     var documentInLinkId = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.getDocumentId)();
     return ((0,_realmocean_ui__WEBPACK_IMPORTED_MODULE_5__.UIDocument)(function (_a) {
-        var documentInLink = _a.document;
+        var documentInLink = _a.document, isLoading = _a.isLoading;
         var expandedFromUrl = (documentInLink === null || documentInLink === void 0 ? void 0 : documentInLink.path.indexOf(document.$id)) > -1;
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
             if (expandedFromUrl) {

@@ -1,6 +1,7 @@
 import {
   HStack,
   ScrollView,
+  Text,
   UIController, UIView,
   cHorizontal,
   cTopLeading,

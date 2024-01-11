@@ -114,7 +114,7 @@
         "@realmocean/sdk": "^1.0.63",
         "@realmocean/services": "^21.0.0-beta.5",
         "@realmocean/spreadsheet": "^19.37.7",
-        "@realmocean/ui": "^1.0.5",
+        "@realmocean/ui": "^1.0.6",
         "@tuval/cg": "^0.0.16",
         "@tuval/core": "^0.0.103",
         "@tuval/forms": "^1.0.107",

@@ -33316,7 +33316,13 @@ var RouteController = /** @class */ (function (_super) {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_1;
-            }(_list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController)))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('document/:documentId', _document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
+            }(_list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController)))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('document/:documentId', /** @class */ (function (_super) {
+                __extends(class_2, _super);
+                function class_2() {
+                    return _super !== null && _super.apply(this, arguments) || this;
+                }
+                return class_2;
+            }(_document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
                 .background('var(--primary-background-color)');
         }));
     };
@@ -33347,6 +33353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../views/ViewHeader */ "./src/views/ViewHeader.ts");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__);
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -33366,17 +33374,46 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
+
 var DocumentController = /** @class */ (function (_super) {
     __extends(DocumentController, _super);
     function DocumentController() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DocumentController.prototype.LoadView = function () {
-        var documentId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)().documentId;
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)('test'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.tuvalsoft.widget.editorjs')
-            .config({}))
-            .background('white')
-            .render())));
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, documentId = _a.documentId;
+        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'work_management',
+            collectionId: 'wm_documents',
+            documentId: documentId
+        }).document;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'work_management',
+            collectionId: 'wm_document_contents',
+            documentId: documentId
+        }), content = _b.document, isLoading = _b.isLoading;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
+        console.log(content);
+        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.tuvalsoft.widget.editorjs')
+                .config({
+                defaultValue: JSON.parse(content.content),
+                onChange: function (data) {
+                    console.log(data);
+                    updateDocument({
+                        databaseId: 'work_management',
+                        collectionId: 'wm_document_contents',
+                        documentId: documentId,
+                        data: {
+                            content: JSON.stringify(data)
+                        }
+                    });
+                }
+            }))
+                .background('white')
+                .render())));
     };
     return DocumentController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

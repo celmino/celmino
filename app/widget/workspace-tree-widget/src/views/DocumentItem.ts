@@ -10,13 +10,10 @@ import { UIDocument } from "@realmocean/ui";
 export const DocumentItem = (document: any) => UIViewBuilder(() => {
     const { workspaceId, applet_id } = useOptions();
 
-
-
     let documentInLinkId = getDocumentId();
 
-
     return (
-        UIDocument(({ document: documentInLink }) => {
+        UIDocument(({ document: documentInLink, isLoading }) => {
 
             const expandedFromUrl = documentInLink?.path.indexOf(document.$id) > -1;
             useEffect(() => {

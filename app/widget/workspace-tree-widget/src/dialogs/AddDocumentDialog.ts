@@ -19,6 +19,7 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
     const views = []
     const { databaseId, collectionId, workspaceId } = formController.GetFormData();
     const { createDocument, isLoading } = useCreateDocument(workspaceId,'work_management', 'wm_documents');
+    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,'work_management', 'wm_document_contents');
    
     return (
         Button(
@@ -39,8 +40,14 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                             ...data
                         }
                     },
-                    () => {
-                        dialog.Hide();
+                    (document) => {
+                        createDocumentContent( {
+                            documentId: document.$id,
+                            data: {
+                                content:''
+                            }
+                        }, ()=>  dialog.Hide())
+                       
                     }
                 )
 

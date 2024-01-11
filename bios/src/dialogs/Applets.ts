@@ -3882,6 +3882,18 @@ export const Applets = [
 
                     },
                     {
+                        "name": "Document Contents",
+                        "id": "wm_document_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+
+                    },
+                    {
                         "name": "views",
                         "id": "wm_views",
                         "attributes": [

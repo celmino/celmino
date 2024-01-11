@@ -4,7 +4,7 @@ export function getListId() {
     var url = window.location.href;
 
     // Regex deseni
-    var regexPattern = /\/list\/([^\/]+)\//;
+    var regexPattern = /\/list\/([^\/]+)/;
 
     // Regex eşleşmesi
     var matches = url.match(regexPattern);
@@ -23,7 +23,7 @@ export function getDocumentId() {
     var url = window.location.href;
 
     // Regex deseni
-    var regexPattern = /\/document\/([^\/]+)\//;
+    var regexPattern = /\/document\/([^\/]+)/;
 
     // Regex eşleşmesi
     var matches = url.match(regexPattern);
