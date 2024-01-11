@@ -41,19 +41,27 @@ export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, o
                                     Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
                             ).width().height()
                                 .display(`var(--display-caret)`),
+                         /*    HStack(
+                                isLoading ? Loader().size(LoaderSizes.XS) :
+                                    HStack().width(20).height(20).background('#40BC86')
+                            ).width().height()
+                                .display(`var(--display-icon)`), */
+
                             HStack(
                                 UIWidget("com.tuvalsoft.widget.icons")
                                     .config({
-                                        selectedIcon:'bookmark',
-                                        color:'gray',
-                                        width:18,
-                                        height:18,
-                                        padding:1
+                                        selectedIcon: 'bookmark',
+                                        selectedCategory: 'Icons',
+                                        color: 'white',
+                                        backgroundColor: '#40BC86',
+                                        width: 20,
+                                        height: 20,
+                                        padding: 1
                                     })
                             )
-                            //.background('#FCE8E8')
-                            .width().height()
-                            .cornerRadius(5)
+                                //.background('#FCE8E8')
+                                .width().height()
+                                .cornerRadius(5)
                                 .display('var(--display-icon)'),
                         ).width(20).height(20),
 

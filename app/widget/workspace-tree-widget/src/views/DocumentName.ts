@@ -23,7 +23,7 @@ import { getDocumentId, getListId } from "../utils";
 import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
 import { is } from "@tuval/core";
 
-export function DocumentName(document: any, onClickCallback: Function) {
+export function DocumentName(document: any, isOpen: boolean, onClickCallback: Function) {
 
     const selected = getDocumentId() === document.$id;
     return (
@@ -46,15 +46,23 @@ export function DocumentName(document: any, onClickCallback: Function) {
                     HStack({ alignment: cLeading, spacing: 5 })(
                         HStack({ alignment: cLeading })(
                             HStack(
-                                is.nullOrEmpty(document?.icon_name) ? Icon(WorkbenchIcons.DocIcon2) :
-                                    UIWidget("com.tuvalsoft.widget.icons")
-                                        .config({
-                                            selectedIcon: document?.icon_name,
-                                            selectedCategory: document?.icon_category,
-                                            width: 16,
-                                            height: 16,
-                                            padding: 1
-                                        })
+                                HStack(
+                                    Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
+                                ).width().height().display('var(--display-caret)')
+                                    .onClick(() => {
+                                        onClickCallback();
+                                    }),
+                                HStack(
+                                    is.nullOrEmpty(document?.icon_name) ? Icon(WorkbenchIcons.DocIcon2) :
+                                        UIWidget("com.tuvalsoft.widget.icons")
+                                            .config({
+                                                selectedIcon: document?.icon_name,
+                                                selectedCategory: document?.icon_category,
+                                                width: 16,
+                                                height: 16,
+                                                padding: 1
+                                            })
+                                ).width().height().display('var(--display-icon)')
                             ).foregroundColor('rgba(109,122,131,0.9)')
                                 //.background('#FCE8E8')
                                 .width().height()
@@ -235,6 +243,8 @@ export function DocumentName(document: any, onClickCallback: Function) {
                             e.dataTransfer.setData('text/plain', JSON.stringify(document));
                         })
                         .variable('--show-applet-action-buttons', { default: 'none', hover: 'flex' })
+                        .variable(`--display-caret`, { default: 'none', hover: 'flex' })
+                        .variable(`--display-icon`, { default: 'flex', hover: 'none' })
                     :
 
                     HStack({ alignment: cLeading, spacing: 5 })(

@@ -3089,7 +3089,7 @@ var MyTestController = /** @class */ (function (_super) {
     MyTestController.prototype.LoadView = function () {
         var _a, _b, _c;
         var _hideHandle;
-        var _d = this.props.config || {}, selectedIcon = _d.selectedIcon, selectedCategory = _d.selectedCategory, _e = _d.onChange, onChange = _e === void 0 ? void 0 : _e, _f = _d.width, width = _f === void 0 ? 36 : _f, _g = _d.height, height = _g === void 0 ? 36 : _g, _h = _d.padding, padding = _h === void 0 ? 5 : _h, _j = _d.tooltip, tooltip = _j === void 0 ? '' : _j, _k = _d.color, color = _k === void 0 ? 'white' : _k, _l = _d.readonly, readonly = _l === void 0 ? false : _l;
+        var _d = this.props.config || {}, selectedIcon = _d.selectedIcon, selectedCategory = _d.selectedCategory, _e = _d.onChange, onChange = _e === void 0 ? void 0 : _e, _f = _d.width, width = _f === void 0 ? 36 : _f, _g = _d.height, height = _g === void 0 ? 36 : _g, _h = _d.padding, padding = _h === void 0 ? 5 : _h, _j = _d.tooltip, tooltip = _j === void 0 ? '' : _j, _k = _d.color, color = _k === void 0 ? 'white' : _k, _l = _d.backgroundColor, backgroundColor = _l === void 0 ? 'transparent' : _l, _m = _d.readonly, readonly = _m === void 0 ? false : _m;
         // const [selectedEmoji, setSelectedEmoji] = useState(this.props.config.selectedEmoji);
         // const [selectedIcon, setSelectedIcon] = useState(this.props.config.selectedIcon);
         // const [selectedCuIcon, setSelectedCuIcon] = useState(this.props.config.selectedCuIcon);
@@ -3098,8 +3098,8 @@ var MyTestController = /** @class */ (function (_super) {
         /*    useEffect(() => {
                setSelectedAccountId(this.props.config.selectedAccountId);
            }, [this.props.config.selectedAccountId]) */
-        var _m = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isOpen = _m[0], setIsOpen = _m[1];
-        var _o = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((_a = this.props.config.selectedCategory) !== null && _a !== void 0 ? _a : 'Icons'), mode = _o[0], setMode = _o[1];
+        var _o = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isOpen = _o[0], setIsOpen = _o[1];
+        var _p = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((_a = this.props.config.selectedCategory) !== null && _a !== void 0 ? _a : 'Icons'), mode = _p[0], setMode = _p[1];
         var ref = (0,_uidotdev_usehooks__WEBPACK_IMPORTED_MODULE_2__.useClickAway)(function () {
             setIsOpen(false);
         });
@@ -3109,7 +3109,8 @@ var MyTestController = /** @class */ (function (_super) {
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedIcon).fontSize(width > 20 ? width * 0.70 : width) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).width(width).height(height).padding(padding)
             // .background('#40BC86')
             .foregroundColor(color)
-            .cornerRadius(10))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Segmented)().options(["Icons", "CuIcons", "Emoji"]).onChange(function (value) {
+            .cornerRadius(5)
+            .background(backgroundColor))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Segmented)().options(["Icons", "CuIcons", "Emoji"]).onChange(function (value) {
             setMode(value);
         }).renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_6__.SegmentedRenderer), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().paddingLeft('25px').placeholder('Search...')
             .border('none').shadow({ focus: 'none' })).height().padding(5))

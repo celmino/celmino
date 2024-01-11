@@ -38,6 +38,7 @@ export class MyTestController extends UIController {
             padding = 5,
             tooltip = '',
             color = 'white',
+            backgroundColor = 'transparent',
             readonly = false } = this.props.config || {};
 
           
@@ -75,7 +76,8 @@ export class MyTestController extends UIController {
                 ).width(width).height(height).padding(padding)
                     // .background('#40BC86')
                     .foregroundColor(color)
-                    .cornerRadius(10)
+                    .cornerRadius(5)
+                    .background(backgroundColor)
             )(
 
                 VStack({ alignment: cTopLeading, spacing: 10 })(

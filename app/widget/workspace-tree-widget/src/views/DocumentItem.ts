@@ -27,7 +27,7 @@ export const DocumentItem = (document: any) => UIViewBuilder(() => {
 
             return (
                 VStack({ alignment: cTopLeading })(
-                    DocumentName(document, () => {
+                    DocumentName(document,expanded, () => {
                         setExpanded(!expanded);
                     }),
                     !expanded ? Fragment() :

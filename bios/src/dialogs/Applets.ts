@@ -3894,6 +3894,53 @@ export const Applets = [
 
                     },
                     {
+                        "name": "Whiteboards",
+                        "id": "wm_whiteboards",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+
+                    },
+                    {
+                        "name": "Whiteboard Contents",
+                        "id": "wm_whiteboard_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+
+                    },
+                    {
                         "name": "views",
                         "id": "wm_views",
                         "attributes": [

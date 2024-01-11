@@ -51,62 +51,8 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                             .model([
                                 
                                 {
-                                    title: 'Add to space',
+                                    title: 'Add to folder',
                                     type: 'Title'
-                                },
-
-                                {
-                                    title: 'Table',
-                                    icon: WorkbenchIcons.TableIcon,
-                                    onClick: () => {
-                                        /*  createApplet({
-                                             name: 'New table',
-                                             parentId: folder.$id,
-                                             parentType: 'workspace',
-                                             opa: 'com.celmino.applet.table',
-                                             icon: 'TableIcon',
-                                             color: '#40BC86',
-                                         }, () => alert('created')) */
-                                        //DynoDialog.Show(AddFolderDialog(space.$id))
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Grid',
-                                    icon: WorkbenchIcons.GridIcon,
-                                    onClick: () => {
-                                        /*  createApplet({
-                                             name: 'New grid',
-                                             parentId: folder.$id,
-                                             parentType: 'workspace',
-                                             opa: 'com.celmino.applet.grid',
-                                             icon: 'GridIcon',
-                                             color: '#40BC86',
-                                         }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Board',
-                                    icon: WorkbenchIcons.BoardIcon,
-                                    onClick: () => {
-
-                                        /*  createApplet({
-                                             name: 'New board',
-                                             parentId: folder.$id,
-                                             parentType: 'workspace',
-                                             opa: 'com.celmino.applet.board',
-                                             icon: 'BoardIcon',
-                                             color: '#40BC86',
-                                         }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
                                 },
                                 {
                                     title: 'List',
@@ -125,99 +71,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                         controller.InvalidateQuerie('space-folders')
                                     }) */
                                 },
-                                {
-                                    title: 'Timeline',
-                                    icon: WorkbenchIcons.TimelineIcon,
-                                    onClick: () => {
-
-                                        /*   createApplet({
-                                              name: 'New timeline',
-                                              parentId: folder.$id,
-                                              parentType: 'workspace',
-                                              opa: 'com.celmino.applet.timeline',
-                                              icon: 'TimelineIcon',
-                                              color: '#40BC86',
-                                          }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Calendar',
-                                    icon: WorkbenchIcons.CalendarIcon,
-                                    onClick: () => {
-
-                                        /*  createApplet({
-                                             name: 'New calendar',
-                                             parentId: folder.$id,
-                                             parentType: 'workspace',
-                                             opa: 'com.celmino.applet.calendar',
-                                             icon: 'CalendarIcon',
-                                             color: '#40BC86',
-                                         }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Report',
-                                    icon: WorkbenchIcons.ReportIcon,
-                                    onClick: () => {
-
-                                        /*  createApplet({
-                                             name: 'New report',
-                                             parentId: folder.$id,
-                                             parentType: 'workspace',
-                                             opa: 'com.celmino.applet.report',
-                                             icon: 'ReportIcon',
-                                             color: '#40BC86',
-                                         }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Feed',
-                                    icon: WorkbenchIcons.FeedIcon,
-                                    onClick: () => {
-
-                                        /*   createApplet({
-                                              name: 'New feed',
-                                              parentId: folder.$id,
-                                              parentType: 'workspace',
-                                              opa: 'com.celmino.applet.feed',
-                                              icon: 'FeedIcon',
-                                              color: '#40BC86',
-                                          }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    title: 'Map',
-                                    icon: WorkbenchIcons.MapIcon,
-                                    onClick: () => {
-
-                                        /*   createApplet({
-                                              name: 'New map',
-                                              parentId: folder.$id,
-                                              parentType: 'workspace',
-                                              opa: 'com.celmino.applet.map',
-                                              icon: 'MapIcon',
-                                              color: '#40BC86',
-                                          }, () => console.log('created')) */
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
-                                {
-                                    type: 'Divider'
-                                },
+                            
                                 {
                                     title: 'Document',
                                     icon: WorkbenchIcons.DocumentIcon,
@@ -247,17 +101,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                         controller.InvalidateQuerie('space-folders')
                                     }) */
                                 },
-                                {
-                                    title: 'Form',
-                                    icon: WorkbenchIcons.FormIcon1,
-                                    onClick: () => {
-
-                                        DynoDialog.Show(AddFolderDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
-                                    }
-                                    /* .then(() => {
-                                        controller.InvalidateQuerie('space-folders')
-                                    }) */
-                                },
+                               
 
                                 {
                                     type: 'Divider'

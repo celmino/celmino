@@ -1716,7 +1716,7 @@ var DocumentItem = function (document) { return (0,_tuval_forms__WEBPACK_IMPORTE
             }
         }, []);
         var _b = (0,_localStorageState__WEBPACK_IMPORTED_MODULE_4__.useLocalStorageState)(document.$id, (documentInLink === null || documentInLink === void 0 ? void 0 : documentInLink.path.indexOf(document.$id)) > -1), expanded = _b[0], setExpanded = _b[1];
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_DocumentName__WEBPACK_IMPORTED_MODULE_1__.DocumentName)(document, function () {
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_DocumentName__WEBPACK_IMPORTED_MODULE_1__.DocumentName)(document, expanded, function () {
             setExpanded(!expanded);
         }), !expanded ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
@@ -1784,7 +1784,7 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 
-function DocumentName(document, onClickCallback) {
+function DocumentName(document, isOpen, onClickCallback) {
     var selected = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getDocumentId)() === document.$id;
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
         var _a;
@@ -1798,7 +1798,10 @@ function DocumentName(document, onClickCallback) {
         // const {applet:_applet} = useGetApplet(applet.$id);
         return (mode === 'readonly' ?
             //UIRouteLink(team ? `/app/${getAppFullName()}/team/${team.id}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}` : `/app/${getAppFullName()}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}`)(
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(document === null || document === void 0 ? void 0 : document.icon_name) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__.WorkbenchIcons.DocIcon2) :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height().display('var(--display-caret)')
+                .onClick(function () {
+                onClickCallback();
+            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(document === null || document === void 0 ? void 0 : document.icon_name) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__.WorkbenchIcons.DocIcon2) :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
                     .config({
                     selectedIcon: document === null || document === void 0 ? void 0 : document.icon_name,
@@ -1806,7 +1809,7 @@ function DocumentName(document, onClickCallback) {
                     width: 16,
                     height: 16,
                     padding: 1
-                })).foregroundColor('rgba(109,122,131,0.9)')
+                })).width().height().display('var(--display-icon)')).foregroundColor('rgba(109,122,131,0.9)')
                 //.background('#FCE8E8')
                 .width().height()
                 .cornerRadius(5), mode !== 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
@@ -1958,6 +1961,8 @@ function DocumentName(document, onClickCallback) {
                 e.dataTransfer.setData('text/plain', JSON.stringify(document));
             })
                 .variable('--show-applet-action-buttons', { default: 'none', hover: 'flex' })
+                .variable("--display-caret", { default: 'none', hover: 'flex' })
+                .variable("--display-icon", { default: 'flex', hover: 'none' })
             :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(((_a = _Opas__WEBPACK_IMPORTED_MODULE_3__.opas.find(function (opa) { return opa.type === document.opa; })) === null || _a === void 0 ? void 0 : _a.icon) || _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_5__.WorkbenchIcons.DocIcon).foregroundColor('#7c828d'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.TextField)().value(newName)
                     .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
@@ -2139,60 +2144,8 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
             .borderBottom({ hover: '1px dashed #2A2D34' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
             .model([
             {
-                title: 'Add to space',
+                title: 'Add to folder',
                 type: 'Title'
-            },
-            {
-                title: 'Table',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.TableIcon,
-                onClick: function () {
-                    /*  createApplet({
-                         name: 'New table',
-                         parentId: folder.$id,
-                         parentType: 'workspace',
-                         opa: 'com.celmino.applet.table',
-                         icon: 'TableIcon',
-                         color: '#40BC86',
-                     }, () => alert('created')) */
-                    //DynoDialog.Show(AddFolderDialog(space.$id))
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Grid',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.GridIcon,
-                onClick: function () {
-                    /*  createApplet({
-                         name: 'New grid',
-                         parentId: folder.$id,
-                         parentType: 'workspace',
-                         opa: 'com.celmino.applet.grid',
-                         icon: 'GridIcon',
-                         color: '#40BC86',
-                     }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Board',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.BoardIcon,
-                onClick: function () {
-                    /*  createApplet({
-                         name: 'New board',
-                         parentId: folder.$id,
-                         parentType: 'workspace',
-                         opa: 'com.celmino.applet.board',
-                         icon: 'BoardIcon',
-                         color: '#40BC86',
-                     }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
             },
             {
                 title: 'List',
@@ -2209,94 +2162,6 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
                 /* .then(() => {
                     controller.InvalidateQuerie('space-folders')
                 }) */
-            },
-            {
-                title: 'Timeline',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.TimelineIcon,
-                onClick: function () {
-                    /*   createApplet({
-                          name: 'New timeline',
-                          parentId: folder.$id,
-                          parentType: 'workspace',
-                          opa: 'com.celmino.applet.timeline',
-                          icon: 'TimelineIcon',
-                          color: '#40BC86',
-                      }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Calendar',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.CalendarIcon,
-                onClick: function () {
-                    /*  createApplet({
-                         name: 'New calendar',
-                         parentId: folder.$id,
-                         parentType: 'workspace',
-                         opa: 'com.celmino.applet.calendar',
-                         icon: 'CalendarIcon',
-                         color: '#40BC86',
-                     }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Report',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.ReportIcon,
-                onClick: function () {
-                    /*  createApplet({
-                         name: 'New report',
-                         parentId: folder.$id,
-                         parentType: 'workspace',
-                         opa: 'com.celmino.applet.report',
-                         icon: 'ReportIcon',
-                         color: '#40BC86',
-                     }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Feed',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.FeedIcon,
-                onClick: function () {
-                    /*   createApplet({
-                          name: 'New feed',
-                          parentId: folder.$id,
-                          parentType: 'workspace',
-                          opa: 'com.celmino.applet.feed',
-                          icon: 'FeedIcon',
-                          color: '#40BC86',
-                      }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Map',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.MapIcon,
-                onClick: function () {
-                    /*   createApplet({
-                          name: 'New map',
-                          parentId: folder.$id,
-                          parentType: 'workspace',
-                          opa: 'com.celmino.applet.map',
-                          icon: 'MapIcon',
-                          color: '#40BC86',
-                      }, () => console.log('created')) */
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                type: 'Divider'
             },
             {
                 title: 'Document',
@@ -2319,16 +2184,6 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
             {
                 title: 'Whiteboard',
                 icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.WhiteboardIcon1,
-                onClick: function () {
-                    _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, folder.$id, "".concat(parent.path, "/").concat(parent.$id)));
-                }
-                /* .then(() => {
-                    controller.InvalidateQuerie('space-folders')
-                }) */
-            },
-            {
-                title: 'Form',
-                icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.FormIcon1,
                 onClick: function () {
                     _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, folder.$id, "".concat(parent.path, "/").concat(parent.$id)));
                 }
@@ -2674,12 +2529,20 @@ function WorkspaceName(space, isOpen, isLoading, onClickCallback) {
         return (mode === 'readonly' ?
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height()
-                .display("var(--display-caret)"), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
+                .display("var(--display-caret)"), 
+            /*    HStack(
+                   isLoading ? Loader().size(LoaderSizes.XS) :
+                       HStack().width(20).height(20).background('#40BC86')
+               ).width().height()
+                   .display(`var(--display-icon)`), */
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
                 .config({
                 selectedIcon: 'bookmark',
-                color: 'gray',
-                width: 18,
-                height: 18,
+                selectedCategory: 'Icons',
+                color: 'white',
+                backgroundColor: '#40BC86',
+                width: 20,
+                height: 20,
                 padding: 1
             }))
                 //.background('#FCE8E8')
