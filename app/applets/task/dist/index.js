@@ -33283,6 +33283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list-[listId]/view-[viewId]/+controller */ "./src/routes/list-[listId]/view-[viewId]/+controller.tsx");
 /* harmony import */ var _document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./document-[documentId]/+controller */ "./src/routes/document-[documentId]/+controller.tsx");
 /* harmony import */ var _list_listId_controller_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list-[listId]/+controller.ts */ "./src/routes/list-[listId]/+controller.ts.ts");
+/* harmony import */ var _whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./whiteboard-[whiteboardId]/+controller */ "./src/routes/whiteboard-[whiteboardId]/+controller.tsx");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -33298,6 +33299,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -33322,7 +33324,13 @@ var RouteController = /** @class */ (function (_super) {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_2;
-            }(_document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
+            }(_document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('whiteboard/:whiteboardId', /** @class */ (function (_super) {
+                __extends(class_3, _super);
+                function class_3() {
+                    return _super !== null && _super.apply(this, arguments) || this;
+                }
+                return class_3;
+            }(_whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__.WhiteboardController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
                 .background('var(--primary-background-color)');
         }));
     };
@@ -33884,6 +33892,103 @@ var ErrorBoundaryInner = /** @class */ (function (_super) {
     };
     return ErrorBoundaryInner;
 }((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
+
+
+/***/ }),
+
+/***/ "./src/routes/whiteboard-[whiteboardId]/+controller.tsx":
+/*!**************************************************************!*\
+  !*** ./src/routes/whiteboard-[whiteboardId]/+controller.tsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WhiteboardController": () => (/* binding */ WhiteboardController)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../views/ActionPanel */ "./src/views/ActionPanel.tsx");
+/* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../views/ViewHeader */ "./src/views/ViewHeader.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_5__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+
+
+var WhiteboardController = /** @class */ (function (_super) {
+    __extends(WhiteboardController, _super);
+    function WhiteboardController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    WhiteboardController.prototype.LoadView = function () {
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, whiteboardId = _a.whiteboardId;
+        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'work_management',
+            collectionId: 'wm_whiteboards',
+            documentId: whiteboardId
+        }).document;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'work_management',
+            collectionId: 'wm_whiteboard_contents',
+            documentId: whiteboardId
+        }), content = _b.document, isLoading = _b.isLoading;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
+        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+                updateDocument({
+                    databaseId: 'work_management',
+                    collectionId: 'wm_whiteboards',
+                    documentId: whiteboardId,
+                    data: {
+                        name: e
+                    }
+                });
+            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.tuvalsoft.widget.whiteboard')
+                .config({
+                defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_5__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
+                onChange: function (data) {
+                    console.log(data);
+                    updateDocument({
+                        databaseId: 'work_management',
+                        collectionId: 'wm_whiteboard_contents',
+                        documentId: whiteboardId,
+                        data: {
+                            content: JSON.stringify(data)
+                        }
+                    });
+                }
+            }))
+                .background('white')
+                .render())));
+    };
+    return WhiteboardController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
+
 
 
 /***/ }),

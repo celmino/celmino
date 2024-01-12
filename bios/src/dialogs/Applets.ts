@@ -3963,6 +3963,108 @@ export const Applets = [
             }
         ]
     },
+    {
+        name: 'Document Management',
+        type: 'com.celmino.widget.document-management-tree',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Document Management",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+          
+                    {
+                        "name": "Folders",
+                        "id": "dm_folders",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Documents",
+                        "id": "dm_documents",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+
+                    },
+                    {
+                        "name": "Document Contents",
+                        "id": "dm_document_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+
+                    },
+                    {
+                        "name": "views",
+                        "id": "dm_views",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            }
+                        ],
+
+                    }
+                ]
+            }
+        ]
+    },
 {
     name: 'Meeting Management',
         type: 'com.celmino.applet.enterprise-modelling',

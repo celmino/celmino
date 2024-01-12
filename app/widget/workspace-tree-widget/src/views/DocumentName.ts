@@ -53,7 +53,7 @@ export function DocumentName(document: any, isOpen: boolean, onClickCallback: Fu
                                         onClickCallback();
                                     }),
                                 HStack(
-                                    is.nullOrEmpty(document?.icon_name) ? Icon(WorkbenchIcons.DocIcon2) :
+                                    is.nullOrEmpty(document?.icon_name) ? Icon(SvgIcon('cu3-icon-sidebarDoc',selected ? '#7b68ee' : '#151719','18px','18px')) /* Icon(WorkbenchIcons.DocIcon2) */ :
                                         UIWidget("com.tuvalsoft.widget.icons")
                                             .config({
                                                 selectedIcon: document?.icon_name,

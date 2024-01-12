@@ -5,6 +5,7 @@ import { FolderName } from "./FolderName";
 import { getDocumentId, getListId } from "../utils";
 import { useLocalStorageState } from "./localStorageState";
 import { DocumentItem } from "./DocumentItem";
+import { WhiteboardItem } from "./WhiteboardItem";
 
 
 export function FolderItem(parent: any, folder: any) {
@@ -32,14 +33,14 @@ export function FolderItem(parent: any, folder: any) {
 
             return (
                 UIViewBuilder(() => {
-                    const expandedFromUrl = list?.path.indexOf(folder.$id) > -1 ||  document?.path.indexOf(folder.$id) > -1 ;
+                    const expandedFromUrl = list?.path.indexOf(folder.$id) > -1 || document?.path.indexOf(folder.$id) > -1;
                     useEffect(() => {
                         if (expandedFromUrl) {
                             setExpanded(true);
                         }
                     }, []);
 
-                    const [expanded, setExpanded] = useLocalStorageState(folder.$id, list?.path.indexOf(folder.$id) > -1 ||  document?.path.indexOf(folder.$id) > -1 );
+                    const [expanded, setExpanded] = useLocalStorageState(folder.$id, list?.path.indexOf(folder.$id) > -1 || document?.path.indexOf(folder.$id) > -1);
 
                     //const [a, setA] = useState(true)
                     const { documents: folders, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_folders', [
@@ -51,6 +52,10 @@ export function FolderItem(parent: any, folder: any) {
                     ]);
 
                     const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_documents', [
+                        Query.equal('parent', folder.$id)
+                    ]);
+
+                    const { documents: whiteboards, isLoading: isWhiteboardLoading } = useListDocuments(workspaceId, 'work_management', 'wm_whiteboards', [
                         Query.equal('parent', folder.$id)
                     ]);
 
@@ -73,6 +78,10 @@ export function FolderItem(parent: any, folder: any) {
                                             // Documents
                                             ...ForEach(documents)((document: any) =>
                                                 DocumentItem(document)
+                                            ),
+                                            // Whiteboards
+                                            ...ForEach(whiteboards)((whiteboard: any) =>
+                                                WhiteboardItem(whiteboard)
                                             ),
                                             // Applets
                                             ...ForEach(applets)((applet: any) =>

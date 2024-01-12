@@ -9,6 +9,7 @@ import { opas } from "../Opas";
 import { Query, useCreateDocument } from "@realmocean/sdk";
 import { AddListDialog } from "../dialogs/AddListDialog";
 import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
+import { AddWhiteboardDialog } from "../dialogs/AddWhiteboardDialog";
 
 
 export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading: boolean,
@@ -33,7 +34,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                 Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
                         ).width().height().display('var(--display-caret)'),
                         HStack(
-                            Icon(isOpen ? SvgIcon('svg-sprite-cu3-folder-sidebar_opened', '#7C828D', '18px', '18px') : SvgIcon('svg-sprite-cu3-folder-sidebar', '#7C828D', '18px', '18px')).foregroundColor('#7C828D'),
+                            Icon(isOpen ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D'),
                         ).padding(2).width(20).height(20).cornerRadius(5).display('var(--display-icon)')
                     ).width(20).height(20),
 
@@ -95,7 +96,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.WhiteboardIcon1,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddFolderDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')

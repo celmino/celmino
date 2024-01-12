@@ -1,4 +1,4 @@
-import { Button, FormBuilder, Fragment, HStack, Icon, Loader, LoaderSizes, OptionsContext, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cTopLeading, useEffect, useState } from '@tuval/forms';
+import { Button, FormBuilder, Fragment, HStack, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cTopLeading, useEffect, useState } from '@tuval/forms';
 
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useGetWorkspaces } from '@celmino/workprotocol';
@@ -44,14 +44,14 @@ export class MyTestController extends UIController {
             OptionsContext(() => (
                 VStack({ alignment: cTopLeading })(
 
-                    HStack({ alignment: cTopLeading, spacing: 5 })(
+                    HStack({ alignment: cTopLeading, spacing: 1 })(
                         HStack(
                             HStack(
                                 isLoading ? Loader().size(LoaderSizes.XS) :
                                     Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
-                            ).width().height()
+                            ).width(20).height(20).cursor('pointer')
                                 .display(`var(--display-caret)`),
-                            HStack(
+                            /* HStack(
                                 UIWidget("com.tuvalsoft.widget.icons")
                                     .config({
                                         selectedIcon: 'bookmark',
@@ -61,10 +61,9 @@ export class MyTestController extends UIController {
                                         padding: 1
                                     })
                             )
-                                //.background('#FCE8E8')
                                 .width().height()
                                 .cornerRadius(5)
-                                .display('var(--display-icon)'),
+                                .display('var(--display-icon)'), */
                         ).width(20).height(20)
                             .onClick(() => {
                                 setIsOpen(!isOpen);
@@ -77,17 +76,21 @@ export class MyTestController extends UIController {
                                   setIsOpen(!isOpen);
                               }), */
                         Text('Work Management').fontSize(14),
+                        Spacer(),
                         HStack(
-                            Text('Add')
-                        ).height().width()
+                            Icon(Icons.Add).size(15)
+                        ).height(20).width(20)
+                        .background('gray')
                             .onClick(() => {
 
                                 DynoDialog.Show(AddSpaceDialog(workspaceId, '/'));
                             })
-                    ).height().padding(5)
+                    )
+                    .fontWeight('500')
+                    .height().padding(5)
                         .variable('--show-space-action-buttons', { default: 'none', hover: 'flex' })
-                        .variable(`--display-caret`, { default: 'none', hover: 'flex' })
-                        .variable(`--display-icon`, { default: 'flex', hover: 'none' })
+                       // .variable(`--display-caret`, { default: 'none', hover: 'flex' })
+                       // .variable(`--display-icon`, { default: 'flex', hover: 'none' })
                     ,
                     isOpen ?
                         HStack(
