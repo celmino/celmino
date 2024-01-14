@@ -1,4 +1,4 @@
-import { Button, FormBuilder, Fragment, HStack, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cTopLeading, useEffect, useState } from '@tuval/forms';
+import { Button, FormBuilder, Fragment, HStack, Heading, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cTopLeading, useEffect, useState } from '@tuval/forms';
 
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useGetWorkspaces } from '@celmino/workprotocol';
@@ -6,7 +6,7 @@ import { useSessionService } from '@realmocean/services';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
-import { getListId } from './utils';
+import { getAppletName, getListId } from './utils';
 import { useGetDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 
@@ -15,7 +15,7 @@ import { useLocalStorageState } from './views/localStorageState';
 export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
-        const [isOpen, setIsOpen] = useState(true);
+        const [isOpen, setIsOpen] = useState(getAppletName() === 'com.celmino.applet.workmanagement');
         const isLoading = false;
         const { items } = this.props.data || {};
         const { selectedItem, team_id, workspaceId, folder_id, applet_id, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
@@ -75,22 +75,26 @@ export class MyTestController extends UIController {
                               .onClick(() => {
                                   setIsOpen(!isOpen);
                               }), */
-                        Text('Work Management').fontSize(14),
+                        Heading('Work Management').fontSize(16)
+                            //  .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+                            //  .fontWeight('600')
+                            .lineHeight(22),
+
                         Spacer(),
                         HStack(
                             Icon(Icons.Add).size(15)
                         ).height(20).width(20)
-                        .background('gray')
+                            .background('gray')
                             .onClick(() => {
 
                                 DynoDialog.Show(AddSpaceDialog(workspaceId, '/'));
                             })
                     )
-                    .fontWeight('500')
-                    .height().padding(5)
+                        .fontWeight('500')
+                        .height().padding(5)
                         .variable('--show-space-action-buttons', { default: 'none', hover: 'flex' })
-                       // .variable(`--display-caret`, { default: 'none', hover: 'flex' })
-                       // .variable(`--display-icon`, { default: 'flex', hover: 'none' })
+                    // .variable(`--display-caret`, { default: 'none', hover: 'flex' })
+                    // .variable(`--display-icon`, { default: 'flex', hover: 'none' })
                     ,
                     isOpen ?
                         HStack(

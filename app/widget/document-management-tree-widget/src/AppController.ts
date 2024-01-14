@@ -1,4 +1,4 @@
-import { Button, FormBuilder, Fragment, HStack, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cLeading, cTopLeading, useEffect, useState } from '@tuval/forms';
+import { Button, FormBuilder, Fragment, HStack, Heading, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cLeading, cTopLeading, useEffect, useState } from '@tuval/forms';
 
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useGetWorkspaces } from '@celmino/workprotocol';
@@ -6,7 +6,7 @@ import { useSessionService } from '@realmocean/services';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
-import { getListId } from './utils';
+import { getAppletName, getListId } from './utils';
 import { useGetDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
@@ -16,7 +16,7 @@ import { AddFolderDialog } from './dialogs/AddFolderDialog';
 export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
-        const [isOpen, setIsOpen] = useState(true);
+        const [isOpen, setIsOpen] = useState(getAppletName() === 'com.celmino.applet.documentmanagement');
         const isLoading = false;
         const { items } = this.props.data || {};
         const { selectedItem, team_id, workspaceId, folder_id, applet_id, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
@@ -76,9 +76,9 @@ export class MyTestController extends UIController {
                               .onClick(() => {
                                   setIsOpen(!isOpen);
                               }), */
-                        Text('Document Management').fontSize(16)
-                        .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
-                        .fontWeight('600')
+                        Heading('Document Management').fontSize(16)
+                      //  .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+                      //  .fontWeight('600')
                         .lineHeight(22),
                         Spacer(),
                         HStack(

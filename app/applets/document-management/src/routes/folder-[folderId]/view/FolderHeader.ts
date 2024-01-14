@@ -36,7 +36,7 @@ export const FolderHeader = (header, onHeaderChange = void 0) => UIViewBuilder((
                                 .onChange((e) => onHeaderChange(e))
                                 .fontSmoothing('auto')
                                 .foregroundColor('#212526')
-                                .fontSize(32)
+                                .fontSize(28)
                                 //.fontFamily(fontFamily)
                                 .fontWeight('500')
                                 .lineHeight('1.25')

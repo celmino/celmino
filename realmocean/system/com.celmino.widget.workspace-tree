@@ -257,7 +257,7 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(true), isOpen = _a[0], setIsOpen = _a[1];
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_5__.getAppletName)() === 'com.celmino.applet.workmanagement'), isOpen = _a[0], setIsOpen = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
         var _b = this.props.config || {}, selectedItem = _b.selectedItem, team_id = _b.team_id, workspaceId = _b.workspaceId, folder_id = _b.folder_id, applet_id = _b.applet_id, showAllWorkspaces = _b.showAllWorkspaces, opas = _b.opas, folder_menu = _b.folder_menu, app_id = _b.app_id;
@@ -287,7 +287,10 @@ var MyTestController = /** @class */ (function (_super) {
               .onClick(() => {
                   setIsOpen(!isOpen);
               }), */
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Work Management').fontSize(14), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15)).height(20).width(20)
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Work Management').fontSize(16)
+            //  .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+            //  .fontWeight('600')
+            .lineHeight(22), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15)).height(20).width(20)
             .background('gray')
             .onClick(function () {
             _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddSpaceDialog__WEBPACK_IMPORTED_MODULE_3__.AddSpaceDialog)(workspaceId, '/'));
@@ -1484,10 +1487,25 @@ var SelectOpaDialog = /** @class */ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAppletName: () => (/* binding */ getAppletName),
 /* harmony export */   getDocumentId: () => (/* binding */ getDocumentId),
 /* harmony export */   getListId: () => (/* binding */ getListId),
 /* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId)
 /* harmony export */ });
+function getAppletName() {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)/;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1];
+    }
+    else {
+        return;
+    }
+}
 function getListId() {
     var url = window.location.href;
     // Regex deseni
@@ -1622,7 +1640,7 @@ function AppletName(applet, onClickCallback) {
         // const {applet:_applet} = useGetApplet(applet.$id);
         return (mode === 'readonly' ?
             //UIRouteLink(team ? `/app/${getAppFullName()}/team/${team.id}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}` : `/app/${getAppFullName()}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}`)(
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(/* applet?.icon_name */ null) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719', '18px', '18px')) /* Icon(WorkbenchIcons.ListIcon) */ :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(_tuval_core__WEBPACK_IMPORTED_MODULE_8__.is.nullOrEmpty(applet === null || applet === void 0 ? void 0 : applet.icon_name) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719', '18px', '18px')) /* Icon(WorkbenchIcons.ListIcon) */ :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.icons")
                     .config({
                     selectedIcon: applet === null || applet === void 0 ? void 0 : applet.icon_name,

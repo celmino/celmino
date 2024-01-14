@@ -46,7 +46,7 @@ export function AppletName(applet: any, onClickCallback: Function) {
                     HStack({ alignment: cLeading, spacing: 5 })(
                         HStack({ alignment: cLeading })(
                             HStack(
-                                is.nullOrEmpty(/* applet?.icon_name */null) ? Icon(SvgIcon('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719','18px','18px'))/* Icon(WorkbenchIcons.ListIcon) */ :
+                                is.nullOrEmpty( applet?.icon_name) ? Icon(SvgIcon('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719','18px','18px'))/* Icon(WorkbenchIcons.ListIcon) */ :
                                     UIWidget("com.tuvalsoft.widget.icons")
                                         .config({
                                             selectedIcon: applet?.icon_name,

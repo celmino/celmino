@@ -259,7 +259,7 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(true), isOpen = _a[0], setIsOpen = _a[1];
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_5__.getAppletName)() === 'com.celmino.applet.documentmanagement'), isOpen = _a[0], setIsOpen = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
         var _b = this.props.config || {}, selectedItem = _b.selectedItem, team_id = _b.team_id, workspaceId = _b.workspaceId, folder_id = _b.folder_id, applet_id = _b.applet_id, showAllWorkspaces = _b.showAllWorkspaces, opas = _b.opas, folder_menu = _b.folder_menu, app_id = _b.app_id;
@@ -289,9 +289,9 @@ var MyTestController = /** @class */ (function (_super) {
               .onClick(() => {
                   setIsOpen(!isOpen);
               }), */
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Document Management').fontSize(16)
-            .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
-            .fontWeight('600')
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Document Management').fontSize(16)
+            //  .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+            //  .fontWeight('600')
             .lineHeight(22), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15).foregroundColor('white')).height(24).width(24).foregroundColor('white').background('rgb(0, 115, 234)').cornerRadius(4)
             .onClick(function () {
             _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_8__.AddFolderDialog)(workspaceId, '-1', '/'));
@@ -1488,10 +1488,25 @@ var SelectOpaDialog = /** @class */ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAppletName: () => (/* binding */ getAppletName),
 /* harmony export */   getDocumentId: () => (/* binding */ getDocumentId),
 /* harmony export */   getListId: () => (/* binding */ getListId),
 /* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId)
 /* harmony export */ });
+function getAppletName() {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)/;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1];
+    }
+    else {
+        return;
+    }
+}
 function getListId() {
     var url = window.location.href;
     // Regex deseni

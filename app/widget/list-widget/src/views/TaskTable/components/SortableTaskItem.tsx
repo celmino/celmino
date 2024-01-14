@@ -2,7 +2,7 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import {
-    cLeading, ForEach, Fragment, HStack, Icon, Icons, ReactView, Spacer, Text, UIViewBuilder, UIWidget,
+    cLeading, ForEach, Fragment, Heading, HStack, Icon, Icons, ReactView, Spacer, Text, UIViewBuilder, UIWidget,
     useDialogStack, useNavigate, useOptions, useParams
 } from '@tuval/forms';
 import React from 'react';
@@ -76,19 +76,16 @@ const SortableTaskItem = ({ id, task: item, status }/* : SortableTaskItemProps *
                             ),
                             StatusMarker(status),
                             HStack({ alignment: cLeading })(
-                                ReactView(
-                                    <span role="textbox" style={{ outline: '0px solid transparent', lineHeight: '34px' }} contentEditable={false} onInput={(e: any) => item.title = e.currentTarget.textContent}>
-                                        {item.name}
-                                    </span>
-                                )
-                            ).width(200).height()
+                                          Heading(item?.name).ellipsis(true).ellipsisMaxLines(1).fontSize(14).fontWeight('400')
+                                    
+                            ).allWidth(250).height()
                                 .cursor('pointer')
                                 .onClick(() => {
                                     onItemClick(item);
                                 }
 
                                 )
-                        ).allWidth(200).allHeight(30),
+                        ).allWidth(300).allHeight(30),
 
                         ...ForEach(fields)((field: any) => (
                             (field.key === 'name' || field.hidden) ? Fragment() :

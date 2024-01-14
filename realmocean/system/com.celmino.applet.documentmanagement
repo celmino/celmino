@@ -33507,7 +33507,7 @@ var FolderController = /** @class */ (function (_super) {
         ]), documents = _c.documents, isLoading = _c.isLoading;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useUpdateDocument)(workspaceId).updateDocument;
         return ((isFoldersLoading || isLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_view_FolderView__WEBPACK_IMPORTED_MODULE_3__.FolderView)(workspaceId, folderId)
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, { title: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).transform('rotate(90deg)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Folder - ' + (document === null || document === void 0 ? void 0 : document.name))) }, (0,_view_FolderView__WEBPACK_IMPORTED_MODULE_3__.FolderView)(workspaceId, folderId)
                 .render())));
     };
     return FolderController;
@@ -33713,7 +33713,7 @@ var FolderHeader = function (header, onHeaderChange) {
                 .onChange(function (e) { return onHeaderChange(e); })
                 .fontSmoothing('auto')
                 .foregroundColor('#212526')
-                .fontSize(32)
+                .fontSize(28)
                 //.fontFamily(fontFamily)
                 .fontWeight('500')
                 .lineHeight('1.25')

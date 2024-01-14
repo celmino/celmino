@@ -1,4 +1,4 @@
-import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment, HStack, ForEach, cTopLeading, cLeading, useDialogStack, UIViewBuilder } from "@tuval/forms";
+import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment, HStack, ForEach, cTopLeading, cLeading, useDialogStack, UIViewBuilder, Icon, SvgIcon } from "@tuval/forms";
 import { ActionPanel } from "../../views/ActionPanel";
 import { DocumentHeader } from "../../views/ViewHeader";
 import React from "react";
@@ -37,9 +37,14 @@ export class FolderController extends UIController {
         return (
             (isFoldersLoading || isLoading) ? Fragment() :
                 ReactView(
-                    <DialogStack>
+                    <DialogStack title={
+                        HStack({alignment:cLeading, spacing: 5})(
+                            Icon(SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).transform('rotate(90deg)'),
+                            Text('Folder - ' + document?.name)
+                        ) as any
+                    }>
                         {
-                           FolderView(workspaceId, folderId)
+                            FolderView(workspaceId, folderId)
                                 .render()
                         }
                     </DialogStack>

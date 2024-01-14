@@ -116,7 +116,7 @@ function BoardSection({ id, items, status }: BoardSectionProps) {
                     HStack({ alignment: cLeading })(
                         HStack({ alignment: cLeading })(
                             Text('Name').fontSize(10).fontWeight('500').textTransform('uppercase')
-                        ).allWidth(200).height(30),
+                        ).allWidth(300).height(30),
                         ...ForEach(fields)((field: any) => (
                             (field.key === 'name' || field.hidden) ? Fragment() :
                                 HStack({ alignment: cLeading })(
