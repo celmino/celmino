@@ -1,4 +1,4 @@
-import { HStack, Heading, Icon, Icons, Loader, LoaderSizes, MenuButton, ShowSuccessToast, ShowToast, Spacer, SvgIcon, TextField, UIViewBuilder, WorkProtocol, cHorizontal, cLeading, cTrailing, useOptions, useParams, useProtocol, useState } from "@tuval/forms";
+import { HStack, Heading, Icon, Icons, Loader, LoaderSizes, MenuButton, ShowSuccessToast, ShowToast, Spacer, SvgIcon, TextField, UIViewBuilder, WorkProtocol, cHorizontal, cLeading, cTrailing, useNavigate, useOptions, useParams, useProtocol, useState } from "@tuval/forms";
 import copy from "copy-to-clipboard";
 import { SelectOpaDialog } from "../dialogs/SelectOpaDialog";
 import { WorkbenchIcons } from "./WorkbenchIcons";
@@ -18,6 +18,8 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
         const { folder_id } = useParams();
         const { workspaceId } = useOptions();
 
+        const navigate = useNavigate();
+
         let selected = false;
         const [mode, setMode] = useState('readonly');
         const [name, setName] = useState(folder?.name);
@@ -36,14 +38,34 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                         HStack(
                             Icon(isOpen ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D'),
                         ).padding(2).width(20).height(20).cornerRadius(5).display('var(--display-icon)')
-                    ).width(20).height(20),
+                    ).width(20).height(20)
+                    .onClick(() => {
+                        onClickCallback();
+                    }),
 
-                    Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
+                    HStack({ alignment: cLeading })(
+                        Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
+                            .fontSize(14).fontWeight(selected ? '500' : '400')
+                            .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
+                            .foregroundColor(selected ? '#7b68ee' : '#151719')
+                            .borderBottom({ hover: '1px dashed #2A2D34' })
+                    )
+                        .height(32)
+                        .onClick(() => {
+                            //alert(getAppletUrl(access_type, applet.id))
+
+                            navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.documentmanagement/folder/${folder.$id}`);
+                        }),
+                        
+                    /* Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
                         .fontSize(14).fontWeight('400')
                         .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
 
                         .foregroundColor(selected ? '#7b68ee' : '#151719')
-                        .borderBottom({ hover: '1px dashed #2A2D34' }),
+                        .borderBottom({ hover: '1px dashed #2A2D34' })
+                        .onClick(() => {
+                            onClickCallback();
+                        }), */
                     Spacer(),
 
 
@@ -179,9 +201,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                         })
 
                 )
-                    .onClick(() => {
-                        onClickCallback();
-                    })
+                    
                     // .borderLeft(isOpen ? 'solid 1px #7B68EE' : '')
                     .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
                     .allHeight(32)

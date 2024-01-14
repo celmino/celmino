@@ -1,11 +1,12 @@
 
+//Icon(isOpen ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px'))
 import { EditableHeader, EditableHeadingSizes, Fragment, HStack, Icon, SvgIcon, UIViewBuilder, VStack, cLeading, Text, cTopLeading, cHorizontal, useDialogStack } from "@tuval/forms";
 
 import { is } from "@tuval/core";
 
 
 const fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif'
-export const DocumentHeader = (header, onHeaderChange = void 0) => UIViewBuilder(() => {
+export const FolderHeader = (header, onHeaderChange = void 0) => UIViewBuilder(() => {
 
     const { openDialog } = useDialogStack();
     /*  const { access_type, team_id, applet_id, view_id } = useParams();
@@ -25,22 +26,24 @@ export const DocumentHeader = (header, onHeaderChange = void 0) => UIViewBuilder
                             title: 'Open',
                             view: Text('Hans')
                         })
-                        }),
+                    }),
                 HStack({ alignment: cLeading, spacing: 5 })(
-
-                    //  _StatusMarker(task?.stage_id),
-                    is.string(header) ?
-                        EditableHeader(header).size(EditableHeadingSizes.SMALL)
-                            .onChange((e) => onHeaderChange(e))
-                            .fontSmoothing('auto')
-                            .foregroundColor('#212526')
-                            .fontSize(32)
-                            //.fontFamily(fontFamily)
-                            .fontWeight('500')
-                            .lineHeight('1.25')
-                            .kerning('-0.003em')
-                        :
-                        is.function(header) ? header() : Fragment(),
+                    HStack(
+                        //  _StatusMarker(task?.stage_id),
+                        Icon(SvgIcon('cu3-icon-sidebarFolder', '#151719', '36px', '36px')),
+                        is.string(header) ?
+                            EditableHeader(header).size(EditableHeadingSizes.SMALL)
+                                .onChange((e) => onHeaderChange(e))
+                                .fontSmoothing('auto')
+                                .foregroundColor('#212526')
+                                .fontSize(32)
+                                //.fontFamily(fontFamily)
+                                .fontWeight('500')
+                                .lineHeight('1.25')
+                                .kerning('-0.003em')
+                            :
+                            is.function(header) ? header() : Fragment()
+                    ),
                 )
                     .background('white')
                     .height()

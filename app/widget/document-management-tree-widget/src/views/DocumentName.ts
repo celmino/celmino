@@ -70,7 +70,7 @@ export function DocumentName(document: any, isOpen: boolean, onClickCallback: Fu
                             mode !== 'readonly' ? Fragment() :
                                 HStack({ alignment: cLeading })(
                                     Heading(document.name).h6().ellipsisMaxLines(1).ellipsis(true)
-                                        .fontSize(14).fontWeight('400')
+                                        .fontSize(14).fontWeight(selected ? '500' : '400')
                                         .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
                                         .foregroundColor(selected ? '#7b68ee' : '#151719')
                                 )

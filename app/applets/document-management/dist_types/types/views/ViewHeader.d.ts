@@ -1,1 +1,1 @@
-export declare const ViewHeader: (header: any, onHeaderChange?: any) => import("@tuval/forms").UIViewBuilderClass;
+export declare const DocumentHeader: (header: any, onHeaderChange?: any) => import("@tuval/forms").UIViewBuilderClass;

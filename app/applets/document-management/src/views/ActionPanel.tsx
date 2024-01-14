@@ -1,4 +1,4 @@
-import { HStack, Icon, Spacer, UIViewBuilder, useConfig, Text, Fragment } from "@tuval/forms";
+import { HStack, Icon, Spacer, UIViewBuilder, useConfig, Text, Fragment, useDialogStack } from "@tuval/forms";
 import React from "react";
 
 
@@ -99,7 +99,7 @@ export const ActionsPanelButton = (icon, action = void 0, label = null) => (
 )
 
 export const ActionPanel = () => UIViewBuilder(() => {
-    const { closeDialog } = useConfig();
+    const { closeDialog } = useDialogStack();
     return (
         HStack({ spacing: 5 })(
             /*   _StatusMarker(task?.stage_id),

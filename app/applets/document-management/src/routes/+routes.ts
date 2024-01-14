@@ -4,6 +4,7 @@ import { ViewController } from "./list-[listId]/view-[viewId]/+controller";
 import { DocumentController } from "./document-[documentId]/+controller";
 import { ListController } from "./list-[listId]/+controller.ts";
 import { WhiteboardController } from "./whiteboard-[whiteboardId]/+controller";
+import { FolderController } from "./folder-[folderId]/+controller";
 
 
 export class RouteController extends UIController {
@@ -17,7 +18,7 @@ export class RouteController extends UIController {
                             UIRoute('list/:listId', ListController).children(
                                 UIRoute('view/:viewId', class extends  ViewController {}),
                             ),
-                          
+                            UIRoute('folder/:folderId',   class extends  FolderController {} ),
                             UIRoute('document/:documentId',   class extends  DocumentController {} ),
                             UIRoute('whiteboard/:whiteboardId',   class extends  WhiteboardController {} ),
                             UIRoute(':view_id', ViewController),

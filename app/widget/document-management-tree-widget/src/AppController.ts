@@ -1,4 +1,4 @@
-import { Button, FormBuilder, Fragment, HStack, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cTopLeading, useEffect, useState } from '@tuval/forms';
+import { Button, FormBuilder, Fragment, HStack, Icon, Icons, Loader, LoaderSizes, OptionsContext, Spacer, SvgIcon, Text, UIController, UIView, UIWidget, VStack, cLeading, cTopLeading, useEffect, useState } from '@tuval/forms';
 
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useGetWorkspaces } from '@celmino/workprotocol';
@@ -45,7 +45,7 @@ export class MyTestController extends UIController {
             OptionsContext(() => (
                 VStack({ alignment: cTopLeading })(
 
-                    HStack({ alignment: cTopLeading, spacing: 1 })(
+                    HStack({ alignment: cLeading, spacing: 1 })(
                         HStack(
                             HStack(
                                 isLoading ? Loader().size(LoaderSizes.XS) :
@@ -76,12 +76,14 @@ export class MyTestController extends UIController {
                               .onClick(() => {
                                   setIsOpen(!isOpen);
                               }), */
-                        Text('Document Management').fontSize(14),
+                        Text('Document Management').fontSize(16)
+                        .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+                        .fontWeight('600')
+                        .lineHeight(22),
                         Spacer(),
                         HStack(
-                            Icon(Icons.Add).size(15)
-                        ).height(20).width(20)
-                        .background('gray')
+                            Icon(Icons.Add).size(15).foregroundColor('white')
+                        ).height(24).width(24).foregroundColor('white').background('rgb(0, 115, 234)').cornerRadius(4)
                             .onClick(() => {
 
                                 DynoDialog.Show(AddFolderDialog(workspaceId,'-1', '/'));

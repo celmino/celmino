@@ -225,7 +225,6 @@ export class ListController extends UIFormController {
 
                     UIRouteOutlet().width('100%').height('100%')
                 )
-
         )
     }
 

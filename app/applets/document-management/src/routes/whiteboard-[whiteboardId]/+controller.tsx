@@ -1,6 +1,6 @@
 import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment } from "@tuval/forms";
 import { ActionPanel } from "../../views/ActionPanel";
-import { ViewHeader } from "../../views/ViewHeader";
+import { DocumentHeader } from "../../views/ViewHeader";
 import React from "react";
 import { useGetDocument, useUpdateDocument } from "@realmocean/sdk";
 import { is } from "@tuval/core";
@@ -33,7 +33,7 @@ export class WhiteboardController extends UIController {
                         {
                             VStack(
                                 ActionPanel(),
-                                ViewHeader(document?.name, (e)=> {
+                                DocumentHeader(document?.name, (e)=> {
                                     updateDocument({
                                         databaseId: 'work_management',
                                         collectionId: 'wm_whiteboards',

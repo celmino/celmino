@@ -33284,6 +33284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./document-[documentId]/+controller */ "./src/routes/document-[documentId]/+controller.tsx");
 /* harmony import */ var _list_listId_controller_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list-[listId]/+controller.ts */ "./src/routes/list-[listId]/+controller.ts.ts");
 /* harmony import */ var _whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./whiteboard-[whiteboardId]/+controller */ "./src/routes/whiteboard-[whiteboardId]/+controller.tsx");
+/* harmony import */ var _folder_folderId_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./folder-[folderId]/+controller */ "./src/routes/folder-[folderId]/+controller.tsx");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -33305,6 +33306,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
+
 var RouteController = /** @class */ (function (_super) {
     __extends(RouteController, _super);
     function RouteController() {
@@ -33318,18 +33320,24 @@ var RouteController = /** @class */ (function (_super) {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_1;
-            }(_list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController)))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('document/:documentId', /** @class */ (function (_super) {
+            }(_list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController)))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('folder/:folderId', /** @class */ (function (_super) {
                 __extends(class_2, _super);
                 function class_2() {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_2;
-            }(_document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('whiteboard/:whiteboardId', /** @class */ (function (_super) {
+            }(_folder_folderId_controller__WEBPACK_IMPORTED_MODULE_6__.FolderController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('document/:documentId', /** @class */ (function (_super) {
                 __extends(class_3, _super);
                 function class_3() {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_3;
+            }(_document_documentId_controller__WEBPACK_IMPORTED_MODULE_3__.DocumentController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('whiteboard/:whiteboardId', /** @class */ (function (_super) {
+                __extends(class_4, _super);
+                function class_4() {
+                    return _super !== null && _super.apply(this, arguments) || this;
+                }
+                return class_4;
             }(_whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__.WhiteboardController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
                 .background('var(--primary-background-color)');
         }));
@@ -33392,22 +33400,22 @@ var DocumentController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DocumentController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, documentId = _a.documentId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, _b = _a.documentId, documentId = _b === void 0 ? this.props.documentId : _b;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
             databaseId: 'document_management',
             collectionId: 'dm_documents',
             documentId: documentId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
             databaseId: 'document_management',
             collectionId: 'dm_document_contents',
             documentId: documentId
-        }), content = _b.document, isLoading = _b.isLoading;
+        }), content = _c.document, isLoading = _c.isLoading;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
                     databaseId: 'document_management',
                     collectionId: 'dm_documents',
@@ -33437,6 +33445,444 @@ var DocumentController = /** @class */ (function (_super) {
     return DocumentController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
 
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/+controller.tsx":
+/*!******************************************************!*\
+  !*** ./src/routes/folder-[folderId]/+controller.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FolderController": () => (/* binding */ FolderController)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _view_FolderView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view/FolderView */ "./src/routes/folder-[folderId]/view/FolderView.tsx");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+var FolderController = /** @class */ (function (_super) {
+    __extends(FolderController, _super);
+    function FolderController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    FolderController.prototype.LoadView = function () {
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, folderId = _a.folderId;
+        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'document_management',
+            collectionId: 'dm_folders',
+            documentId: folderId
+        }).document;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, 'document_management', 'dm_folders', [
+            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Query.equal('parent', folderId)
+        ]), folders = _b.documents, isFoldersLoading = _b.isLoading;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, 'document_management', 'dm_documents', [
+            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Query.equal('parent', folderId)
+        ]), documents = _c.documents, isLoading = _c.isLoading;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useUpdateDocument)(workspaceId).updateDocument;
+        return ((isFoldersLoading || isLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_view_FolderView__WEBPACK_IMPORTED_MODULE_3__.FolderView)(workspaceId, folderId)
+                .render())));
+    };
+    return FolderController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
+
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/ProxyController.ts":
+/*!*********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/ProxyController.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ProxyController": () => (/* binding */ ProxyController)
+/* harmony export */ });
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _views_ActionPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../views/ActionPanel */ "./src/views/ActionPanel.tsx");
+/* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../views/ViewHeader */ "./src/views/ViewHeader.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+
+var ProxyController = /** @class */ (function (_super) {
+    __extends(ProxyController, _super);
+    function ProxyController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ProxyController.prototype.LoadView = function () {
+        var _a = this.props, workspaceId = _a.workspaceId, documentId = _a.documentId;
+        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'document_management',
+            collectionId: 'dm_documents',
+            documentId: documentId
+        }).document;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'document_management',
+            collectionId: 'dm_document_contents',
+            documentId: documentId
+        }), content = _b.document, isLoading = _b.isLoading;
+        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_3__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_4__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+                /* updateDocument({
+                    databaseId: 'document_management',
+                    collectionId: 'dm_documents',
+                    documentId: documentId,
+                    data: {
+                        name: e
+                    }
+                }) */
+            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.tuvalsoft.widget.editorjs')
+                .config({
+                defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
+                onChange: function (data) {
+                    console.log(data);
+                    /* updateDocument({
+                        databaseId: 'document_management',
+                        collectionId: 'dm_document_contents',
+                        documentId: documentId,
+                        data: {
+                            content: JSON.stringify(data)
+                        }
+                    }) */
+                }
+            }))
+                .background('white'));
+    };
+    return ProxyController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIController));
+
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/TestController.ts":
+/*!********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/TestController.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TestController": () => (/* binding */ TestController)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var TestController = /** @class */ (function (_super) {
+    __extends(TestController, _super);
+    function TestController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TestController.prototype.LoadView = function () {
+        var view = this.props.view;
+        return view;
+    };
+    return TestController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
+
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/view/DocumentName.ts":
+/*!***********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/view/DocumentName.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DocumentName": () => (/* binding */ DocumentName)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+
+var DocumentName = function (folder) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarDoc', '#151719', '18px', '18px')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(folder === null || folder === void 0 ? void 0 : folder.name).ellipsis(true).ellipsisMaxLines(1).fontSize(14).fontWeight('400'))); };
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/view/FolderHeader.ts":
+/*!***********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/view/FolderHeader.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FolderHeader": () => (/* binding */ FolderHeader)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
+//Icon(isOpen ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px'))
+
+
+var fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif';
+var FolderHeader = function (header, onHeaderChange) {
+    if (onHeaderChange === void 0) { onHeaderChange = void 0; }
+    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+        var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
+        /*  const { access_type, team_id, applet_id, view_id } = useParams();
+     
+         const navigate = useNavigate(); */
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__comment', '#87909e')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Add comment').fontFamily('-apple-system, "system-ui", "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif')).foregroundColor('#87909e')
+            .height(28).width().padding('0 15px').cornerRadius(4).background({ hover: 'rgb(240, 241, 243)' })
+            .onClick(function () {
+            openDialog({
+                title: 'Open',
+                view: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Hans')
+            });
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
+        //  _StatusMarker(task?.stage_id),
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolder', '#151719', '36px', '36px')), _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.string(header) ?
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeader)(header).size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeadingSizes.SMALL)
+                .onChange(function (e) { return onHeaderChange(e); })
+                .fontSmoothing('auto')
+                .foregroundColor('#212526')
+                .fontSize(32)
+                //.fontFamily(fontFamily)
+                .fontWeight('500')
+                .lineHeight('1.25')
+                .kerning('-0.003em')
+            :
+                _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is["function"](header) ? header() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()))
+            .background('white')
+            .height()
+            .padding(8).paddingBottom('20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('ST').foregroundColor('white').fontSize(10).fontWeight('500').fontFamily(fontFamily).lineHeight('1.33').kerning('-0.003em')).width(20).height(20).cornerRadius('50%').background('rgb(255, 87, 34)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('You').foregroundColor('#87909e')).height().width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Last Updated: 6/29/23 at 11:27 pm').foregroundColor('#87909e')).height().width()).height().padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 15).paddingBottom('5px')).height()
+            .paddingBottom('10px')
+            .borderBottom('1px solid #F2F2F2'))
+            .padding()
+            .paddingBottom('0px')
+            .height());
+    });
+};
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/view/FolderName.ts":
+/*!*********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/view/FolderName.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FolderName": () => (/* binding */ FolderName)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+
+var FolderName = function (folder) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolder', '#151719', '18px', '18px')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(folder === null || folder === void 0 ? void 0 : folder.name).ellipsis(true).ellipsisMaxLines(1).fontSize(14).fontWeight('400'))); };
+
+
+/***/ }),
+
+/***/ "./src/routes/folder-[folderId]/view/FolderView.tsx":
+/*!**********************************************************!*\
+  !*** ./src/routes/folder-[folderId]/view/FolderView.tsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FolderView": () => (/* binding */ FolderView)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../views/ActionPanel */ "./src/views/ActionPanel.tsx");
+/* harmony import */ var _ProxyController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProxyController */ "./src/routes/folder-[folderId]/ProxyController.ts");
+/* harmony import */ var _DocumentName__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DocumentName */ "./src/routes/folder-[folderId]/view/DocumentName.ts");
+/* harmony import */ var _FolderHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FolderHeader */ "./src/routes/folder-[folderId]/view/FolderHeader.ts");
+/* harmony import */ var _FolderName__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FolderName */ "./src/routes/folder-[folderId]/view/FolderName.ts");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _TestController__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../TestController */ "./src/routes/folder-[folderId]/TestController.ts");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_9__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+
+
+
+
+
+
+
+
+
+
+var FolderView = function (workspaceId, folderId) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+    var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useGetDocument)({
+        projectId: workspaceId,
+        databaseId: 'document_management',
+        collectionId: 'dm_folders',
+        documentId: folderId
+    }).document;
+    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, 'document_management', 'dm_folders', [
+        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.Query.equal('parent', folderId)
+    ]), folders = _a.documents, isFoldersLoading = _a.isLoading;
+    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, 'document_management', 'dm_documents', [
+        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.Query.equal('parent', folderId)
+    ]), documents = _b.documents, isLoading = _b.isLoading;
+    var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useUpdateDocument)(workspaceId).updateDocument;
+    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_FolderHeader__WEBPACK_IMPORTED_MODULE_4__.FolderHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+        updateDocument({
+            databaseId: 'document_management',
+            collectionId: 'dm_documents',
+            documentId: folderId,
+            data: {
+                name: e
+            }
+        });
+    }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+        var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(folders)(function (folder) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_FolderName__WEBPACK_IMPORTED_MODULE_5__.FolderName)(folder)).width('50%').minWidth(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)((0,_tuval_core__WEBPACK_IMPORTED_MODULE_9__.moment)(folder.$createdAt).format('DD.MM.YYYY HH:mm:ss'))
+                .foregroundColor('rgb(135, 144, 158)'))).height(40)
+                .cursor('pointer')
+                .background({ hover: 'rgb(247, 248, 249)' })
+                .borderBottom('solid 1px rgb(240, 241, 243)')
+                .onClick(function () {
+                openDialog({
+                    title: folder.name,
+                    view: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+                        var FolderProxyController = /** @class */ (function (_super) {
+                            __extends(FolderProxyController, _super);
+                            function FolderProxyController() {
+                                return _super !== null && _super.apply(this, arguments) || this;
+                            }
+                            return FolderProxyController;
+                        }(_TestController__WEBPACK_IMPORTED_MODULE_8__.TestController));
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_7___default().createElement(FolderProxyController, { view: FolderView(workspaceId, folder.$id) }, " ")));
+                    })
+                });
+            });
+        }), false), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(documents)(function (document) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_DocumentName__WEBPACK_IMPORTED_MODULE_3__.DocumentName)(document)).width('50%').minWidth(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)((0,_tuval_core__WEBPACK_IMPORTED_MODULE_9__.moment)(document.$createdAt).format('DD.MM.YYYY HH:mm:ss'))
+                .foregroundColor('rgb(135, 144, 158)'))).height(40)
+                .cursor('pointer')
+                .background({ hover: 'rgb(247, 248, 249)' })
+                .borderBottom('solid 1px rgb(240, 241, 243)')
+                .onClick(function () {
+                openDialog({
+                    title: document.name,
+                    view: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+                        var DocumentProxyController = /** @class */ (function (_super) {
+                            __extends(DocumentProxyController, _super);
+                            function DocumentProxyController() {
+                                return _super !== null && _super.apply(this, arguments) || this;
+                            }
+                            return DocumentProxyController;
+                        }(_ProxyController__WEBPACK_IMPORTED_MODULE_2__.ProxyController));
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_7___default().createElement(DocumentProxyController, { workspaceId: workspaceId, documentId: document.$id }, " ")));
+                    })
+                });
+            });
+        }), false)).padding());
+    }))
+        .background('white'));
+}); };
 
 
 /***/ }),
@@ -33959,7 +34405,7 @@ var WhiteboardController = /** @class */ (function (_super) {
         }), content = _b.document, isLoading = _b.isLoading;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
                     databaseId: 'work_management',
                     collectionId: 'wm_whiteboards',
@@ -34066,7 +34512,7 @@ var ActionsPanelButton = function (icon, action, label) {
     }));
 };
 var ActionPanel = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-    var closeDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useConfig)().closeDialog;
+    var closeDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().closeDialog;
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 5 })(
     /*   _StatusMarker(task?.stage_id),
          EditableHeader(task?.title).size(EditableHeadingSizes.MEDIUM), */
@@ -34094,7 +34540,7 @@ var ActionPanel = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ViewHeader": () => (/* binding */ ViewHeader)
+/* harmony export */   "DocumentHeader": () => (/* binding */ DocumentHeader)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
@@ -34102,28 +34548,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var fontFamily = 'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-var ViewHeader = function (header, onHeaderChange) {
+var fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif';
+var DocumentHeader = function (header, onHeaderChange) {
     if (onHeaderChange === void 0) { onHeaderChange = void 0; }
     return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+        var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
         /*  const { access_type, team_id, applet_id, view_id } = useParams();
      
          const navigate = useNavigate(); */
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__comment', '#87909e')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Add comment').fontFamily('-apple-system, "system-ui", "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif')).foregroundColor('#87909e')
+            .height(28).width().padding('0 15px').cornerRadius(4).background({ hover: 'rgb(240, 241, 243)' })
+            .onClick(function () {
+            openDialog({
+                title: 'Open',
+                view: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Hans')
+            });
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(
         //  _StatusMarker(task?.stage_id),
         _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.string(header) ?
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeader)(header).size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeadingSizes.SMALL)
                 .onChange(function (e) { return onHeaderChange(e); })
                 .fontSmoothing('auto')
                 .foregroundColor('#212526')
-                .fontSize(24).fontFamily(fontFamily).fontWeight('500')
+                .fontSize(32)
+                //.fontFamily(fontFamily)
+                .fontWeight('500')
                 .lineHeight('1.25')
                 .kerning('-0.003em')
             :
                 _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is["function"](header) ? header() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)())
             .background('white')
-            .height().padding(8)
-            .borderBottom('1px solid #F2F2F2'));
+            .height()
+            .padding(8).paddingBottom('20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('ST').foregroundColor('white').fontSize(10).fontWeight('500').fontFamily(fontFamily).lineHeight('1.33').kerning('-0.003em')).width(20).height(20).cornerRadius('50%').background('rgb(255, 87, 34)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('You').foregroundColor('#87909e')).height().width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Last Updated: 6/29/23 at 11:27 pm').foregroundColor('#87909e')).height().width()).height().padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 15).paddingBottom('5px')).height()
+            .paddingBottom('10px')
+            .borderBottom('1px solid #F2F2F2'))
+            .padding()
+            .paddingBottom('0px')
+            .height());
     });
 };
 

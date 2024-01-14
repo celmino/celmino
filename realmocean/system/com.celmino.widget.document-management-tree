@@ -276,7 +276,7 @@ var MyTestController = /** @class */ (function (_super) {
             }
         }, []);
         var _d = (0,_views_localStorageState__WEBPACK_IMPORTED_MODULE_7__.useLocalStorageState)('work_management_tree', false), expanded = _d[0], setExpanded = _d[1];
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width(20).height(20).cursor('pointer')
             .display("var(--display-caret)")).width(20).height(20)
             .onClick(function () {
@@ -289,8 +289,10 @@ var MyTestController = /** @class */ (function (_super) {
               .onClick(() => {
                   setIsOpen(!isOpen);
               }), */
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Document Management').fontSize(14), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15)).height(20).width(20)
-            .background('gray')
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Document Management').fontSize(16)
+            .fontFamily('Figtree, Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif')
+            .fontWeight('600')
+            .lineHeight(22), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15).foregroundColor('white')).height(24).width(24).foregroundColor('white').background('rgb(0, 115, 234)').cornerRadius(4)
             .onClick(function () {
             _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_8__.AddFolderDialog)(workspaceId, '-1', '/'));
         }))
@@ -1672,7 +1674,7 @@ function DocumentName(document, isOpen, onClickCallback) {
                 .width().height()
                 .cornerRadius(5), mode !== 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)(document.name).h6().ellipsisMaxLines(1).ellipsis(true)
-                    .fontSize(14).fontWeight('400')
+                    .fontSize(14).fontWeight(selected ? '500' : '400')
                     .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
                     .foregroundColor(selected ? '#7b68ee' : '#151719'))
                     .height(32)
@@ -1982,6 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
     var folder_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)().folder_id;
     var workspaceId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useOptions)().workspaceId;
+    var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
     var selected = false;
     var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)('readonly'), mode = _a[0], setMode = _a[1];
     var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(folder === null || folder === void 0 ? void 0 : folder.name), name = _b[0], setName = _b[1];
@@ -1989,11 +1992,29 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
     var createList = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_7__.useCreateDocument)(workspaceId, 'work_management', 'wm_lists').createDocument;
     return (mode === 'readonly' ?
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height().display('var(--display-caret)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(isOpen ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D')).padding(2).width(20).height(20).cornerRadius(5).display('var(--display-icon)')).width(20).height(20), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
-            .fontSize(14).fontWeight('400')
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height().display('var(--display-caret)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(isOpen ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D')).padding(2).width(20).height(20).cornerRadius(5).display('var(--display-icon)')).width(20).height(20)
+            .onClick(function () {
+            onClickCallback();
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
+            .fontSize(14).fontWeight(selected ? '500' : '400')
             .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
             .foregroundColor(selected ? '#7b68ee' : '#151719')
-            .borderBottom({ hover: '1px dashed #2A2D34' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
+            .borderBottom({ hover: '1px dashed #2A2D34' }))
+            .height(32)
+            .onClick(function () {
+            //alert(getAppletUrl(access_type, applet.id))
+            navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.documentmanagement/folder/").concat(folder.$id));
+        }), 
+        /* Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
+            .fontSize(14).fontWeight('400')
+            .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
+
+            .foregroundColor(selected ? '#7b68ee' : '#151719')
+            .borderBottom({ hover: '1px dashed #2A2D34' })
+            .onClick(() => {
+                onClickCallback();
+            }), */
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
             .model([
             {
                 title: 'Add to folder',
@@ -2105,9 +2126,6 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
             e.preventDefault();
             e.stopPropagation();
         }))
-            .onClick(function () {
-            onClickCallback();
-        })
             // .borderLeft(isOpen ? 'solid 1px #7B68EE' : '')
             .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
             .allHeight(32)

@@ -668,10 +668,10 @@
   resolved "https://registry.npmjs.org/@tuval/core/-/core-0.0.103.tgz"
   integrity sha512-yE9X6hLavSknUZWiN5sfu1hbVdZ2taaL+wJAUbpRa2glfepBsBYDHGooe11oQ5EqYEq6NZnbmYJRW9eIjPi1Gg==
 
-"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.132", "@tuval/forms@^1.0.74":
-  version "1.0.139"
-  resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.139.tgz"
-  integrity sha512-uCo9mC8yL0T3t3rS0pkbK1vd53UkCYRZH1PK3ppAxi5bKxMCgWEYI7jRRUrD93iNCqrp6fB0WnKP5wQ42VXEUw==
+"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.151", "@tuval/forms@^1.0.74":
+  version "1.0.151"
+  resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.151.tgz"
+  integrity sha512-loOKeU7r4UhufbWvkHxvyIJvqYEO551Qx/AwClWw+L0krqv/AMm6nOi/HBnk5lfpRkrhU+FhgPy57P5tNhZ2wQ==
   dependencies:
     "@codemirror/lang-json" "^6.0.1"
     "@dnd-kit/core" "^6.0.8"
@@ -688,7 +688,7 @@
     monday-ui-react-core "^2.26.0"
     nanoid "^4.0.2"
     object-path "^0.11.8"
-    primereact "^10.0.7"
+    primereact "10.2.1"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-sortable-hoc "^2.0.0"
@@ -3315,7 +3315,7 @@ postcss@>=8.0.9:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-primereact@^10.0.7:
+primereact@10.2.1:
   version "10.2.1"
   resolved "https://registry.npmjs.org/primereact/-/primereact-10.2.1.tgz"
   integrity sha512-F25053E1z+fod6V7AJ1Ix/DwSPkFQotk2+Idm0XkFsN+gQEywH7DgtbvNKpUA+LEq48h2+/WVK3D0V8IAm1Npg==
