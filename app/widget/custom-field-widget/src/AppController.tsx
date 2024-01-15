@@ -18,6 +18,7 @@ import { AddDatetimeFieldDialog } from './dialogs/AddDatetimeField';
 import { AddNumberFieldDialog } from './dialogs/AddNumberFieldDialog';
 import { AddTextFieldDialog } from './dialogs/AddTextFieldDialog';
 import { DefaultLabelView } from './views/DefaultView';
+import { AddFormulaField } from './dialogs/AddFormulaField';
 
 
 let _hideHandle = null;
@@ -109,6 +110,14 @@ export class MyTestController extends UIController {
             {
                 title: 'Comments',
                 icon: Icons.CommentsAttribute
+            },
+
+            {
+                title: 'Formula',
+                icon: Icons.RelationAttribute,
+                onClick: () => (
+                    DynoDialog.Show(AddFormulaField(onAction))
+                )
             },
             {
                 title: 'Relation to...',

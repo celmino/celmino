@@ -15,6 +15,22 @@ import { ID, Services, useCreateDocument, useCreateStringAttribute, useGetDocume
 //import { ViewHeader } from './views/ViewHeader';
 
 
+
+
+
+function replaceNonMatchingCharacters(originalText) {
+    const replacementTable = {
+        'ı': 'i',
+        ' ':'_'
+    };
+    // Replacement table'ı kullanarak metindeki kriterlere uymayan karakterleri değiştir
+    var replacedText = originalText.replace(/[^a-zA-Z0-9._-]/g, function (match) {
+        return replacementTable[match] || match; // Eğer replacement table'da varsa değiştir, yoksa aynı karakteri koru
+    });
+
+    return replacedText;
+}
+
 export class MyTestController extends UIFormController {
 
 
@@ -84,22 +100,35 @@ export class MyTestController extends UIFormController {
                                                                     })
                                                                 )
                                                             },
-                                                            onNewFieldAddded: async ({ name, type, key }) => {
+                                                            onNewFieldAddded: async (formData) => {
                                                                 // alert(JSON.stringify(type))
-                                                                if (type === 'text') {
-                                                                    await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
+                                                                if (formData.type === 'text') {
+                                                                    await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, formData.key, 255, false);
                                                                     await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
-                                                                        name: name,
-                                                                        key: key,
+                                                                        name: formData.name,
+                                                                        key: replaceNonMatchingCharacters(formData.name),
                                                                         type: 'string',
                                                                         hidden: false
                                                                     });
-                                                                } else if (type === 'number') {
+                                                                } else if (formData.type === 'number') {
+                                                                    const key = replaceNonMatchingCharacters(formData.name);
+                                                                    console.log(key)
                                                                     await Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false);
                                                                     await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
-                                                                        name: name,
+                                                                        name: formData.name,
                                                                         key: key,
                                                                         type: 'number',
+                                                                        hidden: false
+                                                                    });
+                                                                } else if (formData.type === 'formula') {
+                                                                    //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
+                                                                    await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
+                                                                        name: formData.name,
+                                                                        key: replaceNonMatchingCharacters(formData.name),
+                                                                        type: 'formula',
+                                                                        type_content: JSON.stringify({
+                                                                            expression: formData.formula
+                                                                        }),
                                                                         hidden: false
                                                                     });
                                                                 }
@@ -158,9 +187,9 @@ export class MyTestController extends UIFormController {
                                                             },
                                                             items: items,
                                                             /*   stages: [{
-                                                                  $id: 'AAA',
-                                                                  name: 'Todo',
-                                                                  color: '#FF0000:#00FF00'
+                        $id: 'AAA',
+                    name: 'Todo',
+                    color: '#FF0000:#00FF00'
                                                               }] */
                                                         })
                                                 )

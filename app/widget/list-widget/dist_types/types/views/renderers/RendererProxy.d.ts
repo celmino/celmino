@@ -1,1 +1,1 @@
-export declare const RendererProxy: (item: any, field: any) => import("@tuval/forms").HStackClass;
+export declare const RendererProxy: (item: any, fields: any, field: any) => import("@tuval/forms").HStackClass;

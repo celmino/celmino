@@ -26,12 +26,16 @@ import React from 'react';
 import { SegmentedRenderer } from '@realmocean/antd';
 import { TaskTable2 } from './views/TaskTable/TaskTable2';
 import { Brushes, Pens } from '@tuval/graphics';
+import { evaluateExpression, parseExpression, printExpression, tokenizeExpression } from './expression';
 
 
 
 export class MyTestController extends UIFormController {
 
     public override LoadView(): UIView {
+
+       
+
 
         const tuView = new TuView();
         //tuView.GridStyle = TuViewGridStyle.Dot;
@@ -75,7 +79,7 @@ export class MyTestController extends UIFormController {
 
             OptionsContext(() =>
                 VStack({ alignment: cTopLeading })(
-                   // tuView as any,
+                    // tuView as any,
 
                     ScrollView({ axes: cVertical, alignment: cTopLeading })(
                         VStack({ alignment: cTopLeading })(

@@ -4065,6 +4065,108 @@ export const Applets = [
             }
         ]
     },
+    {
+        name: 'Notebooks',
+        type: 'com.celmino.widget.notebook-tree',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Notebooks",
+                "id": "notebooks",
+                "category": "app",
+                "collections": [
+          
+                    {
+                        "name": "Notebooks",
+                        "id": "nb_notebooks",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Notes",
+                        "id": "nb_notes",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+
+                    },
+                    {
+                        "name": "Note Contents",
+                        "id": "nb_note_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 132000
+                            }
+                        ],
+
+                    },
+                    {
+                        "name": "views",
+                        "id": "nb_views",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            }
+                        ],
+
+                    }
+                ]
+            }
+        ]
+    },
 {
     name: 'Meeting Management',
         type: 'com.celmino.applet.enterprise-modelling',

@@ -1,1 +1,1 @@
-export declare const StringRenderer: (item: any, field: any) => import("@tuval/forms").HStackClass;
+export declare const StringRenderer: (item: any, fields: any, field: any) => import("@tuval/forms").HStackClass;

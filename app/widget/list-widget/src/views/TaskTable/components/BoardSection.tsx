@@ -123,6 +123,7 @@ function BoardSection({ id, items, status }: BoardSectionProps) {
                                     Text(field.name).fontSize(10).fontWeight('500').textTransform('uppercase')
                                 ).allWidth(100).height(30)
                         )),
+                       
                         /*   items.length > 0 ?
                               HStack(
                                   Text('Assignee').fontSize(10).fontWeight('500').textTransform('uppercase')

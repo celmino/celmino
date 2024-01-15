@@ -99,6 +99,17 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 //import { ActionPanel } from './views/ActionPanel';
 //import { ViewHeader } from './views/ViewHeader';
+function replaceNonMatchingCharacters(originalText) {
+    var replacementTable = {
+        'ı': 'i',
+        ' ': '_'
+    };
+    // Replacement table'ı kullanarak metindeki kriterlere uymayan karakterleri değiştir
+    var replacedText = originalText.replace(/[^a-zA-Z0-9._-]/g, function (match) {
+        return replacementTable[match] || match; // Eğer replacement table'da varsa değiştir, yoksa aynı karakteri koru
+    });
+    return replacedText;
+}
 var MyTestController = /** @class */ (function (_super) {
     __extends(MyTestController, _super);
     function MyTestController() {
@@ -140,47 +151,63 @@ var MyTestController = /** @class */ (function (_super) {
                         });
                     }));
                 },
-                onNewFieldAddded: function (_a) {
-                    var name = _a.name, type = _a.type, key = _a.key;
-                    return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_b) {
-                            switch (_b.label) {
-                                case 0:
-                                    if (!(type === 'text')) return [3 /*break*/, 3];
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false)];
-                                case 1:
-                                    _b.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
-                                            name: name,
-                                            key: key,
-                                            type: 'string',
-                                            hidden: false
-                                        })];
-                                case 2:
-                                    _b.sent();
-                                    return [3 /*break*/, 7];
-                                case 3:
-                                    if (!(type === 'number')) return [3 /*break*/, 6];
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];
-                                case 4:
-                                    _b.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
-                                            name: name,
-                                            key: key,
-                                            type: 'number',
-                                            hidden: false
-                                        })];
-                                case 5:
-                                    _b.sent();
-                                    return [3 /*break*/, 7];
-                                case 6:
-                                    alert('field type not found');
-                                    _b.label = 7;
-                                case 7: return [2 /*return*/];
-                            }
-                        });
+                onNewFieldAddded: function (formData) { return __awaiter(_this, void 0, void 0, function () {
+                    var key;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                if (!(formData.type === 'text')) return [3 /*break*/, 3];
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, formData.key, 255, false)];
+                            case 1:
+                                _a.sent();
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                        name: formData.name,
+                                        key: replaceNonMatchingCharacters(formData.name),
+                                        type: 'string',
+                                        hidden: false
+                                    })];
+                            case 2:
+                                _a.sent();
+                                return [3 /*break*/, 9];
+                            case 3:
+                                if (!(formData.type === 'number')) return [3 /*break*/, 6];
+                                key = replaceNonMatchingCharacters(formData.name);
+                                console.log(key);
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];
+                            case 4:
+                                _a.sent();
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                        name: formData.name,
+                                        key: key,
+                                        type: 'number',
+                                        hidden: false
+                                    })];
+                            case 5:
+                                _a.sent();
+                                return [3 /*break*/, 9];
+                            case 6:
+                                if (!(formData.type === 'formula')) return [3 /*break*/, 8];
+                                //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                        name: formData.name,
+                                        key: replaceNonMatchingCharacters(formData.name),
+                                        type: 'formula',
+                                        type_content: JSON.stringify({
+                                            expression: formData.formula
+                                        }),
+                                        hidden: false
+                                    })];
+                            case 7:
+                                //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
+                                _a.sent();
+                                return [3 /*break*/, 9];
+                            case 8:
+                                alert('field type not found');
+                                _a.label = 9;
+                            case 9: return [2 /*return*/];
+                        }
                     });
-                },
+                }); },
                 onItemClick: function (item) {
                     openDialog({
                         title: 'Open',
@@ -230,9 +257,9 @@ var MyTestController = /** @class */ (function (_super) {
                 },
                 items: items,
                 /*   stages: [{
-                      $id: 'AAA',
-                      name: 'Todo',
-                      color: '#FF0000:#00FF00'
+$id: 'AAA',
+name: 'Todo',
+color: '#FF0000:#00FF00'
                   }] */
             }));
         }))))

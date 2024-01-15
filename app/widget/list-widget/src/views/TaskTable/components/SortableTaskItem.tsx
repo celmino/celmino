@@ -9,6 +9,7 @@ import React from 'react';
 //import { TaskController } from '../../../controllers/TaskController';
 import { StatusMarker } from '../StatusMarker';
 import { RendererProxy } from '../../renderers/RendererProxy';
+import { tokenizeExpression, parseExpression, evaluateExpression } from '../../../expression';
 
 
 
@@ -76,8 +77,8 @@ const SortableTaskItem = ({ id, task: item, status }/* : SortableTaskItemProps *
                             ),
                             StatusMarker(status),
                             HStack({ alignment: cLeading })(
-                                          Heading(item?.name).ellipsis(true).ellipsisMaxLines(1).fontSize(14).fontWeight('400')
-                                    
+                                Heading(item?.name).ellipsis(true).ellipsisMaxLines(1).fontSize(14).fontWeight('400')
+
                             ).allWidth(250).height()
                                 .cursor('pointer')
                                 .onClick(() => {
@@ -89,9 +90,9 @@ const SortableTaskItem = ({ id, task: item, status }/* : SortableTaskItemProps *
 
                         ...ForEach(fields)((field: any) => (
                             (field.key === 'name' || field.hidden) ? Fragment() :
-                                RendererProxy(item, field)
+                                RendererProxy(item,fields, field)
                         )),
-
+                      
                         HStack().allWidth(100)
                     )
                         .zIndex({ hover: '100' })

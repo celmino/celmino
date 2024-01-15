@@ -43,6 +43,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialogs_AddNumberFieldDialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dialogs/AddNumberFieldDialog */ "./src/dialogs/AddNumberFieldDialog.ts");
 /* harmony import */ var _dialogs_AddTextFieldDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dialogs/AddTextFieldDialog */ "./src/dialogs/AddTextFieldDialog.ts");
 /* harmony import */ var _views_DefaultView__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/DefaultView */ "./src/views/DefaultView.ts");
+/* harmony import */ var _dialogs_AddFormulaField__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dialogs/AddFormulaField */ "./src/dialogs/AddFormulaField.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -58,6 +59,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -148,6 +150,11 @@ var MyTestController = /** @class */ (function (_super) {
             {
                 title: 'Comments',
                 icon: _Icons__WEBPACK_IMPORTED_MODULE_2__.Icons.CommentsAttribute
+            },
+            {
+                title: 'Formula',
+                icon: _Icons__WEBPACK_IMPORTED_MODULE_2__.Icons.RelationAttribute,
+                onClick: function () { return (_realmocean_ui__WEBPACK_IMPORTED_MODULE_3__.DynoDialog.Show((0,_dialogs_AddFormulaField__WEBPACK_IMPORTED_MODULE_9__.AddFormulaField)(onAction))); }
             },
             {
                 title: 'Relation to...',
@@ -371,6 +378,73 @@ var AddDatetimeFieldDialog = function () { return ({
             "multiline": true,
             "name": "description"
         },
+    }
+}); };
+
+
+/***/ }),
+
+/***/ "./src/dialogs/AddFormulaField.ts":
+/*!****************************************!*\
+  !*** ./src/dialogs/AddFormulaField.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AddFormulaField": () => (/* binding */ AddFormulaField)
+/* harmony export */ });
+var AddFormulaField = function (onAction) { return ({
+    "title": 'Create formula field',
+    "actions": [
+        {
+            "label": "Save",
+            "onAction": onAction,
+            "type": "genericAction"
+        }
+    ],
+    "fieldMap": {
+        "type": {
+            "name": "type",
+            "type": "virtual",
+            "value": 'formula'
+        },
+        "key": {
+            "label": "Key",
+            "type": "text",
+            "name": "key",
+            "category": 'General'
+        },
+        "name": {
+            "label": "Name",
+            "type": "text",
+            "name": "name",
+            "category": 'General'
+        },
+        "description": {
+            "label": "Description",
+            "type": "text",
+            "multiline": true,
+            "name": "description",
+            "category": 'General'
+        },
+        "formula": {
+            "label": "Formula",
+            "type": "text",
+            "multiline": true,
+            "name": "formula",
+            "category": 'General'
+        },
+        "required": {
+            "label": "Required",
+            "type": "checkbox",
+            "name": "required",
+            "category": 'Settings'
+        },
+    },
+    "layout": {
+        "type": "category"
     }
 }); };
 
