@@ -36,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _views_ActionPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/ActionPanel */ "./src/views/ActionPanel.tsx");
-/* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/ViewHeader */ "./src/views/ViewHeader.ts");
+/* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/ViewHeader */ "./src/views/ViewHeader.tsx");
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__);
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -493,10 +493,10 @@ var ActionPanel = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ "./src/views/ViewHeader.ts":
-/*!*********************************!*\
-  !*** ./src/views/ViewHeader.ts ***!
-  \*********************************/
+/***/ "./src/views/ViewHeader.tsx":
+/*!**********************************!*\
+  !*** ./src/views/ViewHeader.tsx ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -517,9 +517,22 @@ var ViewHeader = function (header, onHeaderChange) {
         /*  const { access_type, team_id, applet_id, view_id } = useParams();
      
          const navigate = useNavigate(); */
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(
-        //  _StatusMarker(task?.stage_id),
-        _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.string(header) ?
+        /* useEffect(()=> {
+            //debugger
+             const umay = new Umay();
+             umay.StartLoop();
+             umay.Wait(2)
+             umay.Task(() => console.log('Task 1'));
+             umay.EndLoop();
+             umay.Run();
+        }, []) */
+        // umay.Task(() => console.log('Task 1'));
+        /*  umay.WaitP( new Promise((resolve)=> {
+             setTimeout(()=> resolve(null), 10000)
+         }), ()=> void 0) */
+        // umay.Task(() => StartBios(MainController));
+        //umay.Task(() => console.log('Task 2'));
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.string(header) ?
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeader)(header).size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.EditableHeadingSizes.MEDIUM)
                 .onChange(function (e) { return onHeaderChange(e); })
                 .fontSmoothing('auto')

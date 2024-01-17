@@ -1,4 +1,4 @@
-import { EventBus } from '@tuval/core';
+import { EventBus, TextConsole, Umay } from '@tuval/core';
 import { StartBios } from '@tuval/forms';
 
 import { BiosMainController, MainController } from './NewBiosController';
@@ -44,6 +44,8 @@ const params: any = new Proxy(new URLSearchParams(window.location.search), {
 //StartBios(MainController);
 
 window.addEventListener("load", (event) => {
+   
+
     StartBios(MainController);
 
     /*  if (params.tenant_id) {

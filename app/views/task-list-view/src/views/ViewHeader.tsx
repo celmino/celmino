@@ -1,7 +1,9 @@
 
-import { EditableHeader, EditableHeadingSizes, Fragment, HStack, UIViewBuilder, cLeading } from "@tuval/forms";
+import { EditableHeader, EditableHeadingSizes, Fragment, HStack, ReactView, UIViewBuilder, cLeading, useEffect } from "@tuval/forms";
 
-import { is } from "@tuval/core";
+import { TextConsole, Umay, is } from "@tuval/core";
+import {useRef} from 'react'
+import React from "react";
 
 
 const fontFamily = 'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
@@ -12,11 +14,29 @@ export const ViewHeader = (header, onHeaderChange = void 0) => UIViewBuilder(() 
  
      const navigate = useNavigate(); */
 
-    return (
-         
-            HStack({ alignment: cLeading, spacing: 5 })(
 
-                //  _StatusMarker(task?.stage_id),
+/* useEffect(()=> {
+    //debugger
+     const umay = new Umay(); 
+     umay.StartLoop();
+     umay.Wait(2)
+     umay.Task(() => console.log('Task 1'));
+     umay.EndLoop();
+     umay.Run();
+}, []) */
+     
+
+    // umay.Task(() => console.log('Task 1'));
+    /*  umay.WaitP( new Promise((resolve)=> {
+         setTimeout(()=> resolve(null), 10000)
+     }), ()=> void 0) */
+    // umay.Task(() => StartBios(MainController));
+     //umay.Task(() => console.log('Task 2'));
+ 
+     
+
+    return (
+        HStack({ alignment: cLeading, spacing: 5 })(
                 is.string(header) ?
                     EditableHeader(header).size(EditableHeadingSizes.MEDIUM)
                         .onChange((e) => onHeaderChange(e))
@@ -30,7 +50,7 @@ export const ViewHeader = (header, onHeaderChange = void 0) => UIViewBuilder(() 
             )
             .background('white')
             .height().padding(8)
-            .borderBottom('1px solid #F2F2F2')
+            .borderBottom('1px solid #F2F2F2') 
      
 
     )
