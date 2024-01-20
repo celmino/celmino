@@ -28,6 +28,7 @@ export function DocumentName(document: any, isOpen: boolean, onClickCallback: Fu
     const selected = getDocumentId() === document.$id;
     return (
         UIViewBuilder(() => {
+            
 
             const { access_type } = useParams();
             const { workspaceId } = useOptions();

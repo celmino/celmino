@@ -1,5 +1,5 @@
-import { FormBuilder, UIController } from '@tuval/forms';
-import { MyTestController } from './AppController';
+import { FormBuilder } from '@realmocean/ui';
+import { SaveNoteAction } from './dialogs/AddNoteDialog';
 import { RouteController } from './routes/+routes';
 import { ListStatusWidget } from './widget/ListStatusWidget';
 
@@ -26,6 +26,6 @@ export class ProcessMining {
 }
 
 
-FormBuilder.injectView('liststatus', ListStatusWidget)
+FormBuilder.injectAction('saveNote', SaveNoteAction)
 
 

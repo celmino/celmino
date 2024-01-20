@@ -2,14 +2,14 @@ import { UIViewBuilder, VStack, cTopLeading, useOptions, useState } from "@tuval
 import { AppletName } from "./AppletName";
 
 
-export const AppletItem = (applet: any) => UIViewBuilder(() => {
+export const AppletItem = (appletId: string) => UIViewBuilder(() => {
     const { workspaceId, applet_id } = useOptions();
-    const [expanded, setExpanded] = useState(applet_id === applet.id);
+    const [expanded, setExpanded] = useState(applet_id === appletId);
 
 
     return (
         VStack({ alignment: cTopLeading })(
-            AppletName(applet, () => {
+            AppletName(appletId, () => {
                 setExpanded(!expanded);
             }),
            /*  !expanded ? Fragment() :

@@ -1,1 +1,1 @@
-export declare function AppletName(applet: any, onClickCallback: Function): import("@tuval/forms").UIViewBuilderClass;
+export declare function AppletName(listId: string, onClickCallback: Function): import("@tuval/forms").UIViewBuilderClass | import("@tuval/forms").FragmentClass;

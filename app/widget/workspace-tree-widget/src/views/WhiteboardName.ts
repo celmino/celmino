@@ -30,7 +30,7 @@ export function WhiteboardName(whiteboard: any, isOpen: boolean, onClickCallback
         UIViewBuilder(() => {
 
             const { access_type } = useParams();
-            const { workspaceId } = useOptions();
+            const { workspaceId, appletId } = useOptions();
             const [mode, setMode] = useState('readonly');
             // const [name, setName] = useState(applet?.name);
             const [newName, setNewName] = useState(whiteboard?.name);
@@ -115,7 +115,7 @@ export function WhiteboardName(whiteboard: any, isOpen: boolean, onClickCallback
                                         title: 'Add',
                                         icon: SvgIcon('svg-sprite-activity-template-merged'),
                                         onClick: () => {
-                                            DynoDialog.Show(AddDocumentDialog(workspaceId, whiteboard.$id, `${whiteboard.path}/${whiteboard.$id}`))
+                                            DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, whiteboard.$id, `${whiteboard.path}/${whiteboard.$id}`))
                                         }
                                     },
                                 ])

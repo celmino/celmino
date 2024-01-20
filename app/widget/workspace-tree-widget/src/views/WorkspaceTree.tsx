@@ -10,11 +10,12 @@ import {
     VStack, Text,
     ForEach,
     ScrollView,
-    cVertical
+    cVertical,
+    Fragment
 } from "@tuval/forms";
 import React from "react";
 //import { FontIcon, FontIcons } from "./FontIcons";
-import { Models, useListDocuments } from '@realmocean/sdk';
+import { Models, Query, useListDocuments } from '@realmocean/sdk';
 import { WorkspaceItem } from "./WorkspaceItem";
 
 let indexMe = 0
@@ -93,16 +94,19 @@ export const WhiteboardIcon = props => (
 
 
 export const LeftSideMenuView = (selectedItem: string) => {
+
     return (
         UIViewBuilder(() => {
-            const { workspaceId, showAllWorkspaces = true } = useOptions();
+            const { workspaceId, showAllWorkspaces = true, appletId } = useOptions();
 
             return (
                 VStack({ alignment: cTopLeading })(
                     //Spaceses
 
                     UIViewBuilder(() => {
-                        const { documents: spaces, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_spaces');
+                        const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'wm_tree', [
+                            Query.equal('parent', '-1')
+                        ]);
 
                         return (
                             VStack({ alignment: cTopLeading })(
@@ -113,8 +117,10 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                         UIViewBuilder(() => {
                                             return (
                                                 VStack({ alignment: cTopLeading })(
-                                                    ...ForEach(spaces)(space =>
-                                                        WorkspaceItem(space)
+
+                                                    ...ForEach(items)(item =>
+                                                        item.type === 'space' ?
+                                                            WorkspaceItem(item) : Fragment()
                                                     )
                                                 )
                                                     //.padding(10)
@@ -139,7 +145,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                     ,
                 )
                     // .fontFamily(fontFamily)
-                   // .allWidth(282)
+                    // .allWidth(282)
                     .background('white')
                     .borderRight('1px solid #e9ebf0')
                     .transition('width .2s ease-in-out')

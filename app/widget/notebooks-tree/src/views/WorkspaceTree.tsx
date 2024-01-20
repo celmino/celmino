@@ -12,7 +12,7 @@ import {
 import React from "react";
 //import { FontIcon, FontIcons } from "./FontIcons";
 import { Query, useListDocuments } from '@realmocean/sdk';
-import { FolderItem } from "./FolderItem";
+import { NotebookItem } from "./NotebookItem";
 
 let indexMe = 0
 
@@ -112,8 +112,8 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                         UIViewBuilder(() => {
                                             return (
                                                 VStack({ alignment: cTopLeading })(
-                                                    ...ForEach(notebooks)(folder =>
-                                                        FolderItem(null, folder)
+                                                    ...ForEach(notebooks)(notebook =>
+                                                        NotebookItem( notebook)
                                                     )
                                                 )
                                                     //.padding(10)

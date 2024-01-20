@@ -16,8 +16,11 @@ export const SaveSpaceAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'work_management', 'wm_spaces');
+    const { databaseId, collectionId, workspaceId,appletId } = formController.GetFormData();
+
+    const { createDocument: createTreeItem } = useCreateDocument(workspaceId,appletId, 'wm_tree');
+    const { createDocument, isLoading } = useCreateDocument(workspaceId,appletId, 'wm_spaces');
+   
    
     return (
         Button(
@@ -26,10 +29,12 @@ export const SaveSpaceAction = (formMeta, action) => UIViewBuilder(() => {
             .loading(isLoading)
             .onClick(() => {
 
+
                 const data = { ...formController.GetFormData() }
                 delete data.databaseId;
                 delete data.collectionId;
                 delete data.workspaceId;
+                delete data.appletId;
 
                 
                 createDocument(
@@ -38,8 +43,16 @@ export const SaveSpaceAction = (formMeta, action) => UIViewBuilder(() => {
                             ...data
                         }
                     },
-                    () => {
-                        dialog.Hide();
+                    (space) => {
+                        createTreeItem({
+                            documentId: space.$id,
+                            data: {
+                                ...data,
+                                parent:'-1',
+                                type: 'space'
+                            }
+                        }, ()=>  dialog.Hide())
+                       
                     }
                 )
 
@@ -47,7 +60,7 @@ export const SaveSpaceAction = (formMeta, action) => UIViewBuilder(() => {
     )
 }
 )
-export const AddSpaceDialog = (workspaceId: string, path: string) => ({
+export const AddSpaceDialog = (workspaceId: string,appletId: string, path: string) => ({
     "title": 'Create space',
     /*   "mutation":"_create_workspace", */
     "actions": [
@@ -61,6 +74,11 @@ export const AddSpaceDialog = (workspaceId: string, path: string) => ({
             "name": "workspaceId",
             "type": "virtual",
             "value": workspaceId
+        },
+        "appletId": {
+            "name": "appletId",
+            "type": "virtual",
+            "value": appletId
         },
         "path": {
             "name": "path",

@@ -88,64 +88,66 @@ export class SelectAppletDialog extends DialogView {
                                             .then((response) => response.json())
                                             .then((json) => console.log(json)); */
 
-                                            await createDocument({
+                                             createDocument({
                                                 data: {
                                                     name: opa.name,
                                                     opa: opa.type
                                                 }
+                                            }, async (applet) => {
+                                                if (opa.databases) {
+                                                    setInstallingOpa(opa.type);
+                                                     Services.Client.setProject(this.workspaceId);
+     
+                                                     for (let i = 0; i < opa.databases.length; i++) {
+                                                         const template = opa.databases[i];
+                                                         const { name, id, category, collections } = template;
+                                                         try {
+                                                             const db = await Services.Databases.create(this.workspaceId, applet.$id, opa.name, category);
+                                                             for (let j = 0; j < collections.length; j++) {
+                                                                 const collection = collections[j];
+                                                                 const { name, id, attributes, documents } = collection;
+                                                                 const col = await Services.Databases.createCollection(this.workspaceId, db.$id, id, name, [], false);
+     
+                                                                 for (let i = 0; i < attributes.length; i++) {
+                                                                     const { key, type, size = 255 } = attributes[i];
+                                                                     switch (type) {
+                                                                         case 'string':
+                                                                             console.log('1');
+                                                                             await Services.Databases.createStringAttribute(this.workspaceId, db.$id, col.$id, key, size, false, '', false);
+                                                                             break;
+                                                                         case 'number':
+                                                                             console.log('1');
+                                                                             await Services.Databases.createIntegerAttribute(this.workspaceId, db.$id, col.$id, key, false);
+                                                                             break;
+                                                                     }
+                                                                 }
+     
+                                                                 setTimeout(() => {
+                                                                     documents?.forEach(async document => {
+                                                                         const doc = await Services.Databases.createDocument(this.workspaceId, db.$id, col.$id, ID.unique(), document);
+                                                                         console.log(doc);
+                                                                     });
+                                                                 }, 3000);
+                                                             }
+     
+                                                         } catch (error) {
+                                                             console.log(error);
+                                                         }
+                                                     }
+                                                     setInstallingOpa('');
+                                                     this.OnOK({
+                                                         name: opa.name,
+                                                         type: opa.type
+                                                     })
+                                                 } else {
+     
+                                                     this.OnOK({
+                                                         name: opa.name,
+                                                         type: opa.type
+                                                     })
+                                                 }
                                             });
-                                            if (opa.databases) {
-                                               setInstallingOpa(opa.type);
-                                                Services.Client.setProject(this.workspaceId);
-
-                                                for (let i = 0; i < opa.databases.length; i++) {
-                                                    const template = opa.databases[i];
-                                                    const { name, id, category, collections } = template;
-                                                    try {
-                                                        const db = await Services.Databases.create(this.workspaceId, id, name, category);
-                                                        for (let j = 0; j < collections.length; j++) {
-                                                            const collection = collections[j];
-                                                            const { name, id, attributes, documents } = collection;
-                                                            const col = await Services.Databases.createCollection(this.workspaceId, db.$id, id, name, [], false);
-
-                                                            for (let i = 0; i < attributes.length; i++) {
-                                                                const { key, type, size = 255 } = attributes[i];
-                                                                switch (type) {
-                                                                    case 'string':
-                                                                        console.log('1');
-                                                                        await Services.Databases.createStringAttribute(this.workspaceId, db.$id, col.$id, key, size, false, '', false);
-                                                                        break;
-                                                                    case 'number':
-                                                                        console.log('1');
-                                                                        await Services.Databases.createIntegerAttribute(this.workspaceId, db.$id, col.$id, key, false);
-                                                                        break;
-                                                                }
-                                                            }
-
-                                                            setTimeout(() => {
-                                                                documents?.forEach(async document => {
-                                                                    const doc = await Services.Databases.createDocument(this.workspaceId, db.$id, col.$id, ID.unique(), document);
-                                                                    console.log(doc);
-                                                                });
-                                                            }, 3000);
-                                                        }
-
-                                                    } catch (error) {
-                                                        console.log(error);
-                                                    }
-                                                }
-                                                setInstallingOpa('');
-                                                this.OnOK({
-                                                    name: opa.name,
-                                                    type: opa.type
-                                                })
-                                            } else {
-
-                                                this.OnOK({
-                                                    name: opa.name,
-                                                    type: opa.type
-                                                })
-                                            }
+                                           
 
 
                                         })

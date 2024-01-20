@@ -17,10 +17,10 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'work_management', 'wm_whiteboards');
-    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,'work_management', 'wm_whiteboard_contents');
-   
+    const { databaseId, collectionId, workspaceId, appletId } = formController.GetFormData();
+    const { createDocument, isLoading } = useCreateDocument(workspaceId, appletId, 'wm_whiteboards');
+    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId, appletId, 'wm_whiteboard_contents');
+
     return (
         Button(
             Text('Save')
@@ -32,8 +32,9 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
                 delete data.databaseId;
                 delete data.collectionId;
                 delete data.workspaceId;
+                delete data.appletId;
 
-                
+
                 createDocument(
                     {
                         data: {
@@ -41,13 +42,13 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
                         }
                     },
                     (document) => {
-                        createDocumentContent( {
+                        createDocumentContent({
                             documentId: document.$id,
                             data: {
-                                content:''
+                                content: ''
                             }
-                        }, ()=>  dialog.Hide())
-                       
+                        }, () => dialog.Hide())
+
                     }
                 )
 
@@ -57,7 +58,7 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
 )
 
 
-export const AddWhiteboardDialog = (workspaceId: string, parent: string, path: string) => {
+export const AddWhiteboardDialog = (workspaceId: string,appletId: string, parent: string, path: string) => {
     if (workspaceId == null) {
         alert("spaceId is null")
     } else {
@@ -91,6 +92,11 @@ export const AddWhiteboardDialog = (workspaceId: string, parent: string, path: s
                     "name": "workspaceId",
                     "type": "virtual",
                     "value": workspaceId
+                },
+                "appletId": {
+                    "name": "appletId",
+                    "type": "virtual",
+                    "value": appletId
                 },
                 "list_name": {
                     "label": "name",

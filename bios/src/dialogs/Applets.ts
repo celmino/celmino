@@ -3743,7 +3743,7 @@ export const Applets = [
         ]
     },
     {
-        name: 'Work Management',
+        name: 'Task Management',
         type: 'com.celmino.widget.workspace-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
@@ -3755,6 +3755,44 @@ export const Applets = [
                 "id": "work_management",
                 "category": "app",
                 "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
                     {
                         "name": "Spaces",
                         "id": "wm_spaces",

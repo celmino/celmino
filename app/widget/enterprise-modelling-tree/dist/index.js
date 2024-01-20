@@ -101,10 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @realmocean/antd */ "@realmocean/antd");
 /* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_realmocean_antd__WEBPACK_IMPORTED_MODULE_3__);
-var __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
 
 
 
@@ -123,8 +119,6 @@ function a(strings) {
     });
     return str;
 }
-var aaa = 'sfdlfk';
-var b = a(templateObject_1 || (templateObject_1 = __makeTemplateObject(["hjkhsdf\n", "\nsdfsdfsdf"], ["hjkhsdf\n", "\nsdfsdfsdf"])), aaa);
 var CollapseRightIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "24", height: "24", "aria-hidden": "true" },
     react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M13.435 8.464a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.829 2.829a1 1 0 1 1-1.414-1.415L14.556 13H3a1 1 0 1 1 0-2h11.556l-1.121-1.121a1 1 0 0 1 0-1.415z", "clip-rule": "evenodd" }),
     react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M21 4.5a1 1 0 0 1 1 1v13a1 1 0 1 1-2 0v-13a1 1 0 0 1 1-1z", fill: "currentColor" }))); };
@@ -149,7 +143,7 @@ var LeftSideMenuView = function (selectedItem) {
             .showIcon(true).blockNode(true)
             .rootStyle({ width: '100%' })
             .onSelect(function (value, info) {
-            navigate("/app/com.celmino.app.test/workspace/".concat(workspaceId, "/applet/com.celmino.applet.enterprise-modelling/").concat(value));
+            navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.enterprisemodelling/").concat(value));
         })
             .treeData([
             {
@@ -176,7 +170,6 @@ var LeftSideMenuView = function (selectedItem) {
             .height());
     }));
 };
-var templateObject_1;
 
 
 /***/ }),

@@ -114,6 +114,7 @@
         "@realmocean/inputs": "^21.0.0-beta.3",
         "@realmocean/navigations": "^21.0.0-beta.28",
         "@realmocean/query-builder": "^0.0.2",
+        "@realmocean/sdk": "^1.0.64",
         "@realmocean/services": "^21.0.0-beta.5",
         "@realmocean/spreadsheet": "^19.37.9",
         "@tuval/cg": "^0.0.16",
@@ -143,13 +144,11 @@
         "webpack-cli": "^4.7.2"
     },
     "dependencies": {
-        "@celmino/sdk": "^20.3.465",
         "@celmino/workprotocol": "^0.0.118",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/material": "^5.11.14",
         "@realmocean/antd": "^21.0.30",
-        "node-sass": "^8.0.0",
         "react-promise-suspense": "^0.3.4",
         "uuid": "^9.0.0"
     }

@@ -1,5 +1,5 @@
 export declare const SaveSpaceAction: (formMeta: any, action: any) => import("@tuval/forms").UIViewBuilderClass;
-export declare const AddSpaceDialog: (workspaceId: string, path: string) => {
+export declare const AddSpaceDialog: (workspaceId: string, appletId: string, path: string) => {
     title: string;
     actions: {
         label: string;
@@ -7,6 +7,11 @@ export declare const AddSpaceDialog: (workspaceId: string, path: string) => {
     }[];
     fieldMap: {
         workspaceId: {
+            name: string;
+            type: string;
+            value: string;
+        };
+        appletId: {
             name: string;
             type: string;
             value: string;

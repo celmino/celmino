@@ -1901,7 +1901,7 @@ var LeftSideMenuView = function (selectedItem) {
         //    )
         ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 5 })(documents ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ScrollView)({ axes: 'cAll', alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(documents)(function (applet) {
                 return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)(applet['opa'])
-                    .config(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})));
+                    .config(__assign(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})), { appletId: applet.$id }));
             })) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)()
             /*  ...ForEach(spaces)(space =>
                  Text(space.name)
@@ -6225,7 +6225,7 @@ var Applets = [
         ]
     },
     {
-        name: 'Work Management',
+        name: 'Task Management',
         type: 'com.celmino.widget.workspace-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
@@ -6237,6 +6237,44 @@ var Applets = [
                 "id": "work_management",
                 "category": "app",
                 "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
                     {
                         "name": "Spaces",
                         "id": "wm_spaces",
@@ -6769,161 +6807,152 @@ var SelectAppletDialog = /** @class */ (function (_super) {
                 .loading(installingOpa === opa.type)
                 .width('100%')
                 .onClick(function () { return __awaiter(_this, void 0, void 0, function () {
-                var _loop_1, this_1, i;
                 var _this = this;
                 return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: 
-                        /*  this.SetValue('name', opa.name);
-                         this.SetValue('folder_id', this.folder_id);
-                         this.SetValue('space_id', this.space_id);
-                        this.SetValue('item_type', 'opa');
-                         this.SetValue('item_sub_type', opa.type);
-                         this.SetValue('app_id', 'com.tuvalsoft.app.workbench');
-                         this.SetValue('content', '')
+                    /*  this.SetValue('name', opa.name);
+                     this.SetValue('folder_id', this.folder_id);
+                     this.SetValue('space_id', this.space_id);
+                    this.SetValue('item_type', 'opa');
+                     this.SetValue('item_sub_type', opa.type);
+                     this.SetValue('app_id', 'com.tuvalsoft.app.workbench');
+                     this.SetValue('content', '')
 
-                         this.last_added_opa_type = opa.type; */
-                        /* fetch('./data.json')
-                        .then((response) => response.json())
-                        .then((json) => console.log(json)); */
-                        return [4 /*yield*/, createDocument({
-                                data: {
-                                    name: opa.name,
-                                    opa: opa.type
-                                }
-                            })];
-                        case 1:
-                            /*  this.SetValue('name', opa.name);
-                             this.SetValue('folder_id', this.folder_id);
-                             this.SetValue('space_id', this.space_id);
-                            this.SetValue('item_type', 'opa');
-                             this.SetValue('item_sub_type', opa.type);
-                             this.SetValue('app_id', 'com.tuvalsoft.app.workbench');
-                             this.SetValue('content', '')
-
-                             this.last_added_opa_type = opa.type; */
-                            /* fetch('./data.json')
-                            .then((response) => response.json())
-                            .then((json) => console.log(json)); */
-                            _a.sent();
-                            if (!opa.databases) return [3 /*break*/, 6];
-                            setInstallingOpa(opa.type);
-                            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Client.setProject(this.workspaceId);
-                            _loop_1 = function (i) {
-                                var template, name_1, id, category, collections, db_1, _loop_2, j, error_1;
-                                return __generator(this, function (_b) {
-                                    switch (_b.label) {
-                                        case 0:
-                                            template = opa.databases[i];
-                                            name_1 = template.name, id = template.id, category = template.category, collections = template.collections;
-                                            _b.label = 1;
-                                        case 1:
-                                            _b.trys.push([1, 7, , 8]);
-                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.create(this_1.workspaceId, id, name_1, category)];
-                                        case 2:
-                                            db_1 = _b.sent();
-                                            _loop_2 = function (j) {
-                                                var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, size, _e;
-                                                return __generator(this, function (_f) {
-                                                    switch (_f.label) {
-                                                        case 0:
-                                                            collection = collections[j];
-                                                            name_2 = collection.name, id_1 = collection.id, attributes = collection.attributes, documents = collection.documents;
-                                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createCollection(this_1.workspaceId, db_1.$id, id_1, name_2, [], false)];
-                                                        case 1:
-                                                            col = _f.sent();
-                                                            i_1 = 0;
-                                                            _f.label = 2;
-                                                        case 2:
-                                                            if (!(i_1 < attributes.length)) return [3 /*break*/, 8];
-                                                            _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.size, size = _d === void 0 ? 255 : _d;
-                                                            _e = type;
-                                                            switch (_e) {
-                                                                case 'string': return [3 /*break*/, 3];
-                                                                case 'number': return [3 /*break*/, 5];
+                     this.last_added_opa_type = opa.type; */
+                    /* fetch('./data.json')
+                    .then((response) => response.json())
+                    .then((json) => console.log(json)); */
+                    createDocument({
+                        data: {
+                            name: opa.name,
+                            opa: opa.type
+                        }
+                    }, function (applet) { return __awaiter(_this, void 0, void 0, function () {
+                        var _loop_1, this_1, i;
+                        var _this = this;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    if (!opa.databases) return [3 /*break*/, 5];
+                                    setInstallingOpa(opa.type);
+                                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Client.setProject(this.workspaceId);
+                                    _loop_1 = function (i) {
+                                        var template, name_1, id, category, collections, db_1, _loop_2, j, error_1;
+                                        return __generator(this, function (_b) {
+                                            switch (_b.label) {
+                                                case 0:
+                                                    template = opa.databases[i];
+                                                    name_1 = template.name, id = template.id, category = template.category, collections = template.collections;
+                                                    _b.label = 1;
+                                                case 1:
+                                                    _b.trys.push([1, 7, , 8]);
+                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.create(this_1.workspaceId, applet.$id, opa.name, category)];
+                                                case 2:
+                                                    db_1 = _b.sent();
+                                                    _loop_2 = function (j) {
+                                                        var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, size, _e;
+                                                        return __generator(this, function (_f) {
+                                                            switch (_f.label) {
+                                                                case 0:
+                                                                    collection = collections[j];
+                                                                    name_2 = collection.name, id_1 = collection.id, attributes = collection.attributes, documents = collection.documents;
+                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createCollection(this_1.workspaceId, db_1.$id, id_1, name_2, [], false)];
+                                                                case 1:
+                                                                    col = _f.sent();
+                                                                    i_1 = 0;
+                                                                    _f.label = 2;
+                                                                case 2:
+                                                                    if (!(i_1 < attributes.length)) return [3 /*break*/, 8];
+                                                                    _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.size, size = _d === void 0 ? 255 : _d;
+                                                                    _e = type;
+                                                                    switch (_e) {
+                                                                        case 'string': return [3 /*break*/, 3];
+                                                                        case 'number': return [3 /*break*/, 5];
+                                                                    }
+                                                                    return [3 /*break*/, 7];
+                                                                case 3:
+                                                                    console.log('1');
+                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
+                                                                case 4:
+                                                                    _f.sent();
+                                                                    return [3 /*break*/, 7];
+                                                                case 5:
+                                                                    console.log('1');
+                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
+                                                                case 6:
+                                                                    _f.sent();
+                                                                    return [3 /*break*/, 7];
+                                                                case 7:
+                                                                    i_1++;
+                                                                    return [3 /*break*/, 2];
+                                                                case 8:
+                                                                    setTimeout(function () {
+                                                                        documents === null || documents === void 0 ? void 0 : documents.forEach(function (document) { return __awaiter(_this, void 0, void 0, function () {
+                                                                            var doc;
+                                                                            return __generator(this, function (_a) {
+                                                                                switch (_a.label) {
+                                                                                    case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createDocument(this.workspaceId, db_1.$id, col.$id, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.ID.unique(), document)];
+                                                                                    case 1:
+                                                                                        doc = _a.sent();
+                                                                                        console.log(doc);
+                                                                                        return [2 /*return*/];
+                                                                                }
+                                                                            });
+                                                                        }); });
+                                                                    }, 3000);
+                                                                    return [2 /*return*/];
                                                             }
-                                                            return [3 /*break*/, 7];
-                                                        case 3:
-                                                            console.log('1');
-                                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
-                                                        case 4:
-                                                            _f.sent();
-                                                            return [3 /*break*/, 7];
-                                                        case 5:
-                                                            console.log('1');
-                                                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
-                                                        case 6:
-                                                            _f.sent();
-                                                            return [3 /*break*/, 7];
-                                                        case 7:
-                                                            i_1++;
-                                                            return [3 /*break*/, 2];
-                                                        case 8:
-                                                            setTimeout(function () {
-                                                                documents === null || documents === void 0 ? void 0 : documents.forEach(function (document) { return __awaiter(_this, void 0, void 0, function () {
-                                                                    var doc;
-                                                                    return __generator(this, function (_a) {
-                                                                        switch (_a.label) {
-                                                                            case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createDocument(this.workspaceId, db_1.$id, col.$id, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.ID.unique(), document)];
-                                                                            case 1:
-                                                                                doc = _a.sent();
-                                                                                console.log(doc);
-                                                                                return [2 /*return*/];
-                                                                        }
-                                                                    });
-                                                                }); });
-                                                            }, 3000);
-                                                            return [2 /*return*/];
-                                                    }
-                                                });
-                                            };
-                                            j = 0;
-                                            _b.label = 3;
-                                        case 3:
-                                            if (!(j < collections.length)) return [3 /*break*/, 6];
-                                            return [5 /*yield**/, _loop_2(j)];
-                                        case 4:
-                                            _b.sent();
-                                            _b.label = 5;
-                                        case 5:
-                                            j++;
-                                            return [3 /*break*/, 3];
-                                        case 6: return [3 /*break*/, 8];
-                                        case 7:
-                                            error_1 = _b.sent();
-                                            console.log(error_1);
-                                            return [3 /*break*/, 8];
-                                        case 8: return [2 /*return*/];
-                                    }
-                                });
-                            };
-                            this_1 = this;
-                            i = 0;
-                            _a.label = 2;
-                        case 2:
-                            if (!(i < opa.databases.length)) return [3 /*break*/, 5];
-                            return [5 /*yield**/, _loop_1(i)];
-                        case 3:
-                            _a.sent();
-                            _a.label = 4;
-                        case 4:
-                            i++;
-                            return [3 /*break*/, 2];
-                        case 5:
-                            setInstallingOpa('');
-                            this.OnOK({
-                                name: opa.name,
-                                type: opa.type
-                            });
-                            return [3 /*break*/, 7];
-                        case 6:
-                            this.OnOK({
-                                name: opa.name,
-                                type: opa.type
-                            });
-                            _a.label = 7;
-                        case 7: return [2 /*return*/];
-                    }
+                                                        });
+                                                    };
+                                                    j = 0;
+                                                    _b.label = 3;
+                                                case 3:
+                                                    if (!(j < collections.length)) return [3 /*break*/, 6];
+                                                    return [5 /*yield**/, _loop_2(j)];
+                                                case 4:
+                                                    _b.sent();
+                                                    _b.label = 5;
+                                                case 5:
+                                                    j++;
+                                                    return [3 /*break*/, 3];
+                                                case 6: return [3 /*break*/, 8];
+                                                case 7:
+                                                    error_1 = _b.sent();
+                                                    console.log(error_1);
+                                                    return [3 /*break*/, 8];
+                                                case 8: return [2 /*return*/];
+                                            }
+                                        });
+                                    };
+                                    this_1 = this;
+                                    i = 0;
+                                    _a.label = 1;
+                                case 1:
+                                    if (!(i < opa.databases.length)) return [3 /*break*/, 4];
+                                    return [5 /*yield**/, _loop_1(i)];
+                                case 2:
+                                    _a.sent();
+                                    _a.label = 3;
+                                case 3:
+                                    i++;
+                                    return [3 /*break*/, 1];
+                                case 4:
+                                    setInstallingOpa('');
+                                    this.OnOK({
+                                        name: opa.name,
+                                        type: opa.type
+                                    });
+                                    return [3 /*break*/, 6];
+                                case 5:
+                                    this.OnOK({
+                                        name: opa.name,
+                                        type: opa.type
+                                    });
+                                    _a.label = 6;
+                                case 6: return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                    return [2 /*return*/];
                 });
             }); })).height()).height(230).width(290)
                 .padding()

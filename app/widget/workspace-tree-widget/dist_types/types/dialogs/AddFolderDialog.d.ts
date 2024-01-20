@@ -1,16 +1,13 @@
 export declare const SaveFolderAction: (formMeta: any, action: any) => import("@tuval/forms").UIViewBuilderClass;
-export declare const AddFolderDialog: (workspaceId: string, parent: string, path: string) => {
+export declare const AddFolderDialog: (workspaceId: string, appletId: string, parent: string, path: string) => {
     title: string;
+    workspaceId: string;
+    appletId: string;
     actions: {
         label: string;
         type: string;
     }[];
     fieldMap: {
-        workspaceId: {
-            name: string;
-            type: string;
-            value: string;
-        };
         path: {
             name: string;
             type: string;

@@ -1,1 +1,1 @@
-export declare const AppletItem: (applet: any) => import("@tuval/forms").UIViewBuilderClass;
+export declare const AppletItem: (appletId: string) => import("@tuval/forms").UIViewBuilderClass;

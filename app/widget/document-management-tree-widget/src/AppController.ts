@@ -39,7 +39,7 @@ export class MyTestController extends UIController {
             }
         }, []);
 
-        const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
+        const [expanded, setExpanded] = useLocalStorageState('document_management_tree', false);
 
         return (
             OptionsContext(() => (

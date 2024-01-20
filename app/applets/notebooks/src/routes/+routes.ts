@@ -2,6 +2,7 @@ import { UIController, UIRoute, UIRoutes, UIView, UIViewBuilder, VStack } from "
 import { MyTestController } from "../AppController";
 
 import { NotebookController } from "./notebook-[notebookId]/+controller";
+import { NoteController } from "./notebook-[notebookId]/note-[noteId]/+controller";
 
 
 export class RouteController extends UIController {
@@ -16,7 +17,7 @@ export class RouteController extends UIController {
                                 UIRoute('view/:viewId', class extends ViewController { }),
                             ), */
                             UIRoute(':notebookId', NotebookController).children(
-                                UIRoute(':noteId', NotebookController),
+                                UIRoute(':noteId',class extends  NoteController {}),
                             ),
                             /*    UIRoute('document/:documentId',   class extends  DocumentController {} ),
                                UIRoute('whiteboard/:whiteboardId',   class extends  WhiteboardController {} ),

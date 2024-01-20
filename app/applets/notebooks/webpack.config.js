@@ -73,6 +73,7 @@ const umdConfig = {
         '@realmocean/richtexteditor': 'realmocean$richtexteditor',
         '@realmocean/gantt': 'realmocean$gantt',
         '@realmocean/sdk': 'realmocean$sdk',
+        '@realmocean/ui': 'realmocean$ui',
 
 
         'react': 'tuval$react',

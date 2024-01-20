@@ -18,14 +18,14 @@ export class MyTestController extends UIController {
         const [isOpen, setIsOpen] = useState(getAppletName() === 'com.celmino.applet.workmanagement');
         const isLoading = false;
         const { items } = this.props.data || {};
-        const { selectedItem, team_id, workspaceId, folder_id, applet_id, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
+        const { selectedItem, team_id, workspaceId, folder_id, appletId, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
 
         let listId = getListId();
 
 
         const { document: list, isLoading: isListLoading } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         }, { enabled: listId != null });
@@ -87,7 +87,7 @@ export class MyTestController extends UIController {
                             .background('gray')
                             .onClick(() => {
 
-                                DynoDialog.Show(AddSpaceDialog(workspaceId, '/'));
+                                DynoDialog.Show(AddSpaceDialog(workspaceId,appletId, '/'));
                             })
                     )
                         .fontWeight('500')

@@ -16,14 +16,14 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
     onClickCallback: Function) => UIViewBuilder(() => {
 
         const { folder_id } = useParams();
-        const { workspaceId } = useOptions();
+        const { workspaceId , appletId} = useOptions();
 
         let selected = false;
         const [mode, setMode] = useState('readonly');
         const [name, setName] = useState(folder?.name);
         const [newName, setNewName] = useState(folder?.name);
 
-        const { createDocument: createList } = useCreateDocument(workspaceId, 'work_management', 'wm_lists');
+        const { createDocument: createList } = useCreateDocument(workspaceId, appletId, 'wm_lists');
 
         return (
             mode === 'readonly' ?
@@ -60,7 +60,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.ListIcon,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddListDialog(workspaceId, folder.$id, `${folder.path}/${folder.$id}`))
+                                        DynoDialog.Show(AddListDialog(workspaceId,appletId, folder.$id, `${folder.path}/${folder.$id}`))
                                        /*  createList({
                                             data: {
                                                 name: 'New list',
@@ -77,7 +77,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     title: 'Document',
                                     icon: WorkbenchIcons.DocumentIcon,
                                     onClick: () => {
-                                        DynoDialog.Show(AddDocumentDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, folder.$id, `${parent.path}/${parent.$id}`))
                                         /*   createApplet({
                                               name: 'New document',
                                               parentId: folder.$id,
@@ -96,7 +96,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.WhiteboardIcon1,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId,appletId, folder.$id, `${parent.path}/${parent.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')
@@ -113,7 +113,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.AddFolder,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddFolderDialog(workspaceId, folder.$id, `${folder.path}/${folder.$id}`))
+                                        DynoDialog.Show(AddFolderDialog(workspaceId,appletId, folder.$id, `${folder.path}/${folder.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')

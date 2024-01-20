@@ -16,7 +16,7 @@ import { AddNotebookDialog } from './dialogs/AddNotebookDialog';
 export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
-        const [isOpen, setIsOpen] = useState(getAppletName() === 'com.celmino.applet.documentmanagement');
+        const [isOpen, setIsOpen] = useState(getAppletName() === 'com.celmino.applet.notebooks');
         const isLoading = false;
         const { items } = this.props.data || {};
         const { selectedItem, team_id, workspaceId, folder_id, applet_id, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};

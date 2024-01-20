@@ -1,5 +1,5 @@
 export declare const SaveWhiteboardAction: (formMeta: any, action: any) => import("@tuval/forms").UIViewBuilderClass;
-export declare const AddWhiteboardDialog: (workspaceId: string, parent: string, path: string) => {
+export declare const AddWhiteboardDialog: (workspaceId: string, appletId: string, parent: string, path: string) => {
     title: string;
     actions: {
         label: string;
@@ -7,6 +7,11 @@ export declare const AddWhiteboardDialog: (workspaceId: string, parent: string, 
     }[];
     fieldMap: {
         workspaceId: {
+            name: string;
+            type: string;
+            value: string;
+        };
+        appletId: {
             name: string;
             type: string;
             value: string;

@@ -9,7 +9,7 @@ import { WhiteboardName } from "./WhiteboardName";
 
 
 export const WhiteboardItem = (whiteboard: any) => UIViewBuilder(() => {
-    const { workspaceId, applet_id } = useOptions();
+    const { workspaceId, appletId } = useOptions();
 
     let documentInLinkId = getDocumentId();
 
@@ -34,7 +34,7 @@ export const WhiteboardItem = (whiteboard: any) => UIViewBuilder(() => {
                     !expanded ? Fragment() :
                         UIViewBuilder(() => {
 
-                            const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_documents', [
+                            const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, appletId, 'wm_tree', [
                                 Query.equal('parent', whiteboard.$id)
                             ]);
                             return (
@@ -54,7 +54,7 @@ export const WhiteboardItem = (whiteboard: any) => UIViewBuilder(() => {
             )
         })
             .realmId(workspaceId)
-            .databaseId('work_management')
+            .databaseId(appletId)
             .collectionId('wm_documents')
             .documentId(documentInLinkId)
             .enabled(documentInLinkId != null)

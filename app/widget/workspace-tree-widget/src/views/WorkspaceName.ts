@@ -18,6 +18,8 @@ import { is } from "@tuval/core";
 import copy from "copy-to-clipboard";
 
 import { DynoDialog } from '@realmocean/ui'
+import { AddListDialog } from "../dialogs/AddListDialog";
+import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
 
 export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, onClickCallback: Function) {
     return (
@@ -25,12 +27,12 @@ export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, o
 
             //  const { workspace_id } = useParams();
             let selected = false;
-            const { workspaceId } = useOptions();
+            const { workspaceId, appletId } = useOptions();
             const [mode, setMode] = useState('readonly');
             const [name, setName] = useState(space?.name);
             const [newName, setNewName] = useState(space?.name);
 
-            const { createDocument } = useCreateDocument(workspaceId, 'work_management', 'applets');
+            const { createDocument } = useCreateDocument(workspaceId, appletId, 'applets');
 
             return (
                 mode === 'readonly' ?
@@ -125,10 +127,7 @@ export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, o
                                         icon: WorkbenchIcons.ListIcon,
                                         onClick: () => {
 
-                                            createDocument({
-
-                                                data: {}
-                                            }, () => alert('created'))
+                                            DynoDialog.Show(AddListDialog(workspaceId,appletId, space.$id, `${space.path}/${space.$id}`))
                                         }
                                         /* .then(() => {
                                             controller.InvalidateQuerie('space-folders')
@@ -211,10 +210,7 @@ export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, o
                                         title: 'Document',
                                         icon: WorkbenchIcons.DocumentIcon,
                                         onClick: () => {
-                                            createDocument({
-
-                                                data: {}
-                                            }, () => alert('created'))
+                                            DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, space.$id, `/${space.$id}`))
                                         }
                                         /* .then(() => {
                                             controller.InvalidateQuerie('space-folders')
@@ -252,7 +248,7 @@ export function WorkspaceName(space: any, isOpen: boolean, isLoading: boolean, o
                                         icon: WorkbenchIcons.AddFolder,
                                         onClick: () => {
 
-                                            DynoDialog.Show(AddFolderDialog(workspaceId, space.$id, `/${space.$id}`))
+                                            DynoDialog.Show(AddFolderDialog(workspaceId,appletId, space.$id, `/${space.$id}`))
                                         }
                                         /* .then(() => {
                                             controller.InvalidateQuerie('space-folders')

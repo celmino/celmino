@@ -9,23 +9,24 @@ import { WhiteboardItem } from "./WhiteboardItem";
 
 
 export function FolderItem(parent: any, folder: any) {
+
     return (
         UIViewBuilder(() => {
-            const { workspaceId } = useOptions();
+            const { workspaceId, appletId } = useOptions();
             let listId = getListId();
             let documentId = getDocumentId();
 
 
             const { document: list, isLoading: isListLoading } = useGetDocument({
                 projectId: workspaceId,
-                databaseId: 'work_management',
+                databaseId: appletId,
                 collectionId: 'wm_lists',
                 documentId: listId
             }, { enabled: listId != null });
 
             const { document: document, isLoading: isDocumentLoading } = useGetDocument({
                 projectId: workspaceId,
-                databaseId: 'work_management',
+                databaseId: appletId,
                 collectionId: 'wm_documents',
                 documentId: documentId
             }, { enabled: documentId != null });
@@ -42,26 +43,13 @@ export function FolderItem(parent: any, folder: any) {
 
                     const [expanded, setExpanded] = useLocalStorageState(folder.$id, list?.path.indexOf(folder.$id) > -1 || document?.path.indexOf(folder.$id) > -1);
 
-                    //const [a, setA] = useState(true)
-                    const { documents: folders, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_folders', [
-                        Query.equal('parent', folder.$id)
-                    ]);
-
-                    const { documents: applets, isLoading: isAppletsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_lists', [
-                        Query.equal('parent', folder.$id)
-                    ]);
-
-                    const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_documents', [
-                        Query.equal('parent', folder.$id)
-                    ]);
-
-                    const { documents: whiteboards, isLoading: isWhiteboardLoading } = useListDocuments(workspaceId, 'work_management', 'wm_whiteboards', [
+                    const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'wm_tree', [
                         Query.equal('parent', folder.$id)
                     ]);
 
                     return (
                         VStack({ alignment: cTopLeading })(
-                            FolderName(parent, folder, expanded, ((expanded) && (isAppletsLoading || isDocumentsLoading)), () => {
+                            FolderName(parent, folder, expanded, isLoading, () => {
                                 setExpanded(!expanded);
                                 //  setA(!a);
                             }),
@@ -71,22 +59,27 @@ export function FolderItem(parent: any, folder: any) {
                                     return (
                                         VStack(
 
-                                            // Folders
-                                            ...ForEach(isLoading ? [] : folders)((childFolder: any) =>
-                                                FolderItem(parent, childFolder)
+                                            // Items
+                                            ...ForEach(isLoading ? [] : items)((item: any) =>
+                                                item.type === 'folder' ?
+                                                    FolderItem(folder, item) :
+                                                    item.type === 'list' ?
+                                                        AppletItem(item.$id) :
+                                                        item.type === 'document' ?
+                                                            DocumentItem(item.$id) : Fragment()
                                             ),
-                                            // Documents
-                                            ...ForEach(documents)((document: any) =>
-                                                DocumentItem(document)
-                                            ),
-                                            // Whiteboards
-                                            ...ForEach(whiteboards)((whiteboard: any) =>
-                                                WhiteboardItem(whiteboard)
-                                            ),
-                                            // Applets
-                                            ...ForEach(applets)((applet: any) =>
-                                                AppletItem(applet)
-                                            ),
+                                            /*  // Documents
+                                             ...ForEach(documents)((document: any) =>
+                                                 DocumentItem(document)
+                                             ),
+                                             // Whiteboards
+                                             ...ForEach(whiteboards)((whiteboard: any) =>
+                                                 WhiteboardItem(whiteboard)
+                                             ),
+                                             // Applets
+                                             ...ForEach(applets)((applet: any) =>
+                                                 AppletItem(applet)
+                                             ), */
 
 
                                         ).paddingLeft('20px')

@@ -207,7 +207,8 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                         ...ForEach(documents)(applet =>
                                             UIWidget(applet['opa'])
                                                 .config({
-                                                    ...(useParams() || {})
+                                                    ...(useParams() || {}),
+                                                    appletId: applet.$id
                                                 }),
                                         )
                                     ) : Fragment()
