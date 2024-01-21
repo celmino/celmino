@@ -1,4 +1,4 @@
-import { HStack, Heading, Icon, Icons, Loader, LoaderSizes, MenuButton, ShowSuccessToast, ShowToast, Spacer, SvgIcon, TextField, UIViewBuilder, WorkProtocol, cHorizontal, cLeading, cTrailing, useNavigate, useOptions, useParams, useProtocol, useState } from "@tuval/forms";
+import { HStack, Heading, Icon, Icons, Loader, LoaderSizes, MenuButton, ShowSuccessToast, ShowToast, Spacer, Spinner, SvgIcon, TextField, UIViewBuilder, WorkProtocol, cHorizontal, cLeading, cTrailing, useNavigate, useOptions, useParams, useProtocol, useState } from "@tuval/forms";
 import copy from "copy-to-clipboard";
 import { SelectOpaDialog } from "../dialogs/SelectOpaDialog";
 import { WorkbenchIcons } from "./WorkbenchIcons";
@@ -6,28 +6,31 @@ import { is } from "@tuval/core";
 import { DynoDialog } from '@realmocean/ui'
 import { AddFolderDialog } from "../dialogs/AddFolderDialog";
 import { opas } from "../Opas";
-import { Query, useCreateDocument } from "@realmocean/sdk";
-import { AddListDialog } from "../dialogs/AddListDialog";
+import { Query, useCreateDocument, useGetDocument } from "@realmocean/sdk";
 import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
 import { AddWhiteboardDialog } from "../dialogs/AddWhiteboardDialog";
 
 
-export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading: boolean,
+export const FolderName = (folderId: string, isOpen: boolean, isLoading: boolean,
     onClickCallback: Function) => UIViewBuilder(() => {
 
         const { folder_id } = useParams();
-        const { workspaceId } = useOptions();
+        const { workspaceId, appletId } = useOptions();
 
         const navigate = useNavigate();
 
         let selected = false;
         const [mode, setMode] = useState('readonly');
-        const [name, setName] = useState(folder?.name);
-        const [newName, setNewName] = useState(folder?.name);
-
-        const { createDocument: createList } = useCreateDocument(workspaceId, 'work_management', 'wm_lists');
-
+      
+        const { document: folder, isLoading } = useGetDocument({
+            projectId: workspaceId,
+            databaseId: appletId,
+            collectionId: 'dm_folders',
+            documentId:folderId
+        })
+    
         return (
+            isLoading ? Spinner() :
             mode === 'readonly' ?
                 HStack({ alignment: cLeading })(
                     HStack(
@@ -39,12 +42,12 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                             Icon(isOpen ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D'),
                         ).padding(2).width(20).height(20).cornerRadius(5).display('var(--display-icon)')
                     ).width(20).height(20)
-                    .onClick(() => {
-                        onClickCallback();
-                    }),
+                        .onClick(() => {
+                            onClickCallback();
+                        }),
 
                     HStack({ alignment: cLeading })(
-                        Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
+                        Heading(folder?.name).h6().ellipsisMaxLines(1).ellipsis(true)
                             .fontSize(14).fontWeight(selected ? '500' : '400')
                             .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
                             .foregroundColor(selected ? '#7b68ee' : '#151719')
@@ -54,9 +57,9 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                         .onClick(() => {
                             //alert(getAppletUrl(access_type, applet.id))
 
-                            navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.documentmanagement/folder/${folder.$id}`);
+                            navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${folderId}`);
                         }),
-                        
+
                     /* Heading(folder.name).h6().ellipsisMaxLines(1).ellipsis(true)
                         .fontSize(14).fontWeight('400')
                         .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
@@ -72,7 +75,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                     HStack({ alignment: cTrailing })(
                         MenuButton()
                             .model([
-                                
+
                                 {
                                     title: 'Add to folder',
                                     type: 'Title'
@@ -82,24 +85,24 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.ListIcon,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddListDialog(workspaceId, folder.$id, `${folder.path}/${folder.$id}`))
-                                       /*  createList({
-                                            data: {
-                                                name: 'New list',
-                                                parent: folder.$id,
-                                            }
-                                        }, () => console.log('created')) */
+                                       // DynoDialog.Show(AddListDialog(workspaceId, folder.$id, `${folder.path}/${folder.$id}`))
+                                        /*  createList({
+                                             data: {
+                                                 name: 'New list',
+                                                 parent: folder.$id,
+                                             }
+                                         }, () => console.log('created')) */
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')
                                     }) */
                                 },
-                            
+
                                 {
                                     title: 'Document',
                                     icon: WorkbenchIcons.DocumentIcon,
                                     onClick: () => {
-                                        DynoDialog.Show(AddDocumentDialog(workspaceId, folder.$id, parent != null ? `${parent.path}/${parent.$id}` : `/${folder.$id}`))
+                                        DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, folderId,  `${folder?.path}/${folder?.$id}` ))
                                         /*   createApplet({
                                               name: 'New document',
                                               parentId: folder.$id,
@@ -118,13 +121,13 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.WhiteboardIcon1,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId, folderId, `${folder?.path}/${folder?.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')
                                     }) */
                                 },
-                               
+
 
                                 {
                                     type: 'Divider'
@@ -135,7 +138,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.AddFolder,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddFolderDialog(workspaceId, folder.$id, `${folder.path}/${folder.$id}`))
+                                        DynoDialog.Show(AddFolderDialog(workspaceId,appletId, folderId, `${folder?.path}/${folder?.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')
@@ -145,7 +148,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                 {
                                     title: 'More Applets',
                                     icon: SvgIcon('svg-sprite-activity-template-merged'),
-                                    onClick: () => SelectOpaDialog.Show(folder.$id, 'folder', opas).then((folder) => {
+                                    onClick: () => SelectOpaDialog.Show(folderId, 'folder', opas).then((folder) => {
 
 
                                     })
@@ -201,7 +204,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                         })
 
                 )
-                    
+
                     // .borderLeft(isOpen ? 'solid 1px #7B68EE' : '')
                     .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
                     .allHeight(32)
@@ -220,7 +223,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                     ).width().height().opacity('var(--show-expand-icon)'),
                     Icon(isOpen ? SvgIcon('svg-sprite-cu3-folder-sidebar_opened', '#7C828D') : SvgIcon('svg-sprite-cu3-folder-sidebar', '#7C828D')).foregroundColor('#7C828D'),
 
-                    TextField().value(newName)
+                    TextField().value(folder.name)
                         .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
                         .fontSize(13)
                         .height('100%')
@@ -250,7 +253,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                               } */
                             setMode('readonly');
                         })
-                        .onChange((e) => setNewName(e)),
+                        .onChange((e) => void 0),
                     /* : Text(list.name)
                         .ellipsisMaxLines(1)
                         .multilineTextAlignment(TextAlignment.leading)

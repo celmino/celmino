@@ -1880,7 +1880,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n     color: \", \";\\n     font-size: \", \";\\n\\n    \"], [\"\\n     color: \", \";\\n     font-size: \", \";\\n\\n    \"])), control.Appearance.Color, control.Appearance.FontSize);\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
 
 /***/ }),
 
@@ -1935,7 +1935,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/TextField/TextField.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ \"@tuval/core\");\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\n\nfunction TextFieldRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n     color: \", \" !important;\\n     font-size: \", \" !important;\\n     font-weight: \", \" !important;\\n\\n    \"], [\"\\n     color: \", \" !important;\\n     font-size: \", \" !important;\\n     font-weight: \", \" !important;\\n\\n    \"])), control.Appearance.Color, control.Appearance.FontSize, control.Appearance.FontWeight);\n    console.log(className);\n    var onChange = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (value, event) {\n        if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(control.vp_OnChange)) {\n            control.vp_OnChange(value);\n        }\n    }, []);\n    var onBlur = function (event) {\n        if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(control.vp_OnBlur)) {\n            control.vp_OnBlur(event);\n        }\n    };\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { className: className, iconName: function noRefCheck() { }, placeholder: \"Placeholder text here\", \n        //showCharCount\n        title: control.vp_Title, value: control.vp_Value, onBlur: onBlur, onChange: onChange }));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextFieldRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/TextField/TextFieldRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/TextField/TextField.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ \"@tuval/core\");\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\n\nfunction TextFieldRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    console.log(className);\n    var onChange = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (value, event) {\n        if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(control.vp_OnChange)) {\n            control.vp_OnChange(value);\n        }\n    }, []);\n    var onBlur = function (event) {\n        if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(control.vp_OnBlur)) {\n            control.vp_OnBlur(event);\n        }\n    };\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { className: className, iconName: function noRefCheck() { }, placeholder: \"Placeholder text here\", \n        //showCharCount\n        title: control.vp_Title, value: control.vp_Value, onBlur: onBlur, onChange: onChange }));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextFieldRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/TextField/TextFieldRenderer.tsx?");
 
 /***/ }),
 
@@ -2836,7 +2836,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1909653__(moduleId) {
+/******/ 	function __nested_webpack_require_1909312__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -2850,7 +2850,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1909653__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1909312__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -2860,11 +2860,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_1909653__.n = (module) => {
+/******/ 		__nested_webpack_require_1909312__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_1909653__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_1909312__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -2872,9 +2872,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_1909653__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_1909312__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_1909653__.o(definition, key) && !__nested_webpack_require_1909653__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_1909312__.o(definition, key) && !__nested_webpack_require_1909312__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -2883,13 +2883,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1909653__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_1909312__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1909653__.r = (exports) => {
+/******/ 		__nested_webpack_require_1909312__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -2902,7 +2902,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_1909653__("./src/index.ts");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_1909312__("./src/index.ts");
 /******/ 	
 /******/ 	return __nested_webpack_exports__;
 /******/ })()
@@ -3104,12 +3104,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_WorkspaceTree__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/WorkspaceTree */ "./src/views/WorkspaceTree.tsx");
 /* harmony import */ var _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/WorkbenchIcons */ "./src/views/WorkbenchIcons.tsx");
 /* harmony import */ var _dialogs_AddSpaceDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dialogs/AddSpaceDialog */ "./src/dialogs/AddSpaceDialog.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./src/utils.ts");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _views_localStorageState__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/localStorageState */ "./src/views/localStorageState.tsx");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/ui */ "@realmocean/ui");
+/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_ui__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./src/utils.ts");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _views_localStorageState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/localStorageState */ "./src/views/localStorageState.tsx");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dialogs/AddFolderDialog */ "./src/dialogs/AddFolderDialog.ts");
+/* harmony import */ var _dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dialogs/AddListDialog */ "./src/dialogs/AddListDialog.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -3144,19 +3148,22 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 
+
+
+
 var MyTestController = /** @class */ (function (_super) {
     __extends(MyTestController, _super);
     function MyTestController() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_4__.getAppletName)() === 'com.celmino.applet.workmanagement'), isOpen = _a[0], setIsOpen = _a[1];
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _b[0], setIsEditing = _b[1];
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _a[0], setIsEditing = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
-        var _c = this.props.config || {}, selectedItem = _c.selectedItem, team_id = _c.team_id, workspaceId = _c.workspaceId, folder_id = _c.folder_id, appletId = _c.appletId, showAllWorkspaces = _c.showAllWorkspaces, opas = _c.opas, folder_menu = _c.folder_menu, app_id = _c.app_id;
-        var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getListId)();
-        var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_5__.useGetDocument)({
+        var _b = this.props.config || {}, selectedItem = _b.selectedItem, team_id = _b.team_id, workspaceId = _b.workspaceId, folder_id = _b.folder_id, appletId = _b.appletId, showAllWorkspaces = _b.showAllWorkspaces, opas = _b.opas, folder_menu = _b.folder_menu, app_id = _b.app_id;
+        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_5__.getAppletId)() === appletId), isOpen = _c[0], setIsOpen = _c[1];
+        var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getListId)();
+        var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useGetDocument)({
             projectId: workspaceId,
             databaseId: appletId,
             collectionId: 'wm_lists',
@@ -3167,8 +3174,8 @@ var MyTestController = /** @class */ (function (_super) {
                 setExpanded(true);
             }
         }, []);
-        var _e = (0,_views_localStorageState__WEBPACK_IMPORTED_MODULE_6__.useLocalStorageState)('work_management_tree', false), expanded = _e[0], setExpanded = _e[1];
-        var _f = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_5__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }), applet = _f.document, isAppletLoading = _f.isLoading;
+        var _e = (0,_views_localStorageState__WEBPACK_IMPORTED_MODULE_7__.useLocalStorageState)('work_management_tree', false), expanded = _e[0], setExpanded = _e[1];
+        var _f = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }), applet = _f.document, isAppletLoading = _f.isLoading;
         return (isAppletLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width(20).height(20).cursor('pointer')
@@ -3179,10 +3186,11 @@ var MyTestController = /** @class */ (function (_super) {
             // Title
             isEditing ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
                 var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(applet.name), appletName = _a[0], setAppletName = _a[1];
-                var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_5__.useUpdateDocument)(workspaceId).updateDocument;
-                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_7__.TextField)()
+                var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useUpdateDocument)(workspaceId).updateDocument;
+                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_8__.TextField)()
                     .fontSize(16)
                     .fontWeight('500')
+                    .padding(0)
                     .value(appletName)
                     .onChange(function (value) { return setAppletName(value); })
                     .onBlur(function () {
@@ -3214,17 +3222,244 @@ var MyTestController = /** @class */ (function (_super) {
                 }));
             })
                 :
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(applet.name).fontSize(16)
-                        .lineHeight(22), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add).size(15)).height(20).width(20)
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
+                        .config({
+                        selectedIcon: 'bookmark',
+                        selectedCategory: 'Icons',
+                        color: 'white',
+                        backgroundColor: '#40BC86',
+                        width: 20,
+                        height: 20,
+                        padding: 1
+                    }))
+                        //.background('#FCE8E8')
+                        .width().height()
+                        .cornerRadius(5)
+                        .display('var(--display-icon)'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_8__.Text)(applet.name).fontSize(16).foregroundColor('#5a5d62')
+                        //.fontFamily('Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif')
+                        .lineHeight(22)).height(), 
+            /* Spacer(),
+            HStack(
+                Icon(Icons.Add).size(15)
+            ).height(20).width(20)
                 .background('gray')
-                .onClick(function () {
-                setIsEditing(!isEditing);
-                // DynoDialog.Show(AddSpaceDialog(workspaceId, appletId, '/'));
-            }))
+                .onClick(() => {
+                    setIsEditing(!isEditing)
+                   
+                }) */
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
+                .model([
+                {
+                    title: 'Add to space',
+                    type: 'Title'
+                },
+                {
+                    title: 'Table',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.TableIcon,
+                    onClick: function () {
+                        /* createDocument({
+                            data: {}
+                        }, () => alert('created')) */
+                        //DynoDialog.Show(AddFolderDialog(space.$id))
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Grid',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.GridIcon,
+                    onClick: function () {
+                        /* createDocument({
+
+                            data: {}
+                        }, () => alert('created')) */
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Board',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.BoardIcon,
+                    onClick: function () {
+                        /* createDocument({
+
+                            data: {}
+                        }, () => alert('created')) */
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'List',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.ListIcon,
+                    onClick: function () {
+                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_10__.AddListDialog)(workspaceId, appletId, '-1', "/"));
+                        // DynoDialog.Show(AddListDialog(workspaceId, appletId, space.$id, `${space.path}/${space.$id}`))
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Timeline',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.TimelineIcon,
+                    onClick: function () {
+                        /*  createDocument({
+
+                             data: {}
+                         }, () => alert('created')) */
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Calendar',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CalendarIcon,
+                    onClick: function () {
+                        /*  createDocument({
+
+                             data: {}
+                         }, () => alert('created')) */
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Report',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.ReportIcon,
+                    onClick: function () {
+                        /*   createDocument({
+
+                              data: {}
+                          }, () => alert('created')) */
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Feed',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.FeedIcon,
+                    onClick: function () {
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Map',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.MapIcon,
+                    onClick: function () {
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    type: 'Divider'
+                },
+                {
+                    title: 'Document',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.DocumentIcon,
+                    onClick: function () {
+                        // DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, space.$id, `/${space.$id}`))
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Whiteboard',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.WhiteboardIcon1,
+                    onClick: function () {
+                        // DynoDialog.Show(AddFolderDialog(space.$id))
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'Form',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.FormIcon1,
+                    onClick: function () {
+                        // DynoDialog.Show(AddFolderDialog(space.$id))
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    type: 'Divider'
+                },
+                {
+                    title: 'Folder',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.AddFolder,
+                    onClick: function () {
+                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_9__.AddFolderDialog)(workspaceId, appletId, '-1', "/"));
+                    }
+                    /* .then(() => {
+                        controller.InvalidateQuerie('space-folders')
+                    }) */
+                },
+                {
+                    title: 'More Applets',
+                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-activity-template-merged'),
+                    /*  onClick: () => SelectOpaDialog.Show(team?.id, spaceItem.id, null, opas).then((applet) => {
+
+                     }) */
+                },
+            ])
+                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
+                .model([
+                {
+                    title: 'Space acions',
+                    type: 'Title'
+                },
+                {
+                    title: 'Rename',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.Edit,
+                    onClick: function () { return setIsEditing(true); }
+                },
+                {
+                    title: 'Copy link',
+                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__link'),
+                    onClick: function () {
+                        /*   copy(location.href);
+                          ShowToast('Copied to clipboard') */
+                    }
+                },
+                {
+                    title: 'Dublicate',
+                    icon: _views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.Copy
+                },
+                {
+                    type: 'Divider'
+                },
+                {
+                    title: 'Delete',
+                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__delete', '#bc4841'),
+                    color: '#bc4841',
+                    onClick: function () {
+                        // DynoDialog.Show(AppletDescriptionDialog(applet.id))
+                    }
+                }
+            ])
+                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Menu))
+                .onClick(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            })
+                .width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
+                .display('var(--show-space-action-buttons)'))
                 .fontWeight('500')
                 .allHeight(37).padding(5).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, isEditing ? 0 : 5)
                 .variable('--show-space-action-buttons', { default: 'none', hover: 'flex' }), isOpen ?
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_views_WorkspaceTree__WEBPACK_IMPORTED_MODULE_1__.LeftSideMenuView)(selectedItem)).height().paddingLeft('30px') : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).height()); })
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_views_WorkspaceTree__WEBPACK_IMPORTED_MODULE_1__.LeftSideMenuView)(selectedItem)).height().paddingLeft('40px') : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).height()); })
                 .options(__assign({}, (this.props.config || {}))));
     };
     return MyTestController;
@@ -4439,12 +4674,12 @@ var SelectOpaDialog = /** @class */ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getAppletName: () => (/* binding */ getAppletName),
+/* harmony export */   getAppletId: () => (/* binding */ getAppletId),
 /* harmony export */   getDocumentId: () => (/* binding */ getDocumentId),
 /* harmony export */   getListId: () => (/* binding */ getListId),
 /* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId)
 /* harmony export */ });
-function getAppletName() {
+function getAppletId() {
     var url = window.location.href;
     // Regex deseni
     var regexPattern = /\/applet\/([^\/]+)/;
@@ -4618,7 +4853,7 @@ function AppletName(listId, onClickCallback) {
                         .height(32)
                         .onClick(function () {
                         //alert(getAppletUrl(access_type, applet.id))
-                        navigate("/app/workspace/".concat(workspaceId, "/applet/com.celmino.applet.workmanagement/list/").concat(applet.$id, "/view/").concat(applet.defaultViewId));
+                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/list/").concat(applet.$id, "/view/").concat(applet.defaultViewId));
                     }), mode === 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
                     (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.TextField)().value(newName)
                         .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
@@ -5144,7 +5379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function FolderItem(parent, folder) {
+function FolderItem(folder) {
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useOptions)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
         var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getListId)();
@@ -5172,14 +5407,14 @@ function FolderItem(parent, folder) {
             var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDocuments)(workspaceId, appletId, 'wm_tree', [
                 _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('parent', folder.$id)
             ]), items = _b.documents, isLoading = _b.isLoading;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_FolderName__WEBPACK_IMPORTED_MODULE_3__.FolderName)(parent, folder, expanded, isLoading, function () {
+            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_FolderName__WEBPACK_IMPORTED_MODULE_3__.FolderName)(folder, expanded, isLoading, function () {
                 setExpanded(!expanded);
                 //  setA(!a);
             }), (!expanded) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
                     return (_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack.apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(isLoading ? [] : items)(function (item) {
                         return item.type === 'folder' ?
-                            FolderItem(folder, item) :
+                            FolderItem(item) :
                             item.type === 'list' ?
                                 (0,_AppletItem__WEBPACK_IMPORTED_MODULE_2__.AppletItem)(item.$id) :
                                 item.type === 'document' ?
@@ -5235,7 +5470,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+var FolderName = function (folder, isOpen, isLoading, onClickCallback) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
     var folder_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)().folder_id;
     var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useOptions)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
     var selected = false;
@@ -5275,7 +5510,7 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
                 title: 'Document',
                 icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.DocumentIcon,
                 onClick: function () {
-                    _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_9__.AddDocumentDialog)(workspaceId, appletId, folder.$id, "".concat(parent.path, "/").concat(parent.$id)));
+                    _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_9__.AddDocumentDialog)(workspaceId, appletId, folder.$id, "".concat(folder.path, "/").concat(folder.$id)));
                     /*   createApplet({
                           name: 'New document',
                           parentId: folder.$id,
@@ -5293,7 +5528,7 @@ var FolderName = function (parent, folder, isOpen, isLoading, onClickCallback) {
                 title: 'Whiteboard',
                 icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.WhiteboardIcon1,
                 onClick: function () {
-                    _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddWhiteboardDialog__WEBPACK_IMPORTED_MODULE_10__.AddWhiteboardDialog)(workspaceId, appletId, folder.$id, "".concat(parent.path, "/").concat(parent.$id)));
+                    _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show((0,_dialogs_AddWhiteboardDialog__WEBPACK_IMPORTED_MODULE_10__.AddWhiteboardDialog)(workspaceId, appletId, folder.$id, "".concat(folder.path, "/").concat(folder.$id)));
                 }
                 /* .then(() => {
                     controller.InvalidateQuerie('space-folders')
@@ -5527,387 +5762,6 @@ var WorkbenchIcons;
 
 /***/ }),
 
-/***/ "./src/views/WorkspaceItem.ts":
-/*!************************************!*\
-  !*** ./src/views/WorkspaceItem.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   WorkspaceItem: () => (/* binding */ WorkspaceItem)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _WorkspaceName__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkspaceName */ "./src/views/WorkspaceName.ts");
-/* harmony import */ var _AppletItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppletItem */ "./src/views/AppletItem.ts");
-/* harmony import */ var _FolderItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FolderItem */ "./src/views/FolderItem.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
-/* harmony import */ var _localStorageState__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./localStorageState */ "./src/views/localStorageState.tsx");
-/* harmony import */ var _DocumentItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DocumentItem */ "./src/views/DocumentItem.ts");
-
-
-
-
-
-
-
-
-function WorkspaceItem(space) {
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useOptions)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
-        var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getListId)();
-        var documentId = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getDocumentId)();
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
-            projectId: workspaceId,
-            databaseId: appletId,
-            collectionId: 'wm_lists',
-            documentId: listId
-        }, { enabled: listId != null }), list = _b.document, isListLoading = _b.isLoading;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
-            projectId: workspaceId,
-            databaseId: appletId,
-            collectionId: 'wm_documents',
-            documentId: documentId
-        }, { enabled: documentId != null }), document = _c.document, isDocumentLoading = _c.isLoading;
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-            var expandedFromUrl = (list === null || list === void 0 ? void 0 : list.path.indexOf(space.$id)) > -1 || (document === null || document === void 0 ? void 0 : document.path.indexOf(space.$id)) > -1;
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-                if (expandedFromUrl) {
-                    setExpanded(true);
-                }
-            }, []);
-            var _a = (0,_localStorageState__WEBPACK_IMPORTED_MODULE_6__.useLocalStorageState)(space.$id, (list === null || list === void 0 ? void 0 : list.path.indexOf(space.$id)) > -1 || (document === null || document === void 0 ? void 0 : document.path.indexOf(space.$id)) > -1), expanded = _a[0], setExpanded = _a[1];
-            var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDocuments)(workspaceId, appletId, 'wm_tree', [
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('parent', space.$id)
-            ]), items = _b.documents, isLoading = _b.isLoading;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_WorkspaceName__WEBPACK_IMPORTED_MODULE_2__.WorkspaceName)(space, expanded, (isLoading && expanded), function () {
-                setExpanded(!expanded);
-            }), !expanded ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-                (isLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-                    _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack.apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(items)(function (item) {
-                        return item.type === 'folder' ?
-                            (0,_FolderItem__WEBPACK_IMPORTED_MODULE_4__.FolderItem)(space, item) :
-                            item.type === 'list' ?
-                                (0,_AppletItem__WEBPACK_IMPORTED_MODULE_3__.AppletItem)(item.$id) :
-                                item.type === 'document' ?
-                                    (0,_DocumentItem__WEBPACK_IMPORTED_MODULE_7__.DocumentItem)(item.$id) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)();
-                    })).paddingLeft('20px'))
-                .height()
-                .allWidth('calc(100%)'));
-        }));
-    }));
-}
-
-
-/***/ }),
-
-/***/ "./src/views/WorkspaceName.ts":
-/*!************************************!*\
-  !*** ./src/views/WorkspaceName.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   WorkspaceName: () => (/* binding */ WorkspaceName)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dialogs/AddFolderDialog */ "./src/dialogs/AddFolderDialog.ts");
-/* harmony import */ var _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkbenchIcons */ "./src/views/WorkbenchIcons.tsx");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! copy-to-clipboard */ "./node_modules/copy-to-clipboard/index.js");
-/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(copy_to_clipboard__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @realmocean/ui */ "@realmocean/ui");
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_realmocean_ui__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dialogs/AddListDialog */ "./src/dialogs/AddListDialog.ts");
-/* harmony import */ var _dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../dialogs/AddDocumentDialog */ "./src/dialogs/AddDocumentDialog.ts");
-
-
-
-//import { FontIcon, FontIcons } from "./FontIcons";
-
-
-
-
-
-function WorkspaceName(space, isOpen, isLoading, onClickCallback) {
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-        //  const { workspace_id } = useParams();
-        var selected = false;
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useOptions)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)('readonly'), mode = _b[0], setMode = _b[1];
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(space === null || space === void 0 ? void 0 : space.name), name = _c[0], setName = _c[1];
-        var _d = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(space === null || space === void 0 ? void 0 : space.name), newName = _d[0], setNewName = _d[1];
-        var createDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__.useCreateDocument)(workspaceId, appletId, 'applets').createDocument;
-        return (mode === 'readonly' ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height()
-                .display("var(--display-caret)"), 
-            /*    HStack(
-                   isLoading ? Loader().size(LoaderSizes.XS) :
-                       HStack().width(20).height(20).background('#40BC86')
-               ).width().height()
-                   .display(`var(--display-icon)`), */
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
-                .config({
-                selectedIcon: 'bookmark',
-                selectedCategory: 'Icons',
-                color: 'white',
-                backgroundColor: '#40BC86',
-                width: 20,
-                height: 20,
-                padding: 1
-            }))
-                //.background('#FCE8E8')
-                .width().height()
-                .cornerRadius(5)
-                .display('var(--display-icon)')).width(20).height(20), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(space.name).h6().ellipsis(true)
-                .fontSize(14).fontWeight('400')
-                .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
-                .foregroundColor(selected ? '#7b68ee' : '#151719'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-                .model([
-                {
-                    title: 'Add to space',
-                    type: 'Title'
-                },
-                {
-                    title: 'Table',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.TableIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                        //DynoDialog.Show(AddFolderDialog(space.$id))
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Grid',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.GridIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Board',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.BoardIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'List',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.ListIcon,
-                    onClick: function () {
-                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_5__.DynoDialog.Show((0,_dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_6__.AddListDialog)(workspaceId, appletId, space.$id, "".concat(space.path, "/").concat(space.$id)));
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Timeline',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.TimelineIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Calendar',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CalendarIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Report',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.ReportIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Feed',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.FeedIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Map',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.MapIcon,
-                    onClick: function () {
-                        createDocument({
-                            data: {}
-                        }, function () { return alert('created'); });
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    type: 'Divider'
-                },
-                {
-                    title: 'Document',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.DocumentIcon,
-                    onClick: function () {
-                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_5__.DynoDialog.Show((0,_dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_7__.AddDocumentDialog)(workspaceId, appletId, space.$id, "/".concat(space.$id)));
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Whiteboard',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.WhiteboardIcon1,
-                    onClick: function () {
-                        // DynoDialog.Show(AddFolderDialog(space.$id))
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'Form',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.FormIcon1,
-                    onClick: function () {
-                        // DynoDialog.Show(AddFolderDialog(space.$id))
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    type: 'Divider'
-                },
-                {
-                    title: 'Folder',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.AddFolder,
-                    onClick: function () {
-                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_5__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_1__.AddFolderDialog)(workspaceId, appletId, space.$id, "/".concat(space.$id)));
-                    }
-                    /* .then(() => {
-                        controller.InvalidateQuerie('space-folders')
-                    }) */
-                },
-                {
-                    title: 'More Applets',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-activity-template-merged'),
-                    /*  onClick: () => SelectOpaDialog.Show(team?.id, spaceItem.id, null, opas).then((applet) => {
-
-                     }) */
-                },
-            ])
-                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-                .model([
-                {
-                    title: 'Space acions',
-                    type: 'Title'
-                },
-                {
-                    title: 'Rename',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.Edit,
-                    onClick: function () { return setMode('edit'); }
-                },
-                {
-                    title: 'Copy link',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__link'),
-                    onClick: function () {
-                        copy_to_clipboard__WEBPACK_IMPORTED_MODULE_4___default()(location.href);
-                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ShowToast)('Copied to clipboard');
-                    }
-                },
-                {
-                    title: 'Dublicate',
-                    icon: _WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.Copy
-                },
-                {
-                    type: 'Divider'
-                },
-                {
-                    title: 'Delete',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__delete', '#bc4841'),
-                    color: '#bc4841',
-                    onClick: function () {
-                        // DynoDialog.Show(AppletDescriptionDialog(applet.id))
-                    }
-                }
-            ])
-                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Menu))
-                .onClick(function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-            })
-                .width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
-                .display('var(--show-space-action-buttons)'))
-                .onClick(function () {
-                onClickCallback();
-            })
-                // .borderLeft(selected ? 'solid 1px #7B68EE' : '')
-                .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
-                .allHeight(32)
-                .width('calc(100%)')
-                //.padding('0 10px')
-                .cursor('pointer')
-                .variable('--show-space-action-buttons', { default: 'none', hover: 'flex' })
-                .variable("--display-caret", { default: 'none', hover: 'flex' })
-                .variable("--display-icon", { default: 'flex', hover: 'none' })
-            :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_2__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width().height().opacity('var(--show-space-action-buttons)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(
-                //FontIcon(FontIcons['Clock'/* spaceItem?.icon */])
-                ).background('#40BC86' /* spaceItem?.color */).padding(2).width(20).height(20).cornerRadius(5))
-                    // .borderLeft(selected ? 'solid 1px #7B68EE' : '')
-                    .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
-                    .allHeight(32)
-                    .width('calc(100%)')
-                    //.padding('0 10px')
-                    .cursor('pointer'));
-    }));
-}
-
-
-/***/ }),
-
 /***/ "./src/views/WorkspaceTree.tsx":
 /*!*************************************!*\
   !*** ./src/views/WorkspaceTree.tsx ***!
@@ -5931,11 +5785,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _WorkspaceItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./WorkspaceItem */ "./src/views/WorkspaceItem.ts");
+/* harmony import */ var _FolderItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FolderItem */ "./src/views/FolderItem.ts");
+/* harmony import */ var _AppletItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AppletItem */ "./src/views/AppletItem.ts");
 
 
 
 //import { FontIcon, FontIcons } from "./FontIcons";
+
 
 
 var indexMe = 0;
@@ -5980,8 +5836,12 @@ var LeftSideMenuView = function (selectedItem) {
                 //Spaceses
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
                     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(items)(function (item) {
-                        return item.type === 'space' ?
-                            (0,_WorkspaceItem__WEBPACK_IMPORTED_MODULE_4__.WorkspaceItem)(item) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)();
+                        /*   item.type === 'space' ?
+                              WorkspaceItem(item) : */
+                        return item.type === 'folder' ?
+                            (0,_FolderItem__WEBPACK_IMPORTED_MODULE_4__.FolderItem)(item) :
+                            item.type === 'list' ?
+                                (0,_AppletItem__WEBPACK_IMPORTED_MODULE_5__.AppletItem)(item.$id) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)();
                     })).paddingRight('0px'));
                     /*  SortableListView()
                          .items(spaces).renderItem((space: Models.Space) =>

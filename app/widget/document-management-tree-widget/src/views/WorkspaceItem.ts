@@ -10,22 +10,16 @@ import { useLocalStorageState } from "./localStorageState";
 export function WorkspaceItem(space: any) {
     return (
         UIViewBuilder(() => {
-            const { workspaceId } = useOptions();
+            const { workspaceId, appletId } = useOptions();
             let listId = getListId();
             let documentId = getDocumentId();
 
 
-            const { document: list, isLoading: isListLoading } = useGetDocument({
-                projectId: workspaceId,
-                databaseId: 'work_management',
-                collectionId: 'wm_lists',
-                documentId: listId
-            }, { enabled: listId != null });
 
 
             const { document: document, isLoading: isDocumentLoading } = useGetDocument({
                 projectId: workspaceId,
-                databaseId: 'work_management',
+                databaseId: appletId,
                 collectionId: 'wm_documents',
                 documentId: documentId
             }, { enabled: documentId != null });
@@ -33,20 +27,19 @@ export function WorkspaceItem(space: any) {
 
                 UIViewBuilder(() => {
 
-                    const expandedFromUrl = list?.path.indexOf(space.$id) > -1 ||  document?.path.indexOf(space.$id) > -1;
+                    const expandedFromUrl = document?.path.indexOf(space.$id) > -1;
                     useEffect(() => {
                         if (expandedFromUrl) {
                             setExpanded(true);
                         }
                     }, []);
-                    const [expanded, setExpanded] =   useLocalStorageState(space.$id, list?.path.indexOf(space.$id) > -1 || document?.path.indexOf(space.$id) > -1);
+                    const [expanded, setExpanded] = useLocalStorageState(space.$id, document?.path.indexOf(space.$id) > -1);
 
 
-                    const { documents: folders, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
+                    const { documents: folders, isLoading } = useListDocuments(workspaceId, appletId, 'dm_folders', [
                         Query.equal('parent', space.$id)
                     ]);
 
-                    //const { documents: applets, isLoading: isAppletsLoading } = useListDocuments(space.$id, 'work_management', 'wm_lists');
 
                     return (
                         VStack({ alignment: cTopLeading })(
@@ -56,10 +49,10 @@ export function WorkspaceItem(space: any) {
                             !expanded ? Fragment() :
                                 (isLoading) ? Fragment() :
                                     VStack(
-                                       // Text(JSON.stringify(folders)),
+                                        // Text(JSON.stringify(folders)),
                                         // Folders
                                         ...ForEach(folders)((folder) =>
-                                            FolderItem(space, folder)
+                                            FolderItem(folder.$id)
                                         ),
                                         // Applets
                                         /*   ...ForEach(applets)((applet: any) =>

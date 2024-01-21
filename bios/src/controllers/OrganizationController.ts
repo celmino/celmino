@@ -27,6 +27,7 @@ export class OrganizationController extends UIFormController {
                         const appletCol = await Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets');
                         const nameAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false);
                         const opaAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false);
+                        const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false);
 
 
                         navigate(`/workspace/${workspace.$id}`)

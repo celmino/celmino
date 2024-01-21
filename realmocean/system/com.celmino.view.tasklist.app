@@ -118,18 +118,18 @@ var MyTestController = /** @class */ (function (_super) {
     MyTestController.prototype.LoadView = function () {
         var _this = this;
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
-        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').documents;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
-        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId).createDocument;
-        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').createDocument;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
+        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_views').documents;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
+        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId).createDocument;
+        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId + '_views').createDocument;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_2__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_3__.ViewHeader)('test'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
             var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
@@ -157,10 +157,10 @@ var MyTestController = /** @class */ (function (_super) {
                         switch (_a.label) {
                             case 0:
                                 if (!(formData.type === 'text')) return [3 /*break*/, 3];
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, formData.key, 255, false)];
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createStringAttribute(workspaceId, appletId, 'wm_list_' + listId, formData.key, 255, false)];
                             case 1:
                                 _a.sent();
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
                                         name: formData.name,
                                         key: replaceNonMatchingCharacters(formData.name),
                                         type: 'string',
@@ -173,10 +173,10 @@ var MyTestController = /** @class */ (function (_super) {
                                 if (!(formData.type === 'number')) return [3 /*break*/, 6];
                                 key = replaceNonMatchingCharacters(formData.name);
                                 console.log(key);
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false)];
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createIntegerAttribute(workspaceId, appletId, 'wm_list_' + listId, key, false)];
                             case 4:
                                 _a.sent();
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
                                         name: formData.name,
                                         key: key,
                                         type: 'number',
@@ -187,8 +187,7 @@ var MyTestController = /** @class */ (function (_super) {
                                 return [3 /*break*/, 9];
                             case 6:
                                 if (!(formData.type === 'formula')) return [3 /*break*/, 8];
-                                //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.ID.unique(), {
                                         name: formData.name,
                                         key: replaceNonMatchingCharacters(formData.name),
                                         type: 'formula',
@@ -198,7 +197,6 @@ var MyTestController = /** @class */ (function (_super) {
                                         hidden: false
                                     })];
                             case 7:
-                                //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
                                 _a.sent();
                                 return [3 /*break*/, 9];
                             case 8:

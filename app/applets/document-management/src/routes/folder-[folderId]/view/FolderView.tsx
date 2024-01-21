@@ -1,4 +1,4 @@
-import { VStack, UIViewBuilder, useDialogStack, cTopLeading, ForEach, HStack, cLeading, ReactView, Text } from "@tuval/forms";
+import { VStack, UIViewBuilder, useDialogStack, cTopLeading, ForEach, HStack, cLeading, ReactView, Text, useOptions, useParams } from "@tuval/forms";
 import { ActionPanel } from "../../../views/ActionPanel";
 import { ProxyController } from "../ProxyController";
 import { DocumentName } from "./DocumentName";
@@ -12,17 +12,18 @@ import { moment } from "@tuval/core";
 
 export const FolderView = (workspaceId: string, folderId: string) => UIViewBuilder(() => {
 
+    const { appletId } = useParams();
     const { document } = useGetDocument({
         projectId: workspaceId,
-        databaseId: 'document_management',
+        databaseId: appletId,
         collectionId: 'dm_folders',
         documentId: folderId
     })
 
-    const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
+    const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, appletId, 'dm_folders', [
         Query.equal('parent', folderId)
     ]);
-    const { documents: documents, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_documents', [
+    const { documents: documents, isLoading } = useListDocuments(workspaceId, appletId, 'dm_documents', [
         Query.equal('parent', folderId)
     ]);
 
@@ -34,7 +35,7 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
             ActionPanel(),
             FolderHeader(document?.name, (e) => {
                 updateDocument({
-                    databaseId: 'document_management',
+                    databaseId: appletId,
                     collectionId: 'dm_documents',
                     documentId: folderId,
                     data: {
@@ -51,7 +52,7 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
                                 HStack(
                                     FolderName(folder)
                                 ).width('50%').minWidth(300),
-                                HStack({alignment:cLeading})(
+                                HStack({ alignment: cLeading })(
                                     Text(moment(folder.$createdAt).format('DD.MM.YYYY HH:mm:ss'))
                                         .foregroundColor('rgb(135, 144, 158)')
                                 ),
@@ -79,7 +80,7 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
                                 HStack(
                                     DocumentName(document)
                                 ).width('50%').minWidth(300),
-                                HStack({alignment:cLeading})(
+                                HStack({ alignment: cLeading })(
                                     Text(moment(document.$createdAt).format('DD.MM.YYYY HH:mm:ss'))
                                         .foregroundColor('rgb(135, 144, 158)')
                                 ),

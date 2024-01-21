@@ -17,10 +17,10 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'document_management', 'dm_documents');
-    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,'document_management', 'dm_document_contents');
-   
+    const { workspaceId, appletId } = formMeta;
+    const { createDocument, isLoading } = useCreateDocument(workspaceId, appletId, 'dm_documents');
+    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId, appletId, 'dm_document_contents');
+
     return (
         Button(
             Text('Save')
@@ -33,7 +33,7 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                 delete data.collectionId;
                 delete data.workspaceId;
 
-                
+
                 createDocument(
                     {
                         data: {
@@ -41,13 +41,13 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                         }
                     },
                     (document) => {
-                        createDocumentContent( {
+                        createDocumentContent({
                             documentId: document.$id,
                             data: {
-                                content:''
+                                content: ''
                             }
-                        }, ()=>  dialog.Hide())
-                       
+                        }, () => dialog.Hide())
+
                     }
                 )
 

@@ -9,18 +9,18 @@ export class ProxyController extends UIController {
 
 
     public override LoadView(): UIView {
-        const { workspaceId, documentId } = this.props;
+        const { workspaceId,appletId,  documentId } = this.props;
 
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_documents',
             documentId: documentId
         })
 
         const { document: content, isLoading } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_document_contents',
             documentId: documentId
         })
@@ -30,28 +30,14 @@ export class ProxyController extends UIController {
             VStack(
                 ActionPanel(),
                 DocumentHeader(document?.name, (e)=> {
-                    /* updateDocument({
-                        databaseId: 'document_management',
-                        collectionId: 'dm_documents',
-                        documentId: documentId,
-                        data: {
-                            name: e
-                        }
-                    }) */
+                 
                 }),
                 UIWidget('com.tuvalsoft.widget.editorjs')
                     .config({
                         defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
                         onChange: (data) => {
                             console.log(data)
-                            /* updateDocument({
-                                databaseId: 'document_management',
-                                collectionId: 'dm_document_contents',
-                                documentId: documentId,
-                                data: {
-                                    content: JSON.stringify(data)
-                                }
-                            }) */
+                           
                         }
                     })
             )

@@ -740,10 +740,10 @@
     style-loader "^3.3.3"
     to-string-loader "^1.2.0"
 
-"@realmocean/vibe@^2.82.31":
-  version "2.82.31"
-  resolved "https://registry.npmjs.org/@realmocean/vibe/-/vibe-2.82.31.tgz"
-  integrity sha512-CiT4IT2iwQ+v9OeJcCfzE+TKwuiL7vGrnaS72kMXXAM+PtzvxDN+6MUa5Ri83+0dtj19LtqLEa1Pbs/7NEXoVw==
+"@realmocean/vibe@^2.82.34":
+  version "2.82.34"
+  resolved "https://registry.npmjs.org/@realmocean/vibe/-/vibe-2.82.34.tgz"
+  integrity sha512-HggsDVRj6wL+t1UIO50bst5Iw9ATQQ6gqssae0xvBBiiK1NXpHLKWpJNdTP8CSGc2olfhyRbRLbxUtB846dr+w==
   dependencies:
     "@realmocean/data" "^0.0.3"
     "@realmocean/dropdowns" "^0.0.20"

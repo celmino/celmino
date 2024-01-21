@@ -89,11 +89,11 @@ export class ViewController extends UIFormController {
 
 
     public override LoadView(): UIView {
-        const { workspaceId, listId, viewId } = useParams();
+        const { workspaceId,appletId, listId, viewId } = useParams();
        // alert(viewId)
         const { document: view, isLoading } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: `wm_list_${listId}_views`,
             documentId: viewId
         });

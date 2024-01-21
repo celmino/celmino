@@ -33400,16 +33400,16 @@ var DocumentController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DocumentController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, _b = _a.documentId, documentId = _b === void 0 ? this.props.documentId : _b;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, _b = _a.documentId, documentId = _b === void 0 ? this.props.documentId : _b;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_documents',
             documentId: documentId
         }).document;
         var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_document_contents',
             documentId: documentId
         }), content = _c.document, isLoading = _c.isLoading;
@@ -33417,7 +33417,7 @@ var DocumentController = /** @class */ (function (_super) {
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
-                    databaseId: 'document_management',
+                    databaseId: appletId,
                     collectionId: 'dm_documents',
                     documentId: documentId,
                     data: {
@@ -33430,7 +33430,7 @@ var DocumentController = /** @class */ (function (_super) {
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({
-                        databaseId: 'document_management',
+                        databaseId: appletId,
                         collectionId: 'dm_document_contents',
                         documentId: documentId,
                         data: {
@@ -33492,17 +33492,17 @@ var FolderController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     FolderController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, folderId = _a.folderId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, folderId = _a.folderId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_folders',
             documentId: folderId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, 'document_management', 'dm_folders', [
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, appletId, 'dm_folders', [
             _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Query.equal('parent', folderId)
         ]), folders = _b.documents, isFoldersLoading = _b.isLoading;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, 'document_management', 'dm_documents', [
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useListDocuments)(workspaceId, appletId, 'dm_documents', [
             _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Query.equal('parent', folderId)
         ]), documents = _c.documents, isLoading = _c.isLoading;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.useUpdateDocument)(workspaceId).updateDocument;
@@ -33562,42 +33562,26 @@ var ProxyController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ProxyController.prototype.LoadView = function () {
-        var _a = this.props, workspaceId = _a.workspaceId, documentId = _a.documentId;
+        var _a = this.props, workspaceId = _a.workspaceId, appletId = _a.appletId, documentId = _a.documentId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_documents',
             documentId: documentId
         }).document;
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_document_contents',
             documentId: documentId
         }), content = _b.document, isLoading = _b.isLoading;
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_3__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_4__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
-                /* updateDocument({
-                    databaseId: 'document_management',
-                    collectionId: 'dm_documents',
-                    documentId: documentId,
-                    data: {
-                        name: e
-                    }
-                }) */
             }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.tuvalsoft.widget.editorjs')
                 .config({
                 defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
                 onChange: function (data) {
                     console.log(data);
-                    /* updateDocument({
-                        databaseId: 'document_management',
-                        collectionId: 'dm_document_contents',
-                        documentId: documentId,
-                        data: {
-                            content: JSON.stringify(data)
-                        }
-                    }) */
                 }
             }))
                 .background('white'));
@@ -33813,22 +33797,23 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 
 
 var FolderView = function (workspaceId, folderId) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+    var appletId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)().appletId;
     var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useGetDocument)({
         projectId: workspaceId,
-        databaseId: 'document_management',
+        databaseId: appletId,
         collectionId: 'dm_folders',
         documentId: folderId
     }).document;
-    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, 'document_management', 'dm_folders', [
+    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, appletId, 'dm_folders', [
         _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.Query.equal('parent', folderId)
     ]), folders = _a.documents, isFoldersLoading = _a.isLoading;
-    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, 'document_management', 'dm_documents', [
+    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useListDocuments)(workspaceId, appletId, 'dm_documents', [
         _realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.Query.equal('parent', folderId)
     ]), documents = _b.documents, isLoading = _b.isLoading;
     var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_6__.useUpdateDocument)(workspaceId).updateDocument;
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_FolderHeader__WEBPACK_IMPORTED_MODULE_4__.FolderHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
         updateDocument({
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_documents',
             documentId: folderId,
             data: {
@@ -33943,18 +33928,18 @@ var ListController = /** @class */ (function (_super) {
     }
     ListController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
-        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').documents;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
-        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId).createDocument;
-        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').createDocument;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
+        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_views').documents;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
+        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId).createDocument;
+        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId + '_views').createDocument;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdateDocument)(workspaceId).updateDocument;
         return ((isLoading || isItemsLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
@@ -33967,7 +33952,7 @@ var ListController = /** @class */ (function (_super) {
                 iconColor: 'gray',
                 onChange: function (value) {
                     updateDocument({
-                        databaseId: 'work_management',
+                        databaseId: appletId,
                         collectionId: 'wm_lists',
                         documentId: listId,
                         data: __assign(__assign({}, (value.iconName ? { icon_name: value.iconName } : {})), (value.iconCategory ? { icon_category: value.iconCategory } : {}))
@@ -34262,11 +34247,11 @@ var ViewController = /** @class */ (function (_super) {
     }
     ViewController.prototype.LoadView = function () {
         var _this = this;
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
         // alert(viewId)
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: "wm_list_".concat(listId, "_views"),
             documentId: viewId
         }), view = _b.document, isLoading = _b.isLoading;
@@ -34390,16 +34375,16 @@ var WhiteboardController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     WhiteboardController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, whiteboardId = _a.whiteboardId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, whiteboardId = _a.whiteboardId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboards',
             documentId: whiteboardId
         }).document;
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboard_contents',
             documentId: whiteboardId
         }), content = _b.document, isLoading = _b.isLoading;
@@ -34407,7 +34392,7 @@ var WhiteboardController = /** @class */ (function (_super) {
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
-                    databaseId: 'work_management',
+                    databaseId: appletId,
                     collectionId: 'wm_whiteboards',
                     documentId: whiteboardId,
                     data: {
@@ -34420,7 +34405,7 @@ var WhiteboardController = /** @class */ (function (_super) {
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({
-                        databaseId: 'work_management',
+                        databaseId: appletId,
                         collectionId: 'wm_whiteboard_contents',
                         documentId: whiteboardId,
                         data: {
@@ -35736,7 +35721,7 @@ var ListStatusWidget = function (fieldInfo) {
 
 module.exports = {
     application: {
-        name: 'com.celmino.applet.documentmanagement',
+        name: 'com.celmino.applet.document-management',
         path: './src/Application.ts',
         displayName: "Procetra",
         icon: "data:image/svg+xml;base64,PHN2ZyBpZD0iZjc4ZjUxMTUtYmU4OC00ZDQ0LWIzNGUtM2Y2ZWE3NDMxMjVjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImI2YzQzYmQ5LWUzN2YtNDE5MS05M2MyLWQzYTdhODRjNTA1ZSIgeDE9IjkiIHkxPSIxOS4xMyIgeDI9IjkiIHkyPSItMC4yOSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwNzhkNCIgLz48c3RvcCBvZmZzZXQ9IjAuMTYiIHN0b3AtY29sb3I9IiMxMzgwZGEiIC8+PHN0b3Agb2Zmc2V0PSIwLjUzIiBzdG9wLWNvbG9yPSIjM2M5MWU1IiAvPjxzdG9wIG9mZnNldD0iMC44MiIgc3RvcC1jb2xvcj0iIzU1OWNlYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1ZWEwZWYiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHRpdGxlPkljb24tbWFjaGluZWxlYXJuaW5nLTE2MjwvdGl0bGU+PHBhdGggZD0iTTE4LDExLjM4QTQsNCwwLDAsMCwxNC40OSw3LjUsNS4xLDUuMSwwLDAsMCw5LjI0LDIuNjIsNS4yNSw1LjI1LDAsMCwwLDQuMjIsNiw0LjgsNC44LDAsMCwwLDAsMTAuNjdhNC45LDQuOSwwLDAsMCw1LjA3LDQuNzFsLjQ0LDBoOC4yMWEuNzguNzgsMCwwLDAsLjIyLDBBNC4xLDQuMSwwLDAsMCwxOCwxMS4zOFoiIGZpbGw9InVybCgjYjZjNDNiZDktZTM3Zi00MTkxLTkzYzItZDNhN2E4NGM1MDVlKSIgLz48cGF0aCBkPSJNNS40MiwxMC4zOUg0LjU0YTEuMDksMS4wOSwwLDEsMCwwLC40OWguODhhLjIuMiwwLDAsMSwuMi4ydjQuM2guNDl2LTQuM0EuNjkuNjksMCwwLDAsNS40MiwxMC4zOVptLTEuOTUuODhhLjY0LjY0LDAsMSwxLC42NC0uNjRBLjY0LjY0LDAsMCwxLDMuNDcsMTEuMjdaIiBmaWxsPSIjOWNlYmZmIiAvPjxwYXRoIGQ9Ik04Ljk0LDEwLjYxdi0xYS43LjcsMCwwLDAtLjctLjdINi42OWEuMi4yLDAsMCwxLS4yLS4yVjMuNGwtLjIzLjEyTDYsMy42NnY1YS42OS42OSwwLDAsMCwuNjkuNjlIOC4yNGEuMjEuMjEsMCwwLDEsLjIxLjIxdjFhMS4wOCwxLjA4LDAsMCwwLS44NSwxLjA2LDEuMDksMS4wOSwwLDEsMCwxLjM0LTEuMDZabS0uMjUsMS43aDBhLjY0LjY0LDAsMSwxLC42NC0uNjRBLjY0LjY0LDAsMCwxLDguNjksMTIuMzFaIiBmaWxsPSIjZjJmMmYyIiAvPjxwYXRoIGQ9Ik0xNC41Myw4LjVhMS4wOSwxLjA5LDAsMCwwLS4yNSwyLjE1di4yYS4yMS4yMSwwLDAsMS0uMjEuMjFoLTJWNy41NGEuNjkuNjksMCwwLDAtLjY5LS42OUgxMC4zNUExLjA4LDEuMDgsMCwwLDAsOS4yOSw2YTEuMDksMS4wOSwwLDEsMCwxLjA2LDEuMzRoMS4wN2EuMi4yLDAsMCwxLC4yLjJ2Ny44NGguNDlWMTEuNTVoMmEuNy43LDAsMCwwLC43LS43di0uMmExLjA5LDEuMDksMCwwLDAsLjg1LTEuMDZoMEExLjA5LDEuMDksMCwwLDAsMTQuNTMsOC41Wk05LjI5LDcuNzNoMGEuNjQuNjQsMCwxLDEsLjY0LS42NEEuNjQuNjQsMCwwLDEsOS4yOSw3LjczWm01LjI0LDIuNWgwYS42NC42NCwwLDEsMSwuNjMtLjY0QS42NC42NCwwLDAsMSwxNC41MywxMC4yM1oiIGZpbGw9IiM5Y2ViZmYiIC8+PC9zdmc+"
@@ -35913,5 +35898,5 @@ _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.FormBuilder.injectView('liststatus', _
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
-                    tuval$core.ModuleLoader.FireModuleLoadedEvent('com.celmino.applet.documentmanagement', tuval$core['__APPS__']['com.celmino.applet.documentmanagement']);
+                    tuval$core.ModuleLoader.FireModuleLoadedEvent('com.celmino.applet.document-management', tuval$core['__APPS__']['com.celmino.applet.document-management']);
                     

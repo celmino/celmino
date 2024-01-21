@@ -33392,16 +33392,16 @@ var DocumentController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     DocumentController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, documentId = _a.documentId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, documentId = _a.documentId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_documents',
             documentId: documentId
         }).document;
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_document_contents',
             documentId: documentId
         }), content = _b.document, isLoading = _b.isLoading;
@@ -33409,7 +33409,7 @@ var DocumentController = /** @class */ (function (_super) {
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
-                    databaseId: 'work_management',
+                    databaseId: appletId,
                     collectionId: 'wm_documents',
                     documentId: documentId,
                     data: {
@@ -33422,7 +33422,7 @@ var DocumentController = /** @class */ (function (_super) {
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({
-                        databaseId: 'work_management',
+                        databaseId: appletId,
                         collectionId: 'wm_document_contents',
                         documentId: documentId,
                         data: {
@@ -33497,18 +33497,18 @@ var ListController = /** @class */ (function (_super) {
     }
     ListController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
-        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').documents;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, 'work_management', 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
-        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId).createDocument;
-        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, 'work_management', 'wm_list_' + listId + '_views').createDocument;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
+        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_views').documents;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
+        var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId).createDocument;
+        var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId + '_views').createDocument;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdateDocument)(workspaceId).updateDocument;
         return ((isLoading || isItemsLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
@@ -33521,7 +33521,7 @@ var ListController = /** @class */ (function (_super) {
                 iconColor: 'gray',
                 onChange: function (value) {
                     updateDocument({
-                        databaseId: 'work_management',
+                        databaseId: appletId,
                         collectionId: 'wm_lists',
                         documentId: listId,
                         data: __assign(__assign({}, (value.iconName ? { icon_name: value.iconName } : {})), (value.iconCategory ? { icon_category: value.iconCategory } : {}))
@@ -33816,11 +33816,11 @@ var ViewController = /** @class */ (function (_super) {
     }
     ViewController.prototype.LoadView = function () {
         var _this = this;
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, listId = _a.listId, viewId = _a.viewId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
         // alert(viewId)
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: "wm_list_".concat(listId, "_views"),
             documentId: viewId
         }), view = _b.document, isLoading = _b.isLoading;
@@ -33944,16 +33944,16 @@ var WhiteboardController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     WhiteboardController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, whiteboardId = _a.whiteboardId;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, whiteboardId = _a.whiteboardId;
         var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboards',
             documentId: whiteboardId
         }).document;
         var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboard_contents',
             documentId: whiteboardId
         }), content = _b.document, isLoading = _b.isLoading;
@@ -33961,7 +33961,7 @@ var WhiteboardController = /** @class */ (function (_super) {
         return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.ViewHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
-                    databaseId: 'work_management',
+                    databaseId: appletId,
                     collectionId: 'wm_whiteboards',
                     documentId: whiteboardId,
                     data: {
@@ -33974,7 +33974,7 @@ var WhiteboardController = /** @class */ (function (_super) {
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({
-                        databaseId: 'work_management',
+                        databaseId: appletId,
                         collectionId: 'wm_whiteboard_contents',
                         documentId: whiteboardId,
                         data: {

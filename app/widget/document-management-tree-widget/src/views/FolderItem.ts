@@ -8,23 +8,18 @@ import { DocumentItem } from "./DocumentItem";
 import { WhiteboardItem } from "./WhiteboardItem";
 
 
-export function FolderItem(parent: any, folder: any) {
+export function FolderItem(folderId: string) {
     return (
         UIViewBuilder(() => {
-            const { workspaceId } = useOptions();
+            const { workspaceId, appletId } = useOptions();
             let documentId = getDocumentId();
 
 
-          /*   const { document: list, isLoading: isListLoading } = useGetDocument({
-                projectId: workspaceId,
-                databaseId: 'document_management',
-                collectionId: 'wm_documents',
-                documentId: listId
-            }, { enabled: listId != null }); */
+
 
             const { document: document, isLoading: isDocumentLoading } = useGetDocument({
                 projectId: workspaceId,
-                databaseId: 'document_management',
+                databaseId: appletId,
                 collectionId: 'dm_documents',
                 documentId: documentId
             }, { enabled: documentId != null });
@@ -32,29 +27,24 @@ export function FolderItem(parent: any, folder: any) {
 
             return (
                 UIViewBuilder(() => {
-                    const expandedFromUrl =  document?.path.indexOf(folder.$id) > -1;
+                    const expandedFromUrl = document?.path.indexOf(folderId) > -1;
                     useEffect(() => {
                         if (expandedFromUrl) {
                             setExpanded(true);
                         }
                     }, []);
 
-                    const [expanded, setExpanded] = useLocalStorageState(folder.$id,  document?.path.indexOf(folder.$id) > -1);
+                    const [expanded, setExpanded] = useLocalStorageState(folderId, document?.path.indexOf(folderId) > -1);
 
-                    //const [a, setA] = useState(true)
-                    const { documents: folders, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
-                        Query.equal('parent', folder.$id)
+                    const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
+                        Query.equal('parent', folderId)
                     ]);
 
-                    const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, 'document_management', 'dm_documents', [
-                        Query.equal('parent', folder.$id)
-                    ]);
 
-                   
 
                     return (
                         VStack({ alignment: cTopLeading })(
-                            FolderName(parent, folder, expanded, ((expanded) && (isDocumentsLoading)), () => {
+                            FolderName(folderId, expanded, ((expanded) && (isLoading)), () => {
                                 setExpanded(!expanded);
                                 //  setA(!a);
                             }),
@@ -65,13 +55,13 @@ export function FolderItem(parent: any, folder: any) {
                                         VStack(
 
                                             // Folders
-                                            ...ForEach(isLoading ? [] : folders)((childFolder: any) =>
-                                                FolderItem(parent, childFolder)
+                                            ...ForEach(isLoading ? [] : items)((item: any) =>
+                                                item.type === 'folder' ?
+                                                    FolderItem(item) :
+                                                    item.type === 'document' ?
+                                                        DocumentItem(item.$id) : Fragment()
                                             ),
-                                            // Documents
-                                            ...ForEach(documents)((document: any) =>
-                                                DocumentItem(document)
-                                            )
+
                                         ).paddingLeft('20px')
                                     )
 

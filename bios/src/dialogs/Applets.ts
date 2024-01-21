@@ -3744,7 +3744,8 @@ export const Applets = [
     },
     {
         name: 'Task Management',
-        type: 'com.celmino.widget.workspace-tree',
+        tree_type: 'com.celmino.widget.workspace-tree',
+        applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
@@ -4003,7 +4004,8 @@ export const Applets = [
     },
     {
         name: 'Document Management',
-        type: 'com.celmino.widget.document-management-tree',
+        tree_type: 'com.celmino.widget.document-management-tree',
+        applet_type: 'com.celmino.applet.document-management',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
@@ -4014,6 +4016,44 @@ export const Applets = [
                 "id": "document_management",
                 "category": "app",
                 "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "dm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
           
                     {
                         "name": "Folders",

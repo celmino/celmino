@@ -22,8 +22,9 @@ export const SaveFolderAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'document_management', 'dm_folders');
+    const {  workspaceId, appletId } = formMeta;
+    const { createDocument: createTreeItem } = useCreateDocument(workspaceId, appletId, 'dm_tree');
+    const { createDocument, isLoading } = useCreateDocument(workspaceId,appletId, 'dm_folders');
    
     return (
         Button(
@@ -33,20 +34,23 @@ export const SaveFolderAction = (formMeta, action) => UIViewBuilder(() => {
             .onClick(() => {
 
                 const data = { ...formController.GetFormData() }
-                delete data.databaseId;
-                delete data.collectionId;
-                delete data.workspaceId;
-
                 
                 createDocument(
                     {
-                       
+
                         data: {
                             ...data
                         }
                     },
-                    () => {
-                        dialog.Hide();
+                    (folder) => {
+                        createTreeItem({
+                            documentId: folder.$id,
+                            data: {
+                                ...data,
+                                type: 'folder'
+                            }
+                        }, () => dialog.Hide())
+
                     }
                 )
 
@@ -56,17 +60,19 @@ export const SaveFolderAction = (formMeta, action) => UIViewBuilder(() => {
 )
 
 
-export const AddFolderDialog = (workspaceId: string, parent: string, path: string) => {
+export const AddFolderDialog = (workspaceId: string, appletId: string, parent: string, path: string) => {
     if (workspaceId == null) {
         alert("spaceId is null")
     } else {
         return {
             "title": 'Create folder',
+            "workspaceId":workspaceId,
+            "appletId":appletId,
             /*   "mutation":"_create_workspace", */
             "actions": [
                 {
                     "label": "Save",
-                    "type": "saveFolder",
+                    "type": "dm_saveFolder",
                     /*  "successActions": [{
                          "type": "hide"
                      },
@@ -86,11 +92,6 @@ export const AddFolderDialog = (workspaceId: string, parent: string, path: strin
                 }
             ],
             "fieldMap": {
-                "workspaceId": {
-                    "name": "workspaceId",
-                    "type": "virtual",
-                    "value": workspaceId
-                },
                 "path": {
                     "name": "path",
                     "type": "virtual",

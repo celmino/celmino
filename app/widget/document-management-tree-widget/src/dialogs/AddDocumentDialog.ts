@@ -17,10 +17,11 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'document_management', 'dm_documents');
-    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,'document_management', 'dm_document_contents');
-   
+    const { workspaceId, appletId } = formMeta;
+    const { createDocument: createTreeItem } = useCreateDocument(workspaceId, appletId, 'dm_tree');
+    const { createDocument, isLoading } = useCreateDocument(workspaceId, appletId, 'dm_documents');
+    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId, appletId, 'dm_document_contents');
+
     return (
         Button(
             Text('Save')
@@ -29,11 +30,7 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
             .onClick(() => {
 
                 const data = { ...formController.GetFormData() }
-                delete data.databaseId;
-                delete data.collectionId;
-                delete data.workspaceId;
-
-                
+               
                 createDocument(
                     {
                         data: {
@@ -41,13 +38,22 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                         }
                     },
                     (document) => {
-                        createDocumentContent( {
+                        createDocumentContent({
                             documentId: document.$id,
                             data: {
-                                content:''
+                                content: ''
                             }
-                        }, ()=>  dialog.Hide())
-                       
+                        },  (document) => {
+                            createTreeItem({
+                                documentId: document.$id,
+                                data: {
+                                    ...data,
+                                    type: 'document'
+                                }
+                            }, () => dialog.Hide())
+    
+                        })
+
                     }
                 )
 
@@ -57,12 +63,14 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
 )
 
 
-export const AddDocumentDialog = (workspaceId: string, parent: string, path: string) => {
+export const AddDocumentDialog = (workspaceId: string, appletId: string, parent: string, path: string) => {
     if (workspaceId == null) {
         alert("spaceId is null")
     } else {
         return {
             "title": 'Create document',
+            "workspaceId": workspaceId,
+            "appletId": appletId,
             /*   "mutation":"_create_workspace", */
             "actions": [
                 {
@@ -87,11 +95,7 @@ export const AddDocumentDialog = (workspaceId: string, parent: string, path: str
                 }
             ],
             "fieldMap": {
-                "workspaceId": {
-                    "name": "workspaceId",
-                    "type": "virtual",
-                    "value": workspaceId
-                },
+
                 "list_name": {
                     "label": "name",
                     "type": "text",

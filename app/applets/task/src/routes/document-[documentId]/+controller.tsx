@@ -9,17 +9,17 @@ export class DocumentController extends UIController {
 
 
     public override LoadView(): UIView {
-        const { workspaceId, documentId } = useParams();
+        const { workspaceId, appletId, documentId } = useParams();
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_documents',
             documentId: documentId
         })
 
         const { document: content, isLoading } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_document_contents',
             documentId: documentId
         })
@@ -35,7 +35,7 @@ export class DocumentController extends UIController {
                                 ActionPanel(),
                                 ViewHeader(document?.name, (e)=> {
                                     updateDocument({
-                                        databaseId: 'work_management',
+                                        databaseId: appletId,
                                         collectionId: 'wm_documents',
                                         documentId: documentId,
                                         data: {
@@ -49,7 +49,7 @@ export class DocumentController extends UIController {
                                         onChange: (data) => {
                                             console.log(data)
                                             updateDocument({
-                                                databaseId: 'work_management',
+                                                databaseId: appletId,
                                                 collectionId: 'wm_document_contents',
                                                 documentId: documentId,
                                                 data: {

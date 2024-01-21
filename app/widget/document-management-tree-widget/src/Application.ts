@@ -3,7 +3,6 @@ import { MyTestController } from './AppController';
 import { FormBuilder } from '@realmocean/ui';
 import { SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { SaveFolderAction } from './dialogs/AddFolderDialog';
-import { SaveListAction } from './dialogs/AddListDialog';
 import { SaveDocumentAction } from './dialogs/AddDocumentDialog';
 import { SaveWhiteboardAction } from './dialogs/AddWhiteboardDialog';
 
@@ -28,8 +27,7 @@ export class RatingWidget {
 }
 
 FormBuilder.injectAction('saveSpace', SaveSpaceAction);
-FormBuilder.injectAction('saveFolder', SaveFolderAction);
-FormBuilder.injectAction('saveList', SaveListAction);
+FormBuilder.injectAction('dm_saveFolder', SaveFolderAction);
 FormBuilder.injectAction('saveDocument', SaveDocumentAction);
 FormBuilder.injectAction('saveWhiteboard', SaveWhiteboardAction);
 

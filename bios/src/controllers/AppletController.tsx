@@ -1,3 +1,4 @@
+import { useGetDocument } from '@realmocean/sdk';
 import { ModuleLoader } from '@tuval/core';
 import { cTopLeading, HStack, ReactView, Spinner, Text, UIFormController, UIView, useEffect, useLocation, useParams, useState, VStack } from '@tuval/forms';
 import React, { Fragment } from 'react';
@@ -94,9 +95,14 @@ export class AppletController extends UIFormController {
 
     public override LoadView(): UIView {
 
-        const { appletId } = useParams();
+        const {workspaceId, appletId } = useParams();
 
-        const { applet, isLoading } = {} as any; //useGetApplet(applet_id);
+        const { document: applet, isLoading } = useGetDocument({
+            projectId:workspaceId,
+            databaseId:'workspace',
+            collectionId:'applets',
+            documentId: appletId
+        })
 
 
         return (
@@ -120,7 +126,7 @@ export class AppletController extends UIFormController {
                                                 </Fragment>
                                             } >
                                                 <ErrorBoundary>
-                                                    <OpaLoader opa_name={appletId}></OpaLoader>
+                                                    <OpaLoader opa_name={applet.type}></OpaLoader>
                                                 </ErrorBoundary>
                                             </React.Suspense>
                                         ).frame(true).width('100%').height('100%')

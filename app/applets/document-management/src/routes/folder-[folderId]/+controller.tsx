@@ -16,18 +16,18 @@ export class FolderController extends UIController {
     public override LoadView(): UIView {
 
 
-        const { workspaceId, folderId } = useParams();
+        const { workspaceId, appletId, folderId } = useParams();
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'document_management',
+            databaseId: appletId,
             collectionId: 'dm_folders',
             documentId: folderId
         })
 
-        const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
+        const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, appletId, 'dm_folders', [
             Query.equal('parent', folderId)
         ]);
-        const { documents: documents, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_documents', [
+        const { documents: documents, isLoading } = useListDocuments(workspaceId, appletId, 'dm_documents', [
             Query.equal('parent', folderId)
         ]);
 
@@ -35,20 +35,21 @@ export class FolderController extends UIController {
         const { updateDocument } = useUpdateDocument(workspaceId);
 
         return (
-            (isFoldersLoading || isLoading) ? Fragment() :
-                ReactView(
-                    <DialogStack title={
-                        HStack({alignment:cLeading, spacing: 5})(
-                            Icon(SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).transform('rotate(90deg)'),
-                            Text('Folder - ' + document?.name)
-                        ) as any
-                    }>
-                        {
-                            FolderView(workspaceId, folderId)
-                                .render()
-                        }
-                    </DialogStack>
-                )
+            
+               (isFoldersLoading || isLoading) ? Fragment() :
+                   ReactView(
+                       <DialogStack title={
+                           HStack({ alignment: cLeading, spacing: 5 })(
+                               Icon(SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).transform('rotate(90deg)'),
+                               Text('Folder - ' + document?.name)
+                           ) as any
+                       }>
+                           {
+                               FolderView(workspaceId, folderId)
+                                   .render()
+                           }
+                       </DialogStack>
+                   )  
 
         )
     }

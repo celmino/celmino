@@ -10,13 +10,15 @@ import {
     VStack, Text,
     ForEach,
     ScrollView,
-    cVertical
+    cVertical,
+    Fragment
 } from "@tuval/forms";
 import React from "react";
 //import { FontIcon, FontIcons } from "./FontIcons";
 import { Models, Query, useListDocuments } from '@realmocean/sdk';
 import { WorkspaceItem } from "./WorkspaceItem";
 import { FolderItem } from "./FolderItem";
+import { DocumentItem } from "./DocumentItem";
 
 let indexMe = 0
 
@@ -96,14 +98,14 @@ export const WhiteboardIcon = props => (
 export const LeftSideMenuView = (selectedItem: string) => {
     return (
         UIViewBuilder(() => {
-            const { workspaceId, showAllWorkspaces = true } = useOptions();
+            const { workspaceId, appletId, showAllWorkspaces = true } = useOptions();
 
             return (
                 VStack({ alignment: cTopLeading })(
                     //Spaceses
 
                     UIViewBuilder(() => {
-                        const { documents: folders, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
+                        const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
                             Query.equal('parent', '-1')
                         ]);
 
@@ -116,8 +118,12 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                         UIViewBuilder(() => {
                                             return (
                                                 VStack({ alignment: cTopLeading })(
-                                                    ...ForEach(folders)(folder =>
-                                                        FolderItem(null, folder)
+                                                    ...ForEach(items)(item =>
+                                                        item.type === 'folder' ?
+                                                        FolderItem(item.$id) :
+                                                        item.type === 'document' ?
+                                                            DocumentItem(item.$id) : Fragment()
+                                   
                                                     )
                                                 )
                                                     //.padding(10)

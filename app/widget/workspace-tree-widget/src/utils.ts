@@ -1,5 +1,5 @@
 
-export function getAppletName() {
+export function getAppletId() {
     var url = window.location.href;
 
     // Regex deseni

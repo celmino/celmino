@@ -7,41 +7,42 @@ import { useLocalStorageState } from "./localStorageState";
 import { UIDocument } from "@realmocean/ui";
 
 
-export const DocumentItem = (document: any) => UIViewBuilder(() => {
-    const { workspaceId, applet_id } = useOptions();
+export const DocumentItem = (documentId: string) => UIViewBuilder(() => {
+    const { workspaceId, appletId } = useOptions();
 
     let documentInLinkId = getDocumentId();
 
     return (
         UIDocument(({ document: documentInLink, isLoading }) => {
 
-            const expandedFromUrl = documentInLink?.path.indexOf(document.$id) > -1;
+            const expandedFromUrl = documentInLink?.path.indexOf(documentId) > -1;
             useEffect(() => {
                 if (expandedFromUrl) {
                     setExpanded(true);
                 }
             }, []);
 
-            const [expanded, setExpanded] = useLocalStorageState(document.$id, documentInLink?.path.indexOf(document.$id) > -1);
+            const [expanded, setExpanded] = useLocalStorageState(documentId, documentInLink?.path.indexOf(documentId) > -1);
 
 
             return (
                 VStack({ alignment: cTopLeading })(
-                    DocumentName(document,expanded, () => {
+                    DocumentName(documentId, expanded, () => {
                         setExpanded(!expanded);
                     }),
                     !expanded ? Fragment() :
                         UIViewBuilder(() => {
 
-                            const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_documents', [
-                                Query.equal('parent', document.$id)
+                            const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
+                                Query.equal('parent', documentId)
                             ]);
                             return (
-                                isDocumentsLoading ? Fragment() :
+                                isLoading ? Fragment() :
                                     VStack(
                                         // Applets
-                                        ...ForEach(documents)((document: any) =>
-                                            DocumentItem(document)
+                                        ...ForEach(items)((item: any) =>
+                                            item.type === 'document' ?
+                                                DocumentItem(item.$id) : Fragment()
                                         ),
                                         // Folders
                                     ).paddingLeft('20px')
@@ -53,7 +54,7 @@ export const DocumentItem = (document: any) => UIViewBuilder(() => {
             )
         })
             .realmId(workspaceId)
-            .databaseId('work_management')
+            .databaseId(appletId)
             .collectionId('wm_documents')
             .documentId(documentInLinkId)
             .enabled(documentInLinkId != null)

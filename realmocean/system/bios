@@ -1250,14 +1250,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Paths": () => (/* binding */ Paths),
 /* harmony export */   "getAppName": () => (/* binding */ getAppName)
 /* harmony export */ });
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-promise-suspense */ "./node_modules/react-promise-suspense/build/index.js");
-/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_promise_suspense__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-promise-suspense */ "./node_modules/react-promise-suspense/build/index.js");
+/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_promise_suspense__WEBPACK_IMPORTED_MODULE_4__);
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -1277,6 +1279,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
+
 var OPA = /** @class */ (function (_super) {
     __extends(OPA, _super);
     function OPA(props) {
@@ -1292,10 +1295,10 @@ var OPA = /** @class */ (function (_super) {
         configurable: true
     });
     OPA.prototype.render = function () {
-        return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement(this.props.controller, { content: this.props.content, onSave: this.props.onSave }));
+        return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement(this.props.controller, { content: this.props.content, onSave: this.props.onSave }));
     };
     return OPA;
-}((react__WEBPACK_IMPORTED_MODULE_2___default().Component)));
+}((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
 
 function getAppName() {
     try {
@@ -1317,7 +1320,7 @@ var OpaLoader = function (_a) {
     var opa_name = _a.opa_name;
     //const { opa_name } = useParams();
     //let opa_name = 'com.tuvalsoft.opa.task';
-    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
+    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
     /* if (`/app/${app_name}` === location.pathname && Paths[app_name] != null && Paths[app_name] !== `/app/${app_name}`) {
         console.log(`/app/${app_name}` === location.pathname)
         return (<Navigate to={Paths[app_name]}></Navigate>)
@@ -1332,7 +1335,7 @@ var OpaLoader = function (_a) {
             var app_path = "/realmocean/store/app/open-testing/".concat(opa_name);
             // alert(app_path)
             var app_path_local = "/system/".concat(opa_name);
-            _tuval_core__WEBPACK_IMPORTED_MODULE_0__.ModuleLoader.LoadBundledModule(app_path_local, opa_name).then(function (_app) {
+            _tuval_core__WEBPACK_IMPORTED_MODULE_1__.ModuleLoader.LoadBundledModule(app_path_local, opa_name).then(function (_app) {
                 if (_app != null) {
                     var app = new _app();
                     AppCache[opa_name] = app.GetMainController();
@@ -1349,8 +1352,8 @@ var OpaLoader = function (_a) {
           ) */
     });
     var fetchController = function (input) { return controllerPromise.then(function (res) { return res; }); };
-    var contoller = react_promise_suspense__WEBPACK_IMPORTED_MODULE_3___default()(fetchController, [opa_name]);
-    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement(OPA, { name: opa_name, controller: contoller }));
+    var contoller = react_promise_suspense__WEBPACK_IMPORTED_MODULE_4___default()(fetchController, [opa_name]);
+    return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement(OPA, { name: opa_name, controller: contoller }));
 };
 var AppletController = /** @class */ (function (_super) {
     __extends(AppletController, _super);
@@ -1358,28 +1361,33 @@ var AppletController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     AppletController.prototype.LoadView = function () {
-        var appletId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().appletId;
-        var _a = {}, applet = _a.applet, isLoading = _a.isLoading; //useGetApplet(applet_id);
-        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Applet Loading...') :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })(
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
+            projectId: workspaceId,
+            databaseId: 'workspace',
+            collectionId: 'applets',
+            documentId: appletId
+        }), applet = _b.document, isLoading = _b.isLoading;
+        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Applet Loading...') :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })(
             // LeftSideMenuView(''),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)(
             //  NotesLeftMenu(note_id),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Suspense), { fallback: react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)()).render()) },
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ErrorBoundary, null,
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement(OpaLoader, { opa_name: appletId })))).frame(true).width('100%').height('100%'))).overflow('hidden')).background('white'))).background('#FAFBFC')));
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement((react__WEBPACK_IMPORTED_MODULE_3___default().Suspense), { fallback: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Spinner)()).render()) },
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(ErrorBoundary, null,
+                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement(OpaLoader, { opa_name: applet.type })))).frame(true).width('100%').height('100%'))).overflow('hidden')).background('white'))).background('#FAFBFC')));
     };
     return AppletController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIFormController));
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIFormController));
 
 /**
  * NEW: The error boundary has a function component wrapper.
  */
 function ErrorBoundary(_a) {
     var children = _a.children;
-    var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(false), hasError = _b[0], setHasError = _b[1];
-    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
-    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(false), hasError = _b[0], setHasError = _b[1];
+    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
+    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
         if (hasError) {
             setHasError(false);
         }
@@ -1389,7 +1397,7 @@ function ErrorBoundary(_a) {
      * NEW: The class component error boundary is now
      *      a child of the functional component.
      */
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ErrorBoundaryInner, { hasError: hasError, setHasError: setHasError }, children));
+    react__WEBPACK_IMPORTED_MODULE_3___default().createElement(ErrorBoundaryInner, { hasError: hasError, setHasError: setHasError }, children));
 }
 /**
  * NEW: The class component accepts getters and setters for
@@ -1400,7 +1408,7 @@ var ErrorBoundaryInner = /** @class */ (function (_super) {
     function ErrorBoundaryInner(props) {
         var _this = _super.call(this, props) || this;
         _this.state = { hasError: false };
-        _this.ref = react__WEBPACK_IMPORTED_MODULE_2___default().createRef();
+        _this.ref = react__WEBPACK_IMPORTED_MODULE_3___default().createRef();
         return _this;
     }
     ErrorBoundaryInner.getDerivedStateFromError = function (_error) {
@@ -1425,11 +1433,11 @@ var ErrorBoundaryInner = /** @class */ (function (_super) {
     };
     ErrorBoundaryInner.prototype.render = function () {
         return this.state.hasError
-            ? react__WEBPACK_IMPORTED_MODULE_2___default().createElement("p", null, this.state.errorText)
+            ? react__WEBPACK_IMPORTED_MODULE_3___default().createElement("p", null, this.state.errorText)
             : this.props.children;
     };
     return ErrorBoundaryInner;
-}((react__WEBPACK_IMPORTED_MODULE_2___default().Component)));
+}((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
 
 
 /***/ }),
@@ -2389,7 +2397,7 @@ var OrganizationController = /** @class */ (function (_super) {
                     name: workspaceName,
                     organizationId: organizationId,
                 }, function (workspace) { return __awaiter(_this, void 0, void 0, function () {
-                    var database, appletCol, nameAttr, opaAttr;
+                    var database, appletCol, nameAttr, opaAttr, typeAttr;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace')];
@@ -2404,6 +2412,9 @@ var OrganizationController = /** @class */ (function (_super) {
                                 return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false)];
                             case 4:
                                 opaAttr = _a.sent();
+                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false)];
+                            case 5:
+                                typeAttr = _a.sent();
                                 navigate("/workspace/".concat(workspace.$id));
                                 return [2 /*return*/];
                         }
@@ -6226,7 +6237,8 @@ var Applets = [
     },
     {
         name: 'Task Management',
-        type: 'com.celmino.widget.workspace-tree',
+        tree_type: 'com.celmino.widget.workspace-tree',
+        applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
@@ -6479,7 +6491,8 @@ var Applets = [
     },
     {
         name: 'Document Management',
-        type: 'com.celmino.widget.document-management-tree',
+        tree_type: 'com.celmino.widget.document-management-tree',
+        applet_type: 'com.celmino.applet.document-management',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
@@ -6490,6 +6503,44 @@ var Applets = [
                 "id": "document_management",
                 "category": "app",
                 "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "dm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
                     {
                         "name": "Folders",
                         "id": "dm_folders",
@@ -6824,7 +6875,8 @@ var SelectAppletDialog = /** @class */ (function (_super) {
                     createDocument({
                         data: {
                             name: opa.name,
-                            opa: opa.type
+                            opa: opa.tree_type,
+                            type: opa.applet_type,
                         }
                     }, function (applet) { return __awaiter(_this, void 0, void 0, function () {
                         var _loop_1, this_1, i;

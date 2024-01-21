@@ -17,9 +17,9 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'work_management', 'wm_whiteboards');
-    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,'work_management', 'wm_whiteboard_contents');
+    const { databaseId, collectionId, workspaceId ,appletId} = formController.GetFormData();
+    const { createDocument, isLoading } = useCreateDocument(workspaceId,appletId, 'wm_whiteboards');
+    const { createDocument: createDocumentContent } = useCreateDocument(workspaceId,appletId, 'wm_whiteboard_contents');
    
     return (
         Button(

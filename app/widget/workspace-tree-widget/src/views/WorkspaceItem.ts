@@ -61,7 +61,7 @@ export function WorkspaceItem(space: any) {
                                         // Folders
                                         ...ForEach(items)((item) =>
                                             item.type === 'folder' ?
-                                                FolderItem(space, item) :
+                                                FolderItem( item) :
                                                 item.type === 'list' ?
                                                     AppletItem(item.$id) :
                                                     item.type === 'document' ?

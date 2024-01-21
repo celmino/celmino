@@ -17,6 +17,8 @@ import React from "react";
 //import { FontIcon, FontIcons } from "./FontIcons";
 import { Models, Query, useListDocuments } from '@realmocean/sdk';
 import { WorkspaceItem } from "./WorkspaceItem";
+import { FolderItem } from "./FolderItem";
+import { AppletItem } from "./AppletItem";
 
 let indexMe = 0
 
@@ -119,8 +121,12 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                 VStack({ alignment: cTopLeading })(
 
                                                     ...ForEach(items)(item =>
-                                                        item.type === 'space' ?
-                                                            WorkspaceItem(item) : Fragment()
+                                                      /*   item.type === 'space' ?
+                                                            WorkspaceItem(item) : */
+                                                            item.type === 'folder' ?
+                                                                FolderItem(item) :
+                                                                item.type === 'list' ?
+                                                                    AppletItem(item.$id) : Fragment()
                                                     )
                                                 )
                                                     //.padding(10)

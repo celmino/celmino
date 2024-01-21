@@ -39,24 +39,24 @@ export class MyTestController extends UIFormController {
 
         const navigate = useNavigate();
 
-        const { workspaceId, listId, viewId } = useParams();
+        const { workspaceId, appletId,listId, viewId } = useParams();
 
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         });
 
 
-        const { documents: attributes, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId + '_att');
+        const { documents: attributes, isLoading } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId + '_att');
 
 
-        const { documents: views } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId + '_views');
-        const { documents: items, isLoading: isItemsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId);
+        const { documents: views } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId + '_views');
+        const { documents: items, isLoading: isItemsLoading } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId);
 
-        const { createDocument: createTask } = useCreateDocument(workspaceId, 'work_management', 'wm_list_' + listId);
-        const { createDocument: createView } = useCreateDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_views');
+        const { createDocument: createTask } = useCreateDocument(workspaceId, appletId, 'wm_list_' + listId);
+        const { createDocument: createView } = useCreateDocument(workspaceId, appletId, 'wm_list_' + listId + '_views');
         const { updateDocument } = useUpdateDocument(workspaceId);
 
 
@@ -103,8 +103,8 @@ export class MyTestController extends UIFormController {
                                                             onNewFieldAddded: async (formData) => {
                                                                 // alert(JSON.stringify(type))
                                                                 if (formData.type === 'text') {
-                                                                    await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, formData.key, 255, false);
-                                                                    await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
+                                                                    await Services.Databases.createStringAttribute(workspaceId, appletId, 'wm_list_' + listId, formData.key, 255, false);
+                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: formData.name,
                                                                         key: replaceNonMatchingCharacters(formData.name),
                                                                         type: 'string',
@@ -113,16 +113,15 @@ export class MyTestController extends UIFormController {
                                                                 } else if (formData.type === 'number') {
                                                                     const key = replaceNonMatchingCharacters(formData.name);
                                                                     console.log(key)
-                                                                    await Services.Databases.createIntegerAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, false);
-                                                                    await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
+                                                                    await Services.Databases.createIntegerAttribute(workspaceId, appletId, 'wm_list_' + listId, key, false);
+                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: formData.name,
                                                                         key: key,
                                                                         type: 'number',
                                                                         hidden: false
                                                                     });
                                                                 } else if (formData.type === 'formula') {
-                                                                    //  await Services.Databases.createStringAttribute(workspaceId, 'work_management', 'wm_list_' + listId, key, 255, false);
-                                                                    await Services.Databases.createDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_att', ID.unique(), {
+                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
                                                                         name: formData.name,
                                                                         key: replaceNonMatchingCharacters(formData.name),
                                                                         type: 'formula',

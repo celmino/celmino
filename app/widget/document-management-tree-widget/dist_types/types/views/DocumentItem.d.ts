@@ -1,1 +1,1 @@
-export declare const DocumentItem: (document: any) => any;
+export declare const DocumentItem: (documentId: string) => any;

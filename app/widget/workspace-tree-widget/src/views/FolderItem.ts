@@ -8,7 +8,7 @@ import { DocumentItem } from "./DocumentItem";
 import { WhiteboardItem } from "./WhiteboardItem";
 
 
-export function FolderItem(parent: any, folder: any) {
+export function FolderItem( folder: any) {
 
     return (
         UIViewBuilder(() => {
@@ -49,7 +49,7 @@ export function FolderItem(parent: any, folder: any) {
 
                     return (
                         VStack({ alignment: cTopLeading })(
-                            FolderName(parent, folder, expanded, isLoading, () => {
+                            FolderName(folder, expanded, isLoading, () => {
                                 setExpanded(!expanded);
                                 //  setA(!a);
                             }),
@@ -62,7 +62,7 @@ export function FolderItem(parent: any, folder: any) {
                                             // Items
                                             ...ForEach(isLoading ? [] : items)((item: any) =>
                                                 item.type === 'folder' ?
-                                                    FolderItem(folder, item) :
+                                                    FolderItem( item) :
                                                     item.type === 'list' ?
                                                         AppletItem(item.$id) :
                                                         item.type === 'document' ?

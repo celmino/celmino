@@ -91,7 +91,8 @@ export class SelectAppletDialog extends DialogView {
                                              createDocument({
                                                 data: {
                                                     name: opa.name,
-                                                    opa: opa.type
+                                                    opa: opa.tree_type,
+                                                    type: opa.applet_type,
                                                 }
                                             }, async (applet) => {
                                                 if (opa.databases) {

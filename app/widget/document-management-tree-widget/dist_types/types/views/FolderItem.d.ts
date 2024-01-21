@@ -1,1 +1,1 @@
-export declare function FolderItem(parent: any, folder: any): any;
+export declare function FolderItem(folderId: string): any;

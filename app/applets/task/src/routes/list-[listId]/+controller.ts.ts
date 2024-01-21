@@ -25,24 +25,24 @@ export class ListController extends UIFormController {
     public LoadView() {
         const navigate = useNavigate();
 
-        const { workspaceId, listId, viewId } = useParams();
+        const { workspaceId,appletId, listId, viewId } = useParams();
 
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         });
 
 
-        const { documents: attributes, isLoading } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId + '_att');
+        const { documents: attributes, isLoading } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId + '_att');
 
 
-        const { documents: views } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId + '_views');
-        const { documents: items, isLoading: isItemsLoading } = useListDocuments(workspaceId, 'work_management', 'wm_list_' + listId);
+        const { documents: views } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId + '_views');
+        const { documents: items, isLoading: isItemsLoading } = useListDocuments(workspaceId, appletId, 'wm_list_' + listId);
 
-        const { createDocument: createTask } = useCreateDocument(workspaceId, 'work_management', 'wm_list_' + listId);
-        const { createDocument: createView } = useCreateDocument(workspaceId, 'work_management', 'wm_list_' + listId + '_views');
+        const { createDocument: createTask } = useCreateDocument(workspaceId, appletId, 'wm_list_' + listId);
+        const { createDocument: createView } = useCreateDocument(workspaceId, appletId, 'wm_list_' + listId + '_views');
         const { updateDocument } = useUpdateDocument(workspaceId);
 
 
@@ -63,7 +63,7 @@ export class ListController extends UIFormController {
                                     iconColor: 'gray',
                                     onChange: (value) => {
                                         updateDocument({
-                                            databaseId: 'work_management',
+                                            databaseId: appletId,
                                             collectionId: 'wm_lists',
                                             documentId: listId,
                                             data: {

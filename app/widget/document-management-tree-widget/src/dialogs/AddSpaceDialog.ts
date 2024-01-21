@@ -16,8 +16,8 @@ export const SaveSpaceAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId } = formController.GetFormData();
-    const { createDocument, isLoading } = useCreateDocument(workspaceId,'work_management', 'wm_spaces');
+    const { databaseId, collectionId, workspaceId,appletId } = formController.GetFormData();
+    const { createDocument, isLoading } = useCreateDocument(workspaceId,appletId, 'wm_spaces');
    
     return (
         Button(

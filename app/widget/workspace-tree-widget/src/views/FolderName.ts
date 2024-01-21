@@ -12,7 +12,7 @@ import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
 import { AddWhiteboardDialog } from "../dialogs/AddWhiteboardDialog";
 
 
-export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading: boolean,
+export const FolderName = (folder: any, isOpen: boolean, isLoading: boolean,
     onClickCallback: Function) => UIViewBuilder(() => {
 
         const { folder_id } = useParams();
@@ -77,7 +77,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     title: 'Document',
                                     icon: WorkbenchIcons.DocumentIcon,
                                     onClick: () => {
-                                        DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddDocumentDialog(workspaceId,appletId, folder.$id, `${folder.path}/${folder.$id}`))
                                         /*   createApplet({
                                               name: 'New document',
                                               parentId: folder.$id,
@@ -96,7 +96,7 @@ export const FolderName = (parent: any, folder: any, isOpen: boolean, isLoading:
                                     icon: WorkbenchIcons.WhiteboardIcon1,
                                     onClick: () => {
 
-                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId,appletId, folder.$id, `${parent.path}/${parent.$id}`))
+                                        DynoDialog.Show(AddWhiteboardDialog(workspaceId,appletId, folder.$id, `${folder.path}/${folder.$id}`))
                                     }
                                     /* .then(() => {
                                         controller.InvalidateQuerie('space-folders')

@@ -26,12 +26,7 @@ export class NoteController extends UIController {
             documentId: noteId
         })
 
-        /* const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, 'document_management', 'dm_folders', [
-            Query.equal('parent', folderId)
-        ]);
-        const { documents: documents, isLoading } = useListDocuments(workspaceId, 'document_management', 'dm_documents', [
-            Query.equal('parent', folderId)
-        ]); */
+ 
 
 
         const { updateDocument } = useUpdateDocument(workspaceId);

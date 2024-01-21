@@ -9,17 +9,17 @@ export class WhiteboardController extends UIController {
 
 
     public override LoadView(): UIView {
-        const { workspaceId, whiteboardId } = useParams();
+        const { workspaceId,appletId, whiteboardId } = useParams();
         const { document } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboards',
             documentId: whiteboardId
         })
 
         const { document: content, isLoading } = useGetDocument({
             projectId: workspaceId,
-            databaseId: 'work_management',
+            databaseId: appletId,
             collectionId: 'wm_whiteboard_contents',
             documentId: whiteboardId
         })
@@ -35,7 +35,7 @@ export class WhiteboardController extends UIController {
                                 ActionPanel(),
                                 DocumentHeader(document?.name, (e)=> {
                                     updateDocument({
-                                        databaseId: 'work_management',
+                                        databaseId: appletId,
                                         collectionId: 'wm_whiteboards',
                                         documentId: whiteboardId,
                                         data: {
@@ -49,7 +49,7 @@ export class WhiteboardController extends UIController {
                                         onChange: (data) => {
                                             console.log(data)
                                             updateDocument({
-                                                databaseId: 'work_management',
+                                                databaseId: appletId,
                                                 collectionId: 'wm_whiteboard_contents',
                                                 documentId: whiteboardId,
                                                 data: {
