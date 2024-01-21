@@ -348,8 +348,9 @@ export const LeftSideMenuView = (selectedItem: string) => {
                 )
                     .fontFamily(fontFamily)
                     .allWidth(282)
-                    .background('white')
-                    .borderRight('1px solid #e9ebf0')
+                    .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
+                    .background('hsl(210, 17%, 98%)')
+                    .borderRight('1px solid rgba(0,0,0,0.05)')
                     .transition('width .2s ease-in-out')
             )
         }

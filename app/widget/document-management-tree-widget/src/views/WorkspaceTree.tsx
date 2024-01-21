@@ -149,7 +149,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                 )
                     // .fontFamily(fontFamily)
                     // .allWidth(282)
-                    .background('white')
+                    
                     .borderRight('1px solid #e9ebf0')
                     .transition('width .2s ease-in-out')
                     .variable('--show-expand-icon', { default: '0', hover: '1' })
