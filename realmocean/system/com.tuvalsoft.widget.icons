@@ -3087,9 +3087,9 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a, _b, _c;
+        var _a, _b, _c, _d, _e;
         var _hideHandle;
-        var _d = this.props.config || {}, selectedIcon = _d.selectedIcon, selectedCategory = _d.selectedCategory, _e = _d.onChange, onChange = _e === void 0 ? void 0 : _e, _f = _d.width, width = _f === void 0 ? 36 : _f, _g = _d.height, height = _g === void 0 ? 36 : _g, _h = _d.padding, padding = _h === void 0 ? 5 : _h, _j = _d.tooltip, tooltip = _j === void 0 ? '' : _j, _k = _d.color, color = _k === void 0 ? 'white' : _k, _l = _d.backgroundColor, backgroundColor = _l === void 0 ? 'transparent' : _l, _m = _d.readonly, readonly = _m === void 0 ? false : _m;
+        var _f = this.props.config || {}, selectedIcon = _f.selectedIcon, selectedCategory = _f.selectedCategory, _g = _f.onChange, onChange = _g === void 0 ? void 0 : _g, _h = _f.width, width = _h === void 0 ? 36 : _h, _j = _f.height, height = _j === void 0 ? 36 : _j, _k = _f.padding, padding = _k === void 0 ? 5 : _k, _l = _f.tooltip, tooltip = _l === void 0 ? '' : _l, _m = _f.color, color = _m === void 0 ? 'white' : _m, _o = _f.backgroundColor, backgroundColor = _o === void 0 ? 'transparent' : _o, _p = _f.readonly, readonly = _p === void 0 ? false : _p;
         // const [selectedEmoji, setSelectedEmoji] = useState(this.props.config.selectedEmoji);
         // const [selectedIcon, setSelectedIcon] = useState(this.props.config.selectedIcon);
         // const [selectedCuIcon, setSelectedCuIcon] = useState(this.props.config.selectedCuIcon);
@@ -3098,81 +3098,91 @@ var MyTestController = /** @class */ (function (_super) {
         /*    useEffect(() => {
                setSelectedAccountId(this.props.config.selectedAccountId);
            }, [this.props.config.selectedAccountId]) */
-        var _o = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isOpen = _o[0], setIsOpen = _o[1];
-        var _p = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((_a = this.props.config.selectedCategory) !== null && _a !== void 0 ? _a : 'Icons'), mode = _p[0], setMode = _p[1];
+        var _q = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isOpen = _q[0], setIsOpen = _q[1];
+        var _r = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((_a = this.props.config.selectedCategory) !== null && _a !== void 0 ? _a : 'Icons'), mode = _r[0], setMode = _r[1];
         var ref = (0,_uidotdev_usehooks__WEBPACK_IMPORTED_MODULE_2__.useClickAway)(function () {
             setIsOpen(false);
         });
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((selectedCategory === 'Icons' && selectedIcon) ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_b = _Icons__WEBPACK_IMPORTED_MODULE_3__.Icons[selectedIcon]) === null || _b === void 0 ? void 0 : _b.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'CuIcons' && selectedIcon) ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_c = _Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons[selectedIcon]) === null || _c === void 0 ? void 0 : _c.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'Emoji' && selectedIcon) ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedIcon).fontSize(width > 20 ? width * 0.70 : width) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).width(width).height(height).padding(padding)
-            // .background('#40BC86')
-            .foregroundColor(color)
-            .cornerRadius(5)
-            .background(backgroundColor))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Segmented)().options(["Icons", "CuIcons", "Emoji"]).onChange(function (value) {
-            setMode(value);
-        }).renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_6__.SegmentedRenderer), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().paddingLeft('25px').placeholder('Search...')
-            .border('none').shadow({ focus: 'none' })).height().padding(5))
-            .borderBottom('1px solid #E8EAED')
-            .height(), mode === 'Emoji' ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_emoji_mart_react__WEBPACK_IMPORTED_MODULE_4__["default"], { data: _emoji_mart_data__WEBPACK_IMPORTED_MODULE_7__, onEmojiSelect: function (e) {
-                    if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
-                        onChange({
-                            iconCategory: mode,
-                            iconName: e.native,
+        return (readonly ?
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((selectedCategory === 'Icons' && selectedIcon) ?
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_b = _Icons__WEBPACK_IMPORTED_MODULE_3__.Icons[selectedIcon]) === null || _b === void 0 ? void 0 : _b.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'CuIcons' && selectedIcon) ?
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_c = _Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons[selectedIcon]) === null || _c === void 0 ? void 0 : _c.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'Emoji' && selectedIcon) ?
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedIcon).fontSize(width > 20 ? width * 0.70 : width) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).width(width).height(height).padding(padding)
+                // .background('#40BC86')
+                .foregroundColor(color)
+                .cornerRadius(5)
+                .background(backgroundColor)
+            :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((selectedCategory === 'Icons' && selectedIcon) ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_d = _Icons__WEBPACK_IMPORTED_MODULE_3__.Icons[selectedIcon]) === null || _d === void 0 ? void 0 : _d.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'CuIcons' && selectedIcon) ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)((_e = _Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons[selectedIcon]) === null || _e === void 0 ? void 0 : _e.icon).width(width).height(height) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), (selectedCategory === 'Emoji' && selectedIcon) ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(selectedIcon).fontSize(width > 20 ? width * 0.70 : width) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).width(width).height(height).padding(padding)
+                    // .background('#40BC86')
+                    .foregroundColor(color)
+                    .cornerRadius(5)
+                    .background(backgroundColor))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Segmented)().options(["Icons", "CuIcons", "Emoji"]).onChange(function (value) {
+                    setMode(value);
+                }).renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_6__.SegmentedRenderer), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().paddingLeft('25px').placeholder('Search...')
+                    .border('none').shadow({ focus: 'none' })).height().padding(5))
+                    .borderBottom('1px solid #E8EAED')
+                    .height(), mode === 'Emoji' ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_emoji_mart_react__WEBPACK_IMPORTED_MODULE_4__["default"], { data: _emoji_mart_data__WEBPACK_IMPORTED_MODULE_7__, onEmojiSelect: function (e) {
+                            if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
+                                onChange({
+                                    iconCategory: mode,
+                                    iconName: e.native,
+                                });
+                            }
+                            // setSelectedIcon(e.native);
+                            _hideHandle();
+                        } })) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), mode === 'Icons' ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(Object.getOwnPropertyNames(_Icons__WEBPACK_IMPORTED_MODULE_3__.Icons))(function (key) {
+                        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_Icons__WEBPACK_IMPORTED_MODULE_3__.Icons[key].icon).width(24).height(24))
+                            .tooltip(key)
+                            .cursor('pointer')
+                            .width()
+                            .height()
+                            .cornerRadius(4)
+                            .background({ hover: '#E8EAED' })
+                            .foregroundColor({ hover: 'blue' })
+                            .padding(5)
+                            .onClick(function () {
+                            if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
+                                onChange({
+                                    iconCategory: mode,
+                                    iconName: key,
+                                });
+                            }
+                            // setSelectedIcon(key);
+                            _hideHandle();
                         });
-                    }
-                    // setSelectedIcon(e.native);
-                    _hideHandle();
-                } })) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), mode === 'Icons' ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(Object.getOwnPropertyNames(_Icons__WEBPACK_IMPORTED_MODULE_3__.Icons))(function (key) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_Icons__WEBPACK_IMPORTED_MODULE_3__.Icons[key].icon).width(24).height(24))
-                    .tooltip(key)
-                    .cursor('pointer')
-                    .width()
-                    .height()
-                    .cornerRadius(4)
-                    .background({ hover: '#E8EAED' })
-                    .foregroundColor({ hover: 'blue' })
-                    .padding(5)
-                    .onClick(function () {
-                    if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
-                        onChange({
-                            iconCategory: mode,
-                            iconName: key,
+                    })).height().wrap('wrap'))
+                    : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), mode === 'CuIcons' ?
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(Object.getOwnPropertyNames(_Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons))(function (key) {
+                        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons[key].icon).width(18).height(18))
+                            .tooltip(key)
+                            .cursor('pointer')
+                            .width()
+                            .height()
+                            .cornerRadius(4)
+                            .background({ hover: '#E8EAED' })
+                            .foregroundColor({ hover: 'blue' })
+                            .padding(5)
+                            .onClick(function () {
+                            if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
+                                onChange({
+                                    iconCategory: mode,
+                                    iconName: key,
+                                });
+                            }
+                            // setSelectedIcon(key);
+                            _hideHandle();
                         });
-                    }
-                    // setSelectedIcon(key);
-                    _hideHandle();
-                });
-            })).height().wrap('wrap'))
-            : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(), mode === 'CuIcons' ?
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(Object.getOwnPropertyNames(_Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons))(function (key) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_Icons__WEBPACK_IMPORTED_MODULE_3__.CuIcons[key].icon).width(18).height(18))
-                    .tooltip(key)
-                    .cursor('pointer')
-                    .width()
-                    .height()
-                    .cornerRadius(4)
-                    .background({ hover: '#E8EAED' })
-                    .foregroundColor({ hover: 'blue' })
-                    .padding(5)
-                    .onClick(function () {
-                    if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
-                        onChange({
-                            iconCategory: mode,
-                            iconName: key,
-                        });
-                    }
-                    // setSelectedIcon(key);
-                    _hideHandle();
-                });
-            })).height().wrap('wrap'))
-            : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).allWidth(360).allHeight(570).padding(2))
-            //.open(isOpen)
-            .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-            .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogPosition.BOTTOM_START));
+                    })).height().wrap('wrap'))
+                    : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).allWidth(360).allHeight(570).padding(2))
+                    //.open(isOpen)
+                    .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
+                    .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogPosition.BOTTOM_START));
     };
     return MyTestController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

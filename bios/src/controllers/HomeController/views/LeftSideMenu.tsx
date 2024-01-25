@@ -467,7 +467,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
 
 
-                                ),
+                                ).padding(8),
                                 HStack(
                                     UIViewBuilder(() => {
                                         const { createRealm } = useCreateRealm();

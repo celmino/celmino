@@ -41,10 +41,10 @@ export class MyTestController extends UIController {
             backgroundColor = 'transparent',
             readonly = false } = this.props.config || {};
 
-          
-       // const [selectedEmoji, setSelectedEmoji] = useState(this.props.config.selectedEmoji);
-       // const [selectedIcon, setSelectedIcon] = useState(this.props.config.selectedIcon);
-       // const [selectedCuIcon, setSelectedCuIcon] = useState(this.props.config.selectedCuIcon);
+
+        // const [selectedEmoji, setSelectedEmoji] = useState(this.props.config.selectedEmoji);
+        // const [selectedIcon, setSelectedIcon] = useState(this.props.config.selectedIcon);
+        // const [selectedCuIcon, setSelectedCuIcon] = useState(this.props.config.selectedCuIcon);
 
         /*   const { accounts, isLoading } = useGetTenantAccounts({ tenant_id });
           const { account } = useGetAccount(selectedAccountId); */
@@ -63,8 +63,7 @@ export class MyTestController extends UIController {
 
 
         return (
-
-            PopupButton(
+            readonly ?
                 HStack(
                     (selectedCategory === 'Icons' && selectedIcon) ?
                         Icon(Icons[selectedIcon]?.icon).width(width).height(height) : Fragment(),
@@ -78,102 +77,117 @@ export class MyTestController extends UIController {
                     .foregroundColor(color)
                     .cornerRadius(5)
                     .background(backgroundColor)
-            )(
-
-                VStack({ alignment: cTopLeading, spacing: 10 })(
-                    Segmented().options(["Icons", "CuIcons", "Emoji"]).onChange((value) => {
-                        setMode(value);
-                    }).renderer(SegmentedRenderer)
-                    ,
+                :
+                PopupButton(
                     HStack(
+                        (selectedCategory === 'Icons' && selectedIcon) ?
+                            Icon(Icons[selectedIcon]?.icon).width(width).height(height) : Fragment(),
+                        (selectedCategory === 'CuIcons' && selectedIcon) ?
+                            Icon(CuIcons[selectedIcon]?.icon).width(width).height(height) : Fragment(),
+                        (selectedCategory === 'Emoji' && selectedIcon) ?
+                            Text(selectedIcon).fontSize(width > 20 ? width * 0.70 : width) : Fragment(),
+
+                    ).width(width).height(height).padding(padding)
+                        // .background('#40BC86')
+                        .foregroundColor(color)
+                        .cornerRadius(5)
+                        .background(backgroundColor)
+                )(
+
+                    VStack({ alignment: cTopLeading, spacing: 10 })(
+                        Segmented().options(["Icons", "CuIcons", "Emoji"]).onChange((value) => {
+                            setMode(value);
+                        }).renderer(SegmentedRenderer)
+                        ,
                         HStack(
-                            TextField().paddingLeft('25px').placeholder('Search...')
-                                .border('none').shadow({ focus: 'none' }),
-                            // Icon(Icons.Search).position('absolute').left('8px').top('12px')
-                        ).height().padding(5)
-                    )
-                        .borderBottom('1px solid #E8EAED')
-                        .height(),
-                    mode === 'Emoji' ?
-                        ReactView(
-                            <Picker data={data} onEmojiSelect={(e) => {
-                                if (is.function(onChange)) {
-                                    onChange({
-                                        iconCategory: mode,
-                                        iconName: e.native,
-                                    });
-                                }
-                               // setSelectedIcon(e.native);
-                                _hideHandle();
-                            }} />
-                        ) : Fragment(),
-                    mode === 'Icons' ?
-
-                        ScrollView(
-                            HStack({ alignment: cTopLeading, spacing: 5 })(
-
-                                ...ForEach(Object.getOwnPropertyNames(Icons))((key) =>
-                                    HStack(
-                                        Icon(Icons[key].icon).width(24).height(24),
-                                    )
-                                        .tooltip(key)
-                                        .cursor('pointer')
-                                        .width()
-                                        .height()
-                                        .cornerRadius(4)
-                                        .background({ hover: '#E8EAED' })
-                                        .foregroundColor({ hover: 'blue' })
-                                        .padding(5)
-                                        .onClick(() => {
-                                            if (is.function(onChange)) {
-                                                onChange({
-                                                    iconCategory: mode,
-                                                    iconName: key,
-                                                });
-                                            }
-                                           // setSelectedIcon(key);
-                                            _hideHandle();
-                                        })
-                                )
-                            ).height().wrap('wrap')
+                            HStack(
+                                TextField().paddingLeft('25px').placeholder('Search...')
+                                    .border('none').shadow({ focus: 'none' }),
+                                // Icon(Icons.Search).position('absolute').left('8px').top('12px')
+                            ).height().padding(5)
                         )
-                        : Fragment(),
-                    mode === 'CuIcons' ?
-                        ScrollView(
-                            HStack({ alignment: cTopLeading, spacing: 5 })(
+                            .borderBottom('1px solid #E8EAED')
+                            .height(),
+                        mode === 'Emoji' ?
+                            ReactView(
+                                <Picker data={data} onEmojiSelect={(e) => {
+                                    if (is.function(onChange)) {
+                                        onChange({
+                                            iconCategory: mode,
+                                            iconName: e.native,
+                                        });
+                                    }
+                                    // setSelectedIcon(e.native);
+                                    _hideHandle();
+                                }} />
+                            ) : Fragment(),
+                        mode === 'Icons' ?
 
-                                ...ForEach(Object.getOwnPropertyNames(CuIcons))((key) =>
-                                    HStack(
-                                        Icon(CuIcons[key].icon).width(18).height(18),
+                            ScrollView(
+                                HStack({ alignment: cTopLeading, spacing: 5 })(
+
+                                    ...ForEach(Object.getOwnPropertyNames(Icons))((key) =>
+                                        HStack(
+                                            Icon(Icons[key].icon).width(24).height(24),
+                                        )
+                                            .tooltip(key)
+                                            .cursor('pointer')
+                                            .width()
+                                            .height()
+                                            .cornerRadius(4)
+                                            .background({ hover: '#E8EAED' })
+                                            .foregroundColor({ hover: 'blue' })
+                                            .padding(5)
+                                            .onClick(() => {
+                                                if (is.function(onChange)) {
+                                                    onChange({
+                                                        iconCategory: mode,
+                                                        iconName: key,
+                                                    });
+                                                }
+                                                // setSelectedIcon(key);
+                                                _hideHandle();
+                                            })
                                     )
-                                        .tooltip(key)
-                                        .cursor('pointer')
-                                        .width()
-                                        .height()
-                                        .cornerRadius(4)
-                                        .background({ hover: '#E8EAED' })
-                                        .foregroundColor({ hover: 'blue' })
-                                        .padding(5)
-                                        .onClick(() => {
-                                            if (is.function(onChange)) {
-                                                onChange({
-                                                    iconCategory: mode,
-                                                    iconName: key,
-                                                });
-                                            }
-                                           // setSelectedIcon(key);
-                                            _hideHandle();
-                                        })
-                                )
-                            ).height().wrap('wrap')
-                        )
-                        : Fragment()
-                ).allWidth(360).allHeight(570).padding(2)
+                                ).height().wrap('wrap')
+                            )
+                            : Fragment(),
+                        mode === 'CuIcons' ?
+                            ScrollView(
+                                HStack({ alignment: cTopLeading, spacing: 5 })(
 
-            )
-                //.open(isOpen)
-                .hideHandle(hideHandle => _hideHandle = hideHandle)
-                .dialogPosition(DialogPosition.BOTTOM_START))
+                                    ...ForEach(Object.getOwnPropertyNames(CuIcons))((key) =>
+                                        HStack(
+                                            Icon(CuIcons[key].icon).width(18).height(18),
+                                        )
+                                            .tooltip(key)
+                                            .cursor('pointer')
+                                            .width()
+                                            .height()
+                                            .cornerRadius(4)
+                                            .background({ hover: '#E8EAED' })
+                                            .foregroundColor({ hover: 'blue' })
+                                            .padding(5)
+                                            .onClick(() => {
+                                                if (is.function(onChange)) {
+                                                    onChange({
+                                                        iconCategory: mode,
+                                                        iconName: key,
+                                                    });
+                                                }
+                                                // setSelectedIcon(key);
+                                                _hideHandle();
+                                            })
+                                    )
+                                ).height().wrap('wrap')
+                            )
+                            : Fragment()
+                    ).allWidth(360).allHeight(570).padding(2)
+
+                )
+                    //.open(isOpen)
+                    .hideHandle(hideHandle => _hideHandle = hideHandle)
+                    .dialogPosition(DialogPosition.BOTTOM_START))
 
     }
 

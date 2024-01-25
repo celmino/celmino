@@ -1,22 +1,71 @@
 import {
+    ForEach,
     FormBuilder, Fragment, HStack,
     Icon, Icons, Loader,
     LoaderSizes, MenuButton, OptionsContext, Spacer, Spinner, SvgIcon,
-    UIController, UIView, UIViewBuilder, UIWidget, VStack, cHorizontal, cLeading, cTopLeading, cTrailing, cVertical, useEffect, useState
+    UIController, UIView, UIViewBuilder, UIWidget, VStack, cHorizontal, cLeading, cTopLeading, cTrailing, cVertical, useEffect, useNavigate, useState
 } from '@tuval/forms';
 
-import { useGetDocument, useUpdateDocument } from '@realmocean/sdk';
+import { Query, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { DynoDialog } from '@realmocean/ui';
-import { TextField, Text as VibeText } from '@realmocean/vibe';
+import { Text, TextField, Text as VibeText } from '@realmocean/vibe';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
 import { SaveSpaceAction } from './dialogs/AddSpaceDialog';
-import { getAppletId, getListId } from './utils';
+import { getAppletId, getDocumentId, getListId } from './utils';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useLocalStorageState } from './views/localStorageState';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
+import { TreeNode } from './views/TreeNode';
 
 
+const subNodes = (level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
+
+    const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
+        Query.equal('parent', parentId)
+    ]);
+    const navigate = useNavigate();
+
+
+
+    return (
+        VStack(
+            ...ForEach(items)(item =>
+                TreeNode({
+                    title: item.name,
+                    level: level,
+                    nodeType: item.type,
+                    isSelected: getDocumentId() === item.$id,
+                    subNode: (nodeType) => subNodes(level + 1, nodeType, item.$id, workspaceId, appletId),
+                    requestIcon: (nodeType, selected, expanded) => {
+                        switch (nodeType) {
+                            case 'folder':
+                                return Icon(expanded ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D');
+                            default:
+                                return (
+                                    Icon(SvgIcon('cu3-icon-sidebarDoc', selected ? '#7b68ee' : '#151719', '18px', '18px'))
+                                )
+                        }
+
+                    },
+                    requestNavigation: () => {
+                        switch (item.type) {
+                            case 'folder':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
+                                break;
+                            case 'document':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
+                                break;
+
+                        }
+                    }
+
+                })
+
+            )
+        )
+    )
+})
 
 export class MyTestController extends UIController {
 
@@ -52,192 +101,15 @@ export class MyTestController extends UIController {
         return (
             isAppletLoading ? Spinner() :
                 OptionsContext(() => (
-                    VStack({ alignment: cTopLeading })(
-                        HStack({ alignment: cLeading, spacing: 1 })(
-                            HStack(
-                                HStack(
-                                    isLoading ? Loader().size(LoaderSizes.XS) :
-                                        Icon(WorkbenchIcons.CaretDown1).transform(isOpen ? 'rotate(90deg)' : '')
-                                            .transition('transform .12s ease-in-out')
-                                )
-                                    .foregroundColor('rgba(109,122,131,0.9)')
-                                    .width(20).height(20).cursor('pointer')
-                                    .display(`var(--display-caret)`),
-                                HStack(
-                                    UIWidget("com.tuvalsoft.widget.icons")
-                                        .config({
-                                            selectedIcon: 'bookmark',
-                                            selectedCategory: 'Icons',
-                                            color: 'white',
-                                            backgroundColor: '#40BC86',
-                                            width: 20,
-                                            height: 20,
-                                            padding: 1
-                                        })
-                                )
-                                    //.background('#FCE8E8')
-                                    .width().height()
-                                    .cornerRadius(5)
-                                    .display('var(--display-icon)'),
-
-                            ).width(20).height(20)
-                                .onClick(() => {
-                                    setIsOpen(!isOpen);
-                                }),
-
-                            // Title
-                            isEditing ? UIViewBuilder(() => {
-
-                                const [appletName, setAppletName] = useState(applet.name);
-                                const { updateDocument } = useUpdateDocument(workspaceId);
-                                return (
-                                    HStack(
-                                        TextField()
-                                            .fontSize(16)
-                                            .fontWeight('500')
-                                            .padding(0)
-                                            .value(appletName)
-                                            .onChange((value) => setAppletName(value))
-                                            .onBlur(() => {
-                                                if (applet.name !== appletName) {
-                                                    updateDocument({
-                                                        databaseId: 'workspace',
-                                                        collectionId: 'applets',
-                                                        documentId: appletId,
-                                                        data: {
-                                                            name: appletName
-                                                        }
-                                                    });
-                                                }
-                                                setIsEditing(false);
-                                            })
-                                    )
-                                        .height()
-                                        .onClickAway(() => {
-                                            if (applet.name !== appletName) {
-                                                updateDocument({
-                                                    databaseId: 'workspace',
-                                                    collectionId: 'applets',
-                                                    documentId: appletId,
-                                                    data: {
-                                                        name: appletName
-                                                    }
-                                                });
-                                            }
-                                            setIsEditing(false);
-                                        })
-
-                                )
-                            })
-                                :
-
-                                HStack({ alignment: cLeading, spacing: 5 })(
-
-                                    HStack({ alignment: cLeading })(
-                                        VibeText(applet.name).fontSize(16).foregroundColor('#5a5d62')
-                                            .lineHeight(22)
-                                    )
-                                        .width('calc(100% - 40px)')
-                                        .height(32)
-                                )
-                                    .overflow('hidden')
-                                    .height(),
-                            Spacer(),
-                            HStack({ alignment: cTrailing })(
-                                MenuButton()
-                                    .model([
-                                        {
-                                            title: 'Add to space',
-                                            type: 'Title'
-                                        },
-
-
-                                        {
-                                            title: 'Document',
-                                            icon: WorkbenchIcons.DocumentIcon,
-                                            onClick: () => {
-                                                DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, '-1', `/`))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-
-                                        {
-                                            title: 'Folder',
-                                            icon: WorkbenchIcons.AddFolder,
-                                            onClick: () => {
-
-                                                DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', `/`))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        }
-
-                                    ])
-                                    .icon(Icons.Add),
-                                MenuButton()
-                                    .model([
-                                        {
-                                            title: 'Space acions',
-                                            type: 'Title'
-                                        },
-                                        {
-                                            title: 'Rename',
-                                            icon: WorkbenchIcons.Edit,
-                                            onClick: () => setIsEditing(true)
-                                        },
-                                        {
-                                            title: 'Copy link',
-                                            icon: SvgIcon('svg-sprite-global__link'),
-                                            onClick: () => {
-                                                /*   copy(location.href);
-                                                  ShowToast('Copied to clipboard') */
-                                            }
-                                        },
-                                        {
-                                            title: 'Dublicate',
-                                            icon: WorkbenchIcons.Copy
-                                        },
-                                        {
-                                            type: 'Divider'
-                                        },
-                                        {
-                                            title: 'Delete',
-                                            icon: SvgIcon('svg-sprite-global__delete', '#bc4841'),
-                                            color: '#bc4841',
-                                            onClick: () => {
-                                                // DynoDialog.Show(AppletDescriptionDialog(applet.id))
-                                            }
-                                        }
-                                    ])
-                                    .icon(Icons.Menu)
-
-                            )
-                                .onClick((e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                })
-
-                                .width(64).height(32).padding(cHorizontal, 5)
-                                .display('var(--show-space-action-buttons)'),
+                    TreeNode({
+                        title: applet.name,
+                        iconName: 'bookmark',
+                        //isExpand: expanded,
+                        //expandChanged: setExpanded,
+                        subNode: (nodeType) => (
+                            subNodes(1, nodeType, '-1', workspaceId, appletId)
                         )
-                            .transition('transform .12s ease-in-out')
-                            .width('calc(100% - 0px)')
-                            .transform('translate3d(0px, 0, 0)')
-                            .fontWeight('500')
-                            .allHeight(37).padding(5).padding(cVertical, isEditing ? 0 : 5)
-                            .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
-                            .variable(`--display-caret`, { default: 'none', hover: 'flex' })
-                            .variable(`--display-icon`, { default: 'flex', hover: 'none' })
-
-                        ,
-                        isOpen ?
-                            HStack(
-                                LeftSideMenuView(selectedItem)
-                            ).height().paddingLeft('40px') : Fragment()
-                    ).height()
+                    })
                 ))
                     .options({
                         ...(this.props.config || {})

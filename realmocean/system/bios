@@ -5359,7 +5359,7 @@ var LeftSideMenuView = function (selectedItem) {
                 /*  ...ForEach(spaces)(space =>
                      Text(space.name)
                  ), */
-                ),
+                ).padding(8),
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
                     var createRealm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateRealm)().createRealm;
                     var workspace_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)().workspace_id;
