@@ -8,8 +8,8 @@ ENV version latest \
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update 
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+RUN apt-get update
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common 
 
 RUN apt install -y docker.io
 RUN docker --version

@@ -21,7 +21,7 @@ import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
 export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
-        
+
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
         const { items } = this.props.data || {};
@@ -53,14 +53,32 @@ export class MyTestController extends UIController {
             isAppletLoading ? Spinner() :
                 OptionsContext(() => (
                     VStack({ alignment: cTopLeading })(
-
                         HStack({ alignment: cLeading, spacing: 1 })(
                             HStack(
                                 HStack(
                                     isLoading ? Loader().size(LoaderSizes.XS) :
-                                        Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
-                                ).width(20).height(20).cursor('pointer')
+                                        Icon(WorkbenchIcons.CaretDown1).transform(isOpen ? 'rotate(90deg)' : '')
+                                            .transition('transform .12s ease-in-out')
+                                )
+                                    .foregroundColor('rgba(109,122,131,0.9)')
+                                    .width(20).height(20).cursor('pointer')
                                     .display(`var(--display-caret)`),
+                                HStack(
+                                    UIWidget("com.tuvalsoft.widget.icons")
+                                        .config({
+                                            selectedIcon: 'bookmark',
+                                            selectedCategory: 'Icons',
+                                            color: 'white',
+                                            backgroundColor: '#40BC86',
+                                            width: 20,
+                                            height: 20,
+                                            padding: 1
+                                        })
+                                )
+                                    //.background('#FCE8E8')
+                                    .width().height()
+                                    .cornerRadius(5)
+                                    .display('var(--display-icon)'),
 
                             ).width(20).height(20)
                                 .onClick(() => {
@@ -112,38 +130,18 @@ export class MyTestController extends UIController {
                                 )
                             })
                                 :
+
                                 HStack({ alignment: cLeading, spacing: 5 })(
-                                    HStack(
-                                        UIWidget("com.tuvalsoft.widget.icons")
-                                            .config({
-                                                selectedIcon: 'bookmark',
-                                                selectedCategory: 'Icons',
-                                                color: 'white',
-                                                backgroundColor: '#40BC86',
-                                                width: 20,
-                                                height: 20,
-                                                padding: 1
-                                            })
+
+                                    HStack({ alignment: cLeading })(
+                                        VibeText(applet.name).fontSize(16).foregroundColor('#5a5d62')
+                                            .lineHeight(22)
                                     )
-                                        //.background('#FCE8E8')
-                                        .width().height()
-                                        .cornerRadius(5)
-                                        .display('var(--display-icon)'),
-                                    VibeText(applet.name).fontSize(16).foregroundColor('#5a5d62')
-                                        //.fontFamily('Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif')
-
-                                        .lineHeight(22)
-                                ).height(),
-
-                            /* Spacer(),
-                            HStack(
-                                Icon(Icons.Add).size(15)
-                            ).height(20).width(20)
-                                .background('gray')
-                                .onClick(() => {
-                                    setIsEditing(!isEditing)
-                                   
-                                }) */
+                                        .width('calc(100% - 40px)')
+                                        .height(32)
+                                )
+                                    .overflow('hidden')
+                                    .height(),
                             Spacer(),
                             HStack({ alignment: cTrailing })(
                                 MenuButton()
@@ -153,7 +151,7 @@ export class MyTestController extends UIController {
                                             type: 'Title'
                                         },
 
-                                      
+
                                         {
                                             title: 'Document',
                                             icon: WorkbenchIcons.DocumentIcon,
@@ -164,7 +162,7 @@ export class MyTestController extends UIController {
                                                 controller.InvalidateQuerie('space-folders')
                                             }) */
                                         },
-                                       
+
                                         {
                                             title: 'Folder',
                                             icon: WorkbenchIcons.AddFolder,
@@ -225,9 +223,14 @@ export class MyTestController extends UIController {
                                 .width(64).height(32).padding(cHorizontal, 5)
                                 .display('var(--show-space-action-buttons)'),
                         )
+                            .transition('transform .12s ease-in-out')
+                            .width('calc(100% - 0px)')
+                            .transform('translate3d(0px, 0, 0)')
                             .fontWeight('500')
                             .allHeight(37).padding(5).padding(cVertical, isEditing ? 0 : 5)
                             .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
+                            .variable(`--display-caret`, { default: 'none', hover: 'flex' })
+                            .variable(`--display-icon`, { default: 'flex', hover: 'none' })
 
                         ,
                         isOpen ?

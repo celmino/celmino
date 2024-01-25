@@ -1075,10 +1075,10 @@
     style-loader "^3.3.3"
     to-string-loader "^1.2.0"
 
-"@realmocean/vibe@^2.82.43":
-  version "2.82.43"
-  resolved "https://registry.npmjs.org/@realmocean/vibe/-/vibe-2.82.43.tgz"
-  integrity sha512-ZxnysNF49BTfAPQ2M2LkHt9aBJnQjproizwzuFlIcImLUG0ZnVZTKyRu2Y2QH6ntTFQe0BH/G/8BUFJRV+/VZQ==
+"@realmocean/vibe@^2.82.44":
+  version "2.82.44"
+  resolved "https://registry.npmjs.org/@realmocean/vibe/-/vibe-2.82.44.tgz"
+  integrity sha512-5BNyxY5pX9TeY/uiFveRDXVEh3SLEXIhGNSs1NXQp2y1zbXQpxzHos5OOMQ/L74vAbBTOdMfiDbj/NDkAyGfKg==
   dependencies:
     "@realmocean/data" "^0.0.3"
     "@realmocean/dropdowns" "^0.0.20"

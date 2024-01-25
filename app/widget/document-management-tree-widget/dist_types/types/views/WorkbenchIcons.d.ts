@@ -12,6 +12,7 @@ export declare namespace WorkbenchIcons {
     const Link: (props: any) => React.JSX.Element;
     const Copy: (props: any) => React.JSX.Element;
     const CaretDown: (props: any) => React.JSX.Element;
+    const CaretDown1: (props: any) => React.JSX.Element;
     const CaretRight: (props: any) => React.JSX.Element;
     const Gantt: (props: any) => React.JSX.Element;
     const KanbanBoard: (props: any) => React.JSX.Element;

@@ -2199,7 +2199,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   TableClass: () => (/* binding */ TableClass)\n/* harmony export */ });\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _TableRenderer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TableRenderer */ \"./src/Table/TableRenderer.tsx\");\nvar __extends = (undefined && undefined.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        if (typeof b !== \"function\" && b !== null)\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\n\n\n\nvar TableClass = /** @class */ (function (_super) {\n    __extends(TableClass, _super);\n    function TableClass() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    TableClass.prototype.render = function () {\n        return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_TableRenderer__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { control: this }));\n    };\n    return TableClass;\n}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));\n\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableClass.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   TableClass: () => (/* binding */ TableClass)\n/* harmony export */ });\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _TableRenderer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TableRenderer */ \"./src/Table/TableRenderer.tsx\");\nvar __extends = (undefined && undefined.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        if (typeof b !== \"function\" && b !== null)\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\n\n\nvar TableClass = /** @class */ (function (_super) {\n    __extends(TableClass, _super);\n    function TableClass() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    TableClass.prototype.isLoading = function (value) {\n        this.vp_IsLoading = value;\n        return this;\n    };\n    TableClass.prototype.columns = function (value) {\n        this.vp_Columns = value;\n        return this;\n    };\n    TableClass.prototype.rows = function (value) {\n        this.vp_Rows = value;\n        return this;\n    };\n    TableClass.prototype.render = function () {\n        return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_TableRenderer__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { control: this }));\n    };\n    __decorate([\n        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()\n    ], TableClass.prototype, \"vp_IsLoading\", void 0);\n    __decorate([\n        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()\n    ], TableClass.prototype, \"vp_Columns\", void 0);\n    __decorate([\n        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()\n    ], TableClass.prototype, \"vp_Rows\", void 0);\n    return TableClass;\n}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));\n\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableClass.tsx?");
 
 /***/ }),
 
@@ -2210,7 +2210,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/Table/Table.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeader/TableHeader.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeaderCell/TableHeaderCell.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableBody/TableBody.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableRow/TableRow.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableCell/TableCell.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction TableRenderer(_a) {\n    var control = _a.control;\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_1__[\"default\"], { columns: [\n            {\n                id: 'sentOn',\n                loadingStateType: 'medium-text',\n                title: 'Sent on',\n                width: 150\n            },\n            {\n                id: 'subject',\n                loadingStateType: 'long-text',\n                title: 'Subject'\n            },\n            {\n                id: 'sentBy',\n                infoContent: 'This is the sender',\n                loadingStateType: 'circle',\n                title: 'Sent by',\n                width: {\n                    max: 200,\n                    min: 120\n                }\n            },\n            {\n                id: 'status',\n                infoContent: 'Info content for the status column',\n                loadingStateType: 'medium-text',\n                title: 'Status',\n                width: 150\n            },\n            {\n                id: 'emailsSent',\n                loadingStateType: 'medium-text',\n                title: 'Emails sent',\n                width: 150\n            }\n        ], emptyState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null), errorState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null) },\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null,\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { title: \"Sent on\" }),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { title: \"Subject\" }),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { title: \"Sent by\" }),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { title: \"Status\" }),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { title: \"Emails sent\" })),\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null,\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null,\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"2020-01-01\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"Lorem ipsum dolor\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"pp\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"ppp\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"100\")),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null,\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"2023-03-03\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"aaa\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"ppp\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"999\")),\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null,\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"2022-02-02\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"This is the subject\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"pp\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"ppp\"),\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, \"99\")))));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableRenderer);\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/Table/Table.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeader/TableHeader.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeaderCell/TableHeaderCell.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableBody/TableBody.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableRow/TableRow.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableCell/TableCell.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ \"@tuval/core\");\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\n\nfunction TableRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { className: className, columns: control.vp_Columns, dataState: {\n            isLoading: control.vp_IsLoading\n        }, emptyState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null), errorState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null) },\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], { title: col.title }); })),\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, control.vp_Rows.map(function (row) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_8__[\"default\"], null, _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(col.view) ? col.view(row).render() : _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(col.format) ? col.format(row[col.id]) : row[col.id]); })); }))));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableRenderer.tsx?");
 
 /***/ }),
 
@@ -2254,7 +2254,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines, ellipsis: true }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
 
 /***/ }),
 
@@ -3210,7 +3210,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_2015820__(moduleId) {
+/******/ 	function __nested_webpack_require_2014343__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -3224,7 +3224,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_2015820__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_2014343__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -3234,11 +3234,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_2015820__.n = (module) => {
+/******/ 		__nested_webpack_require_2014343__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_2015820__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_2014343__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -3246,9 +3246,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_2015820__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_2014343__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_2015820__.o(definition, key) && !__nested_webpack_require_2015820__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_2014343__.o(definition, key) && !__nested_webpack_require_2014343__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -3257,13 +3257,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_2015820__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_2014343__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_2015820__.r = (exports) => {
+/******/ 		__nested_webpack_require_2014343__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -3276,7 +3276,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_2015820__("./src/index.ts");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_2014343__("./src/index.ts");
 /******/ 	
 /******/ 	return __nested_webpack_exports__;
 /******/ })()
@@ -3552,8 +3552,24 @@ var MyTestController = /** @class */ (function (_super) {
         var _f = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }), applet = _f.document, isAppletLoading = _f.isLoading;
         return (isAppletLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 1 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_7__.WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')).width(20).height(20).cursor('pointer')
-                .display("var(--display-caret)")).width(20).height(20)
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_views_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_7__.WorkbenchIcons.CaretDown1).transform(isOpen ? 'rotate(90deg)' : '')
+                    .transition('transform .12s ease-in-out'))
+                .foregroundColor('rgba(109,122,131,0.9)')
+                .width(20).height(20).cursor('pointer')
+                .display("var(--display-caret)"), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
+                .config({
+                selectedIcon: 'bookmark',
+                selectedCategory: 'Icons',
+                color: 'white',
+                backgroundColor: '#40BC86',
+                width: 20,
+                height: 20,
+                padding: 1
+            }))
+                //.background('#FCE8E8')
+                .width().height()
+                .cornerRadius(5)
+                .display('var(--display-icon)')).width(20).height(20)
                 .onClick(function () {
                 setIsOpen(!isOpen);
             }), 
@@ -3596,32 +3612,12 @@ var MyTestController = /** @class */ (function (_super) {
                 }));
             })
                 :
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)("com.tuvalsoft.widget.icons")
-                        .config({
-                        selectedIcon: 'bookmark',
-                        selectedCategory: 'Icons',
-                        color: 'white',
-                        backgroundColor: '#40BC86',
-                        width: 20,
-                        height: 20,
-                        padding: 1
-                    }))
-                        //.background('#FCE8E8')
-                        .width().height()
-                        .cornerRadius(5)
-                        .display('var(--display-icon)'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)(applet.name).fontSize(16).foregroundColor('#5a5d62')
-                        //.fontFamily('Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif')
-                        .lineHeight(22)).height(), 
-            /* Spacer(),
-            HStack(
-                Icon(Icons.Add).size(15)
-            ).height(20).width(20)
-                .background('gray')
-                .onClick(() => {
-                    setIsEditing(!isEditing)
-                   
-                }) */
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)(applet.name).fontSize(16).foregroundColor('#5a5d62')
+                        .lineHeight(22))
+                        .width('calc(100% - 40px)')
+                        .height(32))
+                        .overflow('hidden')
+                        .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
                 .model([
                 {
                     title: 'Add to space',
@@ -3690,9 +3686,14 @@ var MyTestController = /** @class */ (function (_super) {
             })
                 .width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
                 .display('var(--show-space-action-buttons)'))
+                .transition('transform .12s ease-in-out')
+                .width('calc(100% - 0px)')
+                .transform('translate3d(0px, 0, 0)')
                 .fontWeight('500')
                 .allHeight(37).padding(5).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, isEditing ? 0 : 5)
-                .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' }), isOpen ?
+                .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
+                .variable("--display-caret", { default: 'none', hover: 'flex' })
+                .variable("--display-icon", { default: 'flex', hover: 'none' }), isOpen ?
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_views_WorkspaceTree__WEBPACK_IMPORTED_MODULE_8__.LeftSideMenuView)(selectedItem)).height().paddingLeft('40px') : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).height()); })
                 .options(__assign({}, (this.props.config || {}))));
     };
@@ -5327,6 +5328,8 @@ var WorkbenchIcons;
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M6 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6zM2 6a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6zm14 2h2a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4h2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2V8z", "clip-rule": "evenodd" }))); };
     WorkbenchIcons.CaretDown = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 320 512", style: { color: 'gray' }, width: "18", height: "18", "aria-hidden": "true" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fill: "currentColor", d: "M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" }))); };
+    WorkbenchIcons.CaretDown1 = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", fill: "currentColor", "aria-hidden": "true" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M13.276 8.5 8.813 4.294C8.143 3.666 7 4.111 7 5v10c0 .89 1.144 1.334 1.813.706l4.463-4.206c.965-1 .965-2 0-3Z" }))); };
     WorkbenchIcons.CaretRight = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 5 6", style: { color: 'gray' }, width: "18", height: "18", "aria-hidden": "true" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fill: "currentColor", d: "M.5 5.596V.404c0-.36.478-.54.758-.285L4.12 2.714a.378.378 0 0 1 0 .572L1.258 5.88C.978 6.135.5 5.955.5 5.596z" }))); };
     WorkbenchIcons.Gantt = function (props) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { viewBox: "0 0 16 16", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },

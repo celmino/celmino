@@ -524,7 +524,7 @@ export namespace Views {
             HStack({ alignment: cTopLeading })(
                 menu,
                 VStack(
-                    AppBar(),
+                   // AppBar(),
                     VStack({ alignment: cTopLeading })(
                         Views.PageTitleBox({
                             title: title,

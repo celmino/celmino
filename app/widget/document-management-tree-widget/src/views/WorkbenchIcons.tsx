@@ -134,7 +134,10 @@ export namespace WorkbenchIcons {
 
         </svg>
     )
-
+    export const CaretDown1 = props => (
+        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="20" height="20"  fill="currentColor" aria-hidden="true"><path d="M13.276 8.5 8.813 4.294C8.143 3.666 7 4.111 7 5v10c0 .89 1.144 1.334 1.813.706l4.463-4.206c.965-1 .965-2 0-3Z"></path></svg>
+    )
+  
     export const CaretRight = props => (
         <svg viewBox="0 0 5 6" style={{ color: 'gray' }} width="18" height="18" aria-hidden="true">
             <path

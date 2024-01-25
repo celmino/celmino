@@ -1,4 +1,4 @@
-import { VStack, UIViewBuilder, useDialogStack, cTopLeading, ForEach, HStack, cLeading, ReactView, Text, useOptions, useParams, Spinner, Fragment } from "@tuval/forms";
+import { VStack, UIViewBuilder, useDialogStack, cTopLeading, ForEach, HStack, cLeading, ReactView, Text, useOptions, useParams, Spinner, Fragment, Spacer } from "@tuval/forms";
 import { ActionPanel } from "../../../views/ActionPanel";
 import { ProxyController } from "../ProxyController";
 import { DocumentName } from "./DocumentName";
@@ -24,7 +24,7 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
     const { documents: folders, isLoading: isFoldersLoading } = useListDocuments(workspaceId, appletId, 'dm_folders', [
         Query.equal('parent', folderId)
     ]);
-    const { documents: documents,isLoading: isDocumentsLoading } = useListDocuments(workspaceId, appletId, 'dm_documents', [
+    const { documents: documents, isLoading: isDocumentsLoading } = useListDocuments(workspaceId, appletId, 'dm_documents', [
         Query.equal('parent', folderId)
     ]);
 
@@ -32,23 +32,25 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
     const { updateDocument } = useUpdateDocument(workspaceId);
 
     return (
-       
-            VStack(
-                ActionPanel(),
-                FolderHeader(document?.name, (e) => {
-                    updateDocument({
-                        databaseId: appletId,
-                        collectionId: 'dm_documents',
-                        documentId: folderId,
-                        data: {
-                            name: e
-                        }
-                    })
-                }),
-                UIViewBuilder(() => {
-                    const { openDialog } = useDialogStack();
-                    return (
+
+        VStack(
+            ActionPanel(),
+            FolderHeader(document?.name, (e) => {
+                updateDocument({
+                    databaseId: appletId,
+                    collectionId: 'dm_documents',
+                    documentId: folderId,
+                    data: {
+                        name: e
+                    }
+                })
+            }),
+            UIViewBuilder(() => {
+                const { openDialog } = useDialogStack();
+                return (
+                    HStack({ alignment: cTopLeading })(
                         Table()
+                            .height()
                             .columns([
                                 {
                                     id: 'name',
@@ -91,9 +93,11 @@ export const FolderView = (workspaceId: string, folderId: string) => UIViewBuild
                             .isLoading(isFoldersLoading || isDocumentsLoading)
                             .rows([].concat(folders?.map(folder => ({ type: 'folder', ...folder }))).concat(documents?.map(document => ({ type: 'document', ...document }))))
                     )
-                })
-            )
-
-                .background('white')
+                        .padding()
+                )
+            }),
+            Spacer()
+        )
+            .background('white')
     )
 })
