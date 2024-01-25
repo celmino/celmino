@@ -3375,11 +3375,12 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a = this.props.config || {}, workspaceId = _a.workspaceId, appletId = _a.appletId, appletName = _a.appletName, subNodes = _a.subNodes;
+        var _a = this.props.config || {}, workspaceId = _a.workspaceId, appletId = _a.appletId, appletName = _a.appletName, subNodes = _a.subNodes, requestMenu = _a.requestMenu;
         // const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_views_TreeNode__WEBPACK_IMPORTED_MODULE_4__.TreeNode)({
             title: appletName,
             iconName: 'bookmark',
+            requestMenu: requestMenu,
             //isExpand: expanded,
             //expandChanged: setExpanded,
             subNode: function (nodeType) { return (subNodes(_views_TreeNode__WEBPACK_IMPORTED_MODULE_4__.TreeNode, 1, nodeType, '-1', workspaceId, appletId)); }
@@ -4078,8 +4079,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-    var _a = treeNodeProps.isLoading, isLoading = _a === void 0 ? false : _a, _b = treeNodeProps.isEditing, isEditing = _b === void 0 ? false : _b, _c = treeNodeProps.isSelected, isSelected = _c === void 0 ? false : _c, _d = treeNodeProps.title, title = _d === void 0 ? '' : _d, _e = treeNodeProps.level, level = _e === void 0 ? 0 : _e, _f = treeNodeProps.menuModel, menuModel = _f === void 0 ? [] : _f, _g = treeNodeProps.subNode, subNode = _g === void 0 ? function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(); } : _g, _h = treeNodeProps.nodeType, nodeType = _h === void 0 ? 'root' : _h, _j = treeNodeProps.titleChanged, titleChanged = _j === void 0 ? function () { return void 0; } : _j, _k = treeNodeProps.editingChanged, editingChanged = _k === void 0 ? function () { return void 0; } : _k, _l = treeNodeProps.iconName, iconName = _l === void 0 ? '' : _l, _m = treeNodeProps.requestIcon, requestIcon = _m === void 0 ? function () { return void 0; } : _m, _o = treeNodeProps.requestNavigation, requestNavigation = _o === void 0 ? function () { return void 0; } : _o;
-    var _p = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), expanded = _p[0], setExpanded = _p[1];
+    var _a = treeNodeProps.isLoading, isLoading = _a === void 0 ? false : _a, _b = treeNodeProps.isEditing, isEditing = _b === void 0 ? false : _b, _c = treeNodeProps.isSelected, isSelected = _c === void 0 ? false : _c, _d = treeNodeProps.title, title = _d === void 0 ? '' : _d, _e = treeNodeProps.level, level = _e === void 0 ? 0 : _e, _f = treeNodeProps.menuModel, menuModel = _f === void 0 ? [] : _f, _g = treeNodeProps.subNode, subNode = _g === void 0 ? function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(); } : _g, _h = treeNodeProps.nodeType, nodeType = _h === void 0 ? 'root' : _h, _j = treeNodeProps.titleChanged, titleChanged = _j === void 0 ? function () { return void 0; } : _j, _k = treeNodeProps.editingChanged, editingChanged = _k === void 0 ? function () { return void 0; } : _k, _l = treeNodeProps.iconName, iconName = _l === void 0 ? '' : _l, _m = treeNodeProps.requestIcon, requestIcon = _m === void 0 ? function () { return void 0; } : _m, _o = treeNodeProps.requestNavigation, requestNavigation = _o === void 0 ? function () { return void 0; } : _o, _p = treeNodeProps.requestMenu, requestMenu = _p === void 0 ? function () { return []; } : _p;
+    var _q = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), expanded = _q[0], setExpanded = _q[1];
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 2 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.CaretDown1).transform(expanded ? 'rotate(90deg)' : '')
             .transition('transform .12s ease-in-out'))
@@ -4146,9 +4147,10 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
     })
         :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(title)
-                .fontWeight(isSelected ? '500' : '400')
-                .fontSize(nodeType === 'root' ? 16 : 14)
-                .foregroundColor(isSelected ? '#7b68ee' : '#151719')
+                .fontWeight(isSelected ? '400' : '400')
+                .fontSize(nodeType === 'root' ? 14 : 14)
+                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
                 .lineHeight(22))
                 //.width('calc(100% - 40px)')
                 .height(32))
@@ -4157,7 +4159,7 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
             })
                 .overflow('hidden')
                 .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-        .model(menuModel)
+        .model(requestMenu(nodeType))
         .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add))
         .onClick(function (e) {
         e.preventDefault();
@@ -4169,17 +4171,17 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
         //.width('calc(100% - 0px)')
         .transform('translate3d(0px, 0, 0)')
         .fontWeight('500')
-        .allHeight(37).padding(5)
-        .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, isEditing ? 0 : 5)
+        .allHeight(30) //.padding(5)
+        //.padding(cVertical, isEditing ? 0 : 5)
         .paddingLeft("".concat(20 * level, "px"))
-        .background(isSelected ? '#E6EDFE' : '')
+        .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })
         .cornerRadius(6)
         .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
         .variable("--display-caret", { default: 'hidden', hover: 'visible' })
         .variable("--display-icon", { default: 'visible', hover: 'hidden' })
         .variable("--opacity-caret", { default: '0', hover: '1' })
         .variable("--opacity-icon", { default: '1', hover: '0' }), expanded ?
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(subNode(nodeType))
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(subNode(nodeType))
             .height() : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)()).height());
 }); };
 

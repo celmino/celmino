@@ -17,7 +17,7 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId, appletId } = formController.GetFormData();
+    const { workspaceId, appletId } = formMeta;
 
     const { createDocument: createTreeItem } = useCreateDocument(workspaceId, appletId, 'wm_tree');
     const { createDocument, isLoading } = useCreateDocument(workspaceId, appletId, 'wm_documents');
@@ -31,10 +31,6 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
             .onClick(() => {
 
                 const data = { ...formController.GetFormData() }
-                delete data.databaseId;
-                delete data.collectionId;
-                delete data.workspaceId;
-                delete data.appletId;
 
 
                 createDocument(
@@ -75,11 +71,13 @@ export const AddDocumentDialog = (workspaceId: string, appletId: string, parent:
     } else {
         return {
             "title": 'Create document',
+            workspaceId,
+            appletId,
             /*   "mutation":"_create_workspace", */
             "actions": [
                 {
                     "label": "Save",
-                    "type": "saveDocument",
+                    "type": "wm_saveDocument",
                     /*  "successActions": [{
                          "type": "hide"
                      },
@@ -99,16 +97,7 @@ export const AddDocumentDialog = (workspaceId: string, appletId: string, parent:
                 }
             ],
             "fieldMap": {
-                "workspaceId": {
-                    "name": "workspaceId",
-                    "type": "virtual",
-                    "value": workspaceId
-                },
-                "appletId": {
-                    "name": "appletId",
-                    "type": "virtual",
-                    "value": appletId
-                },
+               
                 "list_name": {
                     "label": "name",
                     "type": "text",

@@ -184,7 +184,7 @@ export class MyTestController extends UIFormController {
                                                                         })
                                                                 })
                                                             },
-                                                            items: items,
+                                                            items: items ?? [],
                                                             /*   stages: [{
                         $id: 'AAA',
                     name: 'Todo',

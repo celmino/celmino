@@ -339,8 +339,9 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                         HStack(
                                             UIWidget("com.tuvalsoft.widget.icons")
                                                 .config({
-                                                    selectedIcon: iconInfo.iconName,
-                                                    selectedCategory: iconInfo.iconCategory,
+                                                    readonly: true,
+                                                    selectedIcon: 'bookmark', //iconInfo.iconName,
+                                                    selectedCategory: 'Icons',//iconInfo.iconCategory,
                                                     width: 22,
                                                     height: 22,
                                                     padding: 1,

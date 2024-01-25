@@ -253,7 +253,7 @@ var MyTestController = /** @class */ (function (_super) {
                         })
                     });
                 },
-                items: items,
+                items: items !== null && items !== void 0 ? items : [],
                 /*   stages: [{
 $id: 'AAA',
 name: 'Todo',

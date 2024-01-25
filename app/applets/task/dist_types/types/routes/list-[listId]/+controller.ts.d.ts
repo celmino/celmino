@@ -1,4 +1,4 @@
 import { UIFormController } from "@tuval/forms";
 export declare class ListController extends UIFormController {
-    LoadView(): import("@tuval/forms").VStackClass | import("@tuval/forms").FragmentClass;
+    LoadView(): import("@tuval/forms").VStackClass | import("@tuval/forms").UIRouteClass;
 }

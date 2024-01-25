@@ -820,10 +820,10 @@
   resolved "https://registry.npmjs.org/@tuval/core/-/core-0.0.103.tgz"
   integrity sha512-yE9X6hLavSknUZWiN5sfu1hbVdZ2taaL+wJAUbpRa2glfepBsBYDHGooe11oQ5EqYEq6NZnbmYJRW9eIjPi1Gg==
 
-"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.159", "@tuval/forms@^1.0.160":
-  version "1.0.160"
-  resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.160.tgz"
-  integrity sha512-6o27Maq2pOpl8yebGOA4Zt57ybNNxdPj8jOIj7qy8OF7DmLntPk2JRwtZLBt5HKj3l/h7+aXyG4wakCsg32huw==
+"@tuval/forms@^1.0.109", "@tuval/forms@^1.0.159", "@tuval/forms@^1.0.162":
+  version "1.0.162"
+  resolved "https://registry.npmjs.org/@tuval/forms/-/forms-1.0.162.tgz"
+  integrity sha512-CE80JttafFiGxsCfy/cOi440EqdTPXI1duqjj1k/GL+DATXx9lnidxbUZouIkGiMdXvJbhnKsX1L7imP6Ba/Cw==
   dependencies:
     "@codemirror/lang-json" "^6.0.1"
     "@dnd-kit/core" "^6.0.8"

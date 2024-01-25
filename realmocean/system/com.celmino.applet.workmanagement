@@ -33498,26 +33498,23 @@ var ListController = /** @class */ (function (_super) {
     ListController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, listId = _a.listId, viewId = _a.viewId;
-        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
+        var list = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDocument)({
             projectId: workspaceId,
             databaseId: appletId,
             collectionId: 'wm_lists',
             documentId: listId
         }).document;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_att'), attributes = _b.documents, isLoading = _b.isLoading;
-        var views = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_views').documents;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId), items = _c.documents, isItemsLoading = _c.isLoading;
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_views'), views = _b.documents, isViewsLoading = _b.isLoading;
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListDocuments)(workspaceId, appletId, 'wm_list_' + listId + '_att'), attributes = _c.documents, isLoading = _c.isLoading;
         var createTask = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId).createDocument;
         var createView = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(workspaceId, appletId, 'wm_list_' + listId + '_views').createDocument;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdateDocument)(workspaceId).updateDocument;
-        return ((isLoading || isItemsLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
-            //  ActionPanel(),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.celmino.widget.applet-name')
+        return ((viewId == null && (list === null || list === void 0 ? void 0 : list.defaultViewId) != null) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UINavigate)("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/list/").concat(listId, "/view/").concat(list === null || list === void 0 ? void 0 : list.defaultViewId)) :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.celmino.widget.applet-name')
                 .config({
-                title: document === null || document === void 0 ? void 0 : document.name,
-                iconName: document === null || document === void 0 ? void 0 : document.icon_name,
-                iconCategory: document === null || document === void 0 ? void 0 : document.icon_category,
+                title: list === null || list === void 0 ? void 0 : list.name,
+                iconName: list === null || list === void 0 ? void 0 : list.icon_name,
+                iconCategory: list === null || list === void 0 ? void 0 : list.icon_category,
                 iconColor: 'gray',
                 onChange: function (value) {
                     updateDocument({

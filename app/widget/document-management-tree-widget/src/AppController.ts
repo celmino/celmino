@@ -42,7 +42,7 @@ const subNodes = (TreeNode,level, nodeType, parentId, workspaceId, appletId) => 
                                 return Icon(expanded ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D');
                             default:
                                 return (
-                                    Icon(SvgIcon('cu3-icon-sidebarDoc', selected ? '#7b68ee' : '#151719', '18px', '18px'))
+                                    Icon(WorkbenchIcons.DocIcon2).foregroundColor('#7A878F')
                                 )
                         }
 

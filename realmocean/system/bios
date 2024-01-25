@@ -5303,8 +5303,9 @@ var LeftSideMenuView = function (selectedItem) {
             //-----
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
                 .config({
-                selectedIcon: iconInfo.iconName,
-                selectedCategory: iconInfo.iconCategory,
+                readonly: true,
+                selectedIcon: 'bookmark',
+                selectedCategory: 'Icons',
                 width: 22,
                 height: 22,
                 padding: 1,

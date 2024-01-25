@@ -26,6 +26,7 @@ export interface TreeNodeProps {
     iconName?: string;
     requestIcon?: (nodeType: string, selected: boolean, expanded: boolean) => UIView;
     requestNavigation?: () => void;
+    requestMenu?: (nodeType: string) => IMenuItemModel[];
 
 }
 export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
@@ -33,7 +34,9 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
         menuModel = [], subNode = () => Fragment(), nodeType = 'root',
         titleChanged = () => void 0, editingChanged = () => void 0,
         iconName = '', requestIcon = () => void 0,
-        requestNavigation = () => void 0 } = treeNodeProps;
+        requestNavigation = () => void 0,
+        requestMenu = () => []
+    } = treeNodeProps;
 
     const [expanded, setExpanded] = useState(false);
 
@@ -125,9 +128,10 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
 
                         HStack({ alignment: cLeading })(
                             Text(title)
-                                .fontWeight(isSelected ? '500' : '400')
-                                .fontSize(nodeType === 'root' ? 16 : 14)
-                                .foregroundColor(isSelected ? '#7b68ee' : '#151719')
+                                .fontWeight(isSelected ? '400' : '400')
+                                .fontSize(nodeType === 'root' ? 14 : 14)
+                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                                .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
                                 .lineHeight(22)
                         )
                             //.width('calc(100% - 40px)')
@@ -141,7 +145,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                 Spacer(),
                 HStack({ alignment: cTrailing })(
                     MenuButton()
-                        .model(menuModel)
+                        .model(requestMenu(nodeType))
                         .icon(Icons.Add)
                 )
                     .onClick((e) => {
@@ -156,10 +160,10 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                 //.width('calc(100% - 0px)')
                 .transform('translate3d(0px, 0, 0)')
                 .fontWeight('500')
-                .allHeight(37).padding(5)
-                .padding(cVertical, isEditing ? 0 : 5)
+                .allHeight(30)//.padding(5)
+                //.padding(cVertical, isEditing ? 0 : 5)
                 .paddingLeft(`${20 * level}px`)
-                .background(isSelected ? '#E6EDFE' : '')
+                .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })
                 .cornerRadius(6)
                 .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
                 .variable(`--display-caret`, { default: 'hidden', hover: 'visible' })
@@ -169,7 +173,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
 
             ,
             expanded ?
-                HStack(
+                HStack({ alignment: cTopLeading })(
                     subNode(nodeType)
                 )
                     .height() : Fragment()

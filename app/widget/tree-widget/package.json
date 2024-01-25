@@ -118,7 +118,7 @@
         "@realmocean/vibe": "^2.82.45",
         "@tuval/cg": "^0.0.16",
         "@tuval/core": "^0.0.103",
-        "@tuval/forms": "^1.0.160",
+        "@tuval/forms": "^1.0.162",
         "@tuval/graphics": "^0.0.11",
         "copy-to-clipboard": "^3.3.3",
         "css-loader": "^3.2.0",

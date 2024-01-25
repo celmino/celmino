@@ -30,8 +30,8 @@ export class RatingWidget {
 FormBuilder.injectAction('saveSpace', SaveSpaceAction);
 FormBuilder.injectAction('saveFolder', SaveFolderAction);
 FormBuilder.injectAction('saveList', SaveListAction);
-FormBuilder.injectAction('saveDocument', SaveDocumentAction);
-FormBuilder.injectAction('saveWhiteboard', SaveWhiteboardAction);
+FormBuilder.injectAction('wm_saveDocument', SaveDocumentAction);
+FormBuilder.injectAction('wm_saveWhiteboard', SaveWhiteboardAction);
 
 
 

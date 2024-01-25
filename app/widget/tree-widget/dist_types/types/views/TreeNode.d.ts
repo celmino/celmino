@@ -13,5 +13,6 @@ export interface TreeNodeProps {
     iconName?: string;
     requestIcon?: (nodeType: string, selected: boolean, expanded: boolean) => UIView;
     requestNavigation?: () => void;
+    requestMenu?: (nodeType: string) => IMenuItemModel[];
 }
 export declare const TreeNode: (treeNodeProps: TreeNodeProps) => import("@tuval/forms").UIViewBuilderClass;

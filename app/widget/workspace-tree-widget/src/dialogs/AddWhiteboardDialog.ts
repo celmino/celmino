@@ -17,7 +17,7 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
     let isFormLoading = false;
 
     const views = []
-    const { databaseId, collectionId, workspaceId, appletId } = formController.GetFormData();
+    const { workspaceId, appletId } = formMeta;
     const { createDocument, isLoading } = useCreateDocument(workspaceId, appletId, 'wm_whiteboards');
     const { createDocument: createDocumentContent } = useCreateDocument(workspaceId, appletId, 'wm_whiteboard_contents');
 
@@ -29,10 +29,6 @@ export const SaveWhiteboardAction = (formMeta, action) => UIViewBuilder(() => {
             .onClick(() => {
 
                 const data = { ...formController.GetFormData() }
-                delete data.databaseId;
-                delete data.collectionId;
-                delete data.workspaceId;
-                delete data.appletId;
 
 
                 createDocument(
@@ -64,11 +60,13 @@ export const AddWhiteboardDialog = (workspaceId: string,appletId: string, parent
     } else {
         return {
             "title": 'Create whiteboard',
+            workspaceId,
+            appletId,
             /*   "mutation":"_create_workspace", */
             "actions": [
                 {
                     "label": "Save",
-                    "type": "saveWhiteboard",
+                    "type": "wm_saveWhiteboard",
                     /*  "successActions": [{
                          "type": "hide"
                      },
@@ -88,16 +86,7 @@ export const AddWhiteboardDialog = (workspaceId: string,appletId: string, parent
                 }
             ],
             "fieldMap": {
-                "workspaceId": {
-                    "name": "workspaceId",
-                    "type": "virtual",
-                    "value": workspaceId
-                },
-                "appletId": {
-                    "name": "appletId",
-                    "type": "virtual",
-                    "value": appletId
-                },
+             
                 "list_name": {
                     "label": "name",
                     "type": "text",

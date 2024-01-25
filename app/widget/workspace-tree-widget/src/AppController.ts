@@ -1,6 +1,6 @@
 import {
-    Button, FormBuilder, Fragment, HStack, Heading, Icon, Icons, Loader,
-    LoaderSizes, MenuButton, OptionsContext, Spacer, Spinner, SvgIcon, Text, UIController, UIView, UIViewBuilder, UIWidget, VStack, cHorizontal, cLeading, cTopLeading, cTrailing, cVertical, useEffect, useState
+    Button, ForEach, FormBuilder, Fragment, HStack, Heading, Icon, Icons, Loader,
+    LoaderSizes, MenuButton, OptionsContext, Spacer, Spinner, SvgIcon, Text, UIController, UIView, UIViewBuilder, UIWidget, VStack, cHorizontal, cLeading, cTopLeading, cTrailing, cVertical, useEffect, useNavigate, useState
 } from '@tuval/forms';
 
 import { LeftSideMenuView } from './views/WorkspaceTree';
@@ -9,19 +9,107 @@ import { useSessionService } from '@realmocean/services';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
-import { getAppletId, getListId } from './utils';
-import { useGetDocument, useUpdateDocument } from '@realmocean/sdk';
+import { getAppletId, getDocumentId, getListId } from './utils';
+import { Query, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 import { TextField, Text as VibeText } from '@realmocean/vibe';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
 import { AddListDialog } from './dialogs/AddListDialog';
+import { SelectOpaDialog } from './dialogs/SelectOpaDialog';
+import { opas } from './Opas';
+import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
+import { AddWhiteboardDialog } from './dialogs/AddWhiteboardDialog';
 
 
+const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
+
+    const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'wm_tree', [
+        Query.equal('parent', parentId)
+    ]);
+    const navigate = useNavigate();
+
+    return (
+        VStack({alignment:cTopLeading})(
+            ...ForEach(items)(item =>
+                TreeNode({
+                    title: item.name,
+                    level: level,
+                    nodeType: item.type,
+                    isSelected: getListId() === item.$id || getDocumentId() === item.$id,
+                    subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId),
+                    requestIcon: (nodeType, selected, expanded) => {
+                        switch (nodeType) {
+                            case 'list':
+                                return Icon(SvgIcon('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719', '18px', '18px')).foregroundColor('#7C828D');
+                            case 'folder':
+                                return Icon(expanded ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D');
+
+                            default:
+                                return (
+                                    Icon(SvgIcon('cu3-icon-sidebarDoc', selected ? '#7b68ee' : '#151719', '18px', '18px'))
+                                )
+                        }
+
+                    },
+                    requestNavigation: () => {
+                        switch (item.type) {
+                            case 'folder':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
+                                break;
+                            case 'list':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/list/${item.$id}`);
+                                break;
+                            case 'document':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
+                                break;
+                            case 'whiteboard':
+                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/whiteboard/${item.$id}`);
+                                break;
+
+                        }
+                    },
+                    requestMenu: () => {
+                        switch (item.type) {
+                            case 'folder':
+                                return [
+
+                                    {
+                                        title: 'Folder',
+                                        icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'List',
+                                        icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Document',
+                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Whiteboard',
+                                        icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    }
+                                ]
+                        }
+
+
+                    }
+
+                })
+
+            )
+        )
+    )
+})
 
 export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
-        
+
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
         const { items } = this.props.data || {};
@@ -31,362 +119,63 @@ export class MyTestController extends UIController {
         let listId = getListId();
 
 
-        const { document: list, isLoading: isListLoading } = useGetDocument({
-            projectId: workspaceId,
-            databaseId: appletId,
-            collectionId: 'wm_lists',
-            documentId: listId
-        }, { enabled: listId != null });
+        /*     const { document: list, isLoading: isListLoading } = useGetDocument({
+                projectId: workspaceId,
+                databaseId: appletId,
+                collectionId: 'wm_lists',
+                documentId: listId
+            }, { enabled: listId != null }); */
 
 
 
-        useEffect(() => {
-            if (list! + null) {
-                setExpanded(true);
-            }
-        }, []);
+        /*  useEffect(() => {
+             if (list! + null) {
+                 setExpanded(true);
+             }
+         }, []); */
 
-        const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
+        // const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
         const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
 
         return (
             isAppletLoading ? Spinner() :
-                OptionsContext(() => (
-                    VStack({ alignment: cTopLeading })(
-
-                        HStack({ alignment: cLeading, spacing: 1 })(
-                            HStack(
-                                HStack(
-                                    isLoading ? Loader().size(LoaderSizes.XS) :
-                                        Icon(WorkbenchIcons.CaretDown).transform(isOpen ? '' : 'rotate(-90deg)')
-                                ).width(20).height(20).cursor('pointer')
-                                    .display(`var(--display-caret)`),
-
-                            ).width(20).height(20)
-                                .onClick(() => {
-                                    setIsOpen(!isOpen);
-                                }),
-
-                            // Title
-                            isEditing ? UIViewBuilder(() => {
-
-                                const [appletName, setAppletName] = useState(applet.name);
-                                const { updateDocument } = useUpdateDocument(workspaceId);
-                                return (
-                                    HStack(
-                                        TextField()
-                                            .fontSize(16)
-                                            .fontWeight('500')
-                                            .padding(0)
-                                            .value(appletName)
-                                            .onChange((value) => setAppletName(value))
-                                            .onBlur(() => {
-                                                if (applet.name !== appletName) {
-                                                    updateDocument({
-                                                        databaseId: 'workspace',
-                                                        collectionId: 'applets',
-                                                        documentId: appletId,
-                                                        data: {
-                                                            name: appletName
-                                                        }
-                                                    });
-                                                }
-                                                setIsEditing(false);
-                                            })
-                                    )
-                                        .height()
-                                        .onClickAway(() => {
-                                            if (applet.name !== appletName) {
-                                                updateDocument({
-                                                    databaseId: 'workspace',
-                                                    collectionId: 'applets',
-                                                    documentId: appletId,
-                                                    data: {
-                                                        name: appletName
-                                                    }
-                                                });
-                                            }
-                                            setIsEditing(false);
-                                        })
-
-                                )
-                            })
-                                :
-                                HStack({ alignment: cLeading, spacing: 5 })(
-                                    HStack(
-                                        UIWidget("com.tuvalsoft.widget.icons")
-                                            .config({
-                                                selectedIcon: 'bookmark',
-                                                selectedCategory: 'Icons',
-                                                color: 'white',
-                                                backgroundColor: '#40BC86',
-                                                width: 20,
-                                                height: 20,
-                                                padding: 1
-                                            })
-                                    )
-                                        //.background('#FCE8E8')
-                                        .width().height()
-                                        .cornerRadius(5)
-                                        .display('var(--display-icon)'),
-                                    VibeText(applet.name).fontSize(16).foregroundColor('#5a5d62')
-                                        //.fontFamily('Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif')
-
-                                        .lineHeight(22)
-                                ).height(),
-
-                            /* Spacer(),
-                            HStack(
-                                Icon(Icons.Add).size(15)
-                            ).height(20).width(20)
-                                .background('gray')
-                                .onClick(() => {
-                                    setIsEditing(!isEditing)
-                                   
-                                }) */
-                            Spacer(),
-                            HStack({ alignment: cTrailing })(
-                                MenuButton()
-                                    .model([
-                                        {
-                                            title: 'Add to space',
-                                            type: 'Title'
-                                        },
-
-                                        {
-                                            title: 'Table',
-                                            icon: WorkbenchIcons.TableIcon,
-                                            onClick: () => {
-                                                /* createDocument({
-                                                    data: {}
-                                                }, () => alert('created')) */
-                                                //DynoDialog.Show(AddFolderDialog(space.$id))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Grid',
-                                            icon: WorkbenchIcons.GridIcon,
-                                            onClick: () => {
-                                                /* createDocument({
-
-                                                    data: {}
-                                                }, () => alert('created')) */
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Board',
-                                            icon: WorkbenchIcons.BoardIcon,
-                                            onClick: () => {
-
-                                                /* createDocument({
-
-                                                    data: {}
-                                                }, () => alert('created')) */
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'List',
-                                            icon: WorkbenchIcons.ListIcon,
-                                            onClick: () => {
-                                                DynoDialog.Show(AddListDialog(workspaceId, appletId, '-1', `/`))
-                                                // DynoDialog.Show(AddListDialog(workspaceId, appletId, space.$id, `${space.path}/${space.$id}`))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Timeline',
-                                            icon: WorkbenchIcons.TimelineIcon,
-                                            onClick: () => {
-
-                                                /*  createDocument({
- 
-                                                     data: {}
-                                                 }, () => alert('created')) */
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Calendar',
-                                            icon: WorkbenchIcons.CalendarIcon,
-                                            onClick: () => {
-
-                                                /*  createDocument({
- 
-                                                     data: {}
-                                                 }, () => alert('created')) */
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Report',
-                                            icon: WorkbenchIcons.ReportIcon,
-                                            onClick: () => {
-
-                                                /*   createDocument({
-  
-                                                      data: {}
-                                                  }, () => alert('created')) */
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Feed',
-                                            icon: WorkbenchIcons.FeedIcon,
-                                            onClick: () => {
+                UIWidget('com.celmino.widget.applet-tree')
+                    .config({
+                        workspaceId,
+                        appletId,
+                        appletName: applet.name,
+                        subNodes,
+                        requestMenu: () => {
+                            return [
+                                {
+                                    title: 'Add items',
+                                    type: 'Title'
+                                },
+                                {
+                                    title: 'Folder',
+                                    icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', '/'))
+                                },
+                                {
+                                    title: 'List',
+                                    icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, '-1', '/'))
+                                },
+                                {
+                                    title: 'Document',
+                                    icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, '-1', '/'))
+                                },
+                                {
+                                    title: 'Whiteboard',
+                                    icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, '-1', '/'))
+                                }
+                            ]
 
 
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Map',
-                                            icon: WorkbenchIcons.MapIcon,
-                                            onClick: () => {
+                        }
 
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            type: 'Divider'
-                                        },
-                                        {
-                                            title: 'Document',
-                                            icon: WorkbenchIcons.DocumentIcon,
-                                            onClick: () => {
-                                                // DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, space.$id, `/${space.$id}`))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Whiteboard',
-                                            icon: WorkbenchIcons.WhiteboardIcon1,
-                                            onClick: () => {
-
-                                                // DynoDialog.Show(AddFolderDialog(space.$id))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-                                        {
-                                            title: 'Form',
-                                            icon: WorkbenchIcons.FormIcon1,
-                                            onClick: () => {
-
-                                                // DynoDialog.Show(AddFolderDialog(space.$id))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-
-                                        {
-                                            type: 'Divider'
-                                        },
-
-                                        {
-                                            title: 'Folder',
-                                            icon: WorkbenchIcons.AddFolder,
-                                            onClick: () => {
-
-                                                DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', `/`))
-                                            }
-                                            /* .then(() => {
-                                                controller.InvalidateQuerie('space-folders')
-                                            }) */
-                                        },
-
-                                        {
-                                            title: 'More Applets',
-                                            icon: SvgIcon('svg-sprite-activity-template-merged'),
-                                            /*  onClick: () => SelectOpaDialog.Show(team?.id, spaceItem.id, null, opas).then((applet) => {
-             
-                                             }) */
-                                        },
-                                    ])
-                                    .icon(Icons.Add),
-                                MenuButton()
-                                    .model([
-                                        {
-                                            title: 'Space acions',
-                                            type: 'Title'
-                                        },
-                                        {
-                                            title: 'Rename',
-                                            icon: WorkbenchIcons.Edit,
-                                            onClick: () => setIsEditing(true)
-                                        },
-                                        {
-                                            title: 'Copy link',
-                                            icon: SvgIcon('svg-sprite-global__link'),
-                                            onClick: () => {
-                                                /*   copy(location.href);
-                                                  ShowToast('Copied to clipboard') */
-                                            }
-                                        },
-                                        {
-                                            title: 'Dublicate',
-                                            icon: WorkbenchIcons.Copy
-                                        },
-                                        {
-                                            type: 'Divider'
-                                        },
-                                        {
-                                            title: 'Delete',
-                                            icon: SvgIcon('svg-sprite-global__delete', '#bc4841'),
-                                            color: '#bc4841',
-                                            onClick: () => {
-                                                // DynoDialog.Show(AppletDescriptionDialog(applet.id))
-                                            }
-                                        }
-                                    ])
-                                    .icon(Icons.Menu)
-
-                            )
-                                .onClick((e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                })
-
-                                .width(64).height(32).padding(cHorizontal, 5)
-                                .display('var(--show-space-action-buttons)'),
-                        )
-                            .fontWeight('500')
-                            .allHeight(37).padding(5).padding(cVertical, isEditing ? 0 : 5)
-                            .variable('--show-space-action-buttons', { default: 'none', hover: 'flex' })
-
-                        ,
-                        isOpen ?
-                            HStack(
-                                LeftSideMenuView(selectedItem)
-                            ).height().paddingLeft('40px') : Fragment()
-                    ).height()
-                ))
-                    .options({
-                        ...(this.props.config || {})
                     })
         )
     }
