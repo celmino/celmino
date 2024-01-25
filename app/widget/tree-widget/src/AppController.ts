@@ -67,29 +67,29 @@ export class MyTestController extends UIController {
 
     public override LoadView(): UIView {
 
-   
-        const { workspaceId, appletId, appletName, subNodes  } = this.props.config || {};
-        
-      
-       
 
-       // const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
+        const { workspaceId, appletId, appletName, subNodes } = this.props.config || {};
+
+
+
+
+        // const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
 
         return (
-                OptionsContext(() => (
-                    TreeNode({
-                        title:appletName,
-                        iconName: 'bookmark',
-                        //isExpand: expanded,
-                        //expandChanged: setExpanded,
-                        subNode: (nodeType) => (
-                            subNodes(1, nodeType, '-1', workspaceId, appletId)
-                        )
-                    })
-                ))
-                    .options({
-                        ...(this.props.config || {})
-                    })
+            OptionsContext(() => (
+                TreeNode({
+                    title: appletName,
+                    iconName: 'bookmark',
+                    //isExpand: expanded,
+                    //expandChanged: setExpanded,
+                    subNode: (nodeType) => (
+                        subNodes(TreeNode, 1, nodeType, '-1', workspaceId, appletId)
+                    )
+                })
+            ))
+                .options({
+                    ...(this.props.config || {})
+                })
         )
     }
 }

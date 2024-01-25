@@ -6,10 +6,9 @@ import {
 } from "@tuval/forms";
 import { AddDocumentDialog } from "../dialogs/AddDocumentDialog";
 import { AddFolderDialog } from "../dialogs/AddFolderDialog";
-import { WorkbenchIcons } from "./WorkbenchIcons";
-import { LeftSideMenuView } from "./WorkspaceTree";
 import { Text } from "@realmocean/vibe";
 import { is } from "@tuval/core";
+import { WorkbenchIcons } from "../WorkbenchIcons";
 
 export interface TreeNodeProps {
     nodeType?: string;

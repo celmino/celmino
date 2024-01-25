@@ -16,10 +16,9 @@ import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useLocalStorageState } from './views/localStorageState';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
-import { TreeNode } from './views/TreeNode';
 
 
-const subNodes = (level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
+const subNodes = (TreeNode,level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
 
     const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
         Query.equal('parent', parentId)
@@ -36,7 +35,7 @@ const subNodes = (level, nodeType, parentId, workspaceId, appletId) => UIViewBui
                     level: level,
                     nodeType: item.type,
                     isSelected: getDocumentId() === item.$id,
-                    subNode: (nodeType) => subNodes(level + 1, nodeType, item.$id, workspaceId, appletId),
+                    subNode: (nodeType) => subNodes(TreeNode,level + 1, nodeType, item.$id, workspaceId, appletId),
                     requestIcon: (nodeType, selected, expanded) => {
                         switch (nodeType) {
                             case 'folder':
@@ -100,20 +99,15 @@ export class MyTestController extends UIController {
 
         return (
             isAppletLoading ? Spinner() :
-                OptionsContext(() => (
-                    TreeNode({
-                        title: applet.name,
-                        iconName: 'bookmark',
-                        //isExpand: expanded,
-                        //expandChanged: setExpanded,
-                        subNode: (nodeType) => (
-                            subNodes(1, nodeType, '-1', workspaceId, appletId)
-                        )
+                UIWidget('com.celmino.widget.applet-tree')
+                    .config({
+                        workspaceId,
+                        appletId,
+                        appletName: applet.name,
+                        subNodes
+
                     })
-                ))
-                    .options({
-                        ...(this.props.config || {})
-                    })
+
         )
     }
 }
