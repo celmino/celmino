@@ -4,6 +4,11 @@ import { DocumentHeader } from "../../views/ViewHeader";
 import React from "react";
 import { useGetDocument, useUpdateDocument } from "@realmocean/sdk";
 import { is } from "@tuval/core";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+
+const docs = [
+    { uri: "https://url-to-my-pdf.pdf" }, // Remote file
+  ];
 
 export class DocumentController extends UIController {
 
@@ -64,6 +69,7 @@ export class DocumentController extends UIController {
                         }
                     </DialogStack>
                 )
+                
 
         )
     }

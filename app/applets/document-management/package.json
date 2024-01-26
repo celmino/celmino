@@ -147,6 +147,7 @@
     },
     "dependencies": {
         "@celmino/workprotocol": "^0.0.118",
+        "@cyntler/react-doc-viewer": "^1.14.1",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/material": "^5.11.14",
