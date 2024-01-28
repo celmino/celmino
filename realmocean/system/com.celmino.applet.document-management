@@ -36592,6 +36592,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
+var docs = [
+    { uri: "https://url-to-my-pdf.pdf" }, // Remote file
+];
 var DocumentController = /** @class */ (function (_super) {
     __extends(DocumentController, _super);
     function DocumentController() {
@@ -36599,21 +36602,21 @@ var DocumentController = /** @class */ (function (_super) {
     }
     DocumentController.prototype.LoadView = function () {
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId, _b = _a.documentId, documentId = _b === void 0 ? this.props.documentId : _b;
-        var document = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
             databaseId: appletId,
             collectionId: 'dm_documents',
             documentId: documentId
-        }).document;
-        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
+        }), document = _c.document, isDocumentLoading = _c.isLoading;
+        var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({
             projectId: workspaceId,
             databaseId: appletId,
             collectionId: 'dm_document_contents',
             documentId: documentId
-        }), content = _c.document, isLoading = _c.isLoading;
+        }), content = _d.document, isLoading = _d.isLoading;
         var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
-        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
+        return ((isDocumentLoading || isLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogStack, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_views_ActionPanel__WEBPACK_IMPORTED_MODULE_1__.ActionPanel)(), (0,_views_ViewHeader__WEBPACK_IMPORTED_MODULE_2__.DocumentHeader)(document === null || document === void 0 ? void 0 : document.name, function (e) {
                 updateDocument({
                     databaseId: appletId,
                     collectionId: 'dm_documents',
@@ -36622,7 +36625,7 @@ var DocumentController = /** @class */ (function (_super) {
                         name: e
                     }
                 });
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.tuvalsoft.widget.editorjs')
+            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)(document === null || document === void 0 ? void 0 : document.type)
                 .config({
                 defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_5__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
                 onChange: function (data) {

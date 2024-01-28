@@ -1,4 +1,4 @@
-import { MyTestController } from './AppController';
+import { WorkspaceTreeWidgetController } from './AppController';
 export declare class RatingWidget {
-    GetMainController(): typeof MyTestController;
+    GetMainController(): typeof WorkspaceTreeWidgetController;
 }

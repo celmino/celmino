@@ -5,12 +5,13 @@ export declare const opas: ({
     defaultView: string;
     defaultViewTitle: string;
     description: string;
-    icon: string;
-    iconBackColor: string;
+    image: string;
     enabled: boolean;
     settings: {
         stageSet: string;
     };
+    icon?: undefined;
+    iconBackColor?: undefined;
 } | {
     name: string;
     type: string;
@@ -21,6 +22,7 @@ export declare const opas: ({
     broker?: undefined;
     defaultView?: undefined;
     defaultViewTitle?: undefined;
+    image?: undefined;
     settings?: undefined;
 } | {
     name: string;
@@ -32,6 +34,7 @@ export declare const opas: ({
     icon: string;
     iconBackColor: string;
     enabled: boolean;
+    image?: undefined;
     settings?: undefined;
 } | {
     name: string;
@@ -43,5 +46,6 @@ export declare const opas: ({
     enabled: boolean;
     defaultView?: undefined;
     defaultViewTitle?: undefined;
+    image?: undefined;
     settings?: undefined;
 })[];

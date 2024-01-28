@@ -21,7 +21,7 @@ import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
 import { AddWhiteboardDialog } from './dialogs/AddWhiteboardDialog';
 
 
-const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
+const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
 
     const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'wm_tree', [
         Query.equal('parent', parentId)
@@ -29,15 +29,16 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
     const navigate = useNavigate();
 
     return (
-        VStack({alignment:cTopLeading})(
+        VStack({ alignment: cTopLeading })(
             ...ForEach(items)(item =>
                 TreeNode({
                     title: item.name,
                     level: level,
                     nodeType: item.type,
                     isSelected: getListId() === item.$id || getDocumentId() === item.$id,
-                    subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId),
+                    subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId, onItemSelected),
                     requestIcon: (nodeType, selected, expanded) => {
+
                         switch (nodeType) {
                             case 'list':
                                 return Icon(SvgIcon('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719', '18px', '18px')).foregroundColor('#7C828D');
@@ -50,8 +51,10 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
                                 )
                         }
 
+
                     },
                     requestNavigation: () => {
+                        if (onItemSelected == null) {
                         switch (item.type) {
                             case 'folder':
                                 navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
@@ -67,6 +70,13 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
                                 break;
 
                         }
+                    } else {
+                        onItemSelected({
+                            workspaceId: workspaceId,
+                            appletId:appletId,
+                            item
+                        })
+                    }
                     },
                     requestMenu: () => {
                         switch (item.type) {
@@ -106,14 +116,16 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
     )
 })
 
-export class MyTestController extends UIController {
+export class WorkspaceTreeWidgetController extends UIController {
 
     public override LoadView(): UIView {
 
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
         const { items } = this.props.data || {};
-        const { selectedItem, team_id, workspaceId, folder_id, appletId, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
+        const { workspaceId, appletId, onItemSelected } = this.props.config || {};
+
+
         const [isOpen, setIsOpen] = useState(getAppletId() === appletId);
 
         let listId = getListId();
@@ -144,7 +156,9 @@ export class MyTestController extends UIController {
                         workspaceId,
                         appletId,
                         appletName: applet.name,
-                        subNodes,
+                        subNodes: (TreeNode, level, nodeType, parentId, workspaceId, appletId) => {
+                            return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected)
+                        },
                         requestMenu: () => {
                             return [
                                 {

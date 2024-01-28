@@ -1,16 +1,48 @@
 export const opas = [
    
     {
-        name: 'Task Management',
+        name: 'Figma Embedded',
         type: 'com.celmino.applet.task',
         broker: 'com.tuvalsoft.broker.realm',
         defaultView:'com.tuvalsoft.view.tasklist',
         defaultViewTitle:'Task List',
-        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
-        icon:'\\d1e4',
-        iconBackColor:'#66B47C',
+        description: 'Add your Figma designs as a document in celmino!',
+        //icon:'\\d1e4',
+        //iconBackColor:'#66B47C',
        //icon: SvgIcon('svg-sprite-cu2-list-ul'),
-       // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        image: '/images/Figma_Embedded_-_Logo_Export.png',
+        enabled: true,
+        settings: {
+            stageSet: 'default'
+        }
+    },
+    {
+        name: 'HTML Embedded',
+        type: 'com.celmino.applet.task',
+        broker: 'com.tuvalsoft.broker.realm',
+        defaultView:'com.tuvalsoft.view.tasklist',
+        defaultViewTitle:'Task List',
+        description: 'Add your Figma designs as a document in celmino!',
+        //icon:'\\d1e4',
+        //iconBackColor:'#66B47C',
+       //icon: SvgIcon('svg-sprite-cu2-list-ul'),
+        image: '/images/Embedded_HTML_-_Icon.avif',
+        enabled: true,
+        settings: {
+            stageSet: 'default'
+        }
+    },
+    {
+        name: 'IFrame Embedded',
+        type: 'com.celmino.applet.task',
+        broker: 'com.tuvalsoft.broker.realm',
+        defaultView:'com.tuvalsoft.view.tasklist',
+        defaultViewTitle:'Task List',
+        description: 'Add your Figma designs as a document in celmino!',
+        //icon:'\\d1e4',
+        //iconBackColor:'#66B47C',
+       //icon: SvgIcon('svg-sprite-cu2-list-ul'),
+        image: '/images/iFrame_Embedded_-_Logo_Export.avif',
         enabled: true,
         settings: {
             stageSet: 'default'

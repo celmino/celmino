@@ -16,9 +16,10 @@ import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useLocalStorageState } from './views/localStorageState';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
+import { ContextMenu } from './ContextMenu';
 
 
-const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) => UIViewBuilder(() => {
+const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
 
     const { documents: items, isLoading } = useListDocuments(workspaceId, appletId, 'dm_tree', [
         Query.equal('parent', parentId)
@@ -35,7 +36,7 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
                     level: level,
                     nodeType: item.type,
                     isSelected: getDocumentId() === item.$id,
-                    subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId),
+                    subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId, onItemSelected),
                     requestIcon: (nodeType, selected, expanded) => {
                         switch (nodeType) {
                             case 'folder':
@@ -48,6 +49,7 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
 
                     },
                     requestNavigation: () => {
+                        if (onItemSelected == null) {
                         switch (item.type) {
                             case 'folder':
                                 navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
@@ -57,54 +59,18 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId) =>
                                 break;
 
                         }
+                    } else {
+                        onItemSelected({
+                            workspaceId, appletId, item
+                        })
+                    }
                     },
                     requestMenu: () => {
                         switch (item.type) {
                             case 'folder':
-                                return [
-
-
-                                    {
-                                        title: 'Folder',
-                                        icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    },
-
-                                    {
-                                        title: 'Documents',
-                                        type: 'Title'
-                                    },
-                                    {
-                                        title: 'Document',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    },
-                                    {
-                                        title: 'Wiki document',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    },
-                                    {
-                                        title: 'Word document',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    },
-                                    {
-                                        title: 'Spreadsheet',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    }
-                                ]
+                                return ContextMenu(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`)
                             case 'document':
-                                return [
-
-
-                                    {
-                                        title: 'Document',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    }
-                                ]
+                                return ContextMenu(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`)
                         }
 
 
@@ -124,7 +90,7 @@ export class MyTestController extends UIController {
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
         const { items } = this.props.data || {};
-        const { selectedItem, team_id, workspaceId, folder_id, appletId, showAllWorkspaces, opas, folder_menu, app_id } = this.props.config || {};
+        const { selectedItem, team_id, workspaceId, folder_id, appletId, showAllWorkspaces, opas, folder_menu, app_id, onItemSelected } = this.props.config || {};
         const [isOpen, setIsOpen] = useState(getAppletId() === appletId);
 
         let listId = getListId();
@@ -155,27 +121,14 @@ export class MyTestController extends UIController {
                         workspaceId,
                         appletId,
                         appletName: applet.name,
-                        subNodes,
-                        requestMenu: () => {
-
-
-                            return [
-
-                                {
-                                    title: 'Folder',
-                                    icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                                    onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', `/`))
-                                },
-                                {
-                                    title: 'Document',
-                                    icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                                    onClick: () => DynoDialog.Show(AddDocumentDialog(workspaceId, appletId, '-1', `/`))
-                                }
-                            ]
+                        subNodes: (TreeNode, level, nodeType, parentId, workspaceId, appletId) => {
+                            return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected)
+                        },
+                        requestMenu: () => ContextMenu(workspaceId, appletId)
 
 
 
-                        }
+
 
                     })
 

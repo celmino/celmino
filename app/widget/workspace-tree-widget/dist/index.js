@@ -29,7 +29,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MyTestController: () => (/* binding */ MyTestController)
+/* harmony export */   WorkspaceTreeWidgetController: () => (/* binding */ WorkspaceTreeWidgetController)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
@@ -67,7 +67,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, appletId) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
     var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useListDocuments)(workspaceId, appletId, 'wm_tree', [
         _realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.Query.equal('parent', parentId)
     ]), items = _a.documents, isLoading = _a.isLoading;
@@ -78,7 +78,7 @@ var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, apple
             level: level,
             nodeType: item.type,
             isSelected: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.getListId)() === item.$id || (0,_utils__WEBPACK_IMPORTED_MODULE_3__.getDocumentId)() === item.$id,
-            subNode: function (nodeType) { return subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId); },
+            subNode: function (nodeType) { return subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId, onItemSelected); },
             requestIcon: function (nodeType, selected, expanded) {
                 switch (nodeType) {
                     case 'list':
@@ -90,19 +90,28 @@ var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, apple
                 }
             },
             requestNavigation: function () {
-                switch (item.type) {
-                    case 'folder':
-                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/folder/").concat(item.$id));
-                        break;
-                    case 'list':
-                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/list/").concat(item.$id));
-                        break;
-                    case 'document':
-                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/document/").concat(item.$id));
-                        break;
-                    case 'whiteboard':
-                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/whiteboard/").concat(item.$id));
-                        break;
+                if (onItemSelected == null) {
+                    switch (item.type) {
+                        case 'folder':
+                            navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/folder/").concat(item.$id));
+                            break;
+                        case 'list':
+                            navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/list/").concat(item.$id));
+                            break;
+                        case 'document':
+                            navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/document/").concat(item.$id));
+                            break;
+                        case 'whiteboard':
+                            navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/whiteboard/").concat(item.$id));
+                            break;
+                    }
+                }
+                else {
+                    onItemSelected({
+                        workspaceId: workspaceId,
+                        appletId: appletId,
+                        item: item
+                    });
                 }
             },
             requestMenu: function () {
@@ -135,16 +144,16 @@ var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, apple
         });
     })));
 }); };
-var MyTestController = /** @class */ (function (_super) {
-    __extends(MyTestController, _super);
-    function MyTestController() {
+var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
+    __extends(WorkspaceTreeWidgetController, _super);
+    function WorkspaceTreeWidgetController() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    MyTestController.prototype.LoadView = function () {
+    WorkspaceTreeWidgetController.prototype.LoadView = function () {
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _a[0], setIsEditing = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
-        var _b = this.props.config || {}, selectedItem = _b.selectedItem, team_id = _b.team_id, workspaceId = _b.workspaceId, folder_id = _b.folder_id, appletId = _b.appletId, showAllWorkspaces = _b.showAllWorkspaces, opas = _b.opas, folder_menu = _b.folder_menu, app_id = _b.app_id;
+        var _b = this.props.config || {}, workspaceId = _b.workspaceId, appletId = _b.appletId, onItemSelected = _b.onItemSelected;
         var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_3__.getAppletId)() === appletId), isOpen = _c[0], setIsOpen = _c[1];
         var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.getListId)();
         /*     const { document: list, isLoading: isListLoading } = useGetDocument({
@@ -166,7 +175,9 @@ var MyTestController = /** @class */ (function (_super) {
                 workspaceId: workspaceId,
                 appletId: appletId,
                 appletName: applet.name,
-                subNodes: subNodes,
+                subNodes: function (TreeNode, level, nodeType, parentId, workspaceId, appletId) {
+                    return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected);
+                },
                 requestMenu: function () {
                     return [
                         {
@@ -197,7 +208,7 @@ var MyTestController = /** @class */ (function (_super) {
                 }
             }));
     };
-    return MyTestController;
+    return WorkspaceTreeWidgetController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
 
 _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.FormBuilder.injectAction('saveSpace', _dialogs_AddSpaceDialog__WEBPACK_IMPORTED_MODULE_1__.SaveSpaceAction);
@@ -1224,7 +1235,7 @@ var RatingWidget = /** @class */ (function () {
     function RatingWidget() {
     }
     RatingWidget.prototype.GetMainController = function () {
-        return _AppController__WEBPACK_IMPORTED_MODULE_0__.MyTestController;
+        return _AppController__WEBPACK_IMPORTED_MODULE_0__.WorkspaceTreeWidgetController;
     };
     RatingWidget = __decorate([
         App(manifest)

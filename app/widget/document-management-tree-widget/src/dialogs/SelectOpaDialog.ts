@@ -18,6 +18,8 @@ import {
     useNavigate
 } from "@tuval/forms";
 
+import { Text as VibeText } from '@realmocean/vibe'
+
 const findOpa = (opas, type) => {
     return opas.find(opa => opa.type == type)
 }
@@ -49,7 +51,7 @@ export class SelectOpaDialog extends DialogView {
     }
 
 
-    public BindRouterParams({ parentId,parentType, opas }) {
+    public BindRouterParams({ parentId, parentType, opas }) {
         this.parentId = parentId;
         this.parentType = parentType;
         this.opas = opas
@@ -94,8 +96,7 @@ export class SelectOpaDialog extends DialogView {
                                     ,
                                     // .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
                                     Heading(opa.name).h4().ellipsis(true).ellipsisMaxLines(1).width(250),
-                                    Heading(opa.description || '').h6().ellipsis(true)
-                                        .ellipsisMaxLines(2)
+                                    VibeText(opa.description || '').maxLines(2)
                                     ,
                                     HStack({ alignment: cCenter })(
                                         Button(
@@ -111,16 +112,16 @@ export class SelectOpaDialog extends DialogView {
                                                 const _opa = findOpa(this.opas, opa.type)
                                                 this.last_added_opa_type = opa.type;
 
-                                              /*   createApplet({
-                                                    name: opa.name,
-                                                    parentId: this.parentId,
-                                                    parentType: this.parentType,
-                                                    opa: opa.type,
-                                                    icon:'AAA',
-                                                    color:'#7B68EE',
-                                                    settings: _opa.settings 
-                                                }) */
-                                               
+                                                /*   createApplet({
+                                                      name: opa.name,
+                                                      parentId: this.parentId,
+                                                      parentType: this.parentType,
+                                                      opa: opa.type,
+                                                      icon:'AAA',
+                                                      color:'#7B68EE',
+                                                      settings: _opa.settings 
+                                                  }) */
+
 
                                             })
                                     ).height()

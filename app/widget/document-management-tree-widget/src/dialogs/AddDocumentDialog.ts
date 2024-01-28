@@ -63,7 +63,7 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
 )
 
 
-export const AddDocumentDialog = (workspaceId: string, appletId: string, parent: string, path: string) => {
+export const AddDocumentDialog = (workspaceId: string, appletId: string, parent: string, path: string, type: string = 'document') => {
     if (workspaceId == null) {
         alert("spaceId is null")
     } else {
@@ -100,6 +100,11 @@ export const AddDocumentDialog = (workspaceId: string, appletId: string, parent:
                     "label": "name",
                     "type": "text",
                     "name": "name"
+                },
+                "type": {
+                    "name": "type",
+                    "type": "virtual",
+                    "value": type
                 },
                 "parent": {
                     "name": "parent",

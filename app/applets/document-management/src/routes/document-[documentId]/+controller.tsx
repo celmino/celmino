@@ -1,4 +1,4 @@
-import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment } from "@tuval/forms";
+import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment, cTopLeading } from "@tuval/forms";
 import { ActionPanel } from "../../views/ActionPanel";
 import { DocumentHeader } from "../../views/ViewHeader";
 import React from "react";
@@ -15,7 +15,7 @@ export class DocumentController extends UIController {
 
     public override LoadView(): UIView {
         const { workspaceId, appletId, documentId= this.props.documentId } = useParams();
-        const { document } = useGetDocument({
+        const { document, isLoading:isDocumentLoading } = useGetDocument({
             projectId: workspaceId,
             databaseId: appletId,
             collectionId: 'dm_documents',
@@ -32,11 +32,11 @@ export class DocumentController extends UIController {
         const { updateDocument } = useUpdateDocument(workspaceId);
 
         return (
-            isLoading ? Fragment() :
+            (isDocumentLoading || isLoading) ? Fragment() :
                 ReactView(
                     <DialogStack>
                         {
-                            VStack(
+                            VStack({alignment:cTopLeading})(
                                 ActionPanel(),
                                 DocumentHeader(document?.name, (e)=> {
                                     updateDocument({
@@ -48,7 +48,7 @@ export class DocumentController extends UIController {
                                         }
                                     })
                                 }),
-                                UIWidget('com.tuvalsoft.widget.editorjs')
+                                UIWidget(document?.type)
                                     .config({
                                         defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
                                         onChange: (data) => {

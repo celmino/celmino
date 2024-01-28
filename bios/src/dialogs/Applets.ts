@@ -4082,6 +4082,10 @@ export const Applets = [
                                 "type": "string"
                             },
                             {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
                                 "key": "parent",
                                 "type": "string"
                             },
@@ -4115,7 +4119,7 @@ export const Applets = [
                             {
                                 "key": "content",
                                 "type": "string",
-                                "size": 32000
+                                "size": 932000
                             }
                         ],
 

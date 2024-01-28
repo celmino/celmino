@@ -11,7 +11,6 @@ import {
     getAppFullName,
     useNavigate,
     useOptions,
-    useParams,
     useState
 } from "@tuval/forms";
 import copy from 'copy-to-clipboard';
@@ -29,7 +28,6 @@ export function WhiteboardName(whiteboard: any, isOpen: boolean, onClickCallback
     return (
         UIViewBuilder(() => {
 
-            const { access_type } = useParams();
             const { workspaceId, appletId } = useOptions();
             const [mode, setMode] = useState('readonly');
             // const [name, setName] = useState(applet?.name);

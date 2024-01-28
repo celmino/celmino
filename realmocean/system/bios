@@ -5546,7 +5546,9 @@ var LayoutController = /** @class */ (function (_super) {
                             .width('100%'))
                         //.height('calc(100% - 50px)')
                         )
-                            .display('block')
+                            //  .allHeight('100%')
+                            .overflow('hidden')
+                            //  .display('block')
                             .background('#323452'));
                 }));
     };
@@ -9927,6 +9929,10 @@ var Applets = [
                                 "type": "string"
                             },
                             {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
                                 "key": "parent",
                                 "type": "string"
                             },
@@ -9959,7 +9965,7 @@ var Applets = [
                             {
                                 "key": "content",
                                 "type": "string",
-                                "size": 32000
+                                "size": 932000
                             }
                         ],
                     },

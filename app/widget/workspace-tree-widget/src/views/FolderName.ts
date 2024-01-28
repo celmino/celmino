@@ -15,7 +15,7 @@ import { AddWhiteboardDialog } from "../dialogs/AddWhiteboardDialog";
 export const FolderName = (folder: any, isOpen: boolean, isLoading: boolean,
     onClickCallback: Function) => UIViewBuilder(() => {
 
-        const { folder_id } = useParams();
+      
         const { workspaceId , appletId} = useOptions();
 
         let selected = false;
