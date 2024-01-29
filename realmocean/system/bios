@@ -5182,126 +5182,7 @@ var LeftSideMenuView = function (selectedItem) {
             var _b = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _b[0], setIconInfo = _b[1];
             var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
             var _hideHandle;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })(
-            /*  HStack(
-                 UIViewBuilder(() => {
-
-                     const { realm }: { realm: Models.Realm } = useGetRealm({
-                         realmId: workspaceId,
-                         enabled: (organizationId == null && workspaceId != null)
-                     });
-
-                     const { realms } = useListRealms((organizationId != null || realm?.teamId != null), [
-                         Query.equal('teamId', organizationId ?? realm?.teamId)
-                     ]);
-                    
-                     return (
-                      
-                         UIWidget('com.tuvalsoft.widget.topdropdown')
-                             .config({
-                                 header: {
-                                     content: 'Workspace',
-                                     color: 'white',
-                                     font: {
-                                         size: '10px'
-                                     }
-                                 },
-                                 selected: {
-                                     content: (selectedItem) => selectedItem.text,
-                                     font: {
-                                         family: '"Mulish",sans-serif',
-                                         size: '18px',
-                                         weight: '700'
-                                     }
-                                 },
-                                 selectedValue: me?.prefs?.workspace,
-                                 width: '350px',
-                                 onClick: (selectedItem) => {
-                                     updatePrefs({
-                                         prefs: {
-                                             ...(me?.prefs ? me?.prefs : {}),
-                                           
-                                             workspace: selectedItem.value
-                                         }
-
-                                     })
-                                     navigate(`/app/workspace/${selectedItem.value}`)
-                                 }
-                             })
-                             .data(
-                                 {
-                                     dataSource: () => {
-
-                                         return (
-                                             realms?.map((workspace) => {
-                                                 return {
-                                                     text: workspace.name,
-                                                     value: workspace.$id
-                                                 }
-                                             })
-                                         )
-                                     }
-
-                                 })
-                     )
-                 })
-             )
-                 .width(250), */
-            /*    HStack(
-                   UIViewBuilder(() => {
-                       const { teams } = useListTeams('console');
-                       return (
-
-                           UIWidget('com.tuvalsoft.widget.topdropdown')
-                               .config({
-                                   header: {
-                                       content: 'Organization',
-                                       color: 'white',
-                                       font: {
-                                           size: '10px'
-                                       }
-                                   },
-                                   selected: {
-                                       content: (selectedItem) => selectedItem.text,
-                                       font: {
-                                           family: '"Mulish",sans-serif',
-                                           size: '18px',
-                                           weight: '700'
-                                       }
-                                   },
-                                   selectedValue: me?.prefs?.organization,
-                                   width: '350px',
-                                   onClick: (selectedItem) => {
-                                       updatePrefs({
-                                           prefs: {
-                                               organization: selectedItem.value,
-                                               workspace: ''
-                                           }
-                                       })
-                                       navigate(`/app/organization/${selectedItem.value}`)
-                                       console.log(selectedItem.value)
-                                   }
-                               })
-                               .data(
-                                   {
-                                       dataSource: () => {
-                                           return (
-                                               teams?.map((team) => {
-                                                   return {
-                                                       text: team.name,
-                                                       value: team.$id
-                                                   }
-                                               })
-                                           )
-                                       }
-
-                                   })
-                       )
-                   })
-               )
-                   .width(250), */
-            //-----
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
+            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
                 .config({
                 readonly: true,
                 selectedIcon: 'bookmark',
@@ -5516,10 +5397,10 @@ var LayoutController = /** @class */ (function (_super) {
                                     .cornerRadius(6)
                                     .background({ hover: '#ECEEEF' })).padding(5),
                                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)('ORGANIZATION(S)').fontSize(12)).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, 5)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(teams)(function (team) {
-                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(team.name)).allHeight(32)
+                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/organization/".concat(team.$id))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(team.name)).allHeight(32)
                                     .cursor('pointer')
                                     .background({ hover: '#F0F1F3' })
-                                    .padding('7px 0');
+                                    .padding('7px 0')).width('100%');
                             }), false)).padding().width(256));
                         }))
                             //  .padding(0)
@@ -5776,7 +5657,7 @@ var OrganizationController = /** @class */ (function (_super) {
                                 return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false)];
                             case 5:
                                 typeAttr = _a.sent();
-                                navigate("/workspace/".concat(workspace.$id));
+                                navigate("/app/workspace/".concat(workspace.$id));
                                 return [2 /*return*/];
                         }
                     });
@@ -9631,6 +9512,10 @@ var Applets = [
                                 "type": "string"
                             },
                             {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
                                 "key": "icon_name",
                                 "type": "string"
                             },
@@ -9882,6 +9767,10 @@ var Applets = [
                             },
                             {
                                 "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
                                 "type": "string"
                             },
                             {

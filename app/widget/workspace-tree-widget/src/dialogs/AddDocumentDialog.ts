@@ -50,7 +50,8 @@ export const SaveDocumentAction = (formMeta, action) => UIViewBuilder(() => {
                                 documentId: document.$id,
                                 data: {
                                     ...data,
-                                    type: 'document'
+                                    type: 'document',
+                                    viewer:'com.tuvalsoft.viewer.document'
                                 }
                             }, () => dialog.Hide())
 

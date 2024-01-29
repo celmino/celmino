@@ -3826,7 +3826,7 @@ var SaveDocumentAction = function (formMeta, action) { return (0,_tuval_forms__W
             }, function (document) {
                 createTreeItem({
                     documentId: document.$id,
-                    data: __assign(__assign({}, data), { type: 'document' })
+                    data: __assign(__assign({}, data), { type: 'document', viewer: 'com.tuvalsoft.viewer.document' })
                 }, function () { return dialog.Hide(); });
             });
         });

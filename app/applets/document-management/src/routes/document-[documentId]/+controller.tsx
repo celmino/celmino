@@ -51,6 +51,8 @@ export class DocumentController extends UIController {
                                 UIWidget(document?.type)
                                     .config({
                                         defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
+                                        workspaceId: workspaceId,
+                                        appletId: appletId,
                                         onChange: (data) => {
                                             console.log(data)
                                             updateDocument({

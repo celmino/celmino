@@ -71,6 +71,7 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
 
                         }
                     } else {
+                        
                         onItemSelected({
                             workspaceId: workspaceId,
                             appletId:appletId,

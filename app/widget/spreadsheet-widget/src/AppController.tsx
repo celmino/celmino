@@ -26,7 +26,7 @@ export class MyTestController extends UIController {
   public override LoadView(): UIView {
     const { openDialog } = useDialogStack();
 
-    const { onChange = void 0, defaultValue = null } = this.props.config || {};
+    const { onChange = void 0, defaultValue = null, workspaceId } = this.props.config || {};
 
     console.log('defaultValue')
     console.log(defaultValue)
@@ -98,7 +98,7 @@ export class MyTestController extends UIController {
             if (args.element.id === (spreadsheetRef.current as any).element.id + '_contextmenu') {
               spreadsheetRef.current.addCustomFunction(roundDownHandler, 'DOCUMENT');
               // To add context menu items.
-              spreadsheetRef.current.addContextMenuItems([{ text: 'Custom Item', id: 'Mert' }], 'Paste Special', false);
+              spreadsheetRef.current.addContextMenuItems([{ text: 'Releationship', id: 'Mert' }], 'Paste Special', false);
               //To pass the items, Item before / after that the element to be inserted, Set false if the items need to be inserted before the text.
             }
           },
@@ -110,7 +110,7 @@ export class MyTestController extends UIController {
 
                 UIViewBuilder(() => {
                   return (
-                    UIWidget('com.tuvalsoft.viewer.document')
+                    UIWidget(info.viewer)
                       .config({
                         workspaceId: info.workspaceId,
                         appletId: info.appletId,
@@ -132,15 +132,15 @@ export class MyTestController extends UIController {
           contextMenuItemSelect: (args: MenuSelectEventArgs) => {
             if (args.item.id === 'Mert') {
 
-              DynoDialog.Show('65ad38ac5e45c412fcc4').then((info) => {
+              DynoDialog.Show(workspaceId).then((info) => {
                 let range = getSelectedRange(spreadsheetRef.current.getActiveSheet());
                 spreadsheetRef.current.addHyperlink(JSON.stringify({
                   type: info.item.type,
                   workspaceId: info.workspaceId,
                   appletId: info.appletId,
                   $id: info.item.$id,
-                  name:info.item.name
-                 // viewer: 'xcvxcv'
+                  name: info.item.name,
+                   viewer: info.item.viewer
                 }), range, info.item.name);
               })
 

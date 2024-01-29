@@ -134,7 +134,8 @@ export const SaveListAction = (formMeta, action) => UIViewBuilder(() => {
                                     documentId: list.$id,
                                     data: {
                                         ...data,
-                                        type: 'list'
+                                        type: 'list',
+                                        viewer:'com.tuvalsoft.viewer.tasklist'
                                     }
                                 }, () => dialog.Hide())
 

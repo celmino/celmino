@@ -36628,6 +36628,8 @@ var DocumentController = /** @class */ (function (_super) {
             }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)(document === null || document === void 0 ? void 0 : document.type)
                 .config({
                 defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_5__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
+                workspaceId: workspaceId,
+                appletId: appletId,
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({

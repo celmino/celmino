@@ -3777,6 +3777,10 @@ export const Applets = [
                                 "type": "string"
                             },
                             {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
                                 "key": "icon_name",
                                 "type": "string"
                             },
@@ -4034,6 +4038,10 @@ export const Applets = [
                             },
                             {
                                 "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
                                 "type": "string"
                             },
                             {

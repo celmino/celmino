@@ -67,7 +67,7 @@ var MyTestController = /** @class */ (function (_super) {
     }
     MyTestController.prototype.LoadView = function () {
         var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
-        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c;
+        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, workspaceId = _a.workspaceId;
         console.log('defaultValue');
         console.log(defaultValue);
         var _d = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(null), prevValue = _d[0], setPrevValue = _d[1];
@@ -121,7 +121,7 @@ var MyTestController = /** @class */ (function (_super) {
                 if (args.element.id === spreadsheetRef.current.element.id + '_contextmenu') {
                     spreadsheetRef.current.addCustomFunction(roundDownHandler, 'DOCUMENT');
                     // To add context menu items.
-                    spreadsheetRef.current.addContextMenuItems([{ text: 'Custom Item', id: 'Mert' }], 'Paste Special', false);
+                    spreadsheetRef.current.addContextMenuItems([{ text: 'Releationship', id: 'Mert' }], 'Paste Special', false);
                     //To pass the items, Item before / after that the element to be inserted, Set false if the items need to be inserted before the text.
                 }
             },
@@ -130,7 +130,7 @@ var MyTestController = /** @class */ (function (_super) {
                 openDialog({
                     title: info.name,
                     view: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.tuvalsoft.viewer.document')
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)(info.viewer)
                             .config({
                             workspaceId: info.workspaceId,
                             appletId: info.appletId,
@@ -146,15 +146,15 @@ var MyTestController = /** @class */ (function (_super) {
              }, */
             contextMenuItemSelect: function (args) {
                 if (args.item.id === 'Mert') {
-                    _Dialog__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show('65ad38ac5e45c412fcc4').then(function (info) {
+                    _Dialog__WEBPACK_IMPORTED_MODULE_4__.DynoDialog.Show(workspaceId).then(function (info) {
                         var range = (0,_realmocean_spreadsheet__WEBPACK_IMPORTED_MODULE_2__.getSelectedRange)(spreadsheetRef.current.getActiveSheet());
                         spreadsheetRef.current.addHyperlink(JSON.stringify({
                             type: info.item.type,
                             workspaceId: info.workspaceId,
                             appletId: info.appletId,
                             $id: info.item.$id,
-                            name: info.item.name
-                            // viewer: 'xcvxcv'
+                            name: info.item.name,
+                            viewer: info.item.viewer
                         }), range, info.item.name);
                     });
                     // spreadsheetRef.current.updateCell({ formula: '=DOCUMENT(23432434)' });

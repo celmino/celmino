@@ -30,7 +30,7 @@ export class OrganizationController extends UIFormController {
                         const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false);
 
 
-                        navigate(`/workspace/${workspace.$id}`)
+                        navigate(`/app/workspace/${workspace.$id}`)
                     })
 
 

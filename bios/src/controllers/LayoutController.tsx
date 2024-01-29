@@ -1,5 +1,5 @@
 import { Models, Query, useDeleteSessions, useGetMe, useGetRealm, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
-import { UIController, UIRouteOutlet, UIScene, UIView, DialogContainer, VStack, Fragment, UINavigate, Text, Button, useNavigate, HStack, Icon, Icons, ReactView, Spacer, UIViewBuilder, UIWidget, VDivider, cLeading, cTop, cTopLeading, useLocalStorage, useState, useParams, DialogPosition, PopupButton, cHorizontal, ForEach, cVertical } from "@tuval/forms";
+import { UIController, UIRouteOutlet, UIScene, UIView, DialogContainer, VStack, Fragment, UINavigate, Text, Button, useNavigate, HStack, Icon, Icons, ReactView, Spacer, UIViewBuilder, UIWidget, VDivider, cLeading, cTop, cTopLeading, useLocalStorage, useState, useParams, DialogPosition, PopupButton, cHorizontal, ForEach, cVertical, UIRouteLink } from "@tuval/forms";
 import { LeftSidemenu } from "../views/LeftSideMenu";
 import React from "react";
 import { is } from "@tuval/core";
@@ -86,12 +86,14 @@ export class LayoutController extends UIController {
                                                                     VibeText('ORGANIZATION(S)').fontSize(12)
                                                                 ).padding(cVertical, 5),
                                                                 ...ForEach(teams)(team =>
-                                                                    HStack({ alignment: cLeading })(
-                                                                        Text(team.name)
-                                                                    ).allHeight(32)
-                                                                        .cursor('pointer')
-                                                                        .background({ hover: '#F0F1F3' })
-                                                                        .padding('7px 0')
+                                                                    UIRouteLink(`/app/organization/${team.$id}`)(
+                                                                        HStack({ alignment: cLeading })(
+                                                                            Text(team.name)
+                                                                        ).allHeight(32)
+                                                                            .cursor('pointer')
+                                                                            .background({ hover: '#F0F1F3' })
+                                                                            .padding('7px 0')
+                                                                    ).width('100%')
                                                                 )
                                                             ).padding().width(256)
                                                         )
@@ -133,9 +135,9 @@ export class LayoutController extends UIController {
                                     )
                                     //.height('calc(100% - 50px)')
                                 )
-                              //  .allHeight('100%')
-                                .overflow('hidden')
-                                  //  .display('block')
+                                    //  .allHeight('100%')
+                                    .overflow('hidden')
+                                    //  .display('block')
                                     .background('#323452')
                         )
                     )
