@@ -10,7 +10,7 @@ const DocumentLinkIcon = () => (
 )
 
 const CircleIcon = ()=> (
-  <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg>
+  <svg viewBox="0 0 24 24"  fill="currentColor"><use href="/images/app-icons/link.svg#link"></use></svg>
 )
 export class SimpleImage {
   api: any;

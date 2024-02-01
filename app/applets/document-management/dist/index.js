@@ -40875,8 +40875,8 @@ __webpack_require__.r(__webpack_exports__);
 var DocumentLinkIcon = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", fill: "currentColor", "aria-hidden": "true" },
     react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
         react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M6 4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4.286v-4.286c0-.789.64-1.428 1.428-1.428H16V12h-4v4l4-4V6a2 2 0 0 0-2-2H6Z" })))); };
-var CircleIcon = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "4", height: "4", viewBox: "0 0 24 24" },
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("circle", { cx: "12", cy: "12", r: "12" }))); };
+var CircleIcon = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 24 24", fill: "currentColor" },
+    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("use", { href: "/images/app-icons/link.svg#link" }))); };
 var SimpleImage = /** @class */ (function () {
     function SimpleImage(_a) {
         var data = _a.data, config = _a.config, api = _a.api, readOnly = _a.readOnly;
