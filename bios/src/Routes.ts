@@ -8,6 +8,7 @@ import { WorkspaceController } from "./controllers/Workspace/WorkspaceController
 import { OrganizationController } from "./controllers/OrganizationController"
 import { SignupController } from "./controllers/SignupController"
 import { RedirectToAppController } from "./controllers/RedirectToAppController"
+import { CreateOrganizationController } from "./controllers/CreateOrganization"
 
 
 export const Routes = () => {

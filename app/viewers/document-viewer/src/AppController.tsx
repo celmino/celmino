@@ -5,6 +5,7 @@ import { useGetDocument, useUpdateDocument } from "@realmocean/sdk";
 import { is } from "@tuval/core";
 import { ActionPanel } from "./views/ActionPanel";
 import { DocumentHeader } from "./views/ViewHeader";
+import { SimpleImage } from "./tools/SimplePlugin";
 
 
 
@@ -48,6 +49,9 @@ export class MyTestController extends UIController {
                     UIWidget(document?.type)
                         .config({
                             defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
+                            tools: {
+                                image: SimpleImage
+                            },
                             onChange: (data) => {
                                 console.log(data)
                                 updateDocument({

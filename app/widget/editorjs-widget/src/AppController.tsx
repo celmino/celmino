@@ -10,12 +10,15 @@ import {
 } from '@tuval/forms';
 
 import { Editor } from '@realmocean/editor';
+import { LinkTool } from './tools/link'
+import { SimpleImage } from './tools/SimplePlugin';
 
 export class EditorJsController extends UIController {
   public override LoadView(): UIView {
-    const { onChange = void 0, defaultValue = null } = this.props.config || {};
-   const clamp = false;
-  //  const { com_tuvalsoft_widget_editorjs: { clamp = false } } = useOptions() || { com_tuvalsoft_widget_editorjs: {} };
+    const { onChange = void 0, defaultValue = null, tools } = this.props.config || {};
+   
+    const clamp = false;
+    //  const { com_tuvalsoft_widget_editorjs: { clamp = false } } = useOptions() || { com_tuvalsoft_widget_editorjs: {} };
     return (
       ScrollView({ axes: cVertical, alignment: cTopLeading })(
         HStack({ alignment: cTopLeading })(
@@ -29,9 +32,7 @@ export class EditorJsController extends UIController {
               })
             },
             readOnly: false,
-            tools: {
-              //mermaid: MermaidTool
-            }
+            tools: tools
 
           } as any).width('100%')
         )

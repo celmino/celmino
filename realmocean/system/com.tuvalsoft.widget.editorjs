@@ -29,7 +29,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EditorJsController: () => (/* binding */ EditorJsController)
+/* harmony export */   "EditorJsController": () => (/* binding */ EditorJsController)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
@@ -58,7 +58,7 @@ var EditorJsController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     EditorJsController.prototype.LoadView = function () {
-        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c;
+        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, tools = _a.tools;
         var clamp = false;
         //  const { com_tuvalsoft_widget_editorjs: { clamp = false } } = useOptions() || { com_tuvalsoft_widget_editorjs: {} };
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_realmocean_editor__WEBPACK_IMPORTED_MODULE_1__.Editor)({
@@ -70,9 +70,7 @@ var EditorJsController = /** @class */ (function (_super) {
                 });
             },
             readOnly: false,
-            tools: {
-            //mermaid: MermaidTool
-            }
+            tools: tools
         }).width('100%'))
             .height()
             //.width('calc(100% - 40px)')
@@ -209,7 +207,7 @@ var __webpack_exports__ = {};
   \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RatingWidget: () => (/* binding */ RatingWidget)
+/* harmony export */   "RatingWidget": () => (/* binding */ RatingWidget)
 /* harmony export */ });
 /* harmony import */ var _AppController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppController */ "./src/AppController.tsx");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {

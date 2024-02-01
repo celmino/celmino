@@ -53,15 +53,18 @@ services:
       - "traefik.constraint-label-stack=realmocean"
       - "traefik.docker.network=realmocean"
       - "traefik.http.services.realmocean_api.loadbalancer.server.port=80"
+      
       #http
       - traefik.http.routers.realmocean_api_http.entrypoints=realmocean_web
       - traefik.http.routers.realmocean_api_http.rule=PathPrefix(`/`)
       - traefik.http.routers.realmocean_api_http.service=realmocean_api
+      - traefik.http.routers.realmocean_api_http.rule=Host(`${_APP_DOMAIN}`) || HostRegexp(`{subdomain:[az0-9]+}.${_APP_DOMAIN}`)
       # https
       - traefik.http.routers.realmocean_api_https.entrypoints=realmocean_websecure
       - traefik.http.routers.realmocean_api_https.rule=PathPrefix(`/`)
       - traefik.http.routers.realmocean_api_https.service=realmocean_api
       - traefik.http.routers.realmocean_api_https.tls=true
+      - traefik.http.routers.realmocean_api_https.rule=Host(`${_APP_DOMAIN}`) || HostRegexp(`{subdomain:[az0-9]+}.${_APP_DOMAIN}`)
     volumes:
       - realmocean-uploads:/storage/uploads:rw
       - realmocean-cache:/storage/cache:rw
@@ -804,6 +807,8 @@ services:
     image: realmocean/telegraf:1.4.0
     container_name: realmocean-telegraf
     <<: *x-logging
+    depends_on:
+    - influxdb
     networks:
       - realmocean
     environment:

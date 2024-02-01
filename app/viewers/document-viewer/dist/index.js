@@ -39,6 +39,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _views_ActionPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/ActionPanel */ "./src/views/ActionPanel.tsx");
 /* harmony import */ var _views_ViewHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/ViewHeader */ "./src/views/ViewHeader.ts");
+/* harmony import */ var _tools_SimplePlugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tools/SimplePlugin */ "./src/tools/SimplePlugin/index.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -54,6 +55,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
 
 
 
@@ -92,6 +94,9 @@ var MyTestController = /** @class */ (function (_super) {
             }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)(document === null || document === void 0 ? void 0 : document.type)
                 .config({
                 defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
+                tools: {
+                    image: _tools_SimplePlugin__WEBPACK_IMPORTED_MODULE_5__.SimpleImage
+                },
                 onChange: function (data) {
                     console.log(data);
                     updateDocument({
@@ -108,6 +113,45 @@ var MyTestController = /** @class */ (function (_super) {
     };
     return MyTestController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
+
+
+
+/***/ }),
+
+/***/ "./src/tools/SimplePlugin/index.ts":
+/*!*****************************************!*\
+  !*** ./src/tools/SimplePlugin/index.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SimpleImage": () => (/* binding */ SimpleImage)
+/* harmony export */ });
+var SimpleImage = /** @class */ (function () {
+    function SimpleImage() {
+    }
+    Object.defineProperty(SimpleImage, "toolbox", {
+        get: function () {
+            return {
+                title: 'Image',
+                icon: '<svg width="17" height="15" viewBox="0 0 336 276" xmlns="http://www.w3.org/2000/svg"><path d="M291 150V79c0-19-15-34-34-34H79c-19 0-34 15-34 34v42l67-44 81 72 56-29 42 30zm0 52l-43-30-56 30-81-67-66 39v23c0 19 15 34 34 34h178c17 0 31-13 34-29zM79 0h178c44 0 79 35 79 79v118c0 44-35 79-79 79H79c-44 0-79-35-79-79V79C0 35 35 0 79 0z"/></svg>'
+            };
+        },
+        enumerable: false,
+        configurable: true
+    });
+    SimpleImage.prototype.render = function () {
+        return document.createElement('input');
+    };
+    SimpleImage.prototype.save = function (blockContent) {
+        return {
+            url: blockContent.value
+        };
+    };
+    return SimpleImage;
+}());
 
 
 
