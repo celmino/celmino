@@ -6,6 +6,7 @@ import { SaveFolderAction } from './dialogs/AddFolderDialog';
 import { SaveListAction } from './dialogs/AddListDialog';
 import { SaveDocumentAction } from './dialogs/AddDocumentDialog';
 import { SaveWhiteboardAction } from './dialogs/AddWhiteboardDialog';
+import { SaveBoardAction } from './dialogs/AddBoardDialog';
 
 const manifest = require('./manifest');
 
@@ -32,6 +33,7 @@ FormBuilder.injectAction('saveFolder', SaveFolderAction);
 FormBuilder.injectAction('saveList', SaveListAction);
 FormBuilder.injectAction('wm_saveDocument', SaveDocumentAction);
 FormBuilder.injectAction('wm_saveWhiteboard', SaveWhiteboardAction);
+FormBuilder.injectAction('wm_saveBoard', SaveBoardAction);
 
 
 

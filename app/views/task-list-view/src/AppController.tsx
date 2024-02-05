@@ -21,7 +21,7 @@ import { ID, Services, useCreateDocument, useCreateStringAttribute, useGetDocume
 function replaceNonMatchingCharacters(originalText) {
     const replacementTable = {
         'ı': 'i',
-        ' ':'_'
+        ' ': '_'
     };
     // Replacement table'ı kullanarak metindeki kriterlere uymayan karakterleri değiştir
     var replacedText = originalText.replace(/[^a-zA-Z0-9._-]/g, function (match) {
@@ -39,7 +39,7 @@ export class MyTestController extends UIFormController {
 
         const navigate = useNavigate();
 
-        const { workspaceId, appletId,listId, viewId } = useParams();
+        const { workspaceId, appletId, listId, viewId } = useParams();
 
         const { document } = useGetDocument({
             projectId: workspaceId,
@@ -64,146 +64,139 @@ export class MyTestController extends UIFormController {
 
 
         return (
-            ReactView(
-                <DialogStack>
-                    {
+
+            VStack({ alignment: cTopLeading })(
+                //ActionPanel(),
+                //ViewHeader('test'),
+
+                ScrollView({ axes: cVertical, alignment: cTopLeading })(
+                    VStack({ alignment: cTopLeading })(
                         VStack({ alignment: cTopLeading })(
-                            ActionPanel(),
-                            ViewHeader('test'),
 
-                            ScrollView({ axes: cVertical, alignment: cTopLeading })(
-                                VStack({ alignment: cTopLeading })(
-                                    VStack({ alignment: cTopLeading })(
+                            VStack({ alignment: cTopLeading })(
+                                UIViewBuilder(() => {
+                                    const { openDialog } = useDialogStack();
+                                    return (
+                                        UIWidget('com.celmino.widget.list')
+                                            .config({
+                                                workspaceId: workspaceId,
+                                                listId: listId,
+                                                attributes: attributes,
+                                                groupBy: 'status',
+                                                onItemSave: (item) => {
 
-                                        VStack({ alignment: cTopLeading })(
-                                            UIViewBuilder(() => {
-                                                const { openDialog } = useDialogStack();
-                                                return (
-                                                    UIWidget('com.celmino.widget.list')
-                                                        .config({
-                                                            workspaceId: workspaceId,
-                                                            listId: listId,
-                                                            attributes: attributes,
-                                                            groupBy: 'status',
-                                                            onItemSave: (item) => {
-
-                                                                return (
-                                                                    new Promise((resolve) => {
-                                                                        createTask({
-                                                                            data: item
-                                                                        }, () => {
-                                                                            resolve(true);
-                                                                            setTimeout(() =>
-                                                                                navigate(`/app/workspace/${workspaceId}/applet/com.celmino.applet.workmanagement/list/${listId}/view/${viewId}`)
-                                                                                , 1000)
-                                                                        })
-                                                                    })
-                                                                )
-                                                            },
-                                                            onNewFieldAddded: async (formData) => {
-                                                                // alert(JSON.stringify(type))
-                                                                if (formData.type === 'text') {
-                                                                    await Services.Databases.createStringAttribute(workspaceId, appletId, 'wm_list_' + listId, formData.key, 255, false);
-                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
-                                                                        name: formData.name,
-                                                                        key: replaceNonMatchingCharacters(formData.name),
-                                                                        type: 'string',
-                                                                        hidden: false
-                                                                    });
-                                                                } else if (formData.type === 'number') {
-                                                                    const key = replaceNonMatchingCharacters(formData.name);
-                                                                    console.log(key)
-                                                                    await Services.Databases.createIntegerAttribute(workspaceId, appletId, 'wm_list_' + listId, key, false);
-                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
-                                                                        name: formData.name,
-                                                                        key: key,
-                                                                        type: 'number',
-                                                                        hidden: false
-                                                                    });
-                                                                } else if (formData.type === 'formula') {
-                                                                    await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
-                                                                        name: formData.name,
-                                                                        key: replaceNonMatchingCharacters(formData.name),
-                                                                        type: 'formula',
-                                                                        type_content: JSON.stringify({
-                                                                            expression: formData.formula
-                                                                        }),
-                                                                        hidden: false
-                                                                    });
-                                                                }
-                                                                else {
-                                                                    alert('field type not found')
-                                                                }
-
-
-                                                            },
-                                                            onItemClick: (item) => {
-                                                                openDialog({
-                                                                    title: 'Open',
-                                                                    view: UIWidget("com.celmino.widget.object-editor")
-                                                                        .config({
-                                                                            objectId: item.$id,
-                                                                            views: [],
-                                                                            //powerUps: PowerUps,
-                                                                            // headerIcon: Icon(OkrIcons.KeyResultIcon({ width: 36, height: 36 })),
-                                                                            header: item.name,
-                                                                            onHeaderChange: (title) => { alert(title) },
-                                                                            //description: metric?.description,
-                                                                            onDescriptionChange: (description) => {
-                                                                                /*  updateTask(object_id, {
-                                                                                     description: description
-                                                                                 }, {
-                                                                                     onSuccess: () => {
-                                                                                         invalidateCache();
-                                                                                     }
-                                                                                 }) */
-                                                                            },
-                                                                            fields: {
-                                                                                "assignee": {
-                                                                                    type: "user",
-                                                                                    label: 'Assignee',
-                                                                                },
-                                                                                "title": {
-                                                                                    type: "text",
-                                                                                    label: "Title",
-                                                                                    value: '',
-                                                                                    onChange: (value) => {
-                                                                                        alert(value)
-                                                                                    }
-                                                                                },
-                                                                                "state": {
-                                                                                    type: "select",
-                                                                                    label: "State",
-                                                                                    options: [],
-                                                                                    value: null,
-                                                                                    onChange: (value) => {
-                                                                                        alert(value)
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        })
-                                                                })
-                                                            },
-                                                            items: items ?? [],
-                                                            /*   stages: [{
-                        $id: 'AAA',
-                    name: 'Todo',
-                    color: '#FF0000:#00FF00'
-                                                              }] */
+                                                    return (
+                                                        new Promise((resolve) => {
+                                                            createTask({
+                                                                data: item
+                                                            }, () => {
+                                                                resolve(true);
+                                                                setTimeout(() =>
+                                                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/list/${listId}/view/${viewId}`)
+                                                                    , 1000)
+                                                            })
                                                         })
-                                                )
+                                                    )
+                                                },
+                                                onNewFieldAddded: async (formData) => {
+                                                    // alert(JSON.stringify(type))
+                                                    if (formData.type === 'text') {
+                                                        await Services.Databases.createStringAttribute(workspaceId, appletId, 'wm_list_' + listId, formData.key, 255, false);
+                                                        await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
+                                                            name: formData.name,
+                                                            key: replaceNonMatchingCharacters(formData.name),
+                                                            type: 'string',
+                                                            hidden: false
+                                                        });
+                                                    } else if (formData.type === 'number') {
+                                                        const key = replaceNonMatchingCharacters(formData.name);
+                                                        console.log(key)
+                                                        await Services.Databases.createIntegerAttribute(workspaceId, appletId, 'wm_list_' + listId, key, false);
+                                                        await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
+                                                            name: formData.name,
+                                                            key: key,
+                                                            type: 'number',
+                                                            hidden: false
+                                                        });
+                                                    } else if (formData.type === 'formula') {
+                                                        await Services.Databases.createDocument(workspaceId, appletId, 'wm_list_' + listId + '_att', ID.unique(), {
+                                                            name: formData.name,
+                                                            key: replaceNonMatchingCharacters(formData.name),
+                                                            type: 'formula',
+                                                            type_content: JSON.stringify({
+                                                                expression: formData.formula
+                                                            }),
+                                                            hidden: false
+                                                        });
+                                                    }
+                                                    else {
+                                                        alert('field type not found')
+                                                    }
+
+
+                                                },
+                                                onItemClick: (item) => {
+                                                    openDialog({
+                                                        title: 'Open',
+                                                        view: UIWidget("com.celmino.widget.object-editor")
+                                                            .config({
+                                                                objectId: item.$id,
+                                                                views: [],
+                                                                //powerUps: PowerUps,
+                                                                // headerIcon: Icon(OkrIcons.KeyResultIcon({ width: 36, height: 36 })),
+                                                                header: item.name,
+                                                                onHeaderChange: (title) => { alert(title) },
+                                                                //description: metric?.description,
+                                                                onDescriptionChange: (description) => {
+                                                                    /*  updateTask(object_id, {
+                                                                         description: description
+                                                                     }, {
+                                                                         onSuccess: () => {
+                                                                             invalidateCache();
+                                                                         }
+                                                                     }) */
+                                                                },
+                                                                fields: {
+                                                                    "assignee": {
+                                                                        type: "user",
+                                                                        label: 'Assignee',
+                                                                    },
+                                                                    "title": {
+                                                                        type: "text",
+                                                                        label: "Title",
+                                                                        value: '',
+                                                                        onChange: (value) => {
+                                                                            alert(value)
+                                                                        }
+                                                                    },
+                                                                    "state": {
+                                                                        type: "select",
+                                                                        label: "State",
+                                                                        options: [],
+                                                                        value: null,
+                                                                        onChange: (value) => {
+                                                                            alert(value)
+                                                                        }
+                                                                    }
+                                                                }
+                                                            })
+                                                    })
+                                                },
+                                                items: items ?? [],
+                                                /*   stages: [{
+            $id: 'AAA',
+        name: 'Todo',
+        color: '#FF0000:#00FF00'
+                                                  }] */
                                             })
-
-                                        )
                                     )
-                                )
-                                    .cornerRadius(10),
+                                })
 
-                                HStack().height(50)
                             )
-                        ).render()
-                    }
-                </DialogStack>
+                        )
+                    ).background('#F9FAFB')
+                )
+
             )
         )
 

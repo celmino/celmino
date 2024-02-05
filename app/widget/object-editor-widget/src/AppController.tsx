@@ -28,6 +28,7 @@ export class MyTestController extends UIController {
         const _WidgetController = widgetController.controller;
 
         return (
+           
             ConfigContext(() =>
                 VStack({ alignment: cTopLeading })(
                     //    Text(JSON.stringify(description)),
@@ -112,7 +113,6 @@ export class MyTestController extends UIController {
 
                 )
             ).config(this.props.config)
-
 
         )
     }

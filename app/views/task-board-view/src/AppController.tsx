@@ -47,9 +47,7 @@ export class MyTestController extends UIFormController {
                 <DialogStack>
                     {
                         VStack({ alignment: cTopLeading })(
-                            ActionPanel(),
-                            ViewHeader('test'),
-
+                           
                             ScrollView({ axes: cVertical, alignment: cTopLeading })(
                                 VStack({ alignment: cTopLeading })(
                                     VStack({ alignment: cTopLeading })(

@@ -9,7 +9,7 @@ import { useSessionService } from '@realmocean/services';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
-import { getAppletId, getDocumentId, getListId } from './utils';
+import { getAppletId, getDocumentId, getListId, getViewId } from './utils';
 import { Query, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 import { TextField, Text as VibeText } from '@realmocean/vibe';
@@ -19,6 +19,7 @@ import { SelectOpaDialog } from './dialogs/SelectOpaDialog';
 import { opas } from './Opas';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
 import { AddWhiteboardDialog } from './dialogs/AddWhiteboardDialog';
+import { AddBoardDialog } from './dialogs/AddBoardDialog';
 
 
 const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
@@ -35,7 +36,7 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                     title: item.name,
                     level: level,
                     nodeType: item.type,
-                    isSelected: getListId() === item.$id || getDocumentId() === item.$id,
+                    isSelected: getListId() === item.$id || getDocumentId() === item.$id || getViewId() === item.$id,
                     subNode: (nodeType) => subNodes(TreeNode, level + 1, nodeType, item.$id, workspaceId, appletId, onItemSelected),
                     requestIcon: (nodeType, selected, expanded) => {
 
@@ -55,44 +56,44 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                     },
                     requestNavigation: () => {
                         if (onItemSelected == null) {
-                        switch (item.type) {
-                            case 'folder':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
-                                break;
-                            case 'list':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/list/${item.$id}`);
-                                break;
-                            case 'document':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
-                                break;
-                            case 'whiteboard':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/whiteboard/${item.$id}`);
-                                break;
+                            switch (item.type) {
+                                case 'folder':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
+                                    break;
+                                case 'list':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/list/${item.$id}`);
+                                    break;
+                                case 'board':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/list/${item.parent}/view/${item.$id}`);
+                                    break;
+                                case 'document':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
+                                    break;
+                                case 'whiteboard':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/whiteboard/${item.$id}`);
+                                    break;
 
+                            }
+                        } else {
+
+                            onItemSelected({
+                                workspaceId: workspaceId,
+                                appletId: appletId,
+                                item
+                            })
                         }
-                    } else {
-                        
-                        onItemSelected({
-                            workspaceId: workspaceId,
-                            appletId:appletId,
-                            item
-                        })
-                    }
                     },
                     requestMenu: () => {
                         switch (item.type) {
                             case 'folder':
                                 return [
-
-                                    {
-                                        title: 'Folder',
-                                        icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                                        onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    },
                                     {
                                         title: 'List',
                                         icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
                                         onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        type: 'Divider'
                                     },
                                     {
                                         title: 'Document',
@@ -103,7 +104,44 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                                         title: 'Whiteboard',
                                         icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
                                         onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
-                                    }
+                                    },
+                                    {
+                                        type: 'Divider'
+                                    },
+                                    {
+                                        title: 'Folder',
+                                        icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                ]
+                            case 'list':
+                                return [
+                                    {
+                                        title: 'List',
+                                        icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        type: 'Divider'
+                                    },
+                                    {
+                                        title: 'Board',
+                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddBoardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Whiteboard',
+                                        icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        type: 'Divider'
+                                    },
+                                    {
+                                        title: 'Folder',
+                                        icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                        onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
                                 ]
                         }
 
@@ -162,19 +200,17 @@ export class WorkspaceTreeWidgetController extends UIController {
                         },
                         requestMenu: () => {
                             return [
-                                {
-                                    title: 'Add items',
-                                    type: 'Title'
-                                },
-                                {
-                                    title: 'Folder',
-                                    icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                                    onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', '/'))
-                                },
+                                /*  {
+                                     title: 'Add items',
+                                     type: 'Title'
+                                 }, */
                                 {
                                     title: 'List',
                                     icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
                                     onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, '-1', '/'))
+                                },
+                                {
+                                    type: 'Divider'
                                 },
                                 {
                                     title: 'Document',
@@ -185,7 +221,23 @@ export class WorkspaceTreeWidgetController extends UIController {
                                     title: 'Whiteboard',
                                     icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
                                     onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, '-1', '/'))
-                                }
+                                },
+                                {
+                                    type: 'Divider'
+                                },
+                                {
+                                    title: 'Folder',
+                                    icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', '/'))
+                                },
+                                {
+                                    title: 'Smart Folder',
+                                    icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                    onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', '/'))
+                                },
+
+
+
                             ]
 
 

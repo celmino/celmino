@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare const views: {
     name: string;
     type: string;

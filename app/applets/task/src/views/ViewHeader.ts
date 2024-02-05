@@ -30,7 +30,7 @@ export const ViewHeader = (header, onHeaderChange = void 0) => UIViewBuilder(() 
             )
             .background('white')
             .height().padding(8)
-            .borderBottom('1px solid #F2F2F2')
+           // .borderBottom('1px solid #F2F2F2')
      
 
     )
