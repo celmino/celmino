@@ -185,6 +185,8 @@ export class WorkspaceTreeWidgetController extends UIController {
 
     public override LoadView(): UIView {
 
+        const navigate = useNavigate();
+
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
         const { items } = this.props.data || {};
@@ -267,6 +269,9 @@ export class WorkspaceTreeWidgetController extends UIController {
                             ]
 
 
+                        },
+                        requestNavigation:()=> {
+                            navigate(`/app/workspace/${workspaceId}/applet/${appletId}`)
                         }
 
                     })

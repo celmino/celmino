@@ -216,6 +216,7 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     WorkspaceTreeWidgetController.prototype.LoadView = function () {
+        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _a[0], setIsEditing = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
@@ -282,6 +283,9 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
                             onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
                         },
                     ];
+                },
+                requestNavigation: function () {
+                    navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId));
                 }
             }));
     };
