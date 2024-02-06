@@ -80,6 +80,7 @@ const webConfig = {
         '@realmocean/imageeditor': 'realmocean$imageeditor',
         '@realmocean/antd':'realmocean$antd',
         '@realmocean/sdk': 'realmocean$sdk',
+        '@realmocean/ui': 'realmocean$ui',
 
         'react': 'tuval$react',
         'react-dom/client': 'tuval$react$dom'

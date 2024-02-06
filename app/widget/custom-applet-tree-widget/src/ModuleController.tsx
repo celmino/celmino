@@ -20,6 +20,8 @@ import { opas } from './Opas';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
 import { AddWhiteboardDialog } from './dialogs/AddWhiteboardDialog';
 import { AddBoardDialog } from './dialogs/AddBoardDialog';
+import React from 'react';
+import { BoardIcon, CalendarIcon, FeedIcon, ListIcon, ReportIcon, TableIcon, TimelineIcon } from './resources/Icons';
 
 
 const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
@@ -43,6 +45,8 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                         switch (nodeType) {
                             case 'list':
                                 return Icon(SvgIcon('cu3-icon-sidebarList', selected ? '#7b68ee' : '#151719', '18px', '18px')).foregroundColor('#7C828D');
+                            case 'board':
+                                return Icon(BoardIcon).foregroundColor('#7C828D');
                             case 'folder':
                                 return Icon(expanded ? SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px') : SvgIcon('cu3-icon-sidebarFolder', '#151719', '18px', '18px')).foregroundColor('#7C828D');
 
@@ -117,21 +121,43 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                             case 'list':
                                 return [
                                     {
-                                        title: 'List',
-                                        icon: SvgIcon('cu3-icon-sidebarList', '#151719', '18px', '18px'),
+                                        title: 'Add view',
+                                        type: 'Title'
+                                    },
+                                    {
+                                        title: 'Table',
+                                        icon: Icon(TableIcon).foregroundColor('#7C828D'),
                                         onClick: () => DynoDialog.Show(AddListDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
                                     },
-                                    {
-                                        type: 'Divider'
-                                    },
+
                                     {
                                         title: 'Board',
-                                        icon: SvgIcon('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
+                                        icon: Icon(BoardIcon).foregroundColor('#7C828D'),
                                         onClick: () => DynoDialog.Show(AddBoardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
                                     },
                                     {
-                                        title: 'Whiteboard',
-                                        icon: SvgIcon('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
+                                        title: 'List',
+                                        icon: Icon(ListIcon).foregroundColor('#7C828D'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Timeline',
+                                        icon: Icon(TimelineIcon).foregroundColor('#7C828D'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Calendar',
+                                        icon: Icon(CalendarIcon).foregroundColor('#7C828D'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Report',
+                                        icon: Icon(ReportIcon).foregroundColor('#7C828D'),
+                                        onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
+                                    },
+                                    {
+                                        title: 'Feed',
+                                        icon: Icon(FeedIcon).foregroundColor('#7C828D'),
                                         onClick: () => DynoDialog.Show(AddWhiteboardDialog(workspaceId, appletId, item.$id, `${item.path}/${item.$id}`))
                                     },
                                     {
@@ -145,7 +171,7 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                                 ]
                         }
 
-
+                        return null;
                     }
 
                 })

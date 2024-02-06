@@ -3375,12 +3375,13 @@ var MyTestController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MyTestController.prototype.LoadView = function () {
-        var _a = this.props.config || {}, workspaceId = _a.workspaceId, appletId = _a.appletId, appletName = _a.appletName, subNodes = _a.subNodes, requestMenu = _a.requestMenu;
+        var _a = this.props.config || {}, workspaceId = _a.workspaceId, appletId = _a.appletId, appletName = _a.appletName, subNodes = _a.subNodes, requestMenu = _a.requestMenu, requestNavigation = _a.requestNavigation;
         // const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.OptionsContext)(function () { return ((0,_views_TreeNode__WEBPACK_IMPORTED_MODULE_4__.TreeNode)({
             title: appletName,
             iconName: 'bookmark',
             requestMenu: requestMenu,
+            requestNavigation: requestNavigation,
             //isExpand: expanded,
             //expandChanged: setExpanded,
             subNode: function (nodeType) { return (subNodes(_views_TreeNode__WEBPACK_IMPORTED_MODULE_4__.TreeNode, 1, nodeType, '-1', workspaceId, appletId)); }
@@ -4081,6 +4082,7 @@ __webpack_require__.r(__webpack_exports__);
 var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
     var _a = treeNodeProps.isLoading, isLoading = _a === void 0 ? false : _a, _b = treeNodeProps.isEditing, isEditing = _b === void 0 ? false : _b, _c = treeNodeProps.isSelected, isSelected = _c === void 0 ? false : _c, _d = treeNodeProps.title, title = _d === void 0 ? '' : _d, _e = treeNodeProps.level, level = _e === void 0 ? 0 : _e, _f = treeNodeProps.menuModel, menuModel = _f === void 0 ? [] : _f, _g = treeNodeProps.subNode, subNode = _g === void 0 ? function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)(); } : _g, _h = treeNodeProps.nodeType, nodeType = _h === void 0 ? 'root' : _h, _j = treeNodeProps.titleChanged, titleChanged = _j === void 0 ? function () { return void 0; } : _j, _k = treeNodeProps.editingChanged, editingChanged = _k === void 0 ? function () { return void 0; } : _k, _l = treeNodeProps.iconName, iconName = _l === void 0 ? '' : _l, _m = treeNodeProps.requestIcon, requestIcon = _m === void 0 ? function () { return void 0; } : _m, _o = treeNodeProps.requestNavigation, requestNavigation = _o === void 0 ? function () { return void 0; } : _o, _p = treeNodeProps.requestMenu, requestMenu = _p === void 0 ? function () { return []; } : _p;
     var _q = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), expanded = _q[0], setExpanded = _q[1];
+    var menu = requestMenu(nodeType);
     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 2 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Loader)().size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.LoaderSizes.XS) :
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_WorkbenchIcons__WEBPACK_IMPORTED_MODULE_3__.WorkbenchIcons.CaretDown1).transform(expanded ? 'rotate(90deg)' : '')
             .transition('transform .12s ease-in-out'))
@@ -4158,15 +4160,16 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
                 requestNavigation();
             })
                 .overflow('hidden')
-                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-        .model(requestMenu(nodeType))
-        .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add))
-        .onClick(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    })
-        .width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
-        .display('var(--show-space-action-buttons)'))
+                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), menu == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
+            .model(requestMenu(nodeType))
+            .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add))
+            .onClick(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        })
+            .width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
+            .display('var(--show-space-action-buttons)'))
         .transition('transform .12s ease-in-out')
         //.width('calc(100% - 0px)')
         .transform('translate3d(0px, 0, 0)')
@@ -4176,6 +4179,7 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
         .paddingLeft("".concat(20 * level, "px"))
         .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })
         .cornerRadius(6)
+        .clipPath(isSelected ? 'polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)' : '')
         .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
         .variable("--display-caret", { default: 'hidden', hover: 'visible' })
         .variable("--display-icon", { default: 'visible', hover: 'hidden' })

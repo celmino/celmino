@@ -3743,7 +3743,7 @@ export const Applets = [
         ]
     },
     {
-        name: 'Task Management',
+        name: 'Tasks',
         tree_type: 'com.celmino.widget.workspace-tree',
         applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
@@ -4007,7 +4007,7 @@ export const Applets = [
         ]
     },
     {
-        name: 'Document Management',
+        name: 'Documents',
         tree_type: 'com.celmino.widget.document-management-tree',
         applet_type: 'com.celmino.applet.document-management',
         description: 'Monitor your process details in timeframe chart.',
@@ -4062,7 +4062,7 @@ export const Applets = [
                             }
                         ]
                     },
-          
+
                     {
                         "name": "Folders",
                         "id": "dm_folders",
@@ -4168,7 +4168,7 @@ export const Applets = [
                 "id": "notebooks",
                 "category": "app",
                 "collections": [
-          
+
                     {
                         "name": "Notebooks",
                         "id": "nb_notebooks",
@@ -4257,12 +4257,45 @@ export const Applets = [
             }
         ]
     },
-{
-    name: 'Meeting Management',
+    {
+        name: 'Meetings',
         type: 'com.celmino.applet.enterprise-modelling',
-            description: 'Monitor your process details in timeframe chart.',
-                // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-                icon: '\\d320',
-                    enabled: true
-}
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Processes',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Risks',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Controls',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Applet Category',
+        tree_type: 'com.celmino.widget.applet-category',
+        applet_type: 'com.celmino.applet.category',
+        description: 'Split your applets by category.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    }
 ];

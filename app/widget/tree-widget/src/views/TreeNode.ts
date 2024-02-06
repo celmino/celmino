@@ -40,6 +40,8 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
 
     const [expanded, setExpanded] = useState(false);
 
+    const menu = requestMenu(nodeType)
+
     return (
         VStack({ alignment: cTopLeading })(
             HStack({ alignment: cLeading, spacing: 2 })(
@@ -134,6 +136,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                                 .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
                                 .lineHeight(22)
                         )
+                           
                             //.width('calc(100% - 40px)')
                             .height(32)
                     )
@@ -143,18 +146,19 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                         .overflow('hidden')
                         .height(),
                 Spacer(),
-                HStack({ alignment: cTrailing })(
-                    MenuButton()
-                        .model(requestMenu(nodeType))
-                        .icon(Icons.Add)
-                )
-                    .onClick((e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    })
+                menu == null ? Fragment() :
+                    HStack({ alignment: cTrailing })(
+                        MenuButton()
+                            .model(requestMenu(nodeType))
+                            .icon(Icons.Add)
+                    )
+                        .onClick((e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        })
 
-                    .width(64).height(32).padding(cHorizontal, 5)
-                    .display('var(--show-space-action-buttons)'),
+                        .width(64).height(32).padding(cHorizontal, 5)
+                        .display('var(--show-space-action-buttons)'),
             )
                 .transition('transform .12s ease-in-out')
                 //.width('calc(100% - 0px)')
@@ -165,6 +169,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                 .paddingLeft(`${20 * level}px`)
                 .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })
                 .cornerRadius(6)
+                .clipPath(isSelected ? 'polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)' : '')
                 .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
                 .variable(`--display-caret`, { default: 'hidden', hover: 'visible' })
                 .variable(`--display-icon`, { default: 'visible', hover: 'hidden' })

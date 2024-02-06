@@ -30,6 +30,8 @@ import React, { useState } from "react";
 import { DatabaseNameView } from "./DatabaseNameView";
 import { SelectAppletDialog } from "../../../dialogs/SelectAppletDialog";
 import { Text as VibeText } from '@realmocean/vibe';
+import {DynoDialog} from '@realmocean/ui'
+import { AddAppletDialog } from "../../../dialogs/AddAppletDialog";
 
 function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
     let str = '';
@@ -275,7 +277,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                             VibeText(realm.name)
                                                         ).background({ hover: '#E8EAED' })
                                                             .cursor('pointer')
-                                                            .padding()
+                                                            .padding(5)
                                                             .onClick(() => {
 
                                                                 updatePrefs({
@@ -370,7 +372,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                 .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
                                                 .padding('8px 12px 8px 26px')
                                                 .onClick(() => {
-                                                    // DynoDialog.Show(AddAppletDialog(workspaceId));
+                                                     DynoDialog.Show(AddAppletDialog(workspaceId));
 
                                                 })
                                         )

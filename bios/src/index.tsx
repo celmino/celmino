@@ -3,6 +3,8 @@ import { StartBios } from '@tuval/forms';
 
 import { BiosMainController, MainController } from './NewBiosController';
 import './css/global.scss';
+import { FormBuilder } from '@realmocean/ui';
+import { AddAppletAction } from './dialogs/AddAppletDialog';
 
 
 (function (history: any) {
@@ -92,3 +94,5 @@ window.addEventListener("load", (event) => {
 });
 
 //StartBios(BiosController)
+
+FormBuilder.injectAction('ca_AddApplet',AddAppletAction);
