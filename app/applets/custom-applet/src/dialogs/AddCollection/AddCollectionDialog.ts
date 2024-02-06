@@ -3,9 +3,6 @@
 
 export const AddCollectionDialog = (workspaceId:string, appletId: string) => ({
     "title": 'Create collection',
-    "method": "create",
-    "resource": "collections",
-    /*   "mutation":"_create_workspace", */
     "actions": [
         {
             "label": "Save",

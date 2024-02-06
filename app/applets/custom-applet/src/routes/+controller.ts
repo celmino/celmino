@@ -13,8 +13,8 @@ import {
     useParams,
     useState
 } from "@tuval/forms";
-import { DynoDialog } from "../dialogs/DynoDialog";
 import { AddCollectionDialog } from "../dialogs/AddCollection/AddCollectionDialog";
+import { DynoDialog } from "@realmocean/ui";
 
 
 export class AppletController extends UIFormController {

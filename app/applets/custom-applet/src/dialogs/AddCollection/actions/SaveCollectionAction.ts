@@ -3,9 +3,8 @@ import {
     Button,
     Text,
     UIViewBuilder,
-    useDialog, useFormBuilder,
-    useFormController,
-    useNavigate
+    useDialog,
+    useFormController
 } from "@tuval/forms";
 
 
@@ -15,8 +14,6 @@ export const SaveCollectionAction = (formMeta, action) => UIViewBuilder(() => {
     const { label, successAction, successActions } = action;
     const formController = useFormController();
     const dialog = useDialog();
-    const formBuilder = useFormBuilder();
-    const navigate = useNavigate();
 
     let invalidateResource = null;
     let formMutate = null;

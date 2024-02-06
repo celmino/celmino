@@ -1,11 +1,6 @@
 import { UIController, UIRoute, UIRoutes, UIView, UIViewBuilder, VStack } from "@tuval/forms";
-import { MyTestController } from "../AppController";
-import { ViewController } from "./list-[listId]/view-[viewId]/+controller";
-import { DocumentController } from "./document-[documentId]/+controller";
-import { ListController } from "./list-[listId]/+controller.ts";
-import { WhiteboardController } from "./whiteboard-[whiteboardId]/+controller";
-import { FolderController } from "./folder-[folderId]/+controller";
 import { AppletController } from "./+controller";
+import { CollectionController } from "./collection-[collectionId]/+controller";
 
 
 export class RouteController extends UIController {
@@ -16,7 +11,7 @@ export class RouteController extends UIController {
                 VStack(
                     UIRoutes(
                         UIRoute('/', AppletController).children(
-                            UIRoute('',   class extends  DocumentController {} ),
+                            UIRoute(':collectionId',  CollectionController ),
                            /*  UIRoute('list/:listId', ListController).children(
                                 UIRoute('view/:viewId', class extends  ViewController {}),
                             ), */

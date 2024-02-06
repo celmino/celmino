@@ -1,7 +1,5 @@
 export declare const AddCollectionDialog: (workspaceId: string, appletId: string) => {
     title: string;
-    method: string;
-    resource: string;
     actions: {
         label: string;
         type: string;

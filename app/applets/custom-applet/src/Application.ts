@@ -1,8 +1,9 @@
-import { FormBuilder, UIController } from '@tuval/forms';
+
 import { MyTestController } from './AppController';
 import { RouteController } from './routes/+routes';
 import { ListStatusWidget } from './widget/ListStatusWidget';
 import { SaveCollectionAction } from './dialogs/AddCollection/actions/SaveCollectionAction';
+import { FormBuilder } from '@realmocean/ui';
 
 const manifest = require('./manifest');
 
@@ -28,6 +29,7 @@ export class ProcessMining {
 
 
 FormBuilder.injectView('liststatus', ListStatusWidget)
-FormBuilder.injectView('ca_saveCollection', SaveCollectionAction)
+
+FormBuilder.injectAction('ca_saveCollection', SaveCollectionAction)
 
 

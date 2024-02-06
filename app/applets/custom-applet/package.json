@@ -151,6 +151,7 @@
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/material": "^5.11.14",
+        "@realmocean/antd": "^21.0.30",
         "editorjs-inline-image": "^1.2.4",
         "node-sass": "^8.0.0",
         "react-dom": "^18.2.0",

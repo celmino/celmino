@@ -1,0 +1,28 @@
+export declare namespace Icons {
+    const RightArrow: () => JSX.Element;
+    const Plus: () => JSX.Element;
+    const TextAttribute: () => JSX.Element;
+    const RichTextAttribute: () => JSX.Element;
+    const NumberAttribute: () => JSX.Element;
+    const SingleSelectAttribute: () => JSX.Element;
+    const MultiSelectAttribute: () => JSX.Element;
+    const WorkflowAttribute: () => JSX.Element;
+    const AssignmentAttribute: () => JSX.Element;
+    const DateAttribute: () => JSX.Element;
+    const CheckboxAttribute: () => JSX.Element;
+    const URLAttribute: () => JSX.Element;
+    const EmailAttribute: () => JSX.Element;
+    const PhoneAttribute: () => JSX.Element;
+    const LocationAttribute: () => JSX.Element;
+    const AvatarAttribute: () => JSX.Element;
+    const IconAttribute: () => JSX.Element;
+    const FilesAttribute: () => JSX.Element;
+    const CommentsAttribute: () => JSX.Element;
+    const RelationToAttribute: () => JSX.Element;
+    const LookupFromAttribute: () => JSX.Element;
+    const FormulaAttribute: () => JSX.Element;
+    const DocumentAttribute: () => JSX.Element;
+    const RelationAttribute: () => JSX.Element;
+    const Collection: () => JSX.Element;
+    const Relation: () => JSX.Element;
+}
