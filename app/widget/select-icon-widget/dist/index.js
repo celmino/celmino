@@ -3129,7 +3129,7 @@ var MyTestController = /** @class */ (function (_super) {
                     (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_emoji_mart_react__WEBPACK_IMPORTED_MODULE_4__["default"], { data: _emoji_mart_data__WEBPACK_IMPORTED_MODULE_7__, onEmojiSelect: function (e) {
                             if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
                                 onChange({
-                                    iconCategory: mode,
+                                    iconCategory: 'Emoji',
                                     iconName: e.native,
                                 });
                             }
@@ -3149,7 +3149,7 @@ var MyTestController = /** @class */ (function (_super) {
                             .onClick(function () {
                             if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
                                 onChange({
-                                    iconCategory: mode,
+                                    iconCategory: 'Icons',
                                     iconName: key,
                                 });
                             }
@@ -3171,7 +3171,7 @@ var MyTestController = /** @class */ (function (_super) {
                             .onClick(function () {
                             if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(onChange)) {
                                 onChange({
-                                    iconCategory: mode,
+                                    iconCategory: 'CuIcons',
                                     iconName: key,
                                 });
                             }

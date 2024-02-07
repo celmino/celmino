@@ -1,4 +1,4 @@
 import { UIController, UIView } from '@tuval/forms';
-export declare class WorkspaceTreeWidgetController extends UIController {
+export declare class CustomAppletTreeModuleController extends UIController {
     LoadView(): UIView;
 }

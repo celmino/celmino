@@ -9,7 +9,7 @@ import { useSessionService } from '@realmocean/services';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
-import { getAppletId, getDocumentId, getListId, getViewId } from './utils';
+import { getAppletId, getDocumentId, getListId, getViewId, isAppletOnly, isAppletSettings } from './utils';
 import { Query, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 import { TextField, Text as VibeText } from '@realmocean/vibe';
@@ -179,11 +179,14 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
             )
         )
     )
+
 })
 
 export class WorkspaceTreeWidgetController extends UIController {
 
     public override LoadView(): UIView {
+
+        const navigate = useNavigate();
 
         const [isEditing, setIsEditing] = useState(false);
         const isLoading = false;
@@ -195,25 +198,8 @@ export class WorkspaceTreeWidgetController extends UIController {
 
         let listId = getListId();
 
-
-        /*     const { document: list, isLoading: isListLoading } = useGetDocument({
-                projectId: workspaceId,
-                databaseId: appletId,
-                collectionId: 'wm_lists',
-                documentId: listId
-            }, { enabled: listId != null }); */
-
-
-
-        /*  useEffect(() => {
-             if (list! + null) {
-                 setExpanded(true);
-             }
-         }, []); */
-
-        // const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
         const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
-
+        const { updateDocument } = useUpdateDocument(workspaceId);
         return (
             isAppletLoading ? Spinner() :
                 UIWidget('com.celmino.widget.applet-tree')
@@ -221,6 +207,30 @@ export class WorkspaceTreeWidgetController extends UIController {
                         workspaceId,
                         appletId,
                         appletName: applet.name,
+                        iconName: applet.iconName,
+                        iconCategory: applet.iconCategory,
+                        isEditing: isEditing,
+                        isSelected: isAppletSettings(appletId) || isAppletOnly(appletId),
+                        editingChanged: (status) => setIsEditing(status),
+                        titleChanged: (title) => {
+                            updateDocument({
+                                databaseId: 'workspace',
+                                collectionId: 'applets',
+                                documentId: appletId,
+                                data: {
+                                    name: title
+                                }
+                            }, () => {
+                                updateDocument({
+                                    databaseId: 'workspace',
+                                    collectionId: 'applets',
+                                    documentId: appletId,
+                                    data: {
+                                        name: title
+                                    }
+                                })
+                            })
+                        },
                         subNodes: (TreeNode, level, nodeType, parentId, workspaceId, appletId) => {
                             return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected)
                         },
@@ -267,7 +277,22 @@ export class WorkspaceTreeWidgetController extends UIController {
                             ]
 
 
-                        }
+                        },
+
+                        requestEditMenu: () => [
+
+                            {
+                                title: 'Rename',
+                                icon: SvgIcon('svg-sprite-global__edit', '#151719', '18px', '18px'),
+                                onClick: () => setIsEditing(true)
+                            },
+
+                            {
+                                title: 'Applet settings',
+                                icon: SvgIcon('svg-sprite-global__settings', '#151719', '18px', '18px'),
+                                onClick: () => navigate(`/app/workspace/${workspaceId}/applet/${appletId}/settings/general`)
+                            }
+                        ]
 
                     })
         )

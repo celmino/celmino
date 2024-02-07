@@ -39716,6 +39716,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_listId_controller_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list-[listId]/+controller.ts */ "./src/routes/list-[listId]/+controller.ts.ts");
 /* harmony import */ var _whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./whiteboard-[whiteboardId]/+controller */ "./src/routes/whiteboard-[whiteboardId]/+controller.tsx");
 /* harmony import */ var _folder_folderId_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./folder-[folderId]/+controller */ "./src/routes/folder-[folderId]/+controller.tsx");
+/* harmony import */ var _settings_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./settings/+controller */ "./src/routes/settings/+controller.ts");
+/* harmony import */ var _settings_features_controller__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./settings/features/+controller */ "./src/routes/settings/features/+controller.ts");
+/* harmony import */ var _settings_general_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./settings/general/+controller */ "./src/routes/settings/general/+controller.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -39731,6 +39734,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+
+
+
 
 
 
@@ -39769,7 +39775,7 @@ var RouteController = /** @class */ (function (_super) {
                     return _super !== null && _super.apply(this, arguments) || this;
                 }
                 return class_4;
-            }(_whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__.WhiteboardController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController))))
+            }(_whiteboard_whiteboardId_controller__WEBPACK_IMPORTED_MODULE_5__.WhiteboardController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':view_id/*', _list_listId_view_viewId_controller__WEBPACK_IMPORTED_MODULE_2__.ViewController)), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/settings', _settings_controller__WEBPACK_IMPORTED_MODULE_7__.SettingsController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('features', _settings_features_controller__WEBPACK_IMPORTED_MODULE_8__.FeatureSettingsController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('general', _settings_general_controller__WEBPACK_IMPORTED_MODULE_9__.GeneralSettingsController))))
                 .background('var(--primary-background-color)');
         }));
     };
@@ -39868,6 +39874,7 @@ var DocumentController = /** @class */ (function (_super) {
                 return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)(document === null || document === void 0 ? void 0 : document.type)
                     .config({
                     defaultValue: _tuval_core__WEBPACK_IMPORTED_MODULE_5__.is.nullOrEmpty(content === null || content === void 0 ? void 0 : content.content) ? null : JSON.parse(content.content),
+                    clamp: true,
                     workspaceId: workspaceId,
                     appletId: appletId,
                     tools: {
@@ -40746,6 +40753,347 @@ var ErrorBoundaryInner = /** @class */ (function (_super) {
     };
     return ErrorBoundaryInner;
 }((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
+
+
+/***/ }),
+
+/***/ "./src/routes/settings/+controller.ts":
+/*!********************************************!*\
+  !*** ./src/routes/settings/+controller.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SettingsController": () => (/* binding */ SettingsController),
+/* harmony export */   "getSettingsName": () => (/* binding */ getSettingsName)
+/* harmony export */ });
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+
+
+function getSettingsName() {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/settings\/([^\/]+)/;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1];
+    }
+    else {
+        return;
+    }
+}
+var SettingsController = /** @class */ (function (_super) {
+    __extends(SettingsController, _super);
+    function SettingsController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SettingsController.prototype.LoadView = function () {
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
+        var menu = [
+            {
+                id: 'general',
+                title: 'General',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/general"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-settings')
+            },
+            {
+                id: 'import',
+                title: 'Document Types',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/import"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-importIcon')
+            },
+            {
+                id: 'features',
+                title: 'Features',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/features"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-settings')
+            },
+            {
+                id: 'collections',
+                title: 'Collections',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/collections"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-settings')
+            },
+            {
+                id: 'import',
+                title: 'Integrations',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/import"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-importIcon')
+            },
+            {
+                id: 'security',
+                title: 'Security & Permissions ',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/security"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-protectedAlt')
+            },
+            {
+                id: 'import',
+                title: 'Imports / Exports',
+                url: "/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/import"),
+                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-importIcon')
+            },
+        ];
+        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
+        // 
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading }).apply(void 0, __spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)('DOCUMENT APPLET').h3().foregroundColor('rgb(101, 111, 125)')
+                .fontSize(11).fontWeight('600')).padding('16px 8px 8px').height()], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(menu)(function (item) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(item.icon).foregroundColor(item.id === getSettingsName() ? 'rgb(84, 77, 201)' : 'rgb(42, 46, 52)'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__.Text)(item.title).fontSize(14).foregroundColor(item.id === getSettingsName() ? 'rgb(84, 77, 201)' : 'rgb(42, 46, 52)')
+                .fontFamily('-apple-system, "system-ui", "Segoe UI", roboto, "Helvetica Neue", helvetica, arial, sans-serif')
+                .lineHeight(16)).height(32)
+                .cornerRadius(6)
+                .background({ default: item.id === getSettingsName() ? '#E5E4FC' : '', hover: '#E8EAED' })
+                .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cHorizontal, 8)
+                .cursor('pointer')
+                .onClick(function () {
+                navigate(item.url);
+            });
+        }), false)).padding()
+            .background('#F7F8F9')
+            .allWidth(240)
+            .margin('0 8px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteOutlet)().width('100%').height('100%')));
+    };
+    return SettingsController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIFormController));
+
+
+
+/***/ }),
+
+/***/ "./src/routes/settings/features/+controller.ts":
+/*!*****************************************************!*\
+  !*** ./src/routes/settings/features/+controller.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FeatureSettingsController": () => (/* binding */ FeatureSettingsController)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var settings = [
+    {
+        key: 'isVersionManagementActive',
+        title: 'Version',
+        description: 'Is version management active'
+    },
+    {
+        key: 'isVersionManagementActive',
+        title: 'Document Metadata',
+        description: 'Is version management active'
+    },
+    {
+        key: 'isVersionManagementActive',
+        title: 'Security',
+        description: 'Is version management active'
+    },
+    {
+        key: 'isVersionManagementActive',
+        title: 'E-mail',
+        description: 'Is version management active'
+    },
+    {
+        key: 'isVersionManagementActive',
+        title: 'History',
+        description: 'Is version management active'
+    }
+];
+var FeatureSettingsController = /** @class */ (function (_super) {
+    __extends(FeatureSettingsController, _super);
+    function FeatureSettingsController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    FeatureSettingsController.prototype.LoadView = function () {
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Features').fontSize(24).fontWeight('600')
+            .foregroundColor('rgb(42, 46, 52)')
+            .lineHeight(32))
+            .height()
+            .margin('0 0 30px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(settings)(function (setting) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)()
+                .background('#7f77f1')
+                .cornerRadius('4px 4px 0 0')
+                .height(4), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)('/images/version.png')
+                .maxWidth('100%')
+                .maxHeight('100%'))
+                .width(268)
+                .height(180), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(setting.title)
+                .fontSize(17)
+                .fontWeight('500')
+                .lineHeight(24)
+                .foregroundColor('#505050')
+                .marginBottom('12px')
+                .padding('0 15px')
+                .transition('all .2s cubic-bezier(.785,.135,.15,.86) 0s'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(setting.description)
+                .lineHeight(18)
+                .fontSize(12)
+                .foregroundColor('rgb(42, 46, 52)'))
+                .background('rgb(247, 248, 249)')
+                .border('1px solid rgb(232, 234, 237)')
+                .padding('0 0 30px')
+                .margin('0 8px 30px')
+                .width(270)
+                .transition('all .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                .allHeight(370)
+                .cornerRadius(4)
+                .shadow({ hover: '0 4px 15px #0000001a' });
+        })).wrap('wrap')
+            .padding('24px 48px'))
+            .padding('24px 48px'));
+    };
+    return FeatureSettingsController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIFormController));
+
+
+
+/***/ }),
+
+/***/ "./src/routes/settings/general/+controller.ts":
+/*!****************************************************!*\
+  !*** ./src/routes/settings/general/+controller.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GeneralSettingsController": () => (/* binding */ GeneralSettingsController)
+/* harmony export */ });
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var GeneralSettingsController = /** @class */ (function (_super) {
+    __extends(GeneralSettingsController, _super);
+    function GeneralSettingsController() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GeneralSettingsController.prototype.LoadView = function () {
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
+        var applet = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }).document;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdateDocument)(workspaceId).updateDocument;
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('General').fontSize(24).fontWeight('600')
+            .foregroundColor('rgb(42, 46, 52)')
+            .lineHeight(32))
+            .height()
+            .margin('0 0 30px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Applet').fontSize(20).fontWeight('600')
+            .foregroundColor('rgb(42, 46, 52)')
+            .lineHeight(32))
+            .height()
+            .margin('0 0 30px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Name').fontSize(16).fontWeight('600')
+            .foregroundColor('rgb(42, 46, 52)')
+            .lineHeight(32)).height().width(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.TextField)()
+            .value(applet === null || applet === void 0 ? void 0 : applet.name)
+            .border('0')
+            .outline({ focus: 'none' })
+            .shadow('rgba(224, 227, 230, 0.7) 0px 0px 0px 1px')
+            .padding(12)
+            .cornerRadius(6)).height().width(400))
+            .height()
+            .margin('0 0 30px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Icon').fontSize(16).fontWeight('600')
+            .foregroundColor('rgb(42, 46, 52)')
+            .lineHeight(32)).height().width(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
+            .config({
+            onChange: function (value) {
+                updateDocument({
+                    databaseId: 'workspace',
+                    collectionId: 'applets',
+                    documentId: appletId,
+                    data: {
+                        iconName: value.iconName,
+                        iconCategory: value.iconCategory
+                    }
+                });
+            },
+            selectedIcon: applet === null || applet === void 0 ? void 0 : applet.iconName,
+            color: applet === null || applet === void 0 ? void 0 : applet.bg_color,
+            selectedCategory: applet === null || applet === void 0 ? void 0 : applet.iconCategory,
+            width: 32,
+            height: 32
+        }))
+            .border('1px dashed rgba(69,104,251,.3)')
+            .transition('border-color .12s ease-in-out')
+            .cornerRadius(6)
+            .padding(4)
+            //.background('#FCE8E8')
+            .width(44).height(44).cornerRadius(5))
+            .height()
+            .margin('0 0 30px'))
+            .padding('24px 48px'));
+    };
+    return GeneralSettingsController;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIFormController));
+
 
 
 /***/ }),

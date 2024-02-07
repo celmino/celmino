@@ -113,7 +113,7 @@ export class MyTestController extends UIController {
                                 <Picker data={data} onEmojiSelect={(e) => {
                                     if (is.function(onChange)) {
                                         onChange({
-                                            iconCategory: mode,
+                                            iconCategory: 'Emoji',
                                             iconName: e.native,
                                         });
                                     }
@@ -141,7 +141,7 @@ export class MyTestController extends UIController {
                                             .onClick(() => {
                                                 if (is.function(onChange)) {
                                                     onChange({
-                                                        iconCategory: mode,
+                                                        iconCategory: 'Icons',
                                                         iconName: key,
                                                     });
                                                 }
@@ -171,7 +171,7 @@ export class MyTestController extends UIController {
                                             .onClick(() => {
                                                 if (is.function(onChange)) {
                                                     onChange({
-                                                        iconCategory: mode,
+                                                        iconCategory: 'CuIcons',
                                                         iconName: key,
                                                     });
                                                 }

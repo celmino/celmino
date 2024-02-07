@@ -56,6 +56,7 @@ export class DocumentController extends UIController {
                                         UIWidget(document?.type)
                                             .config({
                                                 defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
+                                                clamp:true,
                                                 workspaceId: workspaceId,
                                                 appletId: appletId,
                                                 tools: {

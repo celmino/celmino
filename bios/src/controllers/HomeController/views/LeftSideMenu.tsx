@@ -201,6 +201,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                 ]);
 
                 const { documents } = useListDocuments(workspaceId, 'workspace', 'applets', [
+                    Query.limit(250),
                     // Query.equal('opa', 'com.celmino.widget.enterprise-modelling-tree')
 
                 ]);

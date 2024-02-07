@@ -29,7 +29,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   WorkspaceTreeWidgetController: () => (/* binding */ WorkspaceTreeWidgetController)
+/* harmony export */   CustomAppletTreeModuleController: () => (/* binding */ CustomAppletTreeModuleController)
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
@@ -210,12 +210,12 @@ var subNodes = function (TreeNode, level, nodeType, parentId, workspaceId, apple
         });
     })));
 }); };
-var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
-    __extends(WorkspaceTreeWidgetController, _super);
-    function WorkspaceTreeWidgetController() {
+var CustomAppletTreeModuleController = /** @class */ (function (_super) {
+    __extends(CustomAppletTreeModuleController, _super);
+    function CustomAppletTreeModuleController() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    WorkspaceTreeWidgetController.prototype.LoadView = function () {
+    CustomAppletTreeModuleController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _a[0], setIsEditing = _a[1];
         var isLoading = false;
@@ -236,60 +236,90 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
          }, []); */
         // const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
         var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }), applet = _d.document, isAppletLoading = _d.isLoading;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
         return (isAppletLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.celmino.widget.applet-tree')
-                .config({
-                workspaceId: workspaceId,
-                appletId: appletId,
-                appletName: applet.name,
-                subNodes: function (TreeNode, level, nodeType, parentId, workspaceId, appletId) {
-                    return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected);
-                },
-                requestMenu: function () {
-                    return [
-                        /*  {
-                             title: 'Add items',
-                             type: 'Title'
-                         }, */
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+                var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(applet.name), appletName = _a[0], setAppletName = _a[1];
+                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.celmino.widget.applet-tree')
+                    .config({
+                    workspaceId: workspaceId,
+                    appletId: appletId,
+                    appletName: appletName,
+                    isSelected: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.isAppletSettings)(appletId) || (0,_utils__WEBPACK_IMPORTED_MODULE_3__.isAppletOnly)(appletId),
+                    isEditing: isEditing,
+                    editingChanged: function (status) { return setIsEditing(status); },
+                    titleChanged: function (title) {
+                        setAppletName(title);
+                        updateDocument({
+                            databaseId: 'workspace',
+                            collectionId: 'applets',
+                            documentId: appletId,
+                            data: {
+                                name: title
+                            }
+                        });
+                    },
+                    subNodes: function (TreeNode, level, nodeType, parentId, workspaceId, appletId) {
+                        return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected);
+                    },
+                    requestMenu: function () {
+                        return [
+                            /*  {
+                                 title: 'Add items',
+                                 type: 'Title'
+                             }, */
+                            {
+                                title: 'List',
+                                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarList', '#151719', '18px', '18px'),
+                                onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_6__.AddListDialog)(workspaceId, appletId, '-1', '/')); }
+                            },
+                            {
+                                type: 'Divider'
+                            },
+                            {
+                                title: 'Document',
+                                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
+                                onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_7__.AddDocumentDialog)(workspaceId, appletId, '-1', '/')); }
+                            },
+                            {
+                                title: 'Whiteboard',
+                                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
+                                onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddWhiteboardDialog__WEBPACK_IMPORTED_MODULE_8__.AddWhiteboardDialog)(workspaceId, appletId, '-1', '/')); }
+                            },
+                            {
+                                type: 'Divider'
+                            },
+                            {
+                                title: 'Folder',
+                                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
+                            },
+                            {
+                                title: 'Smart Folder',
+                                icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
+                            },
+                        ];
+                    },
+                    requestNavigation: function () {
+                        navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId));
+                    },
+                    requestEditMenu: function () { return [
                         {
-                            title: 'List',
-                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarList', '#151719', '18px', '18px'),
-                            onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddListDialog__WEBPACK_IMPORTED_MODULE_6__.AddListDialog)(workspaceId, appletId, '-1', '/')); }
+                            title: 'Rename',
+                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__edit', '#151719', '18px', '18px'),
+                            onClick: function () { return setIsEditing(true); }
                         },
                         {
-                            type: 'Divider'
-                        },
-                        {
-                            title: 'Document',
-                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarDoc', '#151719', '18px', '18px'),
-                            onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddDocumentDialog__WEBPACK_IMPORTED_MODULE_7__.AddDocumentDialog)(workspaceId, appletId, '-1', '/')); }
-                        },
-                        {
-                            title: 'Whiteboard',
-                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarWhiteboards', '#151719', '18px', '18px'),
-                            onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddWhiteboardDialog__WEBPACK_IMPORTED_MODULE_8__.AddWhiteboardDialog)(workspaceId, appletId, '-1', '/')); }
-                        },
-                        {
-                            type: 'Divider'
-                        },
-                        {
-                            title: 'Folder',
-                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                            onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
-                        },
-                        {
-                            title: 'Smart Folder',
-                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
-                            onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
-                        },
-                    ];
-                },
-                requestNavigation: function () {
-                    navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId));
-                }
+                            title: 'Applet settings',
+                            icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__settings', '#151719', '18px', '18px'),
+                            onClick: function () { return navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings")); }
+                        }
+                    ]; }
+                }));
             }));
     };
-    return WorkspaceTreeWidgetController;
+    return CustomAppletTreeModuleController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
 
 _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.FormBuilder.injectAction('saveSpace', _dialogs_AddSpaceDialog__WEBPACK_IMPORTED_MODULE_1__.SaveSpaceAction);
@@ -1265,8 +1295,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getDocumentId: () => (/* binding */ getDocumentId),
 /* harmony export */   getListId: () => (/* binding */ getListId),
 /* harmony export */   getViewId: () => (/* binding */ getViewId),
-/* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId)
+/* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId),
+/* harmony export */   isAppletOnly: () => (/* binding */ isAppletOnly),
+/* harmony export */   isAppletSettings: () => (/* binding */ isAppletSettings)
 /* harmony export */ });
+function isAppletSettings(appletId) {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)\/settings/;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1] === appletId;
+    }
+    else {
+        return;
+    }
+}
+function isAppletOnly(appletId) {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)^\//;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1] === appletId;
+    }
+    else {
+        return;
+    }
+}
 function getAppletId() {
     var url = window.location.href;
     // Regex deseni
@@ -1521,7 +1581,7 @@ var RatingWidget = /** @class */ (function () {
     function RatingWidget() {
     }
     RatingWidget.prototype.GetMainController = function () {
-        return _ModuleController__WEBPACK_IMPORTED_MODULE_0__.WorkspaceTreeWidgetController;
+        return _ModuleController__WEBPACK_IMPORTED_MODULE_0__.CustomAppletTreeModuleController;
     };
     RatingWidget = __decorate([
         App(manifest)

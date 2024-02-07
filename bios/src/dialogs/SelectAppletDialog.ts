@@ -94,6 +94,8 @@ export class SelectAppletDialog extends DialogView {
                                                         name: opa.name,
                                                         opa: opa.tree_type,
                                                         type: opa.applet_type,
+                                                        iconName: opa.iconName,
+                                                        iconCategory: opa.iconCategory
                                                     }
                                                 }, async (applet) => {
                                                     if (opa.databases) {

@@ -1,3 +1,5 @@
+export declare function isAppletSettings(appletId: any): boolean;
+export declare function isAppletOnly(appletId: any): boolean;
 export declare function getAppletId(): string;
 export declare function getListId(): string;
 export declare function getViewId(): string;

@@ -1,6 +1,7 @@
 import { UIController, UIRoute, UIRoutes, UIView, UIViewBuilder, VStack } from "@tuval/forms";
 import { AppletController } from "./+controller";
 import { CollectionController } from "./collection-[collectionId]/+controller";
+import { SettingsController } from "./settings/+controller";
 
 
 export class RouteController extends UIController {
@@ -20,7 +21,8 @@ export class RouteController extends UIController {
                             UIRoute('whiteboard/:whiteboardId',   class extends  WhiteboardController {} ),
                             UIRoute(':view_id', ViewController),
                             UIRoute(':view_id/*', ViewController) */
-                        )
+                        ),
+                        UIRoute('/settings', SettingsController)
                     )
                 )
                     .background('var(--primary-background-color)')

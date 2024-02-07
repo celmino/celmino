@@ -11,12 +11,12 @@ import { DynoDialog } from '@realmocean/ui';
 import { Text, TextField, Text as VibeText } from '@realmocean/vibe';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
 import { SaveSpaceAction } from './dialogs/AddSpaceDialog';
-import { getAppletId, getDocumentId, getListId } from './utils';
+import { getAppletId, getDocumentId, getListId, isAppletOnly, isAppletSettings } from './utils';
 import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { LeftSideMenuView } from './views/WorkspaceTree';
 import { useLocalStorageState } from './views/localStorageState';
 import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
-import { ContextMenu } from './ContextMenu';
+import { ContextMenu, EditContextMenu } from './ContextMenu';
 
 
 const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
@@ -50,20 +50,20 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
                     },
                     requestNavigation: () => {
                         if (onItemSelected == null) {
-                        switch (item.type) {
-                            case 'folder':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
-                                break;
-                            case 'document':
-                                navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
-                                break;
+                            switch (item.type) {
+                                case 'folder':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/folder/${item.$id}`);
+                                    break;
+                                case 'document':
+                                    navigate(`/app/workspace/${workspaceId}/applet/${appletId}/document/${item.$id}`);
+                                    break;
 
+                            }
+                        } else {
+                            onItemSelected({
+                                workspaceId, appletId, item
+                            })
                         }
-                    } else {
-                        onItemSelected({
-                            workspaceId, appletId, item
-                        })
-                    }
                     },
                     requestMenu: () => {
                         switch (item.type) {
@@ -111,8 +111,12 @@ export class MyTestController extends UIController {
             }
         }, []);
 
+        const navigate = useNavigate();
+
         const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
         const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
+
+        const { updateDocument } = useUpdateDocument(workspaceId);
 
         return (
             isAppletLoading ? Spinner() :
@@ -121,14 +125,48 @@ export class MyTestController extends UIController {
                         workspaceId,
                         appletId,
                         appletName: applet.name,
+                        iconName: applet.iconName,
+                        iconCategory: applet.iconCategory,
+                        isEditing: isEditing,
+                        isSelected: isAppletSettings(appletId) || isAppletOnly(appletId),
+                        editingChanged: (status) => setIsEditing(status),
+                        titleChanged: (title) => {
+                            updateDocument({
+                                databaseId: 'workspace',
+                                collectionId: 'applets',
+                                documentId: appletId,
+                                data: {
+                                    name: title
+                                }
+                            }, () => {
+                                updateDocument({
+                                    databaseId: 'workspace',
+                                    collectionId: 'applets',
+                                    documentId: appletId,
+                                    data: {
+                                        name: title
+                                    }
+                                })
+                            })
+                        },
                         subNodes: (TreeNode, level, nodeType, parentId, workspaceId, appletId) => {
                             return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected)
                         },
-                        requestMenu: () => ContextMenu(workspaceId, appletId)
+                        requestMenu: () => ContextMenu(workspaceId, appletId),
+                        requestEditMenu: () => [
 
+                            {
+                                title: 'Rename',
+                                icon: SvgIcon('svg-sprite-global__edit', '#151719', '18px', '18px'),
+                                onClick: () => setIsEditing(true)
+                            },
 
-
-
+                            {
+                                title: 'Applet settings',
+                                icon: SvgIcon('svg-sprite-global__settings', '#151719', '18px', '18px'),
+                                onClick: () => navigate(`/app/workspace/${workspaceId}/applet/${appletId}/settings/general`)
+                            }
+                        ]
 
                     })
 

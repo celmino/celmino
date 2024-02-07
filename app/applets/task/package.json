@@ -149,6 +149,7 @@
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/material": "^5.11.14",
+        "@realmocean/vibe": "^2.82.45",
         "node-sass": "^8.0.0",
         "react-promise-suspense": "^0.3.4",
         "uuid": "^9.0.0"

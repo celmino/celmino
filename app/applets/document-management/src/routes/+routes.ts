@@ -5,6 +5,9 @@ import { DocumentController } from "./document-[documentId]/+controller";
 import { ListController } from "./list-[listId]/+controller.ts";
 import { WhiteboardController } from "./whiteboard-[whiteboardId]/+controller";
 import { FolderController } from "./folder-[folderId]/+controller";
+import { SettingsController } from "./settings/+controller";
+import { FeatureSettingsController } from "./settings/features/+controller";
+import { GeneralSettingsController } from "./settings/general/+controller";
 
 
 export class RouteController extends UIController {
@@ -23,6 +26,10 @@ export class RouteController extends UIController {
                             UIRoute('whiteboard/:whiteboardId',   class extends  WhiteboardController {} ),
                             UIRoute(':view_id', ViewController),
                             UIRoute(':view_id/*', ViewController)
+                        ),
+                        UIRoute('/settings', SettingsController).children(
+                            UIRoute('features', FeatureSettingsController),
+                            UIRoute('general', GeneralSettingsController)
                         )
                     )
                 )

@@ -1,5 +1,5 @@
 import {  UIController } from '@tuval/forms';
-import { WorkspaceTreeWidgetController } from './ModuleController';
+import {  CustomAppletTreeModuleController } from './ModuleController';
 import { FormBuilder } from '@realmocean/ui';
 import { SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { SaveFolderAction } from './dialogs/AddFolderDialog';
@@ -24,7 +24,7 @@ function App(manifest: any) {
 @App(manifest)
 export class RatingWidget {
     public GetMainController() {
-       return WorkspaceTreeWidgetController;
+       return CustomAppletTreeModuleController;
     }
 }
 

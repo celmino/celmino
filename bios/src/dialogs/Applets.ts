@@ -4031,6 +4031,8 @@ export const Applets = [
         applet_type: 'com.celmino.applet.document-management',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        iconCategory:'Icons',
+        iconName:'bell',
         icon: '\\d320',
         enabled: true,
         databases: [

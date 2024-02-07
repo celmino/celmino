@@ -4,6 +4,8 @@ import { RouteController } from './routes/+routes';
 import { ListStatusWidget } from './widget/ListStatusWidget';
 import { SaveCollectionAction } from './dialogs/AddCollection/actions/SaveCollectionAction';
 import { FormBuilder } from '@realmocean/ui';
+import { SaveDocumentAction } from './dialogs/AddCollection/actions/SaveDocumentAction';
+import { SaveTextFieldAction } from './dialogs/AddTextAttributeDialog';
 
 const manifest = require('./manifest');
 
@@ -31,5 +33,7 @@ export class ProcessMining {
 FormBuilder.injectView('liststatus', ListStatusWidget)
 
 FormBuilder.injectAction('ca_saveCollection', SaveCollectionAction)
+FormBuilder.injectAction('ca_SaveDocument', SaveDocumentAction)
+FormBuilder.injectAction('ca_saveTextField', SaveTextFieldAction)
 
 

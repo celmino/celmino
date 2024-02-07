@@ -216,31 +216,45 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     WorkspaceTreeWidgetController.prototype.LoadView = function () {
+        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isEditing = _a[0], setIsEditing = _a[1];
         var isLoading = false;
         var items = (this.props.data || {}).items;
         var _b = this.props.config || {}, workspaceId = _b.workspaceId, appletId = _b.appletId, onItemSelected = _b.onItemSelected;
         var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_3__.getAppletId)() === appletId), isOpen = _c[0], setIsOpen = _c[1];
         var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.getListId)();
-        /*     const { document: list, isLoading: isListLoading } = useGetDocument({
-                projectId: workspaceId,
-                databaseId: appletId,
-                collectionId: 'wm_lists',
-                documentId: listId
-            }, { enabled: listId != null }); */
-        /*  useEffect(() => {
-             if (list! + null) {
-                 setExpanded(true);
-             }
-         }, []); */
-        // const [expanded, setExpanded] = useLocalStorageState('work_management_tree', false);
         var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useGetDocument)({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId }), applet = _d.document, isAppletLoading = _d.isLoading;
+        var updateDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_4__.useUpdateDocument)(workspaceId).updateDocument;
         return (isAppletLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
             (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIWidget)('com.celmino.widget.applet-tree')
                 .config({
                 workspaceId: workspaceId,
                 appletId: appletId,
                 appletName: applet.name,
+                iconName: applet.iconName,
+                iconCategory: applet.iconCategory,
+                isEditing: isEditing,
+                isSelected: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.isAppletSettings)(appletId) || (0,_utils__WEBPACK_IMPORTED_MODULE_3__.isAppletOnly)(appletId),
+                editingChanged: function (status) { return setIsEditing(status); },
+                titleChanged: function (title) {
+                    updateDocument({
+                        databaseId: 'workspace',
+                        collectionId: 'applets',
+                        documentId: appletId,
+                        data: {
+                            name: title
+                        }
+                    }, function () {
+                        updateDocument({
+                            databaseId: 'workspace',
+                            collectionId: 'applets',
+                            documentId: appletId,
+                            data: {
+                                name: title
+                            }
+                        });
+                    });
+                },
                 subNodes: function (TreeNode, level, nodeType, parentId, workspaceId, appletId) {
                     return subNodes(TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected);
                 },
@@ -282,7 +296,19 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
                             onClick: function () { return _realmocean_ui__WEBPACK_IMPORTED_MODULE_2__.DynoDialog.Show((0,_dialogs_AddFolderDialog__WEBPACK_IMPORTED_MODULE_5__.AddFolderDialog)(workspaceId, appletId, '-1', '/')); }
                         },
                     ];
-                }
+                },
+                requestEditMenu: function () { return [
+                    {
+                        title: 'Rename',
+                        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__edit', '#151719', '18px', '18px'),
+                        onClick: function () { return setIsEditing(true); }
+                    },
+                    {
+                        title: 'Applet settings',
+                        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__settings', '#151719', '18px', '18px'),
+                        onClick: function () { return navigate("/app/workspace/".concat(workspaceId, "/applet/").concat(appletId, "/settings/general")); }
+                    }
+                ]; }
             }));
     };
     return WorkspaceTreeWidgetController;
@@ -1261,8 +1287,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getDocumentId: () => (/* binding */ getDocumentId),
 /* harmony export */   getListId: () => (/* binding */ getListId),
 /* harmony export */   getViewId: () => (/* binding */ getViewId),
-/* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId)
+/* harmony export */   getWhiteboardId: () => (/* binding */ getWhiteboardId),
+/* harmony export */   isAppletOnly: () => (/* binding */ isAppletOnly),
+/* harmony export */   isAppletSettings: () => (/* binding */ isAppletSettings)
 /* harmony export */ });
+function isAppletSettings(appletId) {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)\/settings/;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1] === appletId;
+    }
+    else {
+        return;
+    }
+}
+function isAppletOnly(appletId) {
+    var url = window.location.href;
+    // Regex deseni
+    var regexPattern = /\/applet\/([^\/]+)^\//;
+    // Regex eşleşmesi
+    var matches = url.match(regexPattern);
+    // Eğer eşleşme varsa, list parametresini al
+    if (matches && matches.length > 1) {
+        return matches[1] === appletId;
+    }
+    else {
+        return;
+    }
+}
 function getAppletId() {
     var url = window.location.href;
     // Regex deseni

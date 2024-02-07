@@ -21,16 +21,20 @@ import {
     Icons as TuvalIcons,
     UIDataTable,
     UIFormController, UIView,
+    UIViewBuilder,
+    UIWidget,
     VStack,
     cHorizontal,
     cLeading,
     cTopLeading,
     cTrailing,
+    css,
     useParams
 } from "@tuval/forms";
 import { useState } from "react";
 import { Icons } from "../../Icons";
 import { ColorItemView } from "./views/ColorItemView";
+import { AddTextFieldDialog } from "../../dialogs/AddTextAttributeDialog";
 
 /* import { AddBooleanFieldDialog } from "../dialogs/AddBooleanFieldDialog";
 import { AddDatetimeFieldDialog } from "../dialogs/AddDatetimeField";
@@ -56,13 +60,56 @@ const colors = [
     '#FBA32F',
     '#FC551F',
     '#B04E31'
-
-
-
-
-
-
 ]
+
+const tableStyle = css`
+    border-spacing: 0px;
+    width: 100%;
+`
+
+const headerCell = css`
+    font-family:"Inter var", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-align: left;
+    box-shadow:rgba(193, 200, 205, 0.5) -1px 0px 0px 0px inset, rgba(193, 200, 205, 0.5) 0px -1px 0px 0px inset;
+    font-weight: 700;
+    color: rgb(109, 122, 131);
+    background: #F9FAFB;
+    transition: box-shadow 0.2s;
+`
+
+const bodyRow = css`
+    background: #ffffff;
+    color: #4b5563;
+    transition: box-shadow 0.2s;
+`
+
+const bodyCell = css`
+    box-shadow:rgba(193, 200, 205, 0.5) -1px 0px 0px 0px inset, rgba(193, 200, 205, 0.5) 0px -1px 0px 0px inset;
+`
+
+const paginator = css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+
+    & .p-paginator-first {
+        background-color: transparent;
+        border: 0 none;
+        color: #6b7280;
+        min-width: 3rem;
+        height: 3rem;
+        margin: 0.143rem;
+        transition: box-shadow 0.2s;
+        border-radius: 50%;
+    }
+
+`
+
+
 
 function getAttributeIcon(type: string) {
     switch (type) {
@@ -90,7 +137,7 @@ export class CollectionController extends UIFormController {
                 title: 'Text',
                 icon: Icons.TextAttribute,
                 onClick: () => (
-                    alert() // DynoDialog.Show(AddTextFieldDialog(workspaceId, databaseId, collectionId))
+                    DynoDialog.Show(AddTextFieldDialog(workspaceId, databaseId, collectionId))
                 )
             },
             {
@@ -196,124 +243,146 @@ export class CollectionController extends UIFormController {
         return (
             VStack({ alignment: cTopLeading })(
                 HStack({ alignment: cLeading })(
-                    Geometry(({ x, y }) =>
-                        HStack({ alignment: cLeading, spacing: 5 })(
-                            showDialog ?
-                                HStack({ alignment: cTopLeading })(
-                                    VStack({ alignment: cTopLeading, spacing: 10 })(
-                                        //Text(JSON.stringify(params))
-                                        Input()
-                                            .autoFocus(true)
-                                            .renderer(InputRenderer)
-                                            .value(collection?.name)
-                                            .fontSize(18)
-                                            .prefix(
-                                                Icon(Icons.Collection)
-                                            )
-                                            .onChange((e: any) => setCollectionName(e.target.value))
-                                            .onBlur(value => {
-                                                if (collectionName !== '' && collectionName !== collection?.name) {
-                                                    updateCollection({
-                                                        databaseId,
-                                                        collectionId,
-                                                        name: collectionName
-                                                    })
-                                                }
+                    HStack({ alignment: cLeading })(
+                        Geometry(({ x, y }) =>
+                            HStack({ alignment: cLeading, spacing: 5 })(
+                                showDialog ?
+                                    HStack({ alignment: cTopLeading })(
+                                        VStack({ alignment: cTopLeading, spacing: 10 })(
+                                            //Text(JSON.stringify(params))
+                                            Input()
+                                                .autoFocus(true)
+                                                .renderer(InputRenderer)
+                                                .value(collection?.name)
+                                                .fontSize(18)
+                                                .prefix(
+                                                    Icon(Icons.Collection)
+                                                )
+                                                .onChange((e: any) => setCollectionName(e.target.value))
+                                                .onBlur(value => {
+                                                    if (collectionName !== '' && collectionName !== collection?.name) {
+                                                        updateCollection({
+                                                            databaseId,
+                                                            collectionId,
+                                                            name: collectionName
+                                                        })
+                                                    }
 
-                                            }),
-                                        HStack({ alignment: cTopLeading, spacing: 2 })(
-                                            ...ForEach(colors)((color) => (
-                                                ColorItemView(color)
-                                            )
-                                            )
-                                        ).wrap('wrap')
+                                                }),
+                                            HStack({ alignment: cTopLeading, spacing: 2 })(
+                                                ...ForEach(colors)((color) => (
+                                                    ColorItemView(color)
+                                                )
+                                                )
+                                            ).wrap('wrap')
+                                        )
                                     )
+                                        .onClickAway(() => {
+                                            if (collectionName !== '' && collectionName !== collection?.name) {
+                                                updateCollection({
+                                                    databaseId,
+                                                    collectionId,
+                                                    name: collectionName
+                                                })
+                                            }
+                                            setShowDialog(false);
+                                        })
+                                        .zIndex(10)
+                                        .transform(`translate3d(${x}px, ${y}px, 0px)`)
+                                        .position('fixed')
+                                        .inset('0px auto auto 0px')
+                                        .background('white')
+                                        .shadow('0 0 0 1px hsla(205,9%,47%,.1),0 12px 16px -4px hsla(205,9%,47%,.3)')
+                                        .width(330)
+                                        .height(200)
+                                        .cornerRadius(8)
+                                        .padding(12)
+                                    : Fragment(),
+                                HStack(
+                                    Icon(Icons.Collection)
                                 )
-                                    .onClickAway(() => {
-                                        if (collectionName !== '' && collectionName !== collection?.name) {
-                                            updateCollection({
-                                                databaseId,
-                                                collectionId,
-                                                name: collectionName
-                                            })
-                                        }
-                                        setShowDialog(false);
+                                    // .background('#FCE8E8')
+                                    .width(32)
+                                    .height(32)
+                                    .cornerRadius(5),
+                                Text(collection?.name)
+                                    .fontSize(18)
+                                    .fontWeight('500')
+                                    .foregroundColor('#212526')
+                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                                    .onClick(() => {
+                                        setCollectionName(collection?.name);
+                                        setShowDialog(true);
                                     })
-                                    .zIndex(10)
-                                    .transform(`translate3d(${x - 8}px, ${y - 8}px, 0px)`)
-                                    .position('fixed')
-                                    .inset('0px auto auto 0px')
-                                    .background('white')
-                                    .shadow('0 0 0 1px hsla(205,9%,47%,.1),0 12px 16px -4px hsla(205,9%,47%,.3)')
-                                    .width(330)
-                                    .height(200)
-                                    .cornerRadius(8)
-                                    .padding(12)
-                                : Fragment(),
-                            HStack(
-                                Icon(Icons.Collection)
                             )
-                                // .background('#FCE8E8')
-                                .width(32)
-                                .height(32)
-                                .cornerRadius(5),
-                            Text(collection?.name)
-                                .fontSize(18)
-                                .fontWeight('500')
-                                .foregroundColor('#212526')
-                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
-                                .onClick(() => {
-                                    setCollectionName(collection?.name);
-                                    setShowDialog(true);
-                                })
-                        )
-                            .width()
+                                .width()
 
+                        )
+                    ).width(300),
+
+                    HStack({ alignment: cTopLeading })(
+
+                        UIWidget('com.tuvalsoft.widget.editorjs')
+                            .config({
+                                scrollable: false
+                            })
                     )
 
                     ,
                     HStack({ alignment: cTrailing })(
-                        PopupButton(
-                            HStack(
-                                Icon(Icons.Plus),
-                                Text('New Field')
-                                    .fontFamily("ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'")
-                                    .fontSize(14)
-                                    .fontWeight('500')
-                            )
-                                .width()
-                                .height(30)
-                                .padding(cHorizontal, 12)
-                                .foregroundColor('hsl(205, 9%, 47%)')
-                                .background({ hover: 'rgba(109,122,131,0.15)' })
-                                //.border({ hover: '1px solid rgba(255, 255, 255, 0)' })
-                                .cornerRadius(6)
-                                .transition('all .15s ease-out')
-                                .cursor('pointer')
-                        )(
-                            VStack(
-                                ...ForEach(AttributesMenuItems)((item) =>
-                                    HStack({ alignment: cLeading, spacing: 10 })(
-                                        Icon(item.icon),
-                                        Text(item.title)
+                        UIViewBuilder(() => {
+                            const [menuIsOpen, setMenuIsOpen] = useState(false);
+                            return (
+                                PopupButton(
+                                    HStack(
+                                        Icon(Icons.Plus).foregroundColor(menuIsOpen ? 'white' : ''),
+                                        Text('New Field')
+                                            .foregroundColor(menuIsOpen ? 'white' : '')
+                                            .fontFamily("ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'")
+                                            .fontSize(14)
+                                            .fontWeight('500')
                                     )
-                                        .background({ hover: 'rgba(81,97,108,.1)' })
-                                        .padding()
+                                        .width()
+
+                                        .height(30)
+                                        .padding(cHorizontal, 12)
+                                        .foregroundColor('hsl(205, 9%, 47%)')
+                                        .background({ default: menuIsOpen ? '#6D7A83' : '', hover: menuIsOpen ? '#6D7A83' : 'rgba(109,122,131,0.15)' })
+                                        //.border({ hover: '1px solid rgba(255, 255, 255, 0)' })
+                                        .cornerRadius(6)
+                                        .transition('all .15s ease-out')
                                         .cursor('pointer')
-                                        .height(32)
                                         .onClick(() => {
-                                            _hideHandle();
-                                            is.function(item.onClick) ? item.onClick() : void 0;
+                                            setMenuIsOpen(!menuIsOpen);
                                         })
+                                )(
+                                    VStack(
+                                        ...ForEach(AttributesMenuItems)((item) =>
+                                            HStack({ alignment: cLeading, spacing: 10 })(
+                                                Icon(item.icon),
+                                                Text(item.title)
+                                            )
+                                                .background({ hover: 'rgba(81,97,108,.1)' })
+                                                .padding()
+                                                .cursor('pointer')
+                                                .height(32)
+                                                .onClick(() => {
+                                                    _hideHandle();
+                                                    is.function(item.onClick) ? item.onClick() : void 0;
+                                                })
+                                        )
+                                    )
+                                        .width(200)
+                                        .marginTop(8)
+                                        .border('1px solid #EFF0F1')
+                                        .cornerRadius(6)
                                 )
+                                    .hideHandle(hideHandle => _hideHandle = hideHandle)
+                                    .dialogPosition(DialogPosition.BOTTOM_END)
+                                    .onDidHide(() => setMenuIsOpen(false))
                             )
-                                .width(200)
-                                .border('1px solid #EFF0F1')
-                                .cornerRadius(6)
-                                .margin(-8)
-                        )
-                            .hideHandle(hideHandle => _hideHandle = hideHandle)
-                            .dialogPosition(DialogPosition.BOTTOM)
+                        })
+
 
                     ).width()
 
@@ -321,7 +390,7 @@ export class CollectionController extends UIFormController {
                 )
 
                     .height()
-                    .background('white')
+                    .background('#F9FAFB')
                     .minHeight(60)
                     .paddingLeft('10px')
                     .paddingTop('12px')
@@ -329,11 +398,32 @@ export class CollectionController extends UIFormController {
                     .paddingBottom('8px')
                     .borderBottom('1px solid rgba(0,0,0,.05)'),
                 UIDataTable()
+                    .dataTablePT({
+                        table: tableStyle,
+                        bodyRow,
+                        paginator
+
+
+                    })
+                    .columnPT({
+                        headerCell,
+
+                        bodyCell
+                    })
                     .columns([{
                         field: 'indexNo',
                         width: '80px',
                         header: '',
-                        align: 'right'
+                        align: 'right',
+                        body: (row) => {
+                            return (
+                                HStack({ alignment: cTrailing })(
+                                    Text(row['indexNo'])
+                                )
+                                    .paddingRight('8px')
+                                    .height(38)
+                            )
+                        }
                     }, ...(collection?.attributes ?? []).map((column: any) => {
                         return {
                             field: column.key,
@@ -353,7 +443,7 @@ export class CollectionController extends UIFormController {
                                                 {
                                                     title: 'Edit',
                                                     onClick: () => {
-                                                        alert() //DynoDialog.Show(AddTextFieldDialog(workspaceId, databaseId, collectionId))
+                                                        DynoDialog.Show(AddTextFieldDialog(workspaceId, databaseId, collectionId))
                                                     }
                                                 },
                                                 {
@@ -411,7 +501,11 @@ export class CollectionController extends UIFormController {
                                     )
                                 } else {
                                     return (
-                                        Text(row[column.key])
+                                        HStack({ alignment: cLeading })(
+                                            Text(row[column.key])
+                                        )
+                                            .paddingLeft('8px')
+                                            .height(38)
                                     )
                                 }
                             }
@@ -424,56 +518,7 @@ export class CollectionController extends UIFormController {
                             ...document
                         }
                     })),
-                /*  UITable(
-                     ...ForEach([{
-                         key: 'indexNo',
-                         width: '20px'
-                     }, ...(collection?.attributes ?? [])])((column: any) =>
-                         TableColumn(
-                             column.key === 'indexNo' ?
-                                 HStack({ alignment: cLeading, spacing: 5 })(
-     
-                                     Text('')
-                                         .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"!important')
-                                         .foregroundColor('rgb(109, 122, 131)')
-                                         .fontSize(14)
-                                 )
-                                     .padding(10)
-                                     .allWidth(100)
-                                     .borderRight('solid 1px #DDE1E4')
-                                 :
-                                 HStack({ alignment: cLeading, spacing: 5 })(
-                                     Icon(getAttributeIcon(column.type))
-                                         .width(20)
-                                         .height(20),
-                                     Text(column.key)
-                                         .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"!important')
-                                         .foregroundColor('rgb(109, 122, 131)')
-                                         .fontSize(14)
-                                 )
-                                     .padding(10)
-                                     .borderRight('solid 1px #DDE1E4')
-     
-                         )(row =>
-                             column.key === 'indexNo' ?
-                                 HStack({ alignment: cTrailing })(
-                                     Text(String(index++))
-                                 ).height(40).padding()
-                                     .background('white')
-                                     .borderRight('solid 1px #DADCE0')
-                                 :
-                                 HStack({ alignment: cLeading })(
-                                     Text(row[column.key])
-                                 ).height(40).padding()
-                                     .background('white')
-                                     .borderRight('solid 1px #DADCE0')
-                         ).width(column.width ?? '')
-                     )
-                 )
-                     .height()
-                     .value(documents)
-                     .headerAppearance(UIAppearance().borderBottom('1px solid #dadce0').background('#F9FAFB'))
-                     .rowAppearance(UIAppearance().borderBottom('1px solid #dadce0')), */
+
                 Button()
                     .label('Create Document')
                     .renderer(ButtonRenderer)
@@ -526,11 +571,10 @@ export class CollectionController extends UIFormController {
 
                         DynoDialog.Show({
                             "title": `Create ${collection?.name}`,
-                            /*   "mutation":"_create_workspace", */
                             "actions": [
                                 {
                                     "label": "Save",
-                                    "type": "saveDocument"
+                                    "type": "ca_SaveDocument"
                                 }
                             ],
                             "fieldMap": {
@@ -554,47 +598,9 @@ export class CollectionController extends UIFormController {
                             }
                         }
                         );
-                        /*  createDocument(
-                             {
-                                 databaseId, collectionId,
-                                 data: {
-                                     'ProjectName': 'New Document'
-                                 },
-                                 permissions: [
-                                     Permission.read(Role.any()),
-                                     Permission.update(Role.any()),
-                                     Permission.delete(Role.any())
-                                 ]
-                             }
-                         ) */
+
                     }),
-                /*  TextField()
-                     .renderer(InputRenderer)
-                     .onChange((value) => {
-                         setFieldName(value);
-                     }),
-                 Button().label('Create String Attribute')
-                     .renderer(ButtonRenderer)
-                     .onClick(() => {
-                         createStringAttribute({
-                             databaseId,
-                             collectionId,
-                             key: fieldName,
-                             required: false,
-                             size: 255
-                         })
-                     }),
-                 Button().label('Create Number Attribute')
-                     .renderer(ButtonRenderer)
-                     .onClick(() => {
-                         createStringAttribute({
-                             databaseId,
-                             collectionId,
-                             key: fieldName,
-                             required: false,
-                             size: 255
-                         })
-                     }), */
+
 
 
             )

@@ -1,4 +1,4 @@
-import { WorkspaceTreeWidgetController } from './ModuleController';
+import { CustomAppletTreeModuleController } from './ModuleController';
 export declare class RatingWidget {
-    GetMainController(): typeof WorkspaceTreeWidgetController;
+    GetMainController(): typeof CustomAppletTreeModuleController;
 }

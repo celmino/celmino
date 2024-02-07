@@ -68,7 +68,8 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
             .padding()
             .background('#E4EAE2')
             .cornerRadius(10)
-            .clipPath('polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)'));
+        //.clipPath('polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)')
+        );
     };
     return WorkspaceTreeWidgetController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

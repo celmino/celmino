@@ -58,27 +58,38 @@ var EditorJsController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     EditorJsController.prototype.LoadView = function () {
-        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, tools = _a.tools;
-        var clamp = false;
+        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, tools = _a.tools, _d = _a.scrollable, scrollable = _d === void 0 ? true : _d, _e = _a.clamp, clamp = _e === void 0 ? false : _e;
         //  const { com_tuvalsoft_widget_editorjs: { clamp = false } } = useOptions() || { com_tuvalsoft_widget_editorjs: {} };
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_realmocean_editor__WEBPACK_IMPORTED_MODULE_1__.Editor)({
-            defaultValue: defaultValue,
-            onReady: function () { return void 0; },
-            onChange: function (e) {
-                e.saver.save().then(function (outputData) {
-                    onChange(outputData);
-                });
-            },
-            readOnly: false,
-            tools: tools
-        }).width('100%'))
-            .height()
-            //.width('calc(100% - 40px)')
-            // .border({ default: 'solid 1px #E2E2E2' }).tabIndex(0).cornerRadius(5)
-            .padding()
-            .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 60)
-            .paddingLeft(clamp ? 'clamp(84px,50%,calc(50% - 360px))' : '60px')
-            .paddingRight(clamp ? 'clamp(84px,50%,calc(50% - 360px))' : '60px')));
+        return (scrollable ?
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_realmocean_editor__WEBPACK_IMPORTED_MODULE_1__.Editor)({
+                defaultValue: defaultValue,
+                onReady: function () { return void 0; },
+                onChange: function (e) {
+                    e.saver.save().then(function (outputData) {
+                        onChange(outputData);
+                    });
+                },
+                readOnly: false,
+                tools: tools
+            }).width('100%'))
+                .height()
+                //.width('calc(100% - 40px)')
+                // .border({ default: 'solid 1px #E2E2E2' }).tabIndex(0).cornerRadius(5)
+                .padding()
+                .padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 60)
+                .paddingLeft(clamp ? 'clamp(84px,50%,calc(50% - 360px))' : '60px')
+                .paddingRight(clamp ? 'clamp(84px,50%,calc(50% - 360px))' : '60px')) :
+            (0,_realmocean_editor__WEBPACK_IMPORTED_MODULE_1__.Editor)({
+                defaultValue: defaultValue,
+                onReady: function () { return void 0; },
+                onChange: function (e) {
+                    e.saver.save().then(function (outputData) {
+                        onChange(outputData);
+                    });
+                },
+                readOnly: false,
+                tools: tools
+            }).width('100%'));
     };
     return EditorJsController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

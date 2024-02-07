@@ -9,6 +9,7 @@ import { AddFolderDialog } from "../dialogs/AddFolderDialog";
 import { Text } from "@realmocean/vibe";
 import { is } from "@tuval/core";
 import { WorkbenchIcons } from "../WorkbenchIcons";
+import { AddIcon, EditIcon } from "../Icons";
 
 export interface TreeNodeProps {
     nodeType?: string;
@@ -24,23 +25,26 @@ export interface TreeNodeProps {
     menuModel?: IMenuItemModel[];
     subNode?: (nodeType: string) => UIView;
     iconName?: string;
+    iconCategory?: string;
     requestIcon?: (nodeType: string, selected: boolean, expanded: boolean) => UIView;
     requestNavigation?: () => void;
     requestMenu?: (nodeType: string) => IMenuItemModel[];
+    requestEditMenu?: (nodeType: string) => IMenuItemModel[];
 
 }
 export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
     const { isLoading = false, isEditing = false, isSelected = false, title = '', level = 0,
         menuModel = [], subNode = () => Fragment(), nodeType = 'root',
         titleChanged = () => void 0, editingChanged = () => void 0,
-        iconName = '', requestIcon = () => void 0,
+        iconName = '', iconCategory = '', requestIcon = () => void 0,
         requestNavigation = () => void 0,
-        requestMenu = () => []
+        requestMenu = () => [], requestEditMenu = () => null
     } = treeNodeProps;
 
     const [expanded, setExpanded] = useState(false);
 
     const menu = requestMenu(nodeType)
+    const editMenu = requestEditMenu(nodeType)
 
     return (
         VStack({ alignment: cTopLeading })(
@@ -63,9 +67,9 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                                 .config({
                                     readonly: true,
                                     selectedIcon: iconName,
-                                    selectedCategory: 'Icons',
-                                    color: 'white',
-                                    backgroundColor: '#40BC86',
+                                    selectedCategory: iconCategory,
+                                    color: 'gray',
+                                    backgroundColor: '',
                                     width: 20,
                                     height: 20,
                                     padding: 1
@@ -87,17 +91,19 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
 
                 // Title
                 isEditing ? UIViewBuilder(() => {
-
-                    const [newTitle, setNewTitle] = useState();
+                    const [newTitle, setNewTitle] = useState(title);
                     //  const { updateDocument } = useUpdateDocument(workspaceId);
                     return (
-                        HStack(
+                        HStack({ alignment: cLeading })(
                             TextField()
-                                .fontSize(16)
-                                .fontWeight('500')
-                                .padding(0)
+                                .border('0')
+                                .fontSize(14)
+                               // .fontWeight('500')
+                                .marginLeft(-2)
+                                .padding(cVertical, 3)
                                 .value(newTitle)
                                 .onChange((value) => setNewTitle(value))
+                                .outline({ focus: 'none' })
                                 .onBlur(() => {
                                     if (title !== newTitle) {
                                         titleChanged(newTitle)
@@ -136,7 +142,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                                 .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
                                 .lineHeight(22)
                         )
-                           
+
                             //.width('calc(100% - 40px)')
                             .height(32)
                     )
@@ -146,11 +152,18 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                         .overflow('hidden')
                         .height(),
                 Spacer(),
-                menu == null ? Fragment() :
+                (menu == null && editMenu == null) ? Fragment() :
                     HStack({ alignment: cTrailing })(
-                        MenuButton()
-                            .model(requestMenu(nodeType))
-                            .icon(Icons.Add)
+                        HStack({ spacing: 3 })(
+                            menu == null ? Fragment() :
+                                MenuButton()
+                                    .model(menu)
+                                    .icon(AddIcon),
+                            editMenu == null ? Fragment() :
+                                MenuButton()
+                                    .model(editMenu)
+                                    .icon(EditIcon)
+                        )
                     )
                         .onClick((e) => {
                             e.preventDefault();
@@ -169,7 +182,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                 .paddingLeft(`${20 * level}px`)
                 .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })
                 .cornerRadius(6)
-                .clipPath(isSelected ? 'polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)' : '')
+                //.clipPath(isSelected ? 'polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 50%, 0 0)' : '')
                 .variable('--show-space-action-buttons', { default: 'none', hover: isEditing ? 'none' : 'flex' })
                 .variable(`--display-caret`, { default: 'hidden', hover: 'visible' })
                 .variable(`--display-icon`, { default: 'visible', hover: 'hidden' })

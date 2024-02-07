@@ -68,7 +68,7 @@ export class MyTestController extends UIController {
     public override LoadView(): UIView {
 
 
-        const { workspaceId, appletId, appletName, subNodes,requestMenu, requestNavigation } = this.props.config || {};
+        const { workspaceId, appletId, appletName, subNodes,requestMenu,requestEditMenu, requestNavigation, isEditing, editingChanged, titleChanged, isSelected , iconName, iconCategory} = this.props.config || {};
 
 
 
@@ -79,9 +79,15 @@ export class MyTestController extends UIController {
             OptionsContext(() => (
                 TreeNode({
                     title: appletName,
-                    iconName: 'bookmark',
+                    isSelected,
                     requestMenu:requestMenu,
+                    requestEditMenu,
                     requestNavigation,
+                    isEditing:isEditing,
+                    editingChanged,
+                    titleChanged,
+                    iconName,
+                    iconCategory,
                     //isExpand: expanded,
                     //expandChanged: setExpanded,
                     subNode: (nodeType) => (
