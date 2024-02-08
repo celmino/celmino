@@ -5117,62 +5117,89 @@ var SearchIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___d
 var DownIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", fill: "currentColor", "aria-hidden": "true" },
     react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M5.434 7.434a.8.8 0 0 1 1.132 0L10 10.87l3.434-3.435a.8.8 0 0 1 1.132 1.132l-4 4a.8.8 0 0 1-1.132 0l-4-4a.8.8 0 0 1 0-1.132Z" }))); };
 var fontFamily = '-apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Apple Color Emoji", "Arial", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"';
-var menuModel = [
+/* const menuModel = [
     {
         title: 'Home',
-        icon: function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(HomeIcon, null)).frame(true); },
+        icon: () => ReactView(<HomeIcon></HomeIcon>).frame(true),
         link: '/app/com.celmino.app.test/home',
         subItems: [
             {
                 name: 'Overview',
-                icon: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icons.API,
+                icon: Icons.API,
                 link: '/app/com.tuvalsoft.app.organizationmanager/b'
+
             },
             {
                 name: 'Sessions',
                 icon: "\\e425",
                 link: '/app/com.tuvalsoft.app.organizationmanager/sessions'
+
             }
         ]
     },
     {
         title: 'Project Spaces',
-        icon: function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(HomeIcon, null)).frame(true); },
+        icon: () => ReactView(<HomeIcon></HomeIcon>).frame(true),
         link: '/app/com.celmino.app.test/home',
         subItems: [
             {
                 name: 'Overview',
-                icon: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icons.API,
+                icon: Icons.API,
                 link: '/app/com.tuvalsoft.app.organizationmanager/b'
+
             },
             {
                 name: 'Sessions',
                 icon: "\\e425",
                 link: '/app/com.tuvalsoft.app.organizationmanager/sessions'
+
             }
         ]
     },
+
     {
         title: 'Drafts',
-        icon: function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(DraftIcon, null)).frame(true); },
+        icon: () => ReactView(<DraftIcon></DraftIcon>).frame(true),
         link: '/app/com.tuvalsoft.app.workbench/drafts'
     },
     {
         title: 'Teams',
-        icon: function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('svg-sprite-teams', '#A1A1A1')); },
-        link: "/app/".concat((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.getAppFullName)(), "/teams")
+        icon: () => Icon(SvgIcon('svg-sprite-teams', '#A1A1A1')),
+        link: `/app/${getAppFullName()}/teams`
     },
     {
         title: 'Whiteboards',
-        icon: function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(WhiteboardIcon, null)).frame(true); },
+        icon: () => ReactView(<WhiteboardIcon></WhiteboardIcon>).frame(true),
         link: '/app/com.tuvalsoft.app.workbench/whiteboards'
+    }
+
+
+]
+ */
+//#E8EAED
+var topMenu = [
+    {
+        title: 'Home',
+        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-sidebarHome', 'rgb(79, 87, 98)', '20px', '20px'),
+        url: ''
+    },
+    {
+        title: 'Inbox',
+        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-sidebarInbox', 'rgb(79, 87, 98)', '20px', '20px'),
+        url: ''
+    },
+    {
+        title: 'Search',
+        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-search', 'rgb(79, 87, 98)', '16px', '16px'),
+        url: ''
     }
 ];
 var global_openedIDs = {};
 var LeftSideMenuView = function (selectedItem) {
     var showAllWorkspaces = true;
     var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
-    return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
+    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDomainTeam)(), domainTeam = _b.team, isDomainTeamLoading = _b.isLoading;
+    return ((isLoading || isDomainTeamLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
             var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
             // alert(workspaceId)
@@ -5188,7 +5215,7 @@ var LeftSideMenuView = function (selectedItem) {
             var _b = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _b[0], setIconInfo = _b[1];
             var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
             var _hideHandle;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
+            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)(JSON.stringify(domainTeam)), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
                 .config({
                 readonly: true,
                 selectedIcon: 'bookmark',
@@ -5204,13 +5231,16 @@ var LeftSideMenuView = function (selectedItem) {
                 .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
                 .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
                 .foregroundColor('rgb(21, 23, 25)')
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon)).height(30).cursor('pointer'))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon)).height(30).cursor('pointer')
+                .padding(6)
+                .background({ hover: '#E8EAED' })
+                .cornerRadius(6))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
                 var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
                     realmId: workspaceId,
                     enabled: (organizationId == null && workspaceId != null)
                 }).realm;
-                var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)((organizationId != null || (realm === null || realm === void 0 ? void 0 : realm.teamId) != null), [
-                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', organizationId !== null && organizationId !== void 0 ? organizationId : realm === null || realm === void 0 ? void 0 : realm.teamId)
+                var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(domainTeam != null /* (organizationId != null || realm?.teamId != null) */, [
+                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id)
                 ]).realms;
                 var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
                 return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(me.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
@@ -5226,16 +5256,21 @@ var LeftSideMenuView = function (selectedItem) {
                     navigate("/app/workspace/".concat(realm.$id));
                 })); }), false)).padding()).width(250));
             }))
-                //  .padding(0)
-                //.open(isOpen)
                 .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-                .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM), 
-            //-----
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(SearchIcon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)('Search')
-                .foregroundColor('rgb(21, 23, 25)')
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height(30)).padding().height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('APPLETS')
-                    .fontSize(11)
-                    .fontWeight('700')).height(40).padding('1px 18px 0 20px')], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
+                .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM))
+                .padding('8px 8px 8px 12px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(menuItem.title)
+                    .foregroundColor('rgb(21, 23, 25)')
+                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
+                    .height()
+                    .padding('6px 10px')
+                    .background({ hover: '#E8EAED' })
+                    .cornerRadius(6)
+                    .cursor('pointer')
+                    .margin('0 8px');
+            })).paddingTop('6px'))
+                //.padding()
+                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
                 //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
                 return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
             }
@@ -5340,6 +5375,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
 /* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/CreateOrganizationView */ "./src/controllers/views/CreateOrganizationView.ts");
+/* harmony import */ var _views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/CreateWorkspaceView */ "./src/controllers/views/CreateWorkspaceView.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -5370,6 +5406,8 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 
 
 
+
+var _hideHandle = null;
 var LayoutController = /** @class */ (function (_super) {
     __extends(LayoutController, _super);
     function LayoutController() {
@@ -5380,69 +5418,100 @@ var LayoutController = /** @class */ (function (_super) {
     LayoutController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
         var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading, isError = _a.isError;
-        var deleteSessions = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSessions)('console').deleteSessions;
-        var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
-        var accounts = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccounts)().accounts;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccountMemberships)('console'), memberships = _b.memberships, isMembershipLoading = _b.isLoading;
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)(), organizationId = _c.organizationId, workspaceId = _c.workspaceId;
-        return ((!isMembershipLoading && memberships.length === 0) ? (0,_views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__.CreateOrganizationView)() :
-            (organizationId == null && workspaceId == null && !_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.nullOrEmpty(me === null || me === void 0 ? void 0 : me.prefs.workspace)) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(me === null || me === void 0 ? void 0 : me.prefs.workspace)) :
-                isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Loading...') :
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-                        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIScene)(isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') :
-                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icons.Add).fontSize(20))
-                                .width(50).height(50)
-                                .cornerRadius('50%')
-                                .onClick(function () {
-                            })).width().height().position('absolute').right('10px').bottom('10px')
-                                //.tooltip('Create support ticker')
-                                .zIndex(100000), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "24", height: "24", xmlns: "http://www.w3.org/2000/svg", "data-name": "Glyph Icon", viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", "data-fill-palette-color": "accent", id: "s-0" },
-                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z", fill: "#8bd8bc", "data-fill-palette-color": "accent" }))).frame(true).paddingLeft('15px')).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('ST').fontSize(10))
-                                .background('rgb(255, 87, 34)')
-                                .cornerRadius('50%')
-                                .width(20)
-                                .height(20)).height(30).cursor('pointer').padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cHorizontal, 10))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-                                var teams = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListTeams)('console').teams;
-                                var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ spacing: 0 }).apply(void 0, __spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().allWidth(30).allHeight(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)(me.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
-                                        .cornerRadius(6)
-                                        .background({ hover: '#ECEEEF' })).padding(5),
-                                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)('ORGANIZATION(S)').fontSize(12)).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, 5)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(teams)(function (team) {
-                                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteLink)("/app/organization/".concat(team.$id))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(team.name)).allHeight(32)
-                                        .cursor('pointer')
-                                        .background({ hover: '#F0F1F3' })
-                                        .padding('7px 0')).width('100%');
-                                }), false)).padding().width(256));
-                            }))
-                                //  .padding(0)
-                                //.open(isOpen)
-                                // .hideHandle(hideHandle => _hideHandle = hideHandle)
-                                .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.DialogPosition.BOTTOM_END)).width()))
-                                .fontSize('1.2rem')
-                                .height(32).minHeight('32px')
-                                .foregroundColor('white'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop })(
-                            //LeftSidemenu(false),
-                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })(
-                            //DialogContainer(),
-                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(
-                            // UIRouteOutlet().width('100%').height('100%')
-                            //Desktop('')
-                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteOutlet)().width('100%').height('100%')
-                            // UIRouteOutlet().width('100%').height('100%')
-                            )
-                                .overflow('hidden')
-                                .cornerRadius(20))
-                                //.cornerRadius(20)
-                                .background('#F6F7FB')
-                                .overflow('hidden')
-                                .width('100%'))
-                            //.height('calc(100% - 50px)')
-                            )
-                                //  .allHeight('100%')
-                                .overflow('hidden')
-                                //  .display('block')
-                                .background('#323452'));
-                    }));
+        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDomainTeam)(), team = _b.team, isDomainTeamLoading = _b.isLoading;
+        return (isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') :
+            isDomainTeamLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Organizasyon Alınıyor') :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
+                    var deleteSessions = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSessions)('console').deleteSessions;
+                    var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
+                    var accounts = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccounts)().accounts;
+                    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccountMemberships)('console'), memberships = _a.memberships, isMembershipLoading = _a.isLoading;
+                    var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)(), organizationId = _b.organizationId, workspaceId = _b.workspaceId;
+                    var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(team != null, [
+                        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', team === null || team === void 0 ? void 0 : team.$id)
+                    ]), realms = _c.realms, isRealmsLoading = _c.isLoading;
+                    return ((!isMembershipLoading && memberships.length === 0) ? (0,_views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__.CreateOrganizationView)() :
+                        isRealmsLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
+                            realms.length === 0 ? (0,_views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_6__.CreateWorkspaceView)() :
+                                (organizationId == null && workspaceId == null && !_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.nullOrEmpty(me === null || me === void 0 ? void 0 : me.prefs.workspace)) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(me === null || me === void 0 ? void 0 : me.prefs.workspace)) :
+                                    (organizationId == null && workspaceId == null && realms.length > 0) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(realms[0].$id)) :
+                                        isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Loading...') :
+                                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
+                                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIScene)(isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') :
+                                                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icons.Add).fontSize(20))
+                                                        .width(50).height(50)
+                                                        .cornerRadius('50%')
+                                                        .onClick(function () {
+                                                    })).width().height().position('absolute').right('10px').bottom('10px')
+                                                        //.tooltip('Create support ticker')
+                                                        .zIndex(100000), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "24", height: "24", xmlns: "http://www.w3.org/2000/svg", "data-name": "Glyph Icon", viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", "data-fill-palette-color": "accent", id: "s-0" },
+                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z", fill: "#8bd8bc", "data-fill-palette-color": "accent" }))).frame(true).paddingLeft('15px')).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('ST').fontSize(10))
+                                                        .background('rgb(255, 87, 34)')
+                                                        .cornerRadius('50%')
+                                                        .width(20)
+                                                        .height(20)).height(30).cursor('pointer').padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cHorizontal, 10))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
+                                                        var teams = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListTeams)('console').teams;
+                                                        var deleteSession = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSession)('console').deleteSession;
+                                                        var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
+                                                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ spacing: 0 }).apply(void 0, __spreadArray(__spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().allWidth(30).allHeight(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)(me.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
+                                                                .cornerRadius(6)
+                                                                .background({ hover: '#ECEEEF' })).padding(5),
+                                                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)('ORGANIZATION(S)').fontSize(12)).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cVertical, 5)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.ForEach)(teams)(function (team) {
+                                                            // UIRouteLink(`/app/organization/${team.$id}`)(
+                                                            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)(team.name)).allHeight(32)
+                                                                .cursor('pointer')
+                                                                .background({ hover: '#F0F1F3' })
+                                                                .padding('7px 0')
+                                                                .onClick(function () {
+                                                                _hideHandle();
+                                                                if (_tuval_core__WEBPACK_IMPORTED_MODULE_3__.is.localhost()) {
+                                                                    navigate("/app/organization/".concat(team.$id));
+                                                                }
+                                                                else {
+                                                                    window.location.href = "https://".concat(team.$id, ".celmino.com");
+                                                                }
+                                                            });
+                                                        }
+                                                        //).width('100%')
+                                                        ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.SvgIcon)('cu3-icon-logout')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)('Logout').fontSize(14)).allHeight(32)
+                                                                .cursor('pointer')
+                                                                .background({ hover: '#F0F1F3' })
+                                                                .padding('7px 0')
+                                                                .onClick(function () {
+                                                                _hideHandle();
+                                                                deleteSession({ sessionId: 'current' }, function () { return navigate('/login'); });
+                                                            })], false)).padding().width(256));
+                                                    }))
+                                                        //  .padding(0)
+                                                        //.open(isOpen)
+                                                        .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
+                                                        .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.DialogPosition.BOTTOM_END)).width()))
+                                                        .fontSize('1.2rem')
+                                                        .height(40).minHeight('40px')
+                                                        .foregroundColor('white'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTop })(
+                                                    //LeftSidemenu(false),
+                                                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cTopLeading })(
+                                                    //DialogContainer(),
+                                                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)(
+                                                    // UIRouteOutlet().width('100%').height('100%')
+                                                    //Desktop('')
+                                                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIRouteOutlet)().width('100%').height('100%')
+                                                    // UIRouteOutlet().width('100%').height('100%')
+                                                    )
+                                                        .overflow('hidden')
+                                                        .cornerRadius(20))
+                                                        //.cornerRadius(20)
+                                                        .background('#F6F7FB')
+                                                        .overflow('hidden')
+                                                        .width('100%'))
+                                                    //.height('calc(100% - 50px)')
+                                                    )
+                                                        //  .allHeight('100%')
+                                                        .overflow('hidden')
+                                                        //  .display('block')
+                                                        .background('#323452'));
+                                            }));
+                }));
     };
     return LayoutController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIController));
@@ -5814,6 +5883,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -5822,7 +5894,145 @@ var CreateOrganizationView = function () { return (0,_tuval_forms__WEBPACK_IMPOR
     var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(), workspaceName = _a[0], setWorkspaceName = _a[1];
     var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
     var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)('Organizations').fontSize('4rem').foregroundColor('#090e13').lineHeight(80), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)(me === null || me === void 0 ? void 0 : me.email).fontSize('2rem').foregroundColor('#090e13')).background('#7FE8D4'));
+    var deleteSession = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSession)('console').deleteSession;
+    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)('Organizations').fontSize('4rem').foregroundColor('#090e13').lineHeight(80), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)(me === null || me === void 0 ? void 0 : me.email).fontSize('2rem').foregroundColor('#090e13'), 
+    /*  Input().renderer(InputRenderer).onChange((e: any) => {
+         setWorkspaceName(e.target.value)
+     }),
+     Button().renderer(ButtonRenderer).label('Submit')
+         .onClick(async () => {
+             createRealm({
+                 name: workspaceName,
+                 organizationId: organizationId,
+             }, async (workspace) => {
+
+
+                 const database = await Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace');
+                 const appletCol = await Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets');
+                 const nameAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false);
+                 const opaAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false);
+                 const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false);
+
+
+                 navigate(`/app/workspace/${workspace.$id}`)
+             })
+
+
+
+
+         }) */
+    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('Log in with another email')
+        .fontSize(16))
+        .height()
+        .onClick(function () {
+        deleteSession({ sessionId: 'current' }, function () { return navigate('/login'); });
+    })).background('#7FE8D4'));
+}); };
+
+
+/***/ }),
+
+/***/ "./src/controllers/views/CreateWorkspaceView.ts":
+/*!******************************************************!*\
+  !*** ./src/controllers/views/CreateWorkspaceView.ts ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CreateWorkspaceView": () => (/* binding */ CreateWorkspaceView)
+/* harmony export */ });
+/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/antd */ "@realmocean/antd");
+/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var CreateWorkspaceView = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+    var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(), workspaceName = _a[0], setWorkspaceName = _a[1];
+    var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetMe)('console').me;
+    var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
+    var domainTeam = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetDomainTeam)().team;
+    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateRealm)(), createRealm = _b.createRealm, isLoading = _b.isLoading;
+    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)('Workspaces').fontSize('4rem').foregroundColor('#090e13').lineHeight(70), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.name).fontSize('2rem').foregroundColor('#090e13'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Input)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.InputRenderer).onChange(function (e) {
+        setWorkspaceName(e.target.value);
+    })).width('50%')
+        .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.ButtonRenderer).label('Submit')
+        .loading(isLoading)
+        .disabled(isLoading)
+        .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            createRealm({
+                name: workspaceName,
+                organizationId: domainTeam.$id,
+            }, function (workspace) { return __awaiter(void 0, void 0, void 0, function () {
+                var database, appletCol, nameAttr, opaAttr, typeAttr;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace')];
+                        case 1:
+                            database = _a.sent();
+                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets')];
+                        case 2:
+                            appletCol = _a.sent();
+                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false)];
+                        case 3:
+                            nameAttr = _a.sent();
+                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false)];
+                        case 4:
+                            opaAttr = _a.sent();
+                            return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false)];
+                        case 5:
+                            typeAttr = _a.sent();
+                            navigate("/app/workspace/".concat(workspace.$id));
+                            return [2 /*return*/];
+                    }
+                });
+            }); });
+            return [2 /*return*/];
+        });
+    }); })).background('#7FE8D4'));
 }); };
 
 

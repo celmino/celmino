@@ -1,5 +1,5 @@
 
-import { Models, Query, useCreateDatabase, useCreateRealm, useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
+import { Models, Query, useCreateDatabase, useCreateRealm, useGetDomainTeam, useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
 import { is } from "@tuval/core";
 import {
     DialogPosition,
@@ -30,7 +30,7 @@ import React, { useState } from "react";
 import { DatabaseNameView } from "./DatabaseNameView";
 import { SelectAppletDialog } from "../../../dialogs/SelectAppletDialog";
 import { Text as VibeText } from '@realmocean/vibe';
-import {DynoDialog} from '@realmocean/ui'
+import { DynoDialog } from '@realmocean/ui'
 import { AddAppletDialog } from "../../../dialogs/AddAppletDialog";
 
 function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
@@ -121,7 +121,7 @@ export const DownIcon = props => (
 
 const fontFamily = '-apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Apple Color Emoji", "Arial", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"';
 
-const menuModel = [
+/* const menuModel = [
     {
         title: 'Home',
         icon: () => ReactView(<HomeIcon></HomeIcon>).frame(true),
@@ -179,7 +179,26 @@ const menuModel = [
 
 
 ]
+ */
+//#E8EAED
+const topMenu = [
+    {
+        title: 'Home',
+        icon: SvgIcon('cu3-icon-sidebarHome', 'rgb(79, 87, 98)', '20px', '20px'),
+        url: ''
+    },
+    {
+        title: 'Inbox',
+        icon: SvgIcon('cu3-icon-sidebarInbox', 'rgb(79, 87, 98)', '20px', '20px'),
+        url: ''
+    },
+    {
+        title: 'Search',
+        icon: SvgIcon('cu3-icon-search', 'rgb(79, 87, 98)', '16px', '16px'),
+        url: ''
+    }
 
+]
 
 let global_openedIDs = {};
 export const LeftSideMenuView = (selectedItem: string) => {
@@ -188,9 +207,10 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
     const showAllWorkspaces = true;
     const { me, isLoading } = useGetMe('console');
+    const { team: domainTeam, isLoading:isDomainTeamLoading } = useGetDomainTeam();
 
     return (
-        isLoading ? Fragment() :
+        (isLoading || isDomainTeamLoading) ? Fragment() :
             UIViewBuilder(() => {
                 const navigate = useNavigate();
                 // alert(workspaceId)
@@ -215,119 +235,133 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
                 return (
                     VStack({ alignment: cTopLeading })(
+                        Text(JSON.stringify(domainTeam)),
                         VStack({ alignment: cTopLeading })(
                             VStack({ alignment: cTopLeading })(
-                                PopupButton(
-                                    HStack({ alignment: cLeading, spacing: 5 })(
-                                        HStack(
-                                            UIWidget("com.tuvalsoft.widget.icons")
-                                                .config({
-                                                    readonly: true,
-                                                    selectedIcon: 'bookmark', //iconInfo.iconName,
-                                                    selectedCategory: 'Icons',//iconInfo.iconCategory,
-                                                    width: 22,
-                                                    height: 22,
-                                                    padding: 1,
-                                                    color: '#0E7169',
-                                                    onChange: (iconInfo) => {
-                                                        setIconInfo(iconInfo)
-                                                    }
-                                                })
-                                        ).width(28).height(28)
-                                            .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                                            .cornerRadius(6),
-                                        HStack({ alignment: cLeading })(
-                                            Heading(realm?.name).fontSize(16).fontWeight('500')
-                                                .foregroundColor('rgb(21, 23, 25)')
-                                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
-                                        ).height(),
-                                        Icon(DownIcon)
+                                HStack(
+                                    PopupButton(
+                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                            HStack(
+                                                UIWidget("com.tuvalsoft.widget.icons")
+                                                    .config({
+                                                        readonly: true,
+                                                        selectedIcon: 'bookmark', //iconInfo.iconName,
+                                                        selectedCategory: 'Icons',//iconInfo.iconCategory,
+                                                        width: 22,
+                                                        height: 22,
+                                                        padding: 1,
+                                                        color: '#0E7169',
+                                                        onChange: (iconInfo) => {
+                                                            setIconInfo(iconInfo)
+                                                        }
+                                                    })
+                                            ).width(28).height(28)
+                                                .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
+                                                .cornerRadius(6),
+                                            HStack({ alignment: cLeading })(
+                                                Heading(realm?.name).fontSize(16).fontWeight('500')
+                                                    .foregroundColor('rgb(21, 23, 25)')
+                                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
+                                            ).height(),
+                                            Icon(DownIcon)
 
-                                    ).height(30).cursor('pointer')
-                                )(
-                                    UIViewBuilder(() => {
+                                        ).height(30).cursor('pointer')
+                                            .padding(6)
+                                            .background({ hover: '#E8EAED' })
+                                            .cornerRadius(6)
+                                    )(
+                                        UIViewBuilder(() => {
 
-                                        const { realm }: { realm: Models.Realm } = useGetRealm({
-                                            realmId: workspaceId,
-                                            enabled: (organizationId == null && workspaceId != null)
-                                        });
+                                            const { realm }: { realm: Models.Realm } = useGetRealm({
+                                                realmId: workspaceId,
+                                                enabled: (organizationId == null && workspaceId != null)
+                                            });
 
-                                        const { realms } = useListRealms((organizationId != null || realm?.teamId != null), [
-                                            Query.equal('teamId', organizationId ?? realm?.teamId)
-                                        ]);
+                                            const { realms } = useListRealms( domainTeam != null/* (organizationId != null || realm?.teamId != null) */, [
+                                                Query.equal('teamId',domainTeam?.$id)
+                                            ]);
 
-                                        const { me } = useGetMe('console');
-                                        return (
-                                            VStack({ alignment: cTopLeading })(
-                                                HStack(
-                                                    HStack({ alignment: cLeading, spacing: 5 })(
-                                                        HStack().width(30).height(30).cornerRadius('50%').background('gray'),
-                                                        VStack({ alignment: cLeading })(
-                                                            VibeText(me.name).fontSize(14).foregroundColor('#212526'),
-                                                            VibeText(me.email).fontSize(12).foregroundColor('#6d7a83'),
-                                                        )
-                                                    ).padding(5)
-                                                        .cornerRadius(6)
-                                                        .background({ hover: '#ECEEEF' })
-                                                ).padding(5),
-                                                HDivider().height(1).background('#ECEDEE'),
+                                            const { me } = useGetMe('console');
+                                            return (
                                                 VStack({ alignment: cTopLeading })(
-                                                    VibeText('SWITCH WORKSPACES').fontSize(12),
-                                                    ...ForEach(realms)(realm => (
-                                                        HStack({ alignment: cLeading })(
-                                                            VibeText(realm.name)
-                                                        ).background({ hover: '#E8EAED' })
-                                                            .cursor('pointer')
-                                                            .padding(5)
-                                                            .onClick(() => {
+                                                    HStack(
+                                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                                            HStack().width(30).height(30).cornerRadius('50%').background('gray'),
+                                                            VStack({ alignment: cLeading })(
+                                                                VibeText(me.name).fontSize(14).foregroundColor('#212526'),
+                                                                VibeText(me.email).fontSize(12).foregroundColor('#6d7a83'),
+                                                            )
+                                                        ).padding(5)
+                                                            .cornerRadius(6)
+                                                            .background({ hover: '#ECEEEF' })
+                                                    ).padding(5),
+                                                    HDivider().height(1).background('#ECEDEE'),
+                                                    VStack({ alignment: cTopLeading })(
+                                                        VibeText('SWITCH WORKSPACES').fontSize(12),
+                                                        ...ForEach(realms)(realm => (
+                                                            HStack({ alignment: cLeading })(
+                                                                VibeText(realm.name)
+                                                            ).background({ hover: '#E8EAED' })
+                                                                .cursor('pointer')
+                                                                .padding(5)
+                                                                .onClick(() => {
 
-                                                                updatePrefs({
-                                                                    prefs: {
-                                                                        ...(me?.prefs ? me?.prefs : {}),
-                                                                        workspace: realm.$id
-                                                                    }
+                                                                    updatePrefs({
+                                                                        prefs: {
+                                                                            ...(me?.prefs ? me?.prefs : {}),
+                                                                            workspace: realm.$id
+                                                                        }
 
+                                                                    })
+                                                                    _hideHandle();
+                                                                    navigate(`/app/workspace/${realm.$id}`)
                                                                 })
-                                                                _hideHandle();
-                                                                navigate(`/app/workspace/${realm.$id}`)
-                                                            })
-                                                    ))
-                                                ).padding()
+                                                        ))
+                                                    ).padding()
 
-                                            ).width(250)
-                                        )
-                                    })
+                                                ).width(250)
+                                            )
+                                        })
 
+                                    )
+                                        .hideHandle(hideHandle => _hideHandle = hideHandle)
+                                        .dialogPosition(DialogPosition.BOTTOM)
                                 )
-                                    //  .padding(0)
-                                    //.open(isOpen)
-                                   
-                                    .hideHandle(hideHandle => _hideHandle = hideHandle)
-                                    .dialogPosition(DialogPosition.BOTTOM),
+
+                                    .padding('8px 8px 8px 12px'),
+                                HDivider().height(1).background('#ECEDEE'),
+                                VStack({ alignment: cTopLeading, spacing: 2 })(
+                                    ...ForEach(topMenu)(menuItem =>
+                                        HStack({ alignment: cLeading, spacing: 8 })(
+                                            Icon(menuItem.icon),
+                                            VibeText(menuItem.title)
+                                                .foregroundColor('rgb(21, 23, 25)')
+                                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                                        )
+                                            .height()
+                                            .padding('6px 10px')
+                                            .background({ hover: '#E8EAED' })
+                                            .cornerRadius(6)
+                                            .cursor('pointer')
+                                            .margin('0 8px')
+                                    )
+
+                                ).paddingTop('6px')
 
 
-
-                                //-----
-
-
-
-                                HStack({ alignment: cLeading })(
-                                    Icon(SearchIcon),
-                                    VibeText('Search')
-                                        .foregroundColor('rgb(21, 23, 25)')
-                                        .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
-                                ).height(30)
-                            ).padding().height(),
+                            )
+                                //.padding()
+                                .height(),
 
                             HDivider().height(1).background('#ECEDEE'),
 
                             VStack({ alignment: cTopLeading })(
-                                VStack({ alignment: cLeading })(
-                                    Text('APPLETS')
-                                        .fontSize(11)
-                                        .fontWeight('700'),
-
-                                ).height(40).padding('1px 18px 0 20px'),
+                                /*  VStack({ alignment: cLeading })(
+                                     Text('APPLETS')
+                                         .fontSize(11)
+                                         .fontWeight('700'),
+ 
+                                 ).height(40).padding('1px 18px 0 20px'), */
                                 ...ForEach(databases)(database =>
                                     //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
                                     DatabaseNameView(database, false, () => { })
@@ -373,7 +407,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                 .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
                                                 .padding('8px 12px 8px 26px')
                                                 .onClick(() => {
-                                                     DynoDialog.Show(AddAppletDialog(workspaceId));
+                                                    DynoDialog.Show(AddAppletDialog(workspaceId));
 
                                                 })
                                         )

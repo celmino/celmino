@@ -1,28 +1,35 @@
 import { InputRenderer, ButtonRenderer } from "@realmocean/antd";
-import { Services, useCreateRealm, useDeleteSession, useGetMe } from "@realmocean/sdk";
-import { Input,  useNavigate, useParams, useState, Heading, HStack } from "@tuval/forms";
+import { Services, useCreateRealm, useGetDomainTeam, useGetMe } from "@realmocean/sdk";
+import { Input, useNavigate, useParams, useState, Heading, HStack } from "@tuval/forms";
 import { VStack, cTopLeading, Button, UIViewBuilder } from "@tuval/forms";
-import { Text } from '@realmocean/vibe'
+import { } from '@realmocean/vibe'
 
 
-export const CreateOrganizationView = () => UIViewBuilder(() => {
-    const { organizationId } = useParams();
+export const CreateWorkspaceView = () => UIViewBuilder(() => {
+    
     const [workspaceName, setWorkspaceName] = useState();
     const { me } = useGetMe('console');
     const navigate = useNavigate();
-    const {deleteSession} = useDeleteSession('console');
+    const { team: domainTeam } = useGetDomainTeam();
+    const { createRealm, isLoading } = useCreateRealm();
+
     return (
-        VStack(
-            Heading('Organizations').fontSize('4rem').foregroundColor('#090e13').lineHeight(80),
-            Heading(me?.email).fontSize('2rem').foregroundColor('#090e13'),
-           /*  Input().renderer(InputRenderer).onChange((e: any) => {
-                setWorkspaceName(e.target.value)
-            }),
+        VStack({ spacing: 10 })(
+            Heading('Workspaces').fontSize('4rem').foregroundColor('#090e13').lineHeight(70),
+            Heading(domainTeam?.name).fontSize('2rem').foregroundColor('#090e13'),
+            HStack(
+                Input().renderer(InputRenderer).onChange((e: any) => {
+                    setWorkspaceName(e.target.value)
+                })
+            ).width('50%')
+                .height(),
             Button().renderer(ButtonRenderer).label('Submit')
+                .loading(isLoading)
+                .disabled(isLoading)
                 .onClick(async () => {
                     createRealm({
                         name: workspaceName,
-                        organizationId: organizationId,
+                        organizationId: domainTeam.$id,
                     }, async (workspace) => {
 
 
@@ -35,18 +42,6 @@ export const CreateOrganizationView = () => UIViewBuilder(() => {
 
                         navigate(`/app/workspace/${workspace.$id}`)
                     })
-
-
-
-
-                }) */
-                HStack(
-                    Text('Log in with another email')
-                    .fontSize(16)
-                )
-                .height()
-                .onClick(()=> {
-                    deleteSession({sessionId : 'current'}, ()=> navigate('/login'));
                 })
         ).background('#7FE8D4')
     )

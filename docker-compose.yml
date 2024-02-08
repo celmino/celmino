@@ -57,14 +57,18 @@ services:
       #http
       - traefik.http.routers.realmocean_api_http.entrypoints=realmocean_web
       - traefik.http.routers.realmocean_api_http.rule=PathPrefix(`/`)
+      - traefik.http.routers.realmocean_api_http.rule=HostRegexp(`^(?P<name>\\w+)\\.celmino\\.com$`)
       - traefik.http.routers.realmocean_api_http.service=realmocean_api
-      - traefik.http.routers.realmocean_api_http.rule=Host(`${_APP_DOMAIN}`) || HostRegexp(`{subdomain:[az0-9]+}.${_APP_DOMAIN}`)
+      - traefik.http.routers.realmocean_api_http.middlewares= testheader
+      - traefik.http.middlewares.testheader.headers.customrequestheaders.X-Realmocean-Organization={http.regexp.name}
       # https
       - traefik.http.routers.realmocean_api_https.entrypoints=realmocean_websecure
       - traefik.http.routers.realmocean_api_https.rule=PathPrefix(`/`)
+      - traefik.http.routers.realmocean_api_https.rule=HostRegexp(`^(?P<name>\\w+)\\.celmino\\.com$`)
       - traefik.http.routers.realmocean_api_https.service=realmocean_api
       - traefik.http.routers.realmocean_api_https.tls=true
-      - traefik.http.routers.realmocean_api_https.rule=Host(`${_APP_DOMAIN}`) || HostRegexp(`{subdomain:[az0-9]+}.${_APP_DOMAIN}`)
+      - traefik.http.routers.realmocean_api_https.middlewares= testheaders
+      - traefik.http.middlewares.testheaders.headers.customrequestheaders.X-Realmocean-Organization={http.regexp.name}
     volumes:
       - realmocean-uploads:/storage/uploads:rw
       - realmocean-cache:/storage/cache:rw
@@ -179,6 +183,7 @@ services:
       - _APP_MIGRATIONS_FIREBASE_CLIENT_ID
       - _APP_MIGRATIONS_FIREBASE_CLIENT_SECRET
       - _APP_ASSISTANT_OPENAI_API_KEY
+      - _APP_LOCALHOST_DOMAIN
 
   realmocean-realtime:
     entrypoint: realtime
