@@ -5,11 +5,11 @@ import {
     UIController,
     UIView
 } from "@tuval/forms";
+import { Routes } from "./routes/+routes";
 
 
 
 
-import { Routes } from "./Routes";
 
 
 const queryClient = new QueryClient({

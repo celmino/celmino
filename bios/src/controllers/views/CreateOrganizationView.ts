@@ -1,13 +1,16 @@
 import { InputRenderer, ButtonRenderer } from "@realmocean/antd";
-import { Services, useCreateOrganization, useCreateRealm, useDeleteSession, useGetMe, useListAccountMemberships } from "@realmocean/sdk";
+import { Services, useCreateOrganization, useCreateRealm, useDeleteCache, useDeleteSession, useGetMe, useListAccountMemberships, useUpdatePrefs } from "@realmocean/sdk";
 import { Input, useNavigate, useParams, useState, Heading, HStack, ForEach } from "@tuval/forms";
 import { VStack, cTopLeading, Button, UIViewBuilder } from "@tuval/forms";
 import { Text } from '@realmocean/vibe'
 import isValidDomain from 'is-valid-domain'
 import { is } from "@tuval/core";
+import { useGetCurrentOrganization } from "../../hooks/useGetCurrentOrganization";
+import { useGetOrganizationId } from "../../hooks/useGetOrganizationId";
 
 
 export const CreateOrganizationView = () => UIViewBuilder(() => {
+    const{deleteCache} = useDeleteCache('console');
     const [organizationName, setOrganizationName] = useState();
     const [organizationId, setOrganizationId] = useState();
     const [mode, setMode] = useState('');
@@ -18,6 +21,8 @@ export const CreateOrganizationView = () => UIViewBuilder(() => {
     const { memberships, isLoading: isMembershipLoading } = useListAccountMemberships('console');
 
     const { createTeam, isError, error } = useCreateOrganization();
+    const { updatePrefs } = useUpdatePrefs({});
+    
     return (
         VStack(
             Heading('Organizations').fontSize('4rem').foregroundColor('#090e13').lineHeight(80),
@@ -26,7 +31,21 @@ export const CreateOrganizationView = () => UIViewBuilder(() => {
                 Text(membership.teamName).fontSize(16)
             ).height()
             .onClick(() => {
-                window.location.href = `https://${membership.teamId}.celmino.com`
+                if (is.localhost()) {
+                    updatePrefs({
+                        prefs: {
+                            ...(me?.prefs ? me?.prefs : {}),
+                            organization: membership.teamId
+                        }
+
+                    }, ()=> {
+                        deleteCache();
+                        navigate(`/app/workspace/select`);
+                    })
+                   
+                } else {
+                    window.location.href = `https://${membership.teamId}.celmino.com`;
+                }
             })
             ),
             HStack(

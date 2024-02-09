@@ -1,5 +1,5 @@
 
-import { Models, Query, useCreateDatabase, useCreateRealm, useGetDomainTeam, useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
+import { Models, Query, useCreateDatabase, useCreateRealm,  useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
 import { is } from "@tuval/core";
 import {
     DialogPosition,
@@ -28,10 +28,11 @@ import {
 } from "@tuval/forms";
 import React, { useState } from "react";
 import { DatabaseNameView } from "./DatabaseNameView";
-import { SelectAppletDialog } from "../../../dialogs/SelectAppletDialog";
+import { SelectAppletDialog } from "../../../../dialogs/SelectAppletDialog";
 import { Text as VibeText } from '@realmocean/vibe';
 import { DynoDialog } from '@realmocean/ui'
-import { AddAppletDialog } from "../../../dialogs/AddAppletDialog";
+import { AddAppletDialog } from "../../../../dialogs/AddAppletDialog";
+import { useGetCurrentOrganization } from "../../../../hooks/useGetCurrentOrganization";
 
 function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
     let str = '';
@@ -207,7 +208,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
     const showAllWorkspaces = true;
     const { me, isLoading } = useGetMe('console');
-    const { team: domainTeam, isLoading:isDomainTeamLoading } = useGetDomainTeam();
+    const { organization: domainTeam, isLoading:isDomainTeamLoading } = useGetCurrentOrganization();
 
     return (
         (isLoading || isDomainTeamLoading) ? Fragment() :

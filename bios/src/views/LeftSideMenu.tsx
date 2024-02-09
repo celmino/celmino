@@ -217,7 +217,7 @@ export const LeftSidemenu = (isLoading: boolean = false) => {
                     UIImage(accountImage).width(44).height(44).imageBorder('2px solid white')
                 ).height().width()
                     .onClick(() => {
-                        deleteSession({sessionId : 'current'});
+                        navigate('/logout');
                        // window.localStorage.setItem('tenant', null)
                        // window.location.replace('/logout')
                     })

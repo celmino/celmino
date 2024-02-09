@@ -1,7 +1,7 @@
 import { ID, Models, Services, useCreateDatabase, useCreateRealm } from "@realmocean/sdk";
 import { ButtonRenderer, InputRenderer } from "@realmocean/antd";
 import { HStack, UIFormController, UIRouteOutlet, UIView, cTopLeading, useParams, Text, VStack, Input, Button, useState, useNavigate } from "@tuval/forms";
-import { CreateWorkspaceView } from "./views/CreateWorkspaceView";
+import { CreateWorkspaceView } from "../../../../controllers/views/CreateWorkspaceView";
 
 export class OrganizationController extends UIFormController {
 
@@ -12,7 +12,7 @@ export class OrganizationController extends UIFormController {
         const navigate = useNavigate();
 
         return (
-            CreateWorkspaceView(organizationId)
+            CreateWorkspaceView()
          /*    VStack({ alignment: cTopLeading })(
                 Input().renderer(InputRenderer).onChange((e: any) => {
                     setWorkspaceName(e.target.value)

@@ -1,14 +1,14 @@
-import { Models, Query, useDeleteSession, useDeleteSessions, useGetDomainTeam, useGetMe, useGetRealm, useGetTeamMembership, useListAccountMemberships, useListAccounts, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
-import { UIController, UIRouteOutlet, UIScene, UIView, DialogContainer, VStack, Fragment, UINavigate, Text, Button, useNavigate, HStack, Icon, Icons, ReactView, Spacer, UIViewBuilder, UIWidget, VDivider, cLeading, cTop, cTopLeading, useLocalStorage, useState, useParams, DialogPosition, PopupButton, cHorizontal, ForEach, cVertical, UIRouteLink, SvgIcon } from "@tuval/forms";
-import { LeftSidemenu } from "../views/LeftSideMenu";
-import React from "react";
-import { is } from "@tuval/core";
+import { Query, useDeleteSessions, useGetMe, useListAccountMemberships, useListAccounts, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
 import { Text as VibeText } from "@realmocean/vibe";
-import { CreateOrganizationView } from "./views/CreateOrganizationView";
-import { CreateWorkspaceView } from "./views/CreateWorkspaceView";
+import { is } from "@tuval/core";
+import { Button, DialogPosition, ForEach, HStack, Icon, Icons, PopupButton, ReactView, Spacer, SvgIcon, Text, UIController, UINavigate, UIRouteOutlet, UIScene, UIView, UIViewBuilder, VStack, cHorizontal, cLeading, cTop, cTopLeading, cVertical, useNavigate, useParams } from "@tuval/forms";
+import React from "react";
+import { CreateOrganizationView } from "../../../controllers/views/CreateOrganizationView";
+import { useGetCurrentOrganization } from "../../../hooks/useGetCurrentOrganization";
+import { CreateWorkspaceView } from "../../../controllers/views/CreateWorkspaceView";
 
 let _hideHandle = null;
-export class LayoutController extends UIController {
+export class WorkspaceLayoutController extends UIController {
 
 
     public BindRouterParams() {
@@ -20,12 +20,13 @@ export class LayoutController extends UIController {
 
         const { organizationId } = useParams();
         const { me, isLoading, isError } = useGetMe('console');
-        const { team, isLoading: isDomainTeamLoading } = useGetDomainTeam();
+        const { organization, isLoading: isDomainTeamLoading } = useGetCurrentOrganization();
+    
 
         return (
             isError ? UINavigate('/login') :
                 isDomainTeamLoading ? Text('Organizasyon Alınıyor') :
-                    (team == null && !is.localhost()) ? CreateOrganizationView() :
+                    (organization == null) ? CreateOrganizationView() :
                         UIViewBuilder(() => {
 
                             const { deleteSessions } = useDeleteSessions('console');
@@ -37,13 +38,13 @@ export class LayoutController extends UIController {
                             const { memberships, isLoading: isMembershipLoading } = useListAccountMemberships('console')
 
                             const { organizationId, workspaceId } = useParams();
-                            const { realms, isLoading: isRealmsLoading } = useListRealms(team != null, [
-                                Query.equal('teamId', organizationId ?? is.localhost() ? me?.prefs.organization : team?.$id)
+                            const { realms, isLoading: isRealmsLoading } = useListRealms(organization != null, [
+                                Query.equal('teamId', organizationId ?? is.localhost() ? me?.prefs.organization : organization?.$id)
                             ])
                             return (
                                 (!isMembershipLoading && memberships.length === 0) ? CreateOrganizationView() :
-                                    isRealmsLoading ? Fragment() :
-                                        realms.length === 0 ? CreateWorkspaceView(is.nullOrEmpty(organizationId) ? team?.$id : organizationId) :
+                                    isRealmsLoading ? Text('Realms loading...') :
+                                        realms.length === 0 ? CreateWorkspaceView() :
                                             (organizationId == null && workspaceId == null && !is.nullOrEmpty(me?.prefs.workspace)) ? UINavigate(`/app/workspace/${me?.prefs.workspace}`) :
                                                 (organizationId == null && workspaceId == null && realms.length > 0) ? UINavigate(`/app/workspace/${realms[0].$id}`) :
                                                     isLoading ? Text('Loading...') :
@@ -88,7 +89,6 @@ export class LayoutController extends UIController {
                                                                                         UIViewBuilder(() => {
 
                                                                                             const { teams } = useListTeams('console');
-                                                                                            const { deleteSession } = useDeleteSession('console');
 
                                                                                             const { me } = useGetMe('console');
                                                                                             return (
@@ -118,7 +118,14 @@ export class LayoutController extends UIController {
                                                                                                             .onClick(() => {
                                                                                                                 _hideHandle();
                                                                                                                 if (is.localhost()) {
-                                                                                                                    navigate(`/app/organization/${team.$id}`)
+                                                                                                                    updatePrefs({
+                                                                                                                        prefs: {
+                                                                                                                            ...(me?.prefs ? me?.prefs : {}),
+                                                                                                                            organization: team.$id
+                                                                                                                        }
+                                                
+                                                                                                                    })
+                                                                                                                    navigate(`/app/organization/${team.$id}`);
                                                                                                                 } else {
                                                                                                                     window.location.href = `https://${team.$id}.celmino.com`;
                                                                                                                 }
@@ -136,7 +143,7 @@ export class LayoutController extends UIController {
 
                                                                                                         .onClick(() => {
                                                                                                             _hideHandle();
-                                                                                                            deleteSession({ sessionId: 'current' }, () => navigate('/login'));
+                                                                                                            navigate('/logout');
                                                                                                         })
                                                                                                     ,
                                                                                                 ).padding().width(256)

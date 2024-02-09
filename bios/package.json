@@ -104,7 +104,7 @@
     "devDependencies": {
         "@realmocean/antd": "^21.0.30",
         "@realmocean/imageeditor": "^20.3.118",
-        "@realmocean/sdk": "^1.0.73",
+        "@realmocean/sdk": "^1.0.78",
         "@realmocean/services": "^21.0.0-beta.8",
         "@realmocean/ui": "^1.0.8",
         "@realmocean/vibe": "^2.82.43",
@@ -121,6 +121,7 @@
         "node-notifier": "^10.0.1",
         "react": "^18.2.0",
         "react-promise-suspense": "^0.3.4",
+        "react-use-promise": "^0.5.0",
         "rimraf": "^3.0.2",
         "sass-loader": "^13.2.0",
         "shelljs": "^0.8.5",
