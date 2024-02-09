@@ -104,7 +104,7 @@
     "devDependencies": {
         "@realmocean/antd": "^21.0.30",
         "@realmocean/imageeditor": "^20.3.118",
-        "@realmocean/sdk": "^1.0.67",
+        "@realmocean/sdk": "^1.0.73",
         "@realmocean/services": "^21.0.0-beta.8",
         "@realmocean/ui": "^1.0.8",
         "@realmocean/vibe": "^2.82.43",
@@ -134,6 +134,7 @@
     },
     "dependencies": {
         "cross-fetch": "^4.0.0",
+        "is-valid-domain": "^0.1.6",
         "isomorphic-form-data": "^2.0.0",
         "node-sass": "^8.0.0",
         "route-parser": "^0.0.5"
