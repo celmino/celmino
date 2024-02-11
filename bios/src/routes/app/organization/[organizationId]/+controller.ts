@@ -1,7 +1,7 @@
 import { ID, Models, Services, useCreateDatabase, useCreateRealm } from "@realmocean/sdk";
 import { ButtonRenderer, InputRenderer } from "@realmocean/antd";
 import { HStack, UIFormController, UIRouteOutlet, UIView, cTopLeading, useParams, Text, VStack, Input, Button, useState, useNavigate } from "@tuval/forms";
-import { CreateWorkspaceView } from "../../../../controllers/views/CreateWorkspaceView";
+import { CreateWorkspaceView } from "../../../../views/CreateWorkspaceView";
 
 export class OrganizationController extends UIFormController {
 

@@ -6,6 +6,7 @@ export const useGetCurrentOrganization = () => {
     const isEnabled = !isOrganizationIdLoading && organizationId != null;
     const { organization, isLoading: isOrganizationLoading } = useGetOrganization({ organizationId: organizationId, hookEnabled: !isOrganizationIdLoading && organizationId != null});
     
+    
     if (isOrganizationIdLoading) {
         return { isLoading: true, organization: null };
     }

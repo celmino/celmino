@@ -1,4 +1,4 @@
-import { Button, Fragment, HStack, Heading, HeadingSizes, ReactView, SecureField, Text, TextField, UIController, UIImage, UINavigate, UIView, VStack, cLeading, useNavigate, useState } from "@tuval/forms";
+import { Button, Fragment, HStack, Heading, HeadingSizes, ReactView, SecureField, Text, TextField, UIController, UIImage, UINavigate, UIView, UIViewBuilder, VStack, cLeading, useNavigate, useState } from "@tuval/forms";
 import { useCreateEmailSession, useCreateTeam, useGetMe } from "@realmocean/sdk";
 import React from "react";
 
@@ -34,7 +34,22 @@ const LeftLogo = () => (
     </svg>
 )
 
+
+
+
+
 export class LoginController extends UIController {
+    /* LoadViewInternal(): UIView {
+        const result = (this as any).GetDepends();
+        return UIViewBuilder(()=> {
+            return (
+                VStack(
+                    result ,
+                    this.LoadView()
+                )
+            )
+        })
+    } */
     public override LoadView(): UIView {
 
         const navigate = useNavigate();
@@ -47,7 +62,7 @@ export class LoginController extends UIController {
         const [password, setPassword] = useState('');
 
         return (
-            isLoading ? Fragment() :
+            isLoading ? Text('Me yükleniyor') :
                 !isAccountGetError ? UINavigate('/') :
                     HStack(
                         HStack(
@@ -94,3 +109,4 @@ export class LoginController extends UIController {
         )
     }
 }
+

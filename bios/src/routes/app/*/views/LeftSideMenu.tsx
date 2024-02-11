@@ -203,9 +203,6 @@ const topMenu = [
 
 let global_openedIDs = {};
 export const LeftSideMenuView = (selectedItem: string) => {
-
-
-
     const showAllWorkspaces = true;
     const { me, isLoading } = useGetMe('console');
     const { organization: domainTeam, isLoading:isDomainTeamLoading } = useGetCurrentOrganization();
@@ -236,7 +233,6 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
                 return (
                     VStack({ alignment: cTopLeading })(
-                        Text(JSON.stringify(domainTeam)),
                         VStack({ alignment: cTopLeading })(
                             VStack({ alignment: cTopLeading })(
                                 HStack(

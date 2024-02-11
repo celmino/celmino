@@ -1,0 +1,87 @@
+
+@font-face {
+    font-family: Graphik Regular;
+    src: url(/fonts/Graphik-Regular-Web.967648ca.eot);
+    src: url(/fonts/Graphik-Regular-Web.967648ca.eot#iefix) format("embedded-opentype"), url(/fonts/Graphik-Regular-Web.4793016a.woff2) format("woff2"), url(/fonts/Graphik-Regular-Web.0910fb0a.woff) format("woff"), url(/fonts/Graphik-Regular-Web.ba8044ba.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Graphik;
+    src: url(/fonts/Graphik-Regular-Web.967648ca.eot);
+    src: url(/fonts/Graphik-Regular-Web.967648ca.eot#iefix) format("embedded-opentype"), url(/fonts/Graphik-Regular-Web.4793016a.woff2) format("woff2"), url(/fonts/Graphik-Regular-Web.0910fb0a.woff) format("woff"), url(/fonts/Graphik-Regular-Web.ba8044ba.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Graphik Semibold;
+    src: url(/fonts/Graphik-Semibold-Web.c9bf0597.eot);
+    src: url(/fonts/Graphik-Semibold-Web.c9bf0597.eot#iefix) format("embedded-opentype"), url(/fonts/Graphik-Semibold-Web.3e88b169.woff2) format("woff2"), url(/fonts/Graphik-Semibold-Web.1f8f324f.woff) format("woff"), url(/fonts/Graphik-Semibold-Web.0db80b82.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Graphik Medium;
+    src: url(/fonts/Graphik-Medium.d5b94aaf.eot);
+    src: url(/fonts/Graphik-Medium.d5b94aaf.eot?#iefix) format("embedded-opentype"), url(/fonts/Graphik-Medium.11f306f1.woff2) format("woff2"), url(/fonts/Graphik-Medium.84ff74ce.woff) format("woff"), url(/fonts/Graphik-Medium.931a125c.ttf) format("truetype");
+    font-weight: 500;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Graphik Light;
+    src: url(/fonts/Graphik-Light.4930dec2.woff2) format("woff2"), url(/fonts/Graphik-Light.31bf6575.woff) format("woff"), url(/fonts/Graphik-Light.1e3b17b7.ttf) format("truetype");
+    font-weight: 200;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Graphik LightItalic;
+    src: url(/fonts/Graphik-LightItalic.f5956937.eot);
+    src: url(/fonts/Graphik-LightItalic.f5956937.eot?#iefix) format("embedded-opentype"), url(/fonts/Graphik-LightItalic.6233001e.woff2) format("woff2"), url(/fonts/Graphik-LightItalic.1a1925d0.woff) format("woff"), url(/fonts/Graphik-LightItalic.b105d222.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Permanent Marker;
+    src: url(/fonts/permanentmarker-regular.aff63a3c.eot);
+    src: url(/fonts/permanentmarker-regular.aff63a3c.eot?#iefix) format("embedded-opentype"), url(/fonts/permanentmarker-regular.8f74b0c6.woff2) format("woff2"), url(/fonts/permanentmarker-regular.010c1275.woff) format("woff"), url(/fonts/permanentmarker-regular.2dd39d11.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Hagrid;
+    src: url(/fonts/hagrid-text-italic.9f51832b.eot);
+    src: url(/fonts/hagrid-text-italic.9f51832b.eot?#iefix) format("embedded-opentype"), url(/fonts/hagrid-text-italic.ecbaea2d.woff2) format("woff2"), url(/fonts/hagrid-text-italic.4f2c6002.woff) format("woff"), url(/fonts/hagrid-text-italic.24fe0d96.ttf) format("truetype");
+    font-weight: 400;
+    font-style:italic
+}
+
+@font-face {
+    font-family: Hagrid;
+    src: url(/fonts/hagrid-medium.2f12cacf.eot);
+    src: url(/fonts/hagrid-medium.2f12cacf.eot?#iefix) format("embedded-opentype"), url(/fonts/hagrid-medium.9e319d27.woff2) format("woff2"), url(/fonts/hagrid-medium.44b545b4.woff) format("woff"), url(/fonts/hagrid-medium.b68405c5.ttf) format("truetype");
+    font-weight: 700;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Hagrid;
+    src: url(/fonts/hagrid-light.27ec853e.eot);
+    src: url(/fonts/hagrid-light.27ec853e.eot?#iefix) format("embedded-opentype"), url(/fonts/hagrid-light.8527e23a.woff2) format("woff2"), url(/fonts/hagrid-light.d15a4f53.woff) format("woff"), url(/fonts/hagrid-light.ae1fe0bc.ttf) format("truetype");
+    font-weight: 200;
+    font-style:normal
+}
+
+@font-face {
+    font-family: Hagrid;
+    src: url(/fonts/hagrid-regular.92fa9e4e.eot);
+    src: url(/fonts/hagrid-regular.92fa9e4e.eot?#iefix) format("embedded-opentype"), url(/fonts/hagrid-regular.6e713946.woff2) format("woff2"), url(/fonts/hagrid-regular.a4377330.woff) format("woff"), url(/fonts/hagrid-regular.a44b2033.ttf) format("truetype");
+    font-weight: 400;
+    font-style:normal
+}

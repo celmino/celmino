@@ -15,6 +15,7 @@ export const useGetOrganizationId = () => {
     }
 
     if (is.localhost()) {
+        
         return { isLoading: isLoadingMe, organizationId: me?.prefs?.organization };
     }
 

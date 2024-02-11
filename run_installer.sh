@@ -6,4 +6,4 @@ docker run -it --rm \
 
     # docker rm $(docker ps -a -q)
 
-    # docker rmi $(docker images | grep 'imagename')
+    # docker rmi $(docker images | grep 'realmocean/realmocean')

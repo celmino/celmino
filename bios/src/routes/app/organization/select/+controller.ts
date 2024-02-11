@@ -1,5 +1,5 @@
 import { UIController, UIView } from "@tuval/forms";
-import { CreateOrganizationView } from "../../../../controllers/views/CreateOrganizationView";
+import { CreateOrganizationView } from "../../../../views/CreateOrganizationView";
 
 
 export class OrganizationSelectController extends UIController {

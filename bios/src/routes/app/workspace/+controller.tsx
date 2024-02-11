@@ -1,11 +1,11 @@
-import { Query, useDeleteSessions, useGetMe, useListAccountMemberships, useListAccounts, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
+import { Query, useDeleteCache, useDeleteSessions, useGetMe, useListAccountMemberships, useListAccounts, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
 import { Text as VibeText } from "@realmocean/vibe";
 import { is } from "@tuval/core";
 import { Button, DialogPosition, ForEach, HStack, Icon, Icons, PopupButton, ReactView, Spacer, SvgIcon, Text, UIController, UINavigate, UIRouteOutlet, UIScene, UIView, UIViewBuilder, VStack, cHorizontal, cLeading, cTop, cTopLeading, cVertical, useNavigate, useParams } from "@tuval/forms";
 import React from "react";
-import { CreateOrganizationView } from "../../../controllers/views/CreateOrganizationView";
+import { CreateOrganizationView } from "../../../views/CreateOrganizationView";
 import { useGetCurrentOrganization } from "../../../hooks/useGetCurrentOrganization";
-import { CreateWorkspaceView } from "../../../controllers/views/CreateWorkspaceView";
+import { CreateWorkspaceView } from "../../../views/CreateWorkspaceView";
 
 let _hideHandle = null;
 export class WorkspaceLayoutController extends UIController {
@@ -21,7 +21,7 @@ export class WorkspaceLayoutController extends UIController {
         const { organizationId } = useParams();
         const { me, isLoading, isError } = useGetMe('console');
         const { organization, isLoading: isDomainTeamLoading } = useGetCurrentOrganization();
-    
+
 
         return (
             isError ? UINavigate('/login') :
@@ -29,7 +29,7 @@ export class WorkspaceLayoutController extends UIController {
                     (organization == null) ? CreateOrganizationView() :
                         UIViewBuilder(() => {
 
-                            const { deleteSessions } = useDeleteSessions('console');
+                            const { deleteCache } = useDeleteCache('console');
                             const { updatePrefs } = useUpdatePrefs({});
 
                             const { accounts } = useListAccounts()
@@ -118,14 +118,17 @@ export class WorkspaceLayoutController extends UIController {
                                                                                                             .onClick(() => {
                                                                                                                 _hideHandle();
                                                                                                                 if (is.localhost()) {
+                                                                                                                    deleteCache();
                                                                                                                     updatePrefs({
                                                                                                                         prefs: {
                                                                                                                             ...(me?.prefs ? me?.prefs : {}),
                                                                                                                             organization: team.$id
                                                                                                                         }
-                                                
+
+                                                                                                                    }, () => {
+                                                                                                                        navigate(`/app/organization/${team.$id}`)
                                                                                                                     })
-                                                                                                                    navigate(`/app/organization/${team.$id}`);
+
                                                                                                                 } else {
                                                                                                                     window.location.href = `https://${team.$id}.celmino.com`;
                                                                                                                 }
@@ -183,7 +186,104 @@ export class WorkspaceLayoutController extends UIController {
                                                                                 .background('#F6F7FB')
                                                                                 .overflow('hidden')
                                                                                 .width('100%'),
+                                                                        ),
+                                                                        HStack({ alignment: cLeading })(
+
+                                                                            HStack(
+                                                                                HStack(
+                                                                                    Icon(SvgIcon('cu3-icon-circleCheckFilled','16px','16px','white' ))
+                                                                                ).width(),
+                                                                                HStack(
+                                                                                    PopupButton(
+                                                                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                                                                            Icon(SvgIcon('cu3-icon-nineDots','16px','16px','white'))
+
+
+                                                                                        ).height(30).cursor('pointer').padding(cHorizontal, 10)
+                                                                                    )(
+                                                                                        UIViewBuilder(() => {
+
+                                                                                            const { teams } = useListTeams('console');
+
+                                                                                            const { me } = useGetMe('console');
+                                                                                            return (
+                                                                                                VStack({ spacing: 0 })(
+                                                                                                    HStack(
+                                                                                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                                                                                            HStack().allWidth(30).allHeight(30).cornerRadius('50%').background('gray'),
+                                                                                                            VStack({ alignment: cLeading })(
+                                                                                                                VibeText(me.name).fontSize(14).foregroundColor('#212526'),
+                                                                                                                VibeText(me.email).fontSize(12).foregroundColor('#6d7a83'),
+                                                                                                            )
+                                                                                                        ).padding(5)
+                                                                                                            .cornerRadius(6)
+                                                                                                            .background({ hover: '#ECEEEF' })
+                                                                                                    ).padding(5),
+                                                                                                    HStack({ alignment: cLeading })(
+                                                                                                        VibeText('ORGANIZATION(S)').fontSize(12)
+                                                                                                    ).padding(cVertical, 5),
+                                                                                                    ...ForEach(teams)(team =>
+                                                                                                        // UIRouteLink(`/app/organization/${team.$id}`)(
+                                                                                                        HStack({ alignment: cLeading })(
+                                                                                                            Text(team.name)
+                                                                                                        ).allHeight(32)
+                                                                                                            .cursor('pointer')
+                                                                                                            .background({ hover: '#F0F1F3' })
+                                                                                                            .padding('7px 0')
+                                                                                                            .onClick(() => {
+                                                                                                                _hideHandle();
+                                                                                                                if (is.localhost()) {
+                                                                                                                    deleteCache();
+                                                                                                                    updatePrefs({
+                                                                                                                        prefs: {
+                                                                                                                            ...(me?.prefs ? me?.prefs : {}),
+                                                                                                                            organization: team.$id
+                                                                                                                        }
+
+                                                                                                                    }, () => {
+                                                                                                                        navigate(`/app/organization/${team.$id}`)
+                                                                                                                    })
+
+                                                                                                                } else {
+                                                                                                                    window.location.href = `https://${team.$id}.celmino.com`;
+                                                                                                                }
+
+                                                                                                            })
+                                                                                                        //).width('100%')
+                                                                                                    ),
+                                                                                                    HStack({ alignment: cLeading })(
+                                                                                                        Icon(SvgIcon('cu3-icon-logout')),
+                                                                                                        VibeText('Logout').fontSize(14)
+                                                                                                    ).allHeight(32)
+                                                                                                        .cursor('pointer')
+                                                                                                        .background({ hover: '#F0F1F3' })
+                                                                                                        .padding('7px 0')
+
+                                                                                                        .onClick(() => {
+                                                                                                            _hideHandle();
+                                                                                                            navigate('/logout');
+                                                                                                        })
+                                                                                                    ,
+                                                                                                ).padding().width(256)
+                                                                                                .marginBottom('10px')
+                                                                                            )
+                                                                                        })
+                                                                                    )
+                                                                                        //  .padding(0)
+                                                                                        //.open(isOpen)
+
+                                                                                        .hideHandle(hideHandle => _hideHandle = hideHandle)
+                                                                                        .dialogPosition(DialogPosition.TOP)
+                                                                                ).width(),
+
+
+                                                                            ),
+
+
                                                                         )
+                                                                            .fontSize('1.2rem')
+                                                                            .height(40).minHeight('40px')
+                                                                            .foregroundColor('white'),
                                                                         //.height('calc(100% - 50px)')
                                                                     )
                                                                         //  .allHeight('100%')

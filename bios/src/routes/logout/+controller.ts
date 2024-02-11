@@ -1,5 +1,5 @@
 import { useDeleteSession } from "@realmocean/sdk";
-import { Fragment, Spinner, UIController, UINavigate, UIView, useEffect, useNavigate, useState } from "@tuval/forms";
+import { Fragment, Spinner, Text, UIController, UINavigate, UIView, VStack, useEffect, useNavigate, useState } from "@tuval/forms";
 
 
 export class LogoutController extends UIController {
@@ -10,11 +10,14 @@ export class LogoutController extends UIController {
 
 
         useEffect(() => {
-            deleteSession({ sessionId: 'current' }, () => navigate('/login'));
+            deleteSession({ sessionId: 'current' }, () =>window.location.href = '/login');
         }, []);
 
         return (
-                Fragment()
+                VStack(
+                    Spinner(),
+                    Text('Logging out...')
+                )
         )
     }
 }

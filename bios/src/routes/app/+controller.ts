@@ -1,14 +1,13 @@
-import { useGetMe } from "@realmocean/sdk";
-import { UIController, UIView, UIRouteOutlet, UINavigate } from "@tuval/forms";
+import { UIController, UIRouteOutlet, UIView } from "@tuval/forms";
+import { Guard } from "../../CelminoController";
+//import { LoginGuard } from "../../guards/LoginGuard";
 
 
+//@Guard(LoginGuard)
 export class LayoutController extends UIController {
     public override LoadView(): UIView {
-        const { me, isLoading, isError } = useGetMe('console');
-
         return (
-            isError ? UINavigate('/login') :
-                UIRouteOutlet().width("100%").height("100%")
+            UIRouteOutlet().width("100%").height("100%")
         )
     }
 }
