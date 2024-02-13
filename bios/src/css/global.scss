@@ -5,7 +5,7 @@
 @import './EditableHeading';
 @import './antd.css';
 
-@import './normalize.css';
+/* @import './normalize.css'; */
 
 @import './overrides/prime/index.css';
 
@@ -17,7 +17,7 @@
 
 
 
-@media screen and (min-width: 1400px) {
+/* @media screen and (min-width: 1400px) {
   html {
     font-size: 14px;
 
@@ -34,7 +34,7 @@
   html {
     font-size: 14px;
   }
-}
+} */
 
 
 html,
@@ -62,13 +62,15 @@ body {
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 
+  font : 62.5%/1.6 Graphik Regular,sans-serif;
+ 
+
 }
 
 body {
   cursor: var(--system-cursor-default), auto;
 
-  font-family: var(--font-family);
-  font-size: 1rem;
+
 
   //-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,6 +88,10 @@ a,
 u {
   text-decoration: none;
 }
+input:-webkit-autofill::first-line {
+  font-size: 1.8rem !important;
+}
+
 
 * {
   /*-webkit-font-smoothing: subpixel-antialiased;

@@ -130,7 +130,7 @@ export class WorkspaceLayoutController extends UIController {
                                                                                                                     })
 
                                                                                                                 } else {
-                                                                                                                    window.location.href = `https://${team.$id}.celmino.com`;
+                                                                                                                    window.location.href = `https://${team.$id}.celmino.io`;
                                                                                                                 }
 
                                                                                                             })
@@ -245,7 +245,7 @@ export class WorkspaceLayoutController extends UIController {
                                                                                                                     })
 
                                                                                                                 } else {
-                                                                                                                    window.location.href = `https://${team.$id}.celmino.com`;
+                                                                                                                    window.location.href = `https://${team.$id}.celmino.io`;
                                                                                                                 }
 
                                                                                                             })

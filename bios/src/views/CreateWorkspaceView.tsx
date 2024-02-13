@@ -1,7 +1,7 @@
 import { ButtonRenderer, InputRenderer } from "@realmocean/antd";
 import { Query, Services, useCreateRealm, useDeleteSession, useGetMe, useListRealms } from "@realmocean/sdk";
 
-import { Button, ForEach, HStack, Heading, Input, TextField, Text, UINavigate, UIViewBuilder, VStack, useNavigate, useState, Spacer, cLeading, cHorizontal, darken } from "@tuval/forms";
+import { Button, ForEach, HStack, Heading, Input, TextField, Text, UINavigate, UIViewBuilder, VStack, useNavigate, useState, Spacer, cLeading, cHorizontal, darken, Icon, Icons, HDivider } from "@tuval/forms";
 import { useGetCurrentOrganization } from "../hooks/useGetCurrentOrganization";
 
 
@@ -33,25 +33,40 @@ export const CreateWorkspaceView = () => UIViewBuilder(() => {
                                 .onClick(() => {
                                     navigate('/app/organization/select');
                                 }),
-                            Heading(organization?.name).fontSize(28).foregroundColor('#090e13')
-                                .fontFamily('Graphik Medium,sans-serif'),
-                            Heading('Workspaces').fontFamily('"Hagrid", sans-serif').fontSize('4rem').foregroundColor('#090e13').lineHeight(90),
-                            VStack({ spacing: 5 })(
+                           
+                            Heading('Workspaces').fontFamily('"Hagrid", sans-serif').fontSize('6rem').foregroundColor('#090e13').lineHeight(90),
+                            Heading(organization?.name).fontSize('2.8rem').foregroundColor('#090e13')
+                            .fontFamily('Graphik Medium,sans-serif'),
+                            VStack(
                                 ...ForEach(realms)(realm =>
-                                    HStack({ alignment: cLeading })(
-                                        Text(realm.name).fontFamily('"Graphik Regular", sans-serif').fontSize(20)
+                                    HStack({ alignment: cLeading, spacing:10 })(
+                                        HStack({ alignment: cLeading })(
+                                            Text(realm.name).fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')
+                                        ).height(),
+                                        Icon(Icons.MoveArrowRight)
                                     )
-                                    .cursor('pointer')
+                                        .cursor('pointer')
                                         .height()
-                                        .padding(7)
+                                        .padding('1.6rem 2rem 1.6rem 0')
+                                        .foregroundColor('#242938')
                                         .cornerRadius(6)
-                                        .background({hover: darken('#7FE8D4', 0.05)})
+                                        .background({ hover: darken('#7FE8D4', 0.05) })
                                         .onClick(() => {
                                             navigate(`/app/workspace/${realm.$id}`)
                                         })
                                 )
                             ).padding(cHorizontal, 20).height().maxWidth('100%'),
-                            HStack(
+                            HDivider().height(1).background('rgba(125, 141, 154, 0.1)'),
+                            HStack({ alignment: cLeading })(
+                                Text('Create a new workspace').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')
+                            ).height() .padding('1.6rem 2rem 1.6rem 0'),
+                            HStack({ alignment: cLeading })(
+                                Text('Log in with another email').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')
+                            ).height() .padding('1.6rem 2rem 1.6rem 0')
+                            .onClick(() => {
+                                navigate('/logout');
+                            }),
+                            /* HStack(
                                 TextField()
                                     .padding()
                                     .border('none')
@@ -64,7 +79,7 @@ export const CreateWorkspaceView = () => UIViewBuilder(() => {
                                     })
 
                             ).width('50%')
-                                .height(),
+                                .height(), */
                             Button().renderer(ButtonRenderer).label('Submit')
                                 .loading(isLoading)
                                 .disabled(isLoading)

@@ -1,12 +1,11 @@
 import { useGetMe } from "@realmocean/sdk";
-import { UINavigate } from "@tuval/forms";
+import { Fragment, UINavigate } from "@tuval/forms";
 
-/* export const LoginGuard = () => {
+ export const LoginGuard = () => {
     const { me, isLoading } = useGetMe('console');
-    return {
-        release: !isLoading && me != null,
-        view: (
+    return (
+         (!isLoading || me != null) ? Fragment() :
             UINavigate('/login')
-        )
-    }
-} */
+        
+    )
+} 

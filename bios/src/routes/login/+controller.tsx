@@ -1,9 +1,9 @@
-import { Button, Fragment, HStack, Heading, HeadingSizes, ReactView, SecureField, Text, TextField, UIController, UIImage, UINavigate, UIView, UIViewBuilder, VStack, cLeading, useNavigate, useState } from "@tuval/forms";
-import { useCreateEmailSession, useCreateTeam, useGetMe } from "@realmocean/sdk";
+import { Button, Fragment, HDivider, HStack, Heading, HeadingSizes, Icon, Input, ReactView, SecureField, Spacer, Text, TextField, UIController, UIImage, UINavigate, UIView, UIViewBuilder, VStack, cLeading, cTop, useNavigate, useState } from "@tuval/forms";
+import { Services, useCreateEmailSession, useCreateTeam, useGetMe } from "@realmocean/sdk";
 import React from "react";
 
 const LeftLogo = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500" height="207" viewBox="0 0 1000 207">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="207" viewBox="0 0 1000 207">
         <g transform="matrix(1,0,0,1,-0.6060605238602648,-0.3879324329129332)"><svg viewBox="0 0 396 82" data-background-color="#ffffff" preserveAspectRatio="xMidYMid meet" height="207" width="1000"><g id="tight-bounds" transform="matrix(1,0,0,1,0.24000003255142133,0.15367371738580005)"><svg viewBox="0 0 395.5199999999999 81.69265256522837" height="81.69265256522837" width="395.5199999999999"><g><svg viewBox="0 0 461.5680879257202 95.33455057168447" height="81.69265256522837" width="395.5199999999999"><g><svg viewBox="0 0 461.5680879257202 95.33455057168447" height="95.33455057168447" width="461.5680879257202"><g id="textblocktransform"><svg viewBox="0 0 461.5680879257202 95.33455057168447" height="95.33455057168447" width="461.5680879257202" id="textblock"><g><svg viewBox="0 0 461.5680879257202 58.89519999999999" height="58.89519999999999" width="461.5680879257202"><g><svg><g></g><g></g></svg></g>
             <g><svg><g><svg></svg></g>
                 <g></g>
@@ -34,8 +34,40 @@ const LeftLogo = () => (
     </svg>
 )
 
+const GoogleLogo = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M24 12.2755C24 11.4598 23.9325 10.6397 23.7885 9.83716H12.2406V14.4581H18.8536C18.5791 15.9485 17.6974 17.2669 16.4063 18.1047V21.103H20.3516C22.6684 19.013 24 15.9264 24 12.2755Z" fill="#4285F4"></path><path d="M12.2408 23.9999C15.5427 23.9999 18.3274 22.9373 20.3562 21.103L16.4109 18.1046C15.3133 18.8366 13.8962 19.2511 12.2453 19.2511C9.05125 19.2511 6.3431 17.139 5.3714 14.2994H1.30017V17.3903C3.37852 21.4425 7.6117 23.9999 12.2408 23.9999Z" fill="#34A853"></path><path d="M5.36688 14.2995C4.85404 12.8091 4.85404 11.1953 5.36688 9.70496V6.61401H1.30015C-0.436312 10.0048 -0.436312 13.9996 1.30015 17.3904L5.36688 14.2995Z" fill="#FBBC04"></path><path d="M12.2407 4.74881C13.9862 4.72235 15.6732 5.36611 16.9373 6.54781L20.4327 3.12176C18.2194 1.08465 15.2818 -0.0353205 12.2407 -4.58262e-05C7.61169 -4.58262e-05 3.37852 2.55737 1.30017 6.61395L5.36689 9.7049C6.33409 6.86088 9.04674 4.74881 12.2407 4.74881Z" fill="#EA4335"></path></g><defs>
+        <clipPath id="clip0"><rect width="24" height="24" fill="white"></rect></clipPath>
+    </defs></svg>
+)
 
+const MicrosoftLogo = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5352 0.929382H0.929321V11.5353H11.5352V0.929382Z" fill="#F35325"></path><path d="M23.0707 0.929382H12.4647V11.5353H23.0707V0.929382Z" fill="#81BC06"></path><path d="M11.5352 12.4647H0.929321V23.0707H11.5352V12.4647Z" fill="#05A6F0"></path><path d="M23.0707 12.4647H12.4647V23.0707H23.0707V12.4647Z" fill="#FFBA08"></path></svg>
+)
 
+/* 
+
+http://localhost:4200/landing?query=1#2
+
+window.location.hash: "#2"
+​
+window.location.host: "localhost:4200"
+​
+window.location.hostname: "localhost"
+​
+window.location.href: "http://localhost:4200/landing?query=1#2"
+​
+window.location.origin: "http://localhost:4200"
+​
+window.location.pathname: "/landing"
+​
+window.location.port: "4200"
+​
+window.location.protocol: "http:"
+
+window.location.search: "?query=1" 
+
+var subDomain = /:\/\/([^\/]+)/.exec(window.location.href)[1];
+*/
 
 
 export class LoginController extends UIController {
@@ -62,49 +94,130 @@ export class LoginController extends UIController {
         const [password, setPassword] = useState('');
 
         return (
-            isLoading ? Text('Me yükleniyor') :
-                !isAccountGetError ? UINavigate('/') :
-                    HStack(
+            //isLoading ? Text('Me yükleniyor') :
+            me != null ? UINavigate('/') :
+                VStack(
+                    VStack({alignment:cTop})(
                         HStack(
                             ReactView(
                                 <LeftLogo></LeftLogo>
                             )
-                        ).width('50%'),
-                        VStack({ alignment: cLeading, spacing: 20 })(
-                            Heading('Welcome to Celmino').size(HeadingSizes.LARGE),
+                        ).width('20%').height()
+                        .position('absolute')
+                        .left('0px').top('0px'),
+                        VStack(
+                        HStack(
+                            Heading('Sign in').fontSize('6rem').foregroundColor('#090e13').lineHeight('1.4')
+                                .fontFamily('"Hagrid", sans-serif')
+                        ).height().marginBottom('.7rem'),
+                        VStack({ spacing: 20 })(
+                         
+                            HStack({ spacing: 10 })(
+                                Icon(GoogleLogo),
+                                Text('Sign in with Google').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')
+                            ).height(48).width('100%')
+                                .minWidth('32rem')
+                                .maxWidth('40rem')
+                                .marginBottom('2rem')
+                                .cursor('pointer')
+                                .background('white')
+                                .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
+                                .onClick(() => {
+                                    Services.Accounts.createOAuth2Session(
+                                        "google",
+                                        `${window.location.protocol}//${window.location.host}/app`,
+                                        `${window.location.protocol}//${window.location.host}/login-failure`
+                                    )
+
+                                }),
+                            HStack({ spacing: 10 })(
+                                Icon(MicrosoftLogo),
+                                Text('Sign in with Microsoft').fontFamily('"Graphik Regular", sans-serif').fontSize(20)
+                            ).height(48).width('100%')
+                                .minWidth('32rem')
+                                .maxWidth('40rem')
+                                .cursor('pointer')
+                                .background('white')
+                                .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
+                                .onClick(() => {
+                                    Services.Accounts.createOAuth2Session(
+                                        "microsoft",
+                                        `${window.location.protocol}//${window.location.host}/app`,
+                                        `${window.location.protocol}//${window.location.host}/login-failure`
+                                    )
+
+                                }),
+                        ).height().width().paddingTop('3rem'),
+                        VStack({ alignment: cLeading })(
+                            HStack(
+                                HDivider().height(1).background('rgba(125, 141, 154, 0.1)'),
+                                Text('OR').padding('0 20px'),
+                                HDivider().height(1).background('rgba(125, 141, 154, 0.1)')
+
+                            ).padding('2.4rem 0').maxWidth('40rem').height(),
                             VStack({ alignment: cLeading, spacing: 10 })(
-                                Text('Email').fontSize(16),
-                                TextField().fontSize(16).padding(10).onChange(e => setEmail(e))
+
+                                TextField().fontSize('1.8rem')
+                                    .allHeight(40)
+                                    //  .placeholder('Enter your email')
+                                    .transition('all 0.3s ease-in-out')
+                                    .border('none')
+                                    .borderBottom({ hover: '2px solid #162330' })
+                                    .background('white')
+                                    .outline({ focus: 'none' })
+                                    .padding('0 1.5rem').width(332)
+                                    .onChange(e => setEmail(e))
+                            ).height().marginBottom('1.5rem'),
+                            VStack({ alignment: cLeading, spacing: 10 })(
+
+                                SecureField().fontSize(16).padding(10)
+                                    .onChange(e => setPassword(e))
                             ).height(),
                             VStack({ alignment: cLeading, spacing: 10 })(
-                                Text('Password').fontSize(16),
-                                SecureField().fontSize(16).padding(10).onChange(e => setPassword(e))
-                            ).height(),
-                            VStack({ alignment: cLeading, spacing: 10 })(
-                                Button(
-                                    Text('Login')
-                                ).width(200)
+                                HStack(
+                                    Text('Sign in with email')
+                                        .fontFamily('"Graphik Regular", sans-serif')
+
+                                        .fontSize('2rem')
+                                )
+                                    .lineHeight('4.8rem')
+                                    .padding('0 5rem')
+                                    .background('#242938')
+                                    .cornerRadius(3)
+                                    .foregroundColor('white')
                                     .onClick(() => {
-                                        createEmailSession({
+                                        /* createEmailSession({
                                             email: email,
                                             password: password
                                         }, () => {
                                             navigate('/')
-                                        })
+                                        }) */
                                     }),
                                 Text('or'),
                                 Button(
-                                    Text('SignUp')
+                                    Text('')
                                 ).width(200)
                                     .onClick(() => {
-                                        navigate('/signup');
+                                        //  navigate('/signup');
                                     })
                             ).height(),
-                            isError && Text(error?.message),
-                            isSuccess && UINavigate('/')
-                        )
-                            .width(700).padding(100)
+                            /*  isError && Text(error?.message),
+                             isSuccess && UINavigate('/') */
+                        ).width().height()
+                        ).height().marginTop('10rem'),
+
+
+
                     )
+                        .paddingTop('14rem')
+                        .paddingRight('calc(50% - 660px)')
+                        .paddingLeft('calc(50% - 660px)')
+                        .minHeight('100vh'),
+                    HStack().height('9rem')
+                    .position('absolute')
+                    .bottom('0px')
+                        .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')
+                ).background('#7FE8D4')
 
         )
     }

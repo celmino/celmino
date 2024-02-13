@@ -1,0 +1,5 @@
+ https://login.microsoftonline.com/a26f3698-7164-4cd5-a739-f9eaf139c48a/oauth2/v2.0/authorize?client_id=0f2c4c85-672f-4a51-8b8c-c96c92e737fd&redirect_uri=http%3A%2F%2Flocalhost%3A9501%2Fv1%2Faccount%2Fsessions%2Foauth2%2Fcallback%2Fmicrosoft%2Fconsole&state=%7B%22success%22%3A%22http%3A%5C%2F%5C%2Flocalhost%3A9501%5C%2Fapp%22%2C%22failure%22%3A%22http%3A%5C%2F%5C%2Flocalhost%3A9501%5C%2Fv1%5C%2Fauth%5C%2Foauth2%5C%2Ffailure%22%7D&scope=offline_access+user.read&response_type=code&response_mode=query
+
+ https://login.microsoftonline.com/[tenant A]/oauth2/v2.0/authorize?client_id=[client id of the Azure AD app registered in host tenant]&response_type=code&redirect_uri=[redirect uri of the Azure AD app]&nonce=1234&resource=https://graph.microsoft.com.
+
+ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=fc0db3e8-8428-43d3-94a7-d6d1422c4457&redirect_uri=https%3A%2F%2Ffibery.io%2Flogin%2Fmicrosoft%2Fcallback&scope=openid%20email%20profile&state=%7B%22nonce%22%3A%22ab807220-ca45-11ee-aa80-49652dca184f%22%7D
