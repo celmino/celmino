@@ -17,19 +17,22 @@ export const WorkspaceGuard = () => {
 
 export const DefaultWorkspaceGuard = () => {
     const { organization, isLoading } = useGetCurrentOrganization();
+    const { workspaceId } = useParams();
 
     return (
-        isLoading ? Fragment() :
-            UIViewBuilder(() => {
-                const { realms, isLoading: isRealmsLoading } = useListRealms(organization != null, [
-                    Query.equal('teamId', organization?.$id)
-                ])
+        workspaceId != null ? Fragment() :
+            isLoading ? Fragment() :
+                UIViewBuilder(() => {
+                    const { realms, isLoading: isRealmsLoading } = useListRealms(organization != null, [
+                        Query.equal('teamId', organization?.$id)
+                    ])
 
-                return (
-                    (isRealmsLoading || realms?.length === 0) ? UINavigate(`/app/workspace/select`) :
-                        UINavigate(`/app/workspace/${realms[0].$id}`)
-                )
-            })
+                    return (
+                        isRealmsLoading ? Fragment() :
+                            (realms?.length === 0) ? UINavigate(`/app/workspace/select`) :
+                                UINavigate(`/app/workspace/${realms[0].$id}`)
+                    )
+                })
 
     )
 }

@@ -285,7 +285,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                         HStack({ alignment: cLeading, spacing: 5 })(
                                                             HStack().width(30).height(30).cornerRadius('50%').background('gray'),
                                                             VStack({ alignment: cLeading })(
-                                                                VibeText(me.name).fontSize(14).foregroundColor('#212526'),
+                                                                VibeText(realm.name).fontSize(14).foregroundColor('#212526'),
                                                                 VibeText(me.email).fontSize(12).foregroundColor('#6d7a83'),
                                                             )
                                                         ).padding(5)
