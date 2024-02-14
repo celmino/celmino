@@ -4385,6 +4385,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/WaitViewClass */ "./src/views/WaitViewClass.ts");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -4409,6 +4412,8 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
+
+
 
 function Guard() {
     var args = [];
@@ -4436,10 +4441,18 @@ var CelminoController = /** @class */ (function (_super) {
     }
     CelminoController.prototype.LoadViewInternal = function () {
         var _this = this;
-        console.log(this);
-        var result = this.GetDepends();
+        var wait = false;
+        var result = _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is["function"](this.GetDepends) ? this.GetDepends() : [];
+        for (var i = 0; i < result.length; i++) {
+            if (result[i] instanceof _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_1__.WaitViewClass) {
+                wait = true;
+            }
+            else if (result[i] instanceof _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteClass) {
+                return result[i];
+            }
+        }
         return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-            return (_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack.apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(result)(function (item) { return item; }), false), [_this.LoadView()], false)));
+            return (_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack.apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(result)(function (item) { return item; }), false), [wait ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() : _this.LoadView()], false)));
         });
     };
     return CelminoController;
@@ -9242,6 +9255,36 @@ var SelectAppletDialog = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/guards/AlreadyLoggedInGuard.ts":
+/*!********************************************!*\
+  !*** ./src/guards/AlreadyLoggedInGuard.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AlreadyLoggedInGuard": () => (/* binding */ AlreadyLoggedInGuard)
+/* harmony export */ });
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
+
+
+
+// redirect to /app if user is logged in
+// it is using login page
+var AlreadyLoggedInGuard = function () {
+    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
+    return (isLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Wait)() :
+        me != null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/app') : (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Release)());
+};
+
+
+/***/ }),
+
 /***/ "./src/guards/LoginGuard.ts":
 /*!**********************************!*\
   !*** ./src/guards/LoginGuard.ts ***!
@@ -9257,12 +9300,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
+
 
 
 var LoginGuard = function () {
     var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
-    return ((!isLoading || me != null) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login'));
+    return (isLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Wait)() :
+        me == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') : (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Release)());
 };
 
 
@@ -9285,6 +9330,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
 /* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/useGetCurrentOrganization */ "./src/hooks/useGetCurrentOrganization.ts");
+/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
+
 
 
 
@@ -9297,17 +9344,15 @@ var WorkspaceGuard = function () {
 };
 var DefaultWorkspaceGuard = function () {
     var _a = (0,_hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_2__.useGetCurrentOrganization)(), organization = _a.organization, isLoading = _a.isLoading;
+    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(organization != null, [
+        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', organization === null || organization === void 0 ? void 0 : organization.$id)
+    ]), realms = _b.realms, isRealmsLoading = _b.isLoading;
     var workspaceId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().workspaceId;
-    return (workspaceId != null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-        isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-                var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(organization != null, [
-                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', organization === null || organization === void 0 ? void 0 : organization.$id)
-                ]), realms = _a.realms, isRealmsLoading = _a.isLoading;
-                return (isRealmsLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Fragment)() :
-                    ((realms === null || realms === void 0 ? void 0 : realms.length) === 0) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/select") :
-                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(realms[0].$id)));
-            }));
+    return (workspaceId != null ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__.Release)() :
+        isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('fdsfsdf') :
+            isRealmsLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__.Wait)() :
+                ((realms === null || realms === void 0 ? void 0 : realms.length) === 0) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/select") :
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(realms[0].$id)));
 };
 
 
@@ -10123,9 +10168,11 @@ var LeftSideMenuView = function (selectedItem) {
                     _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id)
                 ]).realms;
                 var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(realm.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
+                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(realm.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
                     .cornerRadius(6)
-                    .background({ hover: '#ECEEEF' })).padding(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)('SWITCH WORKSPACES').fontSize(12)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(realm.name)).background({ hover: '#E8EAED' })
+                    .background({ hover: '#ECEEEF' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-settings')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)('Settings'))
+                    .padding(5)
+                    .height()).padding(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)('SWITCH WORKSPACES').fontSize(12)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_6__.Text)(realm.name)).background({ hover: '#E8EAED' })
                     .cursor('pointer')
                     .padding(5)
                     .onClick(function () {
@@ -11026,6 +11073,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _CelminoController__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CelminoController */ "./src/CelminoController.ts");
+/* harmony import */ var _guards_AlreadyLoggedInGuard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../guards/AlreadyLoggedInGuard */ "./src/guards/AlreadyLoggedInGuard.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -11041,6 +11090,14 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
 
 
 
@@ -11125,101 +11182,89 @@ var LoginController = /** @class */ (function (_super) {
     function LoginController() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    /* LoadViewInternal(): UIView {
-        const result = (this as any).GetDepends();
-        return UIViewBuilder(()=> {
-            return (
-                VStack(
-                    result ,
-                    this.LoadView()
-                )
-            )
-        })
-    } */
     LoginController.prototype.LoadView = function () {
         var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading, isAccountGetError = _a.isError;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateEmailSession)('console'), createEmailSession = _b.createEmailSession, isSuccess = _b.isSuccess, isError = _b.isError, error = _b.error;
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), email = _c[0], setEmail = _c[1];
-        var _d = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _d[0], setPassword = _d[1];
-        return (
-        //isLoading ? Text('Me yükleniyor') :
-        me != null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UINavigate)('/app') :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement(LeftLogo, null))).width('20%').height()
-                .position('absolute')
-                .left('0px').top('0px')
-                .cursor('pointer')
-                .onClick(function () {
+        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateEmailSession)('console'), createEmailSession = _a.createEmailSession, isSuccess = _a.isSuccess, isError = _a.isError, error = _a.error;
+        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), email = _b[0], setEmail = _b[1];
+        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _c[0], setPassword = _c[1];
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement(LeftLogo, null))).width('20%').height()
+            .position('absolute')
+            .left('0px').top('0px')
+            .cursor('pointer')
+            .onClick(function () {
+            navigate('/');
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Sign in').fontSize('6rem').foregroundColor('#090e13').lineHeight('1.4')
+            .fontFamily('"Hagrid", sans-serif')).height().marginBottom('.7rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ spacing: 20 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(GoogleLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Google').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height(48).width('100%')
+            .minWidth('32rem')
+            .maxWidth('40rem')
+            .marginBottom('2rem')
+            .cursor('pointer')
+            .background('white')
+            .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
+            .onClick(function () {
+            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("google", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(MicrosoftLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Microsoft').fontFamily('"Graphik Regular", sans-serif').fontSize(20)).height(48).width('100%')
+            .minWidth('32rem')
+            .maxWidth('40rem')
+            .cursor('pointer')
+            .background('white')
+            .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
+            .onClick(function () {
+            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("microsoft", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
+        })).height().width().paddingTop('3rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('OR').padding('0 20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)')).padding('2.4rem 0').maxWidth('40rem').height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().fontSize('1.8rem')
+            .allHeight(40)
+            //  .placeholder('Enter your email')
+            .transition('all 0.3s ease-in-out')
+            .border('none')
+            .borderBottom({ hover: '2px solid #162330' })
+            .background('white')
+            .outline({ focus: 'none' })
+            .padding('0 1.5rem').width(332)
+            .onChange(function (e) { return setEmail(e); })).height().marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SecureField)().fontSize(16).padding(10)
+            .onChange(function (e) { return setPassword(e); })).height()
+            .marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with email')
+            .fontFamily('"Graphik Regular", sans-serif')
+            .fontSize('2rem'))
+            .height()
+            .cursor('pointer')
+            .lineHeight('4.8rem')
+            .padding('0 5rem')
+            .background('#242938')
+            .cornerRadius(3)
+            .foregroundColor('white')
+            .onClick(function () {
+            createEmailSession({
+                email: email,
+                password: password
+            }, function () {
                 navigate('/');
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Sign in').fontSize('6rem').foregroundColor('#090e13').lineHeight('1.4')
-                .fontFamily('"Hagrid", sans-serif')).height().marginBottom('.7rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ spacing: 20 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(GoogleLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Google').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height(48).width('100%')
-                .minWidth('32rem')
-                .maxWidth('40rem')
-                .marginBottom('2rem')
-                .cursor('pointer')
-                .background('white')
-                .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
-                .onClick(function () {
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("google", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(MicrosoftLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Microsoft').fontFamily('"Graphik Regular", sans-serif').fontSize(20)).height(48).width('100%')
-                .minWidth('32rem')
-                .maxWidth('40rem')
-                .cursor('pointer')
-                .background('white')
-                .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
-                .onClick(function () {
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("microsoft", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
-            })).height().width().paddingTop('3rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('OR').padding('0 20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)')).padding('2.4rem 0').maxWidth('40rem').height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().fontSize('1.8rem')
-                .allHeight(40)
-                //  .placeholder('Enter your email')
-                .transition('all 0.3s ease-in-out')
-                .border('none')
-                .borderBottom({ hover: '2px solid #162330' })
-                .background('white')
-                .outline({ focus: 'none' })
-                .padding('0 1.5rem').width(332)
-                .onChange(function (e) { return setEmail(e); })).height().marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SecureField)().fontSize(16).padding(10)
-                .onChange(function (e) { return setPassword(e); })).height()
-                .marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with email')
-                .fontFamily('"Graphik Regular", sans-serif')
-                .fontSize('2rem'))
-                .height()
-                .cursor('pointer')
-                .lineHeight('4.8rem')
-                .padding('0 5rem')
-                .background('#242938')
-                .cornerRadius(3)
-                .foregroundColor('white')
-                .onClick(function () {
-                createEmailSession({
-                    email: email,
-                    password: password
-                }, function () {
-                    navigate('/');
-                });
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Reset password')
-                .fontSize('1.6rem')
-                .fontFamily('"Graphik Regular", sans-serif')
-                .cursor('pointer')
-                .onClick(function () {
-                navigate('/reset-password');
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign up')
-                .fontSize('1.6rem')
-                .fontFamily('"Graphik Regular", sans-serif')
-                .cursor('pointer')
-                .onClick(function () {
-                navigate('/signup');
-            }))).height()).width().height()).height().marginTop('10rem'))
-                .paddingTop('14rem')
-                .paddingRight('calc(50% - 660px)')
-                .paddingLeft('calc(50% - 660px)')
-                .minHeight('100vh'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)().height('9rem')
-                .position('absolute')
-                .bottom('0px')
-                .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
+            });
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Reset password')
+            .fontSize('1.6rem')
+            .fontFamily('"Graphik Regular", sans-serif')
+            .cursor('pointer')
+            .onClick(function () {
+            navigate('/reset-password');
+        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign up')
+            .fontSize('1.6rem')
+            .fontFamily('"Graphik Regular", sans-serif')
+            .cursor('pointer')
+            .onClick(function () {
+            navigate('/signup');
+        }))).height()).width().height()).height().marginTop('10rem'))
+            .paddingTop('14rem')
+            .paddingRight('calc(50% - 660px)')
+            .paddingLeft('calc(50% - 660px)')
+            .minHeight('100vh'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)().height('9rem')
+            .position('absolute')
+            .bottom('0px')
+            .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
     };
+    LoginController = __decorate([
+        (0,_CelminoController__WEBPACK_IMPORTED_MODULE_3__.Guard)(_guards_AlreadyLoggedInGuard__WEBPACK_IMPORTED_MODULE_4__.AlreadyLoggedInGuard)
+    ], LoginController);
     return LoginController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
+}(_CelminoController__WEBPACK_IMPORTED_MODULE_3__.CelminoController));
 
 
 
@@ -11901,6 +11946,60 @@ var CreateWorkspaceView = function () { return (0,_tuval_forms__WEBPACK_IMPORTED
                 .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
         }));
 }); };
+
+
+/***/ }),
+
+/***/ "./src/views/WaitViewClass.ts":
+/*!************************************!*\
+  !*** ./src/views/WaitViewClass.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Release": () => (/* binding */ Release),
+/* harmony export */   "ReleaseViewClass": () => (/* binding */ ReleaseViewClass),
+/* harmony export */   "Wait": () => (/* binding */ Wait),
+/* harmony export */   "WaitViewClass": () => (/* binding */ WaitViewClass)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var WaitViewClass = /** @class */ (function (_super) {
+    __extends(WaitViewClass, _super);
+    function WaitViewClass() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return WaitViewClass;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));
+
+var ReleaseViewClass = /** @class */ (function (_super) {
+    __extends(ReleaseViewClass, _super);
+    function ReleaseViewClass() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ReleaseViewClass;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));
+
+var Wait = function () { return (new WaitViewClass()); };
+var Release = function () { return (new ReleaseViewClass()); };
 
 
 /***/ }),

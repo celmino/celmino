@@ -281,7 +281,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                             const { me } = useGetMe('console');
                                             return (
                                                 VStack({ alignment: cTopLeading })(
-                                                    HStack(
+                                                    VStack(
                                                         HStack({ alignment: cLeading, spacing: 5 })(
                                                             HStack().width(30).height(30).cornerRadius('50%').background('gray'),
                                                             VStack({ alignment: cLeading })(
@@ -290,7 +290,13 @@ export const LeftSideMenuView = (selectedItem: string) => {
                                                             )
                                                         ).padding(5)
                                                             .cornerRadius(6)
-                                                            .background({ hover: '#ECEEEF' })
+                                                            .background({ hover: '#ECEEEF' }),
+                                                            HStack({ alignment: cLeading, spacing: 5 })(
+                                                                Icon(SvgIcon('cu3-icon-settings')),
+                                                                VibeText('Settings')
+                                                            )
+                                                            .padding(5)
+                                                            .height()
                                                     ).padding(5),
                                                     HDivider().height(1).background('#ECEDEE'),
                                                     VStack({ alignment: cTopLeading })(
