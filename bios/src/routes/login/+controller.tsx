@@ -186,19 +186,19 @@ export class LoginController extends UIController {
                                     .cornerRadius(3)
                                     .foregroundColor('white')
                                     .onClick(() => {
-                                        /* createEmailSession({
+                                         createEmailSession({
                                             email: email,
                                             password: password
                                         }, () => {
                                             navigate('/')
-                                        }) */
+                                        }) 
                                     }),
                                 Text('or'),
                                 Button(
                                     Text('')
                                 ).width(200)
                                     .onClick(() => {
-                                        //  navigate('/signup');
+                                          navigate('/reset-password');
                                     })
                             ).height(),
                             /*  isError && Text(error?.message),

@@ -13,6 +13,9 @@ import { OrganizationSelectController } from "./app/organization/select/+control
 import { LayoutController } from "./app/+controller"
 import { WorkspaceController } from "./app/workspace/[workspaceId]/+controller"
 import { DefaultWorkspaceController } from "./app/+default"
+import { ResetPasswordController } from "./reset-password/+controller"
+import { UpdatePasswordController } from "./update-password/+controller"
+import { LandingController } from "./LandingController"
 
 
 export const Routes = () => {
@@ -31,10 +34,12 @@ export const Routes = () => {
                 UIRoute('workspace/select', WorkspaceSelectController)
             ),
 
-            UIRoute('/', RedirectToAppController),
+            UIRoute('/', LandingController),
             UIRoute('/login', LoginController),
             UIRoute('/signup', SignupController),
-            UIRoute('/logout', LogoutController)
+            UIRoute('/logout', LogoutController),
+            UIRoute('/reset-password', ResetPasswordController),
+            UIRoute('/update-password', UpdatePasswordController)
         )
     )
 }
