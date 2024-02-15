@@ -74,6 +74,7 @@ export class LandingController extends UIController {
                         .padding('.5rem 2.5rem')
                         .width()
                         .border('solid 2px #242938')
+                        .onClick(() => navigate('/signup')),
                 ).height().position('fixed')
                     .padding('3rem calc(50% - 660px)')
                     .paddingRight('%4').paddingLeft('%4')

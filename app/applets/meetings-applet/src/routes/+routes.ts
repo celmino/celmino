@@ -5,6 +5,8 @@ import { SettingsController } from "./settings/+controller";
 import { FeatureSettingsController } from "./settings/features/+controller";
 import { GeneralSettingsController } from "./settings/general/+controller";
 import { MeetingSpaceController } from "./[spaceId]/+controller";
+import { MeetingController } from "./[spaceId]/metting-[meetingId]/+controller";
+import { TopicController } from "./[spaceId]/metting-[meetingId]/topic-[topicId]/+controller";
 
 
 export class RouteController extends UIController {
@@ -17,6 +19,9 @@ export class RouteController extends UIController {
                         UIRoute('/', AppletController).children(
                             UIRoute(':spaceId', MeetingSpaceController).children(
                                 UIRoute('meetings', MeetingsController),
+                                UIRoute(':meetingId', MeetingController).children(
+                                    UIRoute(':topicId', TopicController),
+                                ),
                             ),
                             /*  UIRoute('list/:listId', ListController).children(
                                  UIRoute('view/:viewId', class extends  ViewController {}),

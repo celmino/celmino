@@ -4368,6 +4368,11 @@ export const Applets = [
                                 "key": "is_template",
                                 "type": "boolean",
                                 "defaultValue": false
+                            },
+                            {
+                                "key": "sections",
+                                "type": "string",
+                                "size": 100000
                             }
                         ]
                     }

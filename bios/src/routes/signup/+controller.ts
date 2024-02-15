@@ -1,5 +1,6 @@
 import { Button, Fragment, HStack, Heading, HeadingSizes, SecureField, Text, TextField, UIController, UINavigate, UIView, VStack, cLeading, useNavigate, useState } from "@tuval/forms";
-import { useCreateAccount, useCreateEmailSession, useGetMe } from "@realmocean/sdk";
+import { Services, useCreateAccount, useCreateEmailSession, useCreateOrganization, useDeleteCache, useGetMe, useUpdatePrefs } from "@realmocean/sdk";
+import { is } from "@tuval/core";
 
 export class SignupController extends UIController {
     public override LoadView(): UIView {
@@ -12,6 +13,10 @@ export class SignupController extends UIController {
         const [password, setPassword] = useState('');
 
         const navigate = useNavigate();
+
+        const { createTeam, isError: isOrganizationCreateError, error: OrgError } = useCreateOrganization();
+        const { updatePrefs } = useUpdatePrefs({});
+        const { deleteCache } = useDeleteCache('console');
 
         return (
 
@@ -39,11 +44,34 @@ export class SignupController extends UIController {
                                 name: userName,
                                 email: email,
                                 password: password
-                            }, () => {
+                            }, (account) => {
+
                                 createEmailSession({
                                     email: email,
                                     password: password
-                                }, () => navigate('/'))
+                                }, async () => {
+                                    try {
+                                        const team = await Services.Teams.create(account.$id, userName);
+                                      //  alert(JSON.stringify(team))
+                                        //if (is.localhost()) {
+                                        updatePrefs({
+                                            prefs: {
+                                                ...(account?.prefs ? account?.prefs : {}),
+                                                organization: team.$id
+                                            }
+
+                                        }, () => {
+                                            deleteCache();
+                                            navigate(`/app/workspace/select`);
+                                        })
+                                    } catch(e) {
+                                        alert('Hata')
+                                    }
+                                   /*  } else {
+                                        window.location.href = `https://${team.$id}.celmino.io`;
+                                    } */
+                                    
+                                })
                             })
                         }),
                     (isError || isCreateAccountError) && Text(createAccountError?.message),
