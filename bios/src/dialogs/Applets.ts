@@ -4280,11 +4280,101 @@ export const Applets = [
     },
     {
         name: 'Meetings',
-        type: 'com.celmino.applet.enterprise-modelling',
+        tree_type: 'com.celmino.widget.meeeting-tree',
+        applet_type: 'com.celmino.applet.meetings',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
-        enabled: true
+        enabled: true,
+        databases: [
+            {
+                "name": "Meetings",
+                "id": "meetings",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting Space",
+                        "id": "meeting_space",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting",
+                        "id": "meeting",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "start_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "end_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "is_template",
+                                "type": "boolean",
+                                "defaultValue": false
+                            }
+                        ]
+                    }
+                   
+                ]
+            }
+        ]
     },
     {
         name: 'Processes',
@@ -4312,6 +4402,15 @@ export const Applets = [
     },
     {
         name: 'Applet Category',
+        tree_type: 'com.celmino.widget.applet-category',
+        applet_type: 'com.celmino.applet.category',
+        description: 'Split your applets by category.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Drive',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',

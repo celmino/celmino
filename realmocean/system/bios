@@ -8856,11 +8856,100 @@ var Applets = [
     },
     {
         name: 'Meetings',
-        type: 'com.celmino.applet.enterprise-modelling',
+        tree_type: 'com.celmino.widget.meeeting-tree',
+        applet_type: 'com.celmino.applet.meetings',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
-        enabled: true
+        enabled: true,
+        databases: [
+            {
+                "name": "Meetings",
+                "id": "meetings",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting Space",
+                        "id": "meeting_space",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting",
+                        "id": "meeting",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "start_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "end_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "is_template",
+                                "type": "boolean",
+                                "defaultValue": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         name: 'Processes',
@@ -8888,6 +8977,15 @@ var Applets = [
     },
     {
         name: 'Applet Category',
+        tree_type: 'com.celmino.widget.applet-category',
+        applet_type: 'com.celmino.applet.category',
+        description: 'Split your applets by category.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Drive',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
@@ -9119,42 +9217,48 @@ var SelectAppletDialog = /** @class */ (function (_super) {
                                                 case 2:
                                                     db_1 = _b.sent();
                                                     _loop_2 = function (j) {
-                                                        var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, size, _e;
-                                                        return __generator(this, function (_f) {
-                                                            switch (_f.label) {
+                                                        var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, defaultValue, _e, size, _f;
+                                                        return __generator(this, function (_g) {
+                                                            switch (_g.label) {
                                                                 case 0:
                                                                     collection = collections[j];
                                                                     name_2 = collection.name, id_1 = collection.id, attributes = collection.attributes, documents = collection.documents;
                                                                     return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createCollection(this_1.workspaceId, db_1.$id, id_1, name_2, [], false)];
                                                                 case 1:
-                                                                    col = _f.sent();
+                                                                    col = _g.sent();
                                                                     i_1 = 0;
-                                                                    _f.label = 2;
+                                                                    _g.label = 2;
                                                                 case 2:
-                                                                    if (!(i_1 < attributes.length)) return [3 /*break*/, 8];
-                                                                    _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.size, size = _d === void 0 ? 255 : _d;
-                                                                    _e = type;
-                                                                    switch (_e) {
+                                                                    if (!(i_1 < attributes.length)) return [3 /*break*/, 12];
+                                                                    _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.defaultValue, defaultValue = _d === void 0 ? null : _d, _e = _c.size, size = _e === void 0 ? 255 : _e;
+                                                                    _f = type;
+                                                                    switch (_f) {
                                                                         case 'string': return [3 /*break*/, 3];
                                                                         case 'number': return [3 /*break*/, 5];
+                                                                        case 'datetime': return [3 /*break*/, 7];
+                                                                        case 'boolean': return [3 /*break*/, 9];
                                                                     }
-                                                                    return [3 /*break*/, 7];
-                                                                case 3:
-                                                                    console.log('1');
-                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
+                                                                    return [3 /*break*/, 11];
+                                                                case 3: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
                                                                 case 4:
-                                                                    _f.sent();
-                                                                    return [3 /*break*/, 7];
-                                                                case 5:
-                                                                    console.log('1');
-                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 5: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
                                                                 case 6:
-                                                                    _f.sent();
-                                                                    return [3 /*break*/, 7];
-                                                                case 7:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 7: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createDatetimeAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
+                                                                case 8:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 9: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_2__.Services.Databases.createBooleanAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false, defaultValue !== null && defaultValue !== void 0 ? defaultValue : false)];
+                                                                case 10:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 11:
                                                                     i_1++;
                                                                     return [3 /*break*/, 2];
-                                                                case 8:
+                                                                case 12:
                                                                     setTimeout(function () {
                                                                         documents === null || documents === void 0 ? void 0 : documents.forEach(function (document) { return __awaiter(_this, void 0, void 0, function () {
                                                                             var doc;
