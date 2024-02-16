@@ -72,7 +72,7 @@ const umdConfig = {
         '@realmocean/spreadsheet': 'realmocean$spreadsheet',
 
         '@realmocean/sdk': 'realmocean$sdk',
-        '@realmocean/vibe': 'realmocean$vibe',
+       
         
         'react': 'tuval$react',
         'react-dom/client': 'tuval$react$dom',

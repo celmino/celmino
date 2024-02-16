@@ -45,8 +45,12 @@ export class SelectAppletDialog extends DialogView {
     @ViewProperty()
     private workspaceId: string;
 
-    public BindRouterParams({ workspaceId }) {
+    @ViewProperty()
+    private parent: string;
+
+    public BindRouterParams({ workspaceId, parent }) {
         this.workspaceId = workspaceId;
+        this.parent = parent;
     }
     public constructor() {
         super();
@@ -152,7 +156,8 @@ export class SelectAppletDialog extends DialogView {
                                                             opa: opa.tree_type,
                                                             type: opa.applet_type,
                                                             iconName: opa.iconName,
-                                                            iconCategory: opa.iconCategory
+                                                            iconCategory: opa.iconCategory,
+                                                            parent: this.parent
                                                         }
                                                     }, async (applet) => {
                                                         if (opa.databases) {
@@ -200,16 +205,10 @@ export class SelectAppletDialog extends DialogView {
                                                                 }
                                                             }
                                                             setInstallingOpa('');
-                                                            this.OnOK({
-                                                                name: opa.name,
-                                                                type: opa.type
-                                                            })
+                                                            this.OnOK(applet)
                                                         } else {
 
-                                                            this.OnOK({
-                                                                name: opa.name,
-                                                                type: opa.type
-                                                            })
+                                                            this.OnOK(applet)
                                                         }
                                                     });
 
@@ -231,13 +230,13 @@ export class SelectAppletDialog extends DialogView {
             )
         )
     }
-    public static Show(workspaceId: string) {
+    public static Show(workspaceId: string, parent: string = '-1') {
         const dialog = new SelectAppletDialog();
         dialog.ShowHeader = false;
         /*  if (width) {
              dialog.Width = width;
          } */
-        dialog.BindRouterParams({ workspaceId })
+        dialog.BindRouterParams({ workspaceId, parent })
         return dialog.ShowDialogAsync();
     }
 }
