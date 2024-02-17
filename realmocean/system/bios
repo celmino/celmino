@@ -4811,7 +4811,7 @@ var BiosMainController = /** @class */ (function (_super) {
     return BiosMainController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
 
-var AUTH_TOKEN = 'ya29.a0AfB_byAwIWHhaL_zqPcDldDQYPhva6cfApDLzHHE3Yjp54ajKeERKNcZxtQ8ThJ6ljU_HgfeyN0Qdjay8-4iEarhlLLnGdrO_44QlLAveEMKWKKyP0mim72ua3DCj0H_DL45tHon7hleMJY2_cMcIx-VWPM_QFXitQaCgYKAVISARASFQHGX2Mi4XEZnu71ex9RBkPsLZYhXA0169';
+var AUTH_TOKEN = 'ya29.a0AfB_byClUFhJGWYF-a8fQu_J373yU8Szdh7nhRIPCBrQgUbrKdAywq_lIzWlxuzz8RgSSa1DLaSP71MwiUD-2MAT08EWtLQeob5kSKgQ391VMTnFfiDtQ6Tede-GEasRfT6vtPv7sL_PGQxFlrtja_ztjWg1IxReL7gaCgYKAR4SARASFQHGX2MiLU7zsVdG-pCZRbtDbYSIsA0170';
 var GoogleDrive = /** @class */ (function (_super) {
     __extends(GoogleDrive, _super);
     function GoogleDrive(props) {
@@ -4825,7 +4825,9 @@ var GoogleDrive = /** @class */ (function (_super) {
     }
     GoogleDrive.prototype.initialState = function () {
         return {
+            url: "",
             data: [],
+            folderData: [],
             loading: false,
             current: {},
             parents: [{
@@ -4855,12 +4857,14 @@ var GoogleDrive = /** @class */ (function (_super) {
                 self.setState({ data: [], current: item, parents: parents });
                 window.setTimeout(function () {
                     self.loadData();
+                    self.loadFolderData();
                 }, 300);
             }
             else {
                 var height = Math.max(document.body.clientHeight - 50, 600);
                 var width = Math.max(document.body.clientWidth - 40, 800);
-                window.open(item.webViewLink, 'preview', 'width=' + height + ',height=' + width);
+                self.setState({ url: item.webViewLink.replace('view', 'preview') });
+                // window.open(item.webViewLink, 'preview', 'width=' + height + ',height=' + width)
                 //window.open(item.webContentLink)
             }
         };
@@ -4875,13 +4879,14 @@ var GoogleDrive = /** @class */ (function (_super) {
         this.setState({ data: [] });
         this.lastChange = window.setTimeout(function () {
             self.loadData();
+            self.loadFolderData();
         }, 300);
         return false;
     };
     GoogleDrive.prototype.copyFile = function (id) {
         var url = "https://www.googleapis.com/drive/v3/files/" + id + "/copy";
         var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
+            Authorization: 'Bearer ' + this.props.token
         };
         fetch(url, { method: 'POST', headers: headers, })
             .then(function (response) { return response.json(); })
@@ -4889,11 +4894,39 @@ var GoogleDrive = /** @class */ (function (_super) {
             console.log(data);
         });
     };
+    GoogleDrive.prototype.loadFolderData = function () {
+        var _this = this;
+        //AUTH_TOKEN = "ya29.GltjBlFp1_IiifotwFMgCllpXuyC9IFHLYURXTbfZcwheGTAxxmOaO-7cwU8YSRHli2NIJIT53wEPpnSMEvSDzQTVz49WJtBUREcKXSpoArztBYuhQYwP4NRoCmK"
+        var headers = {
+            Authorization: 'Bearer ' + this.props.token
+        };
+        var parent = 'root';
+        if (this.state.current.id) {
+            parent = this.state.current.id;
+        }
+        console.log(parent, this.state.current.id, this.state.current);
+        this.setState({ loading: true });
+        var conditions = [];
+        conditions.push("trashed = false");
+        conditions.push("mimeType = 'application/vnd.google-apps.folder'");
+        conditions.push("'" + parent + "' in parents");
+        var query = encodeURIComponent(conditions.join(" and "));
+        var url = "https://www.googleapis.com/drive/v3/files?q=" + query + "&fields=files(copyRequiresWriterPermission%2CcreatedTime%2Cdescription%2CiconLink%2Cid%2Ckind%2CmimeType%2Cname%2CownedByMe%2Cparents%2Cproperties%2Cshared%2CsharingUser%2Csize%2CteamDriveId%2CthumbnailLink%2Ctrashed%2CwebContentLink%2CwebViewLink)%2CincompleteSearch%2Ckind%2CnextPageToken&key=";
+        //url = 'response.json'
+        fetch(url, { method: 'GET', headers: headers, })
+            .then(function (response) { return response.json(); })
+            .then(function (data) {
+            if (data.files) {
+                _this.setState({ folderData: data.files });
+            }
+            _this.setState({ loading: false });
+        });
+    };
     GoogleDrive.prototype.loadData = function () {
         var _this = this;
         //AUTH_TOKEN = "ya29.GltjBlFp1_IiifotwFMgCllpXuyC9IFHLYURXTbfZcwheGTAxxmOaO-7cwU8YSRHli2NIJIT53wEPpnSMEvSDzQTVz49WJtBUREcKXSpoArztBYuhQYwP4NRoCmK"
         var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
+            Authorization: 'Bearer ' + this.props.token
         };
         var parent = 'root';
         if (this.state.current.id) {
@@ -4925,7 +4958,7 @@ var GoogleDrive = /** @class */ (function (_super) {
         };
         var conditions = [];
         conditions.push("trashed = false");
-        //conditions.push("mimeType = 'application/vnd.google-apps.folder'")
+        conditions.push("mimeType = 'application/vnd.google-apps.folder'");
         conditions.push("'" + parent + "' in parents");
         var filesFields = "copyRequiresWriterPermission,createdTime,description,iconLink,id,kind,mimeType,name,ownedByMe,parents,properties,shared,sharingUser,size,teamDriveId,thumbnailLink,trashed,webContentLink,webViewLink";
         var fields = encodeURIComponent("files(" + filesFields + "),incompleteSearch,kind,nextPageToken");
@@ -5009,7 +5042,8 @@ var GoogleDrive = /** @class */ (function (_super) {
         var self = this;
         var itemComp = function (item, margin, header) {
             var style = {
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontSize: '1.4rem'
             };
             if (header) {
                 style.fontWeight = 'bold';
@@ -5019,7 +5053,7 @@ var GoogleDrive = /** @class */ (function (_super) {
             }
             var img = "";
             if (item.iconLink) {
-                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink, title: item.id });
+                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink.replace("16", "128"), title: item.id });
             }
             var thumb = "";
             if (self.thumbnails && item.thumbnailLink) {
@@ -5030,8 +5064,7 @@ var GoogleDrive = /** @class */ (function (_super) {
             return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("li", { style: style, key: item.id, className: "collection-item", onClick: self.handleClick(item) },
                 img,
                 " ",
-                item.name,
-                thumb);
+                item.name);
         };
         var cardComp = function (item, margin, header) {
             var style = {};
@@ -5043,10 +5076,10 @@ var GoogleDrive = /** @class */ (function (_super) {
             }
             var img = "";
             if (item.iconLink) {
-                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink, title: item.id });
+                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink.replace("16", "128"), title: item.id });
             }
             var thumb = "";
-            var thumbnailImage = item.thumbnailLink ? item.thumbnailLink : item.iconLink;
+            var thumbnailImage = item.thumbnailLink ? item.thumbnailLink : item.iconLink.replace("16", "128");
             var imageStyle = {
                 backgroundImage: 'url(' + thumbnailImage + ')',
                 backgroundPosition: 'center center',
@@ -5068,24 +5101,38 @@ var GoogleDrive = /** @class */ (function (_super) {
             var clickable = {
                 cursor: 'pointer'
             };
-            return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { key: item.id, style: clickable, className: "col s6 m4 l3" },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "card hoverable", onClick: self.handleClick(item) },
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", null, thumb),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "card-content", style: labelStyle },
-                        img,
-                        " ",
-                        item.name)));
+            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(item.iconLink.replace("16", "128")).width(24).height(24).cornerRadius('20%'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(item.name).fontSize('1.4rem'))
+                .padding('1rem')
+                .onClick(function (e) {
+                self.handleClick(item)(e);
+            })
+                .height()
+                .render());
+            /*  <div key={item.id} style={clickable} className="col s6 m4 l3" >
+                   <div className="card hoverable"
+                    onClick={self.handleClick(item)} >
+                   {   <span>{thumb}</span> }
+                     <div className="card-content" style={labelStyle} >
+                     {img} {item.name}
+                     </div>
+                   </div>
+                 </div> */
         };
         var parentItems = this.state.parents.map(function (item, pos) { return itemComp(item, pos, true); });
+        var listFolders = this.state.folderData.map(function (item, pos) { return cardComp(item, self.state.parents.length, false); });
         var listItems = this.state.data.map(function (item, pos) { return cardComp(item, self.state.parents.length, false); });
         return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("main", null,
             react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "container" },
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("iframe", { style: { position: 'fixed', left: '500px', top: '10px' }, width: 900, height: 900, src: this.state.url }),
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement("ul", { className: "collection" }, parentItems),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "row" }, listItems),
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "row" },
+                    listFolders,
+                    listItems),
                 this.state.loading ? react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { width: "100%", src: "loading.gif" }) : null)));
     };
     GoogleDrive.prototype.componentDidMount = function () {
         this.loadData();
+        this.loadFolderData();
     };
     return GoogleDrive;
 }((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
@@ -5095,9 +5142,51 @@ var MainController = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MainController.prototype.LoadBiosView = function () {
+        var _a = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(''), token = _a[0], setToken = _a[1];
         var CLIENT_ID = '371171867863-sn17pmbfubttmcr7j646qf8uhfvrp4u7.apps.googleusercontent.com';
         var API_KEY = 'AIzaSyDxz6OCqsMIFTzNrSfgRThEubqQaYeJb5o';
-        var _a = react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2___default()(), openPicker = _a[0], authResponse = _a[1];
+        function verifyGoogleToken(token) {
+            // Step 4: Validate Token with Google's Servers
+            var tokenInfoUrl = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=".concat(token);
+            // Send a GET request to the token validation endpoint
+            fetch(tokenInfoUrl)
+                .then(function (response) {
+                // Check if the response is successful
+                if (!response.ok) {
+                    throw new Error('Token validation failed.');
+                }
+                // Parse the JSON response
+                return response.json();
+            })
+                .then(function (tokenInfo) {
+                // Check if the token is valid
+                if (tokenInfo.error) {
+                    throw new Error(tokenInfo.error_description);
+                }
+                // Token is valid, you can use tokenInfo for further validation or to extract user information
+                console.log("Token is valid.");
+                console.log("User email:", tokenInfo.email);
+                console.log("User ID:", tokenInfo.sub);
+            })
+                .catch(function (error) {
+                console.error("Error verifying token:", error.message);
+            });
+        }
+        function refreshToken() {
+            var client = google.accounts.oauth2.initTokenClient({
+                client_id: CLIENT_ID,
+                scope: 'https://www.googleapis.com/auth/drive.readonly',
+                callback: function (tokenResponse) {
+                    setToken(tokenResponse.access_token);
+                    //verifyGoogleToken(tokenResponse.access_token);
+                    /*  AUTH_TOKEN = tokenResponse.access_token;
+                     alert(tokenResponse.access_token) */
+                    //createPicker({ ...config, token: tokenResponse.access_token })
+                },
+            });
+            client.requestAccessToken();
+        }
+        var _b = react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2___default()(), openPicker = _b[0], authResponse = _b[1];
         var handleOpenPicker = function () {
             openPicker({
                 clientId: "371171867863-sn17pmbfubttmcr7j646qf8uhfvrp4u7.apps.googleusercontent.com",
@@ -5130,12 +5219,19 @@ var MainController = /** @class */ (function (_super) {
             });
             client.requestAccessToken();
         }
-        return (
-        //Routes()
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", null,
-            JSON.stringify(authResponse),
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("button", { onClick: function () { return handleOpenPicker(); } }, "Open Picker"),
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(GoogleDrive, null))));
+        return ((0,_routes_routes__WEBPACK_IMPORTED_MODULE_1__.Routes)()
+        /*  ScrollView({ axes: cVertical, alignment: cTopLeading })(
+             ReactView(
+                 <div>
+                     {
+                         JSON.stringify(authResponse)
+                     }
+                     <button onClick={() => refreshToken()}>Open Picker</button>
+                     <GoogleDrive token={token}></GoogleDrive>
+                 </div>
+             )
+         ) */
+        );
     };
     return MainController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.BiosController));
@@ -6200,7 +6296,8 @@ var LeftSideMenuView = function (selectedItem) {
                     .margin('0 8px');
             })).paddingTop('6px'))
                 //.padding()
-                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
+                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.myspace-tree')
+                .config({}), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
                 //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
                 return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
             }

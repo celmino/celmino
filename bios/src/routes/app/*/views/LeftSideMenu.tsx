@@ -359,6 +359,12 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
                             HDivider().height(1).background('#ECEDEE'),
 
+                            UIWidget('com.celmino.widget.myspace-tree')
+                            .config({
+                              
+                            }),
+                           
+
                             VStack({ alignment: cTopLeading })(
                                 /*  VStack({ alignment: cLeading })(
                                      Text('APPLETS')

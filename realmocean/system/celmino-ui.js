@@ -3291,6 +3291,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var Applets = [
     {
+        name: 'Google Drive',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Monitor your process details in timeframe chart.',
+        image: '/images/applets/google_drive.svg',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Custom Applet",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
         name: 'Custom Applet',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
@@ -7253,7 +7270,7 @@ var Applets = [
         tree_type: 'com.celmino.widget.document-management-tree',
         applet_type: 'com.celmino.applet.document-management',
         description: 'Monitor your process details in timeframe chart.',
-        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        image: '/images/applets/documents.png',
         iconCategory: 'Icons',
         iconName: 'bell',
         icon: '\\d320',
