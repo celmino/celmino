@@ -4,4 +4,4 @@ export declare const AssignUser: ({ account_id, readonly, width, height, onChang
     width?: number;
     height?: number;
     onChange?: any;
-}) => import("@tuval/forms").WidgetClass;
+}) => import("@realmocean/vibe").TextClass;

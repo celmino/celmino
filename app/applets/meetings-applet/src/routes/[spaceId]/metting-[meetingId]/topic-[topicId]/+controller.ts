@@ -1,4 +1,5 @@
-import { UIController, UIView, useState, useParams, HStack, cTopLeading, VStack, cLeading, EditableHeader, EditableHeadingSizes, Spacer, MenuButton, Icon, cHorizontal, UIWidget, Fragment } from "@tuval/forms";
+import { UIController, UIView, useState, useParams, HStack, cTopLeading, VStack, cLeading, EditableHeader, 
+    EditableHeadingSizes, Spacer, MenuButton, Icon, cHorizontal, UIWidget, Fragment } from "@tuval/forms";
 import { views } from "../../../../Views";
 import { useGetDocument } from "@realmocean/sdk";
 import { AssignUser } from "../../../../views/AssignUser";
@@ -104,9 +105,9 @@ export class TopicController extends UIController {
                                 HStack(
                                     MenuButton().view(() =>
                                         HStack(
-                                            (topic.duration == null || topic.duration == 0) ? 
+                                            (topic?.duration == null || topic?.duration == 0) ? 
                                             Icon('\\d37b').fontSize(20).foregroundColor('#8895a7') :
-                                            Text(topic.duration +"'").fontSize(14).fontWeight('700').foregroundColor('rgb(136, 149, 167)')
+                                            Text(topic?.duration +"'").fontSize(14).fontWeight('700').foregroundColor('rgb(136, 149, 167)')
                                         ).allWidth(34).allHeight(30)
                                             .border('solid 1px #e1e7ec')
                                             .background({ hover: '#f0f2f5' })

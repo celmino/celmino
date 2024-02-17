@@ -134,6 +134,7 @@
         "webpack-cli": "^4.10.0"
     },
     "dependencies": {
+        "@celmino/ui": "^1.0.10",
         "cross-fetch": "^4.0.0",
         "is-valid-domain": "^0.1.6",
         "isomorphic-form-data": "^2.0.0",

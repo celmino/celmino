@@ -28,11 +28,11 @@ import {
 } from "@tuval/forms";
 import React, { useState } from "react";
 import { DatabaseNameView } from "./DatabaseNameView";
-import { SelectAppletDialog } from "../../../../dialogs/SelectAppletDialog";
 import { Text as VibeText } from '@realmocean/vibe';
 import { DynoDialog } from '@realmocean/ui'
 import { AddAppletDialog } from "../../../../dialogs/AddAppletDialog";
 import { useGetCurrentOrganization } from "../../../../hooks/useGetCurrentOrganization";
+import { SelectAppletDialog } from "@celmino/ui";
 
 function a(strings: TemplateStringsArray, ...expr: Array<any>): string {
     let str = '';
@@ -219,6 +219,7 @@ export const LeftSideMenuView = (selectedItem: string) => {
                 ]);
 
                 const { documents } = useListDocuments(workspaceId, 'workspace', 'applets', [
+                    Query.equal('parent', '-1'),
                     Query.limit(250),
                     // Query.equal('opa', 'com.celmino.widget.enterprise-modelling-tree')
 

@@ -1,23 +1,14 @@
-
-/*! *****************************************************************************************************************************
-* Copyright (c) Tuvalsoft Corporation. All rights reserved.                                                                     *
-*                                                                                                                               *
-* ████████╗██╗   ██╗██╗   ██╗ █████╗ ██╗         ███████╗██████╗  █████╗ ███╗   ███╗███████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗ *
-* ╚══██╔══╝██║   ██║██║   ██║██╔══██╗██║         ██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝ *
-*    ██║   ██║   ██║██║   ██║███████║██║         █████╗  ██████╔╝███████║██╔████╔██║█████╗  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝  *
-*    ██║   ██║   ██║╚██╗ ██╔╝██╔══██║██║         ██╔══╝  ██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝  ██║███╗██║██║   ██║██╔══██╗██╔═██╗  *
-*    ██║   ╚██████╔╝ ╚████╔╝ ██║  ██║███████╗    ██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗ *
-*    ╚═╝    ╚═════╝   ╚═══╝  ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ *
-*                                                                                                                               *
-*                                                                                                                               *
-* This file is part of Tuval Framework.                                                                                         *
-* Copyright (c) Tuvalsoft 2019 All rights reserved.                                                                             *
-*                                                                                                                               *
-* Licensed under the GNU General Public License v3.0.                                                                           *
-* More info at: https://choosealicense.com/licenses/gpl-3.0/                                                                    *
-* Tuval Framework Created By Tuvalsoft in 2019                                                                                  *
-******************************************************************************************************************************@*/
-/******/ (() => { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("tuval$forms"), require("realmocean$sdk"), require("tuval$react"), require("tuval$core"));
+	else if(typeof define === 'function' && define.amd)
+		define(["tuval$forms", "realmocean$sdk", "tuval$react", "tuval$core"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("tuval$forms"), require("realmocean$sdk"), require("tuval$react"), require("tuval$core")) : factory(root["tuval$forms"], root["realmocean$sdk"], root["tuval$react"], root["tuval$core"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, (__WEBPACK_EXTERNAL_MODULE__tuval_forms__, __WEBPACK_EXTERNAL_MODULE__realmocean_sdk__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE__tuval_core__) => {
+return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/@realmocean/vibe/index.js":
@@ -2210,7 +2201,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/Table/Table.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeader/TableHeader.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeaderCell/TableHeaderCell.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableBody/TableBody.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableRow/TableRow.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableCell/TableCell.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ \"@tuval/core\");\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nfunction TableRenderer(_a) {\n    var control = _a.control;\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { columns: control.vp_Columns, dataState: {\n            isLoading: control.vp_IsLoading\n        }, emptyState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null), errorState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null) },\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__[\"default\"], { title: col.title }); })),\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null, control.vp_Rows.map(function (row) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(col.view) ? col.view(row).render() : _tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.function(col.format) ? col.format(row[col.id]) : row[col.id]); })); }))));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableRenderer);\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/Table/Table.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeader/TableHeader.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableHeaderCell/TableHeaderCell.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableBody/TableBody.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableRow/TableRow.js\");\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Table/TableCell/TableCell.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ \"@tuval/core\");\n/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\n\nfunction TableRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { className: className, columns: control.vp_Columns, dataState: {\n            isLoading: control.vp_IsLoading\n        }, emptyState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null), errorState: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null) },\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_5__[\"default\"], { title: col.title }); })),\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null, control.vp_Rows.map(function (row) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, control.vp_Columns.map(function (col) { return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_8__[\"default\"], null, _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(col.view) ? col.view(row).render() : _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.function(col.format) ? col.format(row[col.id]) : row[col.id]); })); }))));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Table/TableRenderer.tsx?");
 
 /***/ }),
 
@@ -2254,7 +2245,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! monday-ui-react-core */ \"./node_modules/monday-ui-react-core/dist/esm/src/components/Text/Text.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ \"@tuval/forms\");\n/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\n    return cooked;\n};\n\n\n\nfunction TextRenderer(_a) {\n    var control = _a.control;\n    var className = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.css)(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n    \", \"\\n\\n    \"], [\"\\n    \", \"\\n\\n    \"])), control.Appearance.ToString());\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(monday_ui_react_core__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { type: control.vp_Type, className: className, color: control.vp_Color, maxLines: control.vp_MaxLines, ellipsis: true }, control.vp_Value));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextRenderer);\nvar templateObject_1;\n\n\n//# sourceURL=webpack://@realmocean/vibe/./src/Text/TextRenderer.tsx?");
 
 /***/ }),
 
@@ -3210,7 +3201,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_2013521__(moduleId) {
+/******/ 	function __nested_webpack_require_2014343__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -3224,7 +3215,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_2013521__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_2014343__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -3234,11 +3225,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_2013521__.n = (module) => {
+/******/ 		__nested_webpack_require_2014343__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_2013521__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_2014343__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -3246,9 +3237,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_2013521__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_2014343__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_2013521__.o(definition, key) && !__nested_webpack_require_2013521__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_2014343__.o(definition, key) && !__nested_webpack_require_2014343__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -3257,13 +3248,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_2013521__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_2014343__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_2013521__.r = (exports) => {
+/******/ 		__nested_webpack_require_2014343__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -3276,9 +3267,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __nested_webpack_require_2013521__("./src/index.ts");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_2014343__("./src/index.ts");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3287,3295 +3278,4444 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/copy-to-clipboard/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/copy-to-clipboard/index.js ***!
-  \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-var deselectCurrent = __webpack_require__(/*! toggle-selection */ "./node_modules/toggle-selection/index.js");
-
-var clipboardToIE11Formatting = {
-  "text/plain": "Text",
-  "text/html": "Url",
-  "default": "Text"
-}
-
-var defaultMessage = "Copy to clipboard: #{key}, Enter";
-
-function format(message) {
-  var copyKey = (/mac os x/i.test(navigator.userAgent) ? "⌘" : "Ctrl") + "+C";
-  return message.replace(/#{\s*key\s*}/g, copyKey);
-}
-
-function copy(text, options) {
-  var debug,
-    message,
-    reselectPrevious,
-    range,
-    selection,
-    mark,
-    success = false;
-  if (!options) {
-    options = {};
-  }
-  debug = options.debug || false;
-  try {
-    reselectPrevious = deselectCurrent();
-
-    range = document.createRange();
-    selection = document.getSelection();
-
-    mark = document.createElement("span");
-    mark.textContent = text;
-    // avoid screen readers from reading out loud the text
-    mark.ariaHidden = "true"
-    // reset user styles for span element
-    mark.style.all = "unset";
-    // prevents scrolling to the end of the page
-    mark.style.position = "fixed";
-    mark.style.top = 0;
-    mark.style.clip = "rect(0, 0, 0, 0)";
-    // used to preserve spaces and line breaks
-    mark.style.whiteSpace = "pre";
-    // do not inherit user-select (it may be `none`)
-    mark.style.webkitUserSelect = "text";
-    mark.style.MozUserSelect = "text";
-    mark.style.msUserSelect = "text";
-    mark.style.userSelect = "text";
-    mark.addEventListener("copy", function(e) {
-      e.stopPropagation();
-      if (options.format) {
-        e.preventDefault();
-        if (typeof e.clipboardData === "undefined") { // IE 11
-          debug && console.warn("unable to use e.clipboardData");
-          debug && console.warn("trying IE specific stuff");
-          window.clipboardData.clearData();
-          var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"]
-          window.clipboardData.setData(format, text);
-        } else { // all other browsers
-          e.clipboardData.clearData();
-          e.clipboardData.setData(options.format, text);
-        }
-      }
-      if (options.onCopy) {
-        e.preventDefault();
-        options.onCopy(e.clipboardData);
-      }
-    });
-
-    document.body.appendChild(mark);
-
-    range.selectNodeContents(mark);
-    selection.addRange(range);
-
-    var successful = document.execCommand("copy");
-    if (!successful) {
-      throw new Error("copy command was unsuccessful");
-    }
-    success = true;
-  } catch (err) {
-    debug && console.error("unable to copy using execCommand: ", err);
-    debug && console.warn("trying IE specific stuff");
-    try {
-      window.clipboardData.setData(options.format || "text", text);
-      options.onCopy && options.onCopy(window.clipboardData);
-      success = true;
-    } catch (err) {
-      debug && console.error("unable to copy using clipboardData: ", err);
-      debug && console.error("falling back to prompt");
-      message = format("message" in options ? options.message : defaultMessage);
-      window.prompt(message, text);
-    }
-  } finally {
-    if (selection) {
-      if (typeof selection.removeRange == "function") {
-        selection.removeRange(range);
-      } else {
-        selection.removeAllRanges();
-      }
-    }
-
-    if (mark) {
-      document.body.removeChild(mark);
-    }
-    reselectPrevious();
-  }
-
-  return success;
-}
-
-module.exports = copy;
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/global.scss":
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/global.scss ***!
-  \**********************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_antd_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./antd.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/antd.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_overrides_prime_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./overrides/prime/index.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/index.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_overrides_antd_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./overrides/antd.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/antd.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_overrides_exalidraw_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./overrides/exalidraw.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/exalidraw.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_animations_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./animations.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/animations.css");
-// Imports
-
-
-
-
-
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_antd_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_overrides_prime_index_css__WEBPACK_IMPORTED_MODULE_3__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_overrides_antd_css__WEBPACK_IMPORTED_MODULE_4__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_overrides_exalidraw_css__WEBPACK_IMPORTED_MODULE_5__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_animations_css__WEBPACK_IMPORTED_MODULE_6__["default"]);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --main-theme-color:#292F4C;\n}\n\n:root {\n  --color-highlight_blue: #cce5ff;\n  --color-basic_blue: #0073ea;\n  --color-dark_blue: #0060b9;\n  --color-bazooka: #f65f7c;\n  --color-snow_white: #ffffff;\n  --color-riverstone_gray: #f6f7fb;\n  --color-ui_grey: #dcdfec;\n  --color-wolf_gray: #c3c6d4;\n  --color-asphalt: #676879;\n  --color-mud_black: #323338;\n  --color-black: #000000;\n  --color-success: #258750;\n  --color-success-hover: #007038;\n  --color-success-highlight: #bbdbc9;\n  --color-error: #d83a52;\n  --color-error-hover: #b63546;\n  --color-error-highlight: #f4c3cb;\n  --color-link_color: #1f76c2;\n  --color-surface: #292f4c;\n  --primary-color: #0073ea;\n  --primary-hover-color: #0060b9;\n  --primary-selected-color: #cce5ff;\n  --primary-selected-hover-color: #aed4fc;\n  --primary-text-color: #292d34;\n  --text-color-on-primary: #ffffff;\n  --text-color-on-inverted: #ffffff;\n  --secondary-text-color: #676879;\n  --placeholder-color: #676879;\n  --icon-color: #676879;\n  --link-color: #1f76c2;\n  --primary-background-color: #ffffff;\n  --primary-background-hover-color: #dcdfec;\n  --secondary-background-color: #ffffff;\n  --grey-background-color: #f6f7fb;\n  --allgrey-background-color: #f6f7fb;\n  --inverted-color-background: #323338;\n  --disabled-background-color: #ecedf5;\n  --disabled-text-color: rgba(50, 51, 56, var(--disabled-component-opacity));\n  --positive-color: #258750;\n  --positive-color-hover: #007038;\n  --positive-color-selected: #bbdbc9;\n  --positive-color-selected-hover: #b5cec0;\n  --negative-color: #d83a52;\n  --negative-color-hover: #b63546;\n  --negative-color-selected: #f4c3cb;\n  --negative-color-selected-hover: #ecb7bf;\n  --private-color: #f65f7c;\n  --shareable-color: #a25ddc;\n  --ui-border-color: #c3c6d4;\n  --layout-border-color: #d0d4e4;\n  --box-shadow-xs: 0px 4px 6px -4px rgba(0, 0, 0, 0.1);\n  --box-shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.2);\n  --box-shadow-medium: 0px 6px 20px rgba(0, 0, 0, 0.2);\n  --box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);\n  --color-grass_green: #037f4c;\n  --color-grass_green-hover: #116846;\n  --color-grass_green-selected: #81bfa5;\n  --color-done-green: #00c875;\n  --color-done-green-hover: #0f9b63;\n  --color-done-green-selected: #80e3ba;\n  --color-done-green-selected-with-opacity: rgba(128, 227, 186, 0.6);\n  --color-bright-green: #9cd326;\n  --color-bright-green-hover: #7ca32b;\n  --color-bright-green-selected: #cde992;\n  --color-saladish: #cab641;\n  --color-saladish-hover: #9d8f3e;\n  --color-saladish-selected: #e4daa0;\n  --color-egg_yolk: #ffcb00;\n  --color-egg_yolk-hover: #c29e11;\n  --color-egg_yolk-selected: #ffe580;\n  --color-egg_yolk-rgb: 255,213,51;\n  --color-working_orange: #fdab3d;\n  --color-working_orange-hover: #c0873c;\n  --color-working_orange-selected: #fed59e;\n  --color-dark-orange: #ff642e;\n  --color-dark-orange-hover: #c25531;\n  --color-dark-orange-selected: #ffb196;\n  --color-peach: #ffadad;\n  --color-peach-hover: #c2888a;\n  --color-peach-selected: #ffd6d6;\n  --color-sunset: #ff7575;\n  --color-sunset-hover: #c26163;\n  --color-sunset-selected: #ffbaba;\n  --color-sunset-selected-with-opacity: rgba(255, 186, 186, 0.6);\n  --color-stuck-red: #e2445c;\n  --color-stuck-red-hover: #ad3f51;\n  --color-stuck-red-selected: #f0a1ad;\n  --color-dark-red: #bb3354;\n  --color-dark-red-hover: #92334c;\n  --color-dark-red-selected: #dd99a9;\n  --color-sofia_pink: #ff158a;\n  --color-sofia_pink-hover: #c21e71;\n  --color-sofia_pink-selected: #ff8ac4;\n  --color-lipstick: #ff5ac4;\n  --color-lipstick-hover: #c24e9a;\n  --color-lipstick-selected: #fface1;\n  --color-bubble: #faa1f1;\n  --color-bubble-hover: #be80ba;\n  --color-bubble-selected: #fcd0f8;\n  --color-purple: #a25ddc;\n  --color-purple-hover: #8050ab;\n  --color-purple-selected: #d0aeed;\n  --color-dark_purple: #784bd1;\n  --color-dark_purple-hover: #6344a3;\n  --color-dark_purple-selected: #bba5e8;\n  --color-berry: #7e3b8a;\n  --color-berry-hover: #673971;\n  --color-berry-selected: #be9dc4;\n  --color-dark_indigo: #401694;\n  --color-dark_indigo-hover: #3c1f78;\n  --color-dark_indigo-selected: #a08bc9;\n  --color-indigo: #5559df;\n  --color-indigo-hover: #4b4ead;\n  --color-indigo-selected: #aaacef;\n  --color-navy: #225091;\n  --color-navy-hover: #274776;\n  --color-navy-selected: #90a7c8;\n  --color-bright-blue: #579bfc;\n  --color-bright-blue-hover: #4c7cc1;\n  --color-bright-blue-selected: #abcdfd;\n  --color-dark-blue: #0086c0;\n  --color-dark-blue-hover: #0f6d97;\n  --color-dark-blue-selected: #80c2df;\n  --color-aquamarine: #4eccc6;\n  --color-aquamarine-hover: #469e9b;\n  --color-aquamarine-selected: #a6e5e2;\n  --color-chili-blue: #66ccff;\n  --color-chili-blue-hover: #569ec3;\n  --color-chili-blue-selected: #b2e5ff;\n  --color-river: #68a1bd;\n  --color-river-hover: #588095;\n  --color-river-selected: #b3d0de;\n  --color-winter: #9aadbd;\n  --color-winter-hover: #7b8895;\n  --color-winter-selected: #ccd6de;\n  --color-explosive: #c4c4c4;\n  --color-explosive-hover: #98999a;\n  --color-explosive-selected: #e1e1e1;\n  --color-american_gray: #808080;\n  --color-american_gray-hover: #69696a;\n  --color-american_gray-selected: #bfbfbf;\n  --color-blackish: #333333;\n  --color-blackish-hover: #222222;\n  --color-blackish-selected: #999999;\n  --color-brown: #7f5347;\n  --color-brown-hover: #684943;\n  --color-brown-selected: #bfa9a3;\n  --color-orchid: #D974B0;\n  --color-orchid-hover: #AE5D8D;\n  --color-orchid-selected: #ECBAD7;\n  --color-tan: #AD967A;\n  --color-tan-hover: #8A7862;\n  --color-tan-selected: #D6CABC;\n  --color-sky: #A1E3F6;\n  --color-sky-hover: #81B6C5;\n  --color-sky-selected: #D0F1FA;\n  --color-coffee: #BD816E;\n  --color-coffee-hover: #976758;\n  --color-coffee-selected: #DEC0B7;\n  --color-royal: #2B76E5;\n  --color-royal-hover: #225EB7;\n  --color-royal-selected: #95BBF2;\n  --color-teal: #175A63;\n  --color-teal-hover: #12484F;\n  --color-teal-selected: #8BACB1;\n  --color-lavender: #BDA8F9;\n  --color-lavender-hover: #9786C7;\n  --color-lavender-selected: #DED4FC;\n  --color-steel: #A9BEE8;\n  --color-steel-hover: #8798BA;\n  --color-steel-selected: #D4DFF4;\n  --color-lilac: #9D99B9;\n  --color-lilac-hover: #7E7A94;\n  --color-lilac-selected: #CECCDC;\n  --color-pecan: #563E3E;\n  --color-pecan-hover: #453232;\n  --color-pecan-selected: #AB9F9F;\n  --color-dark_marble: #f1f1f1;\n  --color-marble: #f7f7f7;\n  --color-gainsboro: #e1e1e1;\n  --color-extra_light_gray: #edeef0;\n  --color-glitter: #d9f0ff;\n  --color-ultra_light_gray: #ebebeb;\n  --color-very_light_gray: #a1a1a1;\n  --color-jaco_gray: #9699a6;\n  --color-storm_gray: #6b6d77;\n  --color-trolley-grey: #808080;\n  --color-basic_light_blue: #c7e6fa;\n  --color-light_blue: #61caf7;\n  --color-turquoise: #66ccff;\n  --color-aqua: #00d1d1;\n  --color-live_blue: #009aff;\n  --color-jeans: #597bfc;\n  --color-burned_eggplant: #181d37;\n  --color-light-pink: #ff5ac4;\n  --color-dark-pink: #ff158a;\n  --color-dark_red: #bb3354;\n  --color-yellow: #ffcb00;\n  --color-mustered: #cab641;\n  --color-orange: #fdab3d;\n  --color-lime-green: #9cd326;\n  --color-jade: #03c875;\n  --color-green-haze: #00a359;\n  --color-grass-green: #037f4c;\n  --color-amethyst: #a25ddc;\n  --color-dark-purple: #784bd1;\n  --color-blue_links: #0086c0;\n  --color-blue-links: #0086c0;\n  --color-private: #f65f7c;\n  --color-public: #009aff;\n  --color-board_views_grey: #6e6f8f;\n  --color-board_views_grey_hover: #b2b3d0;\n  --color-board_views_blue: #1c1f3b;\n  --color-board_views_blue_secondary: #363a52;\n  --color-border_light_gray: #f5f6f8;\n  --color-brand-blue: #00a9ff;\n  --color-brand-charcoal: #2b2c5c;\n  --color-brand-gold: #ffcc00;\n  --color-brand-green: #11dd80;\n  --color-brand-iris: #595ad4;\n  --color-brand-light-blue: #00cff4;\n  --color-brand-malachite: #00cd6f;\n  --color-brand-purple: #a358d0;\n  --color-brand-red: #f74875;\n  --color-deadline_upcoming_indication: #5d6387;\n  --color-default_group_color: #579bfc;\n  --color-form_btn_hover: #0083d9;\n  --color-form_purple: #575c96;\n  --color-highlight: #dff0ff;\n  --color-green_shadow: #00c875;\n  --color-green-shadow: #00c875;\n  --color-red_shadow: #e2445c;\n  --color-red-shadow: #e2445c;\n  --color-pulse_bg: #f0f0f0;\n  --color-pulse_text_color: #333333;\n  --color-placholder_gray: #d8d8d8;\n  --color-placeholder_light_gray: #efefef;\n  --color-excel-green: #207245;\n  --color-media-blue: #2ea2e9;\n  --color-pdf-red: #bb0706;\n  --color-ppt-orange: #d64e2a;\n  --color-word-blue: #2a5699;\n  --color-zip-orange: #e4901c;\n  --color-like_red: #fb275d;\n  --color-scrollbar_gray: #b2b2b2;\n  --color-timeline_grid_blue: #454662;\n  --color-timeline_blue: #1c1f3b;\n  --color-highlight_blue-rgb: 204,229,255;\n  --color-snow_white-with-opacity: rgba(255, 255, 255, 0.4);\n  --color-wolf_gray-with-opacity: rgba(195, 198, 212, 0.1);\n  --color-asphalt-with-opacity: rgba(103, 104, 121, 0.1);\n  --primary-on-secondary-color: #0073ea;\n  --primary-hover-on-secondary-color: #0060b9;\n  --primary-selected-color-rgb: 204,229,255;\n  --primary-selected-on-secondary-color: #cce5ff;\n  --primary-text-on-secondary-color: #323338;\n  --text-color-on-primary-with-opacity: rgba(255, 255, 255, 0.4);\n  --secondary-text-on-secondary-color: #676879;\n  --placeholder-color-with-opacity: rgba(103, 104, 121, 0.1);\n  --placeholder-on-secondary-color: #676879;\n  --icon-on-secondary-color: #676879;\n  --link-on-secondary-color: #1f76c2;\n  --label-background-color: #cce5ff;\n  --label-background-on-secondary-color: #cce5ff;\n  --primary-background-color-rgb: 255,255,255;\n  --primary-background-hover-on-secondary-color: #dcdfec;\n  --modal-background-color: #ffffff;\n  --secondary-background-color-rgb: 255,255,255;\n  --disabled-background-on-secondary-color: #ecedf5;\n  --disabled-text-on-secondary-color: rgba(50, 51, 56, var(--disabled-component-opacity));\n  --ui-border-on-secondary-color: #c3c6d4;\n  --layout-border-on-secondary-color: #d0d4e4;\n  --dark-background-color: #f6f7fb;\n  --dark-background-on-secondary-color: #f6f7fb;\n  --dialog-background-color: #ffffff;\n  --box-shadow-mediun: 0px 6px 20px rgba(0, 0, 0, 0.2);\n}\n\n:root {\n  --motion-productive-short: 70ms;\n  --motion-productive-medium: 100ms;\n  --motion-productive-long: 150ms;\n  --motion-expressive-short: 250ms;\n  --motion-expressive-long: 400ms;\n  --motion-timing-enter: cubic-bezier(0, 0, 0.35, 1);\n  --motion-timing-exit: cubic-bezier(0.4, 0, 1, 1);\n  --motion-timing-transition: cubic-bezier(0.4, 0, 0.2, 1);\n  --motion-timing-emphasize: cubic-bezier(0, 0, 0.2, 1.4);\n  --expand-animation-timing: var(--motion-timing-enter);\n  --spacing-xs: 4px;\n  --spacing-small: 8px;\n  --spacing-medium: 16px;\n  --spacing-large: 24px;\n  --spacing-xl: 32px;\n  --spacing-xxl: 48px;\n  --spacing-xxxl: 64px;\n  --border-width: 1px;\n  --border-style: solid;\n  --border-radius-small: 4px;\n  --border-radius-medium: 8px;\n  --border-radius-big: 16px;\n  --disabled-component-opacity: 0.38;\n  --font-family: Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif;\n  /* Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif; */\n  --title-font-family: Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif;\n  --h1-font-family: var(--title-font-family);\n  --font-smoothing-webkit: antialiased;\n  --font-smoothing-moz: grayscale;\n  --font-weight-very-light: 200;\n  --font-weight-light: 300;\n  --font-weight-normal: 400;\n  --font-weight-bold: 500;\n  --font-size: 1.4rem;\n  --font-size-10: 14px;\n  --font-size-20: 14px;\n  --font-size-30: 16px;\n  --font-size-40: 18px;\n  --font-size-50: 24px;\n  --font-size-60: 30px;\n  --font-line-height-10: 18px;\n  --font-line-height-20: 24px;\n  --font-line-height-30: 24px;\n  --font-line-height-40: 24px;\n  --font-line-height-50: 32px;\n  --font-line-height-60: 42px;\n  --font-size-h1: var(--font-size-60);\n  --font-size-h2: var(--font-size-50);\n  --font-size-h3: var(--font-size-50);\n  --font-size-h4: var(--font-size-40);\n  --font-size-h5: var(--font-size-30);\n  --font-size-general-label: var(--font-size-20);\n  --font-size-paragraph: var(--font-size-30);\n  --font-size-subtext: var(--font-size-10);\n  --font-line-height-h1: var(--font-line-height-60);\n  --font-line-height-h2: var(--font-line-height-50);\n  --font-line-height-h3: var(--font-line-height-50);\n  --font-line-height-h4: var(--font-line-height-40);\n  --font-line-height-h5: var(--font-line-height-30);\n  --font-line-height-general-label: var(--font-line-height-20);\n  --font-line-height-paragraph: var(--font-line-height-30);\n  --font-line-height-subtext: var(--font-line-height-10);\n  --font-h1: var(--font-weight-bold) var(--font-size-h1)/var(--font-line-height-h1) var(--title-font-family);\n  --font-h2: var(--font-weight-bold) var(--font-size-h2)/var(--font-line-height-h2) var(--title-font-family);\n  --font-h3: var(--font-weight-light) var(--font-size-h3)/var(--font-line-height-h3) var(--title-font-family);\n  --font-h4: var(--font-weight-bold) var(--font-size-h4)/var(--font-line-height-h4) var(--title-font-family);\n  --font-h5: var(--font-weight-bold) var(--font-size-h5)/var(--font-line-height-h5) var(--font-family);\n  --font-general-label: var(--font-weight-normal) var(--font-size-general-label)/var(--font-line-height-general-label) var(--font-family);\n  --font-paragraph: var(--font-weight-normal) var(--font-size-paragraph)/var(--font-line-height-paragraph) var(--font-family);\n  --font-subtext: var(--font-weight-normal) var(--font-size-subtext)/var(--font-line-height-subtext) var(--font-family);\n}\n\n:root {\n  --react-modal-background: rgba(41, 47, 76, 0.7);\n  --application-background-color: var(--color-snow_white);\n  --application-border-color: #e6e9ef;\n  --text-color-on-card: #323338;\n  --main-nav-background-color: #292f4c;\n  --pulse-background-color: #f5f6f8;\n  --pulse-background-color-rgb: 245, 246, 248;\n  --pulse-background-color-opacity: #f5f6f880;\n  --pulse-text-color: #666;\n  --pulse-hover-background-color: #e6e9ef;\n  --pulse-selected-background-color: #e5f4ff;\n  --pulse-floating-background-color: 253, 253, 250;\n  --pulse-highlight-background-color: #cce9ff;\n  --surfce-color: rgb(51, 51, 51)/* #292f4c */;\n  --surface-border-color: #4b4e69;\n  --card-background-color: var(--primary-background-color);\n  --card-hover-background-color: white;\n  --card-selected-background-color: #d9f0ff;\n  --card-selected-text-color: #0073ea;\n  --automations-hover-background-color: #f5f6f8;\n  --automations-label-background-color: #f5f6f8;\n  --automations-border-color: #e6e9ef;\n  --automations-account-usage-background-color: white;\n  --automations-account-usage-dropdown-border-color: #d9d9d9;\n  --automations-account-usage-progressbar-background-color: #e6e9ef;\n  --apps-svg-icon-invert: invert(0);\n  --apps-code-color: #5559df;\n  --apps-feature-preview-color: #e5f4ff;\n  --apps-tabs-border-color: #1c1f3b;\n  --card-border-color: #e6e9ef;\n  --avatar-border-color: var(--color-snow_white);\n  --modal-bottom-color: #f7f7f7;\n  --modal-free-indication-color: var(--primary-selected-color);\n  --notification-unread-highlight-color: #d2eaff;\n  --apps-marketplace-highlight-color: #f5f6f8;\n  --redactor-context-background-color: #323338;\n  --redactor-context-link-color: #fff;\n  --ajax-spinner-gif-path: url(https://cdn.monday.com/images/ajax_spinner.gif);\n  --scrollbar-color: var(--color-wolf_gray);\n  --monday-loader-gif-path: url(https://cdn.monday.com/images/loader/loader.gif);\n  --hint-background-color: #ccf4e3;\n  --transparent-overlay: rgba(41, 47, 76, 0.5) !important;\n  --timeline-row-hover: rgba(210, 210, 210, 0.3);\n  --timeline-value-remains: #333333;\n  --topbar-bg-color: #eceff8 ;\n}\n\n:root {\n  --_cu-grey1100: 26, 28, 32;\n  --_cu-grey1000: 42, 46, 52;\n  --_cu-grey900: 48, 53, 60;\n  --_cu-grey800: 60, 65, 74;\n  --_cu-grey700: 79, 87, 98;\n  --_cu-grey600: 101, 111, 125;\n  --_cu-grey500: 135, 144, 158;\n  --_cu-grey400: 173, 179, 189;\n  --_cu-grey300: 214, 217, 222;\n  --_cu-grey200: 232, 234, 237;\n  --_cu-grey100: 240, 241, 243;\n  --_cu-grey50: 247, 248, 249;\n  --_cu-white: 255, 255, 255;\n  --_cu-purple1100: 50, 52, 82;\n  --_cu-purple1000: 59, 58, 112;\n  --_cu-purple900: 67, 65, 141;\n  --_cu-purple800: 76, 71, 171;\n  --_cu-purple700: 84, 77, 201;\n  --_cu-purple600: 95, 85, 238;\n  --_cu-purple500: 127, 119, 241;\n  --_cu-purple400: 153, 146, 244;\n  --_cu-purple300: 178, 173, 247;\n  --_cu-purple200: 204, 201, 250;\n  --_cu-purple100: 229, 228, 252;\n  --_cu-purple50: 242, 241, 254;\n  --_cu-neonBlue1100: 46, 55, 84;\n  --_cu-neonBlue1000: 50, 64, 117;\n  --_cu-neonBlue900: 54, 73, 149;\n  --_cu-neonBlue800: 59, 82, 182;\n  --_cu-neonBlue700: 63, 91, 214;\n  --_cu-neonBlue600: 68, 102, 255;\n  --_cu-neonBlue500: 105, 133, 255;\n  --_cu-neonBlue400: 135, 157, 255;\n  --_cu-neonBlue300: 165, 182, 255;\n  --_cu-neonBlue200: 195, 206, 255;\n  --_cu-neonBlue100: 225, 231, 255;\n  --_cu-neonBlue50: 240, 243, 255;\n  --_cu-azureBlue1100: 38, 62, 80;\n  --_cu-azureBlue1000: 34, 77, 107;\n  --_cu-azureBlue900: 30, 93, 135;\n  --_cu-azureBlue800: 25, 109, 162;\n  --_cu-azureBlue700: 21, 124, 190;\n  --_cu-azureBlue600: 16, 144, 224;\n  --_cu-azureBlue500: 64, 166, 230;\n  --_cu-azureBlue400: 102, 184, 235;\n  --_cu-azureBlue300: 140, 202, 240;\n  --_cu-azureBlue200: 179, 220, 245;\n  --_cu-azureBlue100: 217, 237, 250;\n  --_cu-azureBlue50: 236, 246, 253;\n  --_cu-teal1100: 38, 64, 69;\n  --_cu-teal1000: 33, 82, 86;\n  --_cu-teal900: 29, 99, 103;\n  --_cu-teal800: 25, 117, 120;\n  --_cu-teal700: 20, 135, 138;\n  --_cu-teal600: 15, 157, 159;\n  --_cu-teal500: 63, 177, 178;\n  --_cu-teal400: 101, 192, 194;\n  --_cu-teal300: 140, 208, 209;\n  --_cu-teal200: 178, 224, 224;\n  --_cu-teal100: 217, 239, 240;\n  --_cu-teal50: 231, 245, 245;\n  --_cu-mint1100: 45, 68, 66;\n  --_cu-mint1000: 48, 90, 80;\n  --_cu-mint900: 51, 112, 94;\n  --_cu-mint800: 54, 134, 108;\n  --_cu-mint700: 57, 156, 122;\n  --_cu-mint600: 61, 184, 139;\n  --_cu-mint500: 100, 198, 162;\n  --_cu-mint400: 131, 209, 181;\n  --_cu-mint300: 162, 221, 199;\n  --_cu-mint200: 193, 232, 218;\n  --_cu-mint100: 224, 244, 236;\n  --_cu-mint50: 240, 249, 246;\n  --_cu-green1100: 35, 60, 55;\n  --_cu-green1000: 29, 75, 57;\n  --_cu-green900: 22, 89, 60;\n  --_cu-green800: 15, 104, 62;\n  --_cu-green700: 8, 118, 65;\n  --_cu-green600: 0, 136, 68;\n  --_cu-green500: 51, 160, 105;\n  --_cu-green400: 92, 179, 135;\n  --_cu-green300: 133, 198, 165;\n  --_cu-green200: 173, 217, 195;\n  --_cu-green100: 214, 236, 225;\n  --_cu-green50: 235, 245, 240;\n  --_cu-yellow1100: 75, 66, 44;\n  --_cu-yellow1000: 108, 87, 35;\n  --_cu-yellow900: 141, 107, 27;\n  --_cu-yellow800: 174, 128, 19;\n  --_cu-yellow700: 207, 148, 10;\n  --_cu-yellow600: 248, 174, 0;\n  --_cu-yellow500: 249, 190, 51;\n  --_cu-yellow400: 251, 203, 92;\n  --_cu-yellow300: 252, 216, 133;\n  --_cu-yellow200: 253, 229, 173;\n  --_cu-yellow100: 254, 242, 214;\n  --_cu-yellow50: 254, 249, 235;\n  --_cu-orange1100: 71, 56, 47;\n  --_cu-orange1000: 101, 66, 42;\n  --_cu-orange900: 130, 75, 38;\n  --_cu-orange800: 159, 85, 33;\n  --_cu-orange700: 188, 95, 28;\n  --_cu-orange600: 225, 107, 22;\n  --_cu-orange500: 231, 137, 69;\n  --_cu-orange400: 236, 160, 106;\n  --_cu-orange300: 241, 184, 143;\n  --_cu-orange200: 245, 208, 180;\n  --_cu-orange100: 250, 231, 218;\n  --_cu-orange50: 253, 243, 236;\n  --_cu-red1100: 69, 48, 55;\n  --_cu-red1000: 96, 51, 57;\n  --_cu-red900: 123, 53, 60;\n  --_cu-red800: 150, 55, 62;\n  --_cu-red700: 177, 58, 65;\n  --_cu-red600: 211, 61, 68;\n  --_cu-red500: 220, 100, 106;\n  --_cu-red400: 227, 131, 136;\n  --_cu-red300: 234, 162, 165;\n  --_cu-red200: 241, 193, 195;\n  --_cu-red100: 248, 224, 225;\n  --_cu-red50: 252, 239, 240;\n  --_cu-pink1100: 73, 54, 68;\n  --_cu-pink1000: 105, 61, 84;\n  --_cu-pink900: 136, 69, 100;\n  --_cu-pink800: 167, 77, 117;\n  --_cu-pink700: 199, 84, 133;\n  --_cu-pink600: 238, 94, 153;\n  --_cu-pink500: 241, 126, 173;\n  --_cu-pink400: 244, 152, 190;\n  --_cu-pink300: 247, 178, 206;\n  --_cu-pink200: 250, 204, 222;\n  --_cu-pink100: 252, 229, 239;\n  --_cu-pink50: 254, 242, 247;\n  --_cu-violet1100: 64, 54, 80;\n  --_cu-violet1000: 87, 62, 107;\n  --_cu-violet900: 109, 70, 135;\n  --_cu-violet800: 132, 78, 162;\n  --_cu-violet700: 154, 86, 190;\n  --_cu-violet600: 182, 96, 224;\n  --_cu-violet500: 197, 128, 230;\n  --_cu-violet400: 208, 153, 235;\n  --_cu-violet300: 220, 179, 240;\n  --_cu-violet200: 232, 204, 245;\n  --_cu-violet100: 243, 230, 250;\n  --_cu-violet50: 249, 242, 253;\n  --_cu-brown1100: 62, 61, 64;\n  --_cu-brown1000: 83, 76, 76;\n  --_cu-brown900: 103, 92, 88;\n  --_cu-brown800: 124, 107, 101;\n  --_cu-brown700: 144, 121, 113;\n  --_cu-brown600: 170, 141, 128;\n  --_cu-brown500: 187, 163, 153;\n  --_cu-brown400: 201, 182, 174;\n  --_cu-brown300: 214, 200, 194;\n  --_cu-brown200: 228, 219, 214;\n  --_cu-brown100: 241, 237, 235;\n  --_cu-brown50: 248, 246, 245;\n  --_cu-black1100: 0, 0, 0;\n  --_cu-black1000: 10, 11, 13;\n  --_cu-black900: 19, 21, 26;\n  --_cu-black800: 29, 32, 38;\n  --_cu-black700: 38, 42, 51;\n  --_cu-black600: 48, 53, 64;\n  --_cu-black500: 89, 93, 102;\n  --_cu-black400: 123, 126, 133;\n  --_cu-black300: 156, 158, 163;\n  --_cu-black200: 189, 190, 194;\n  --_cu-black100: 222, 223, 224;\n  --_cu-black50: 238, 239, 240;\n  --cu-grey1100: rgb(var(--_cu-grey1100));\n  --cu-grey1000: rgb(var(--_cu-grey1000));\n  --cu-grey1000-50: rgb(var(--_cu-grey1000), .5);\n  --cu-grey1000-20: rgb(var(--_cu-grey1000), .2);\n  --cu-grey1000-16: rgb(var(--_cu-grey1000), .16);\n  --cu-grey1000-10: rgb(var(--_cu-grey1000), .1);\n  --cu-grey900: rgb(var(--_cu-grey900));\n  --cu-grey800: rgb(var(--_cu-grey800));\n  --cu-grey700: rgb(var(--_cu-grey700));\n  --cu-grey600: rgb(var(--_cu-grey600));\n  --cu-grey500: rgb(var(--_cu-grey500));\n  --cu-grey400: rgb(var(--_cu-grey400));\n  --cu-grey300: rgb(var(--_cu-grey300));\n  --cu-grey200: rgb(var(--_cu-grey200));\n  --cu-grey100: rgb(var(--_cu-grey100));\n  --cu-grey100-50: rgb(var(--_cu-grey100), .5);\n  --cu-grey100-20: rgb(var(--_cu-grey100), .2);\n  --cu-grey100-16: rgb(var(--_cu-grey100), .16);\n  --cu-grey100-10: rgb(var(--_cu-grey100), .1);\n  --cu-grey50: rgb(var(--_cu-grey50));\n  --cu-white: rgb(var(--_cu-white));\n  --cu-white-80: rgb(var(--_cu-white), .8);\n  --cu-white-50: rgb(var(--_cu-white), .5);\n  --cu-white-20: rgb(var(--_cu-white), .2);\n  --cu-white-16: rgb(var(--_cu-white), .16);\n  --cu-white-10: rgb(var(--_cu-white), .1);\n  --cu-green1100: rgb(var(--_cu-green1100));\n  --cu-green1000: rgb(var(--_cu-green1000));\n  --cu-green900: rgb(var(--_cu-green900));\n  --cu-green800: rgb(var(--_cu-green800));\n  --cu-green700: rgb(var(--_cu-green700));\n  --cu-green600: rgb(var(--_cu-green600));\n  --cu-green500: rgb(var(--_cu-green500));\n  --cu-green400: rgb(var(--_cu-green400));\n  --cu-green300: rgb(var(--_cu-green300));\n  --cu-green200: rgb(var(--_cu-green200));\n  --cu-green100: rgb(var(--_cu-green100));\n  --cu-green50: rgb(var(--_cu-green50));\n  --cu-yellow1100: rgb(var(--_cu-yellow1100));\n  --cu-yellow1000: rgb(var(--_cu-yellow1000));\n  --cu-yellow900: rgb(var(--_cu-yellow900));\n  --cu-yellow800: rgb(var(--_cu-yellow800));\n  --cu-yellow700: rgb(var(--_cu-yellow700));\n  --cu-yellow600: rgb(var(--_cu-yellow600));\n  --cu-yellow500: rgb(var(--_cu-yellow500));\n  --cu-yellow400: rgb(var(--_cu-yellow400));\n  --cu-yellow300: rgb(var(--_cu-yellow300));\n  --cu-yellow200: rgb(var(--_cu-yellow200));\n  --cu-yellow100: rgb(var(--_cu-yellow100));\n  --cu-yellow50: rgb(var(--_cu-yellow50));\n  --cu-red1100: rgb(var(--_cu-red1100));\n  --cu-red1000: rgb(var(--_cu-red1000));\n  --cu-red900: rgb(var(--_cu-red900));\n  --cu-red800: rgb(var(--_cu-red800));\n  --cu-red700: rgb(var(--_cu-red700));\n  --cu-red600: rgb(var(--_cu-red600));\n  --cu-red600-16: rgb(var(--_cu-red600), .16);\n  --cu-red500: rgb(var(--_cu-red500));\n  --cu-red500-16: rgb(var(--_cu-red500), .16);\n  --cu-red400: rgb(var(--_cu-red400));\n  --cu-red300: rgb(var(--_cu-red300));\n  --cu-red200: rgb(var(--_cu-red200));\n  --cu-red100: rgb(var(--_cu-red100));\n  --cu-red50: rgb(var(--_cu-red50));\n  --cu-purple1100: rgb(var(--_cu-purple1100));\n  --cu-purple1000: rgb(var(--_cu-purple1000));\n  --cu-purple900: rgb(var(--_cu-purple900));\n  --cu-purple800: rgb(var(--_cu-purple800));\n  --cu-purple700: rgb(var(--_cu-purple700));\n  --cu-purple600: rgb(var(--_cu-purple600));\n  --cu-purple600-16: rgb(var(--_cu-purple600), .16);\n  --cu-purple500: rgb(var(--_cu-purple500));\n  --cu-purple500-16: rgb(var(--_cu-purple500), .16);\n  --cu-purple400: rgb(var(--_cu-purple400));\n  --cu-purple300: rgb(var(--_cu-purple300));\n  --cu-purple200: rgb(var(--_cu-purple200));\n  --cu-purple100: rgb(var(--_cu-purple100));\n  --cu-purple50: rgb(var(--_cu-purple50));\n  --cu-neonBlue1100: rgb(var(--_cu-neonBlue1100));\n  --cu-neonBlue1000: rgb(var(--_cu-neonBlue1000));\n  --cu-neonBlue900: rgb(var(--_cu-neonBlue900));\n  --cu-neonBlue800: rgb(var(--_cu-neonBlue800));\n  --cu-neonBlue700: rgb(var(--_cu-neonBlue700));\n  --cu-neonBlue600: rgb(var(--_cu-neonBlue600));\n  --cu-neonBlue600-16: rgb(var(--_cu-neonBlue600), .16);\n  --cu-neonBlue500: rgb(var(--_cu-neonBlue500));\n  --cu-neonBlue500-16: rgb(var(--_cu-neonBlue500), .16);\n  --cu-neonBlue400: rgb(var(--_cu-neonBlue400));\n  --cu-neonBlue300: rgb(var(--_cu-neonBlue300));\n  --cu-neonBlue200: rgb(var(--_cu-neonBlue200));\n  --cu-neonBlue100: rgb(var(--_cu-neonBlue100));\n  --cu-neonBlue50: rgb(var(--_cu-neonBlue50));\n  --cu-azureBlue1100: rgb(var(--_cu-azureBlue1100));\n  --cu-azureBlue1000: rgb(var(--_cu-azureBlue1000));\n  --cu-azureBlue900: rgb(var(--_cu-azureBlue900));\n  --cu-azureBlue800: rgb(var(--_cu-azureBlue800));\n  --cu-azureBlue700: rgb(var(--_cu-azureBlue700));\n  --cu-azureBlue600: rgb(var(--_cu-azureBlue600));\n  --cu-azureBlue600-16: rgb(var(--_cu-azureBlue600), .16);\n  --cu-azureBlue500: rgb(var(--_cu-azureBlue500));\n  --cu-azureBlue500-16: rgb(var(--_cu-azureBlue500), .16);\n  --cu-azureBlue400: rgb(var(--_cu-azureBlue400));\n  --cu-azureBlue300: rgb(var(--_cu-azureBlue300));\n  --cu-azureBlue200: rgb(var(--_cu-azureBlue200));\n  --cu-azureBlue100: rgb(var(--_cu-azureBlue100));\n  --cu-azureBlue50: rgb(var(--_cu-azureBlue50));\n  --cu-teal1100: rgb(var(--_cu-teal1100));\n  --cu-teal1000: rgb(var(--_cu-teal1000));\n  --cu-teal900: rgb(var(--_cu-teal900));\n  --cu-teal800: rgb(var(--_cu-teal800));\n  --cu-teal700: rgb(var(--_cu-teal700));\n  --cu-teal600: rgb(var(--_cu-teal600));\n  --cu-teal600-16: rgb(var(--_cu-teal600), .16);\n  --cu-teal500: rgb(var(--_cu-teal500));\n  --cu-teal500-16: rgb(var(--_cu-teal500), .16);\n  --cu-teal400: rgb(var(--_cu-teal400));\n  --cu-teal300: rgb(var(--_cu-teal300));\n  --cu-teal200: rgb(var(--_cu-teal200));\n  --cu-teal100: rgb(var(--_cu-teal100));\n  --cu-teal50: rgb(var(--_cu-teal50));\n  --cu-mint1100: rgb(var(--_cu-mint1100));\n  --cu-mint1000: rgb(var(--_cu-mint1000));\n  --cu-mint900: rgb(var(--_cu-mint900));\n  --cu-mint800: rgb(var(--_cu-mint800));\n  --cu-mint700: rgb(var(--_cu-mint700));\n  --cu-mint600: rgb(var(--_cu-mint600));\n  --cu-mint600-16: rgb(var(--_cu-mint600), .16);\n  --cu-mint500: rgb(var(--_cu-mint500));\n  --cu-mint500-16: rgb(var(--_cu-mint500), .16);\n  --cu-mint400: rgb(var(--_cu-mint400));\n  --cu-mint300: rgb(var(--_cu-mint300));\n  --cu-mint200: rgb(var(--_cu-mint200));\n  --cu-mint100: rgb(var(--_cu-mint100));\n  --cu-mint50: rgb(var(--_cu-mint50));\n  --cu-orange1100: rgb(var(--_cu-orange1100));\n  --cu-orange1000: rgb(var(--_cu-orange1000));\n  --cu-orange900: rgb(var(--_cu-orange900));\n  --cu-orange800: rgb(var(--_cu-orange800));\n  --cu-orange700: rgb(var(--_cu-orange700));\n  --cu-orange600: rgb(var(--_cu-orange600));\n  --cu-orange600-16: rgb(var(--_cu-orange600), .16);\n  --cu-orange500: rgb(var(--_cu-orange500));\n  --cu-orange500-16: rgb(var(--_cu-orange500), .16);\n  --cu-orange400: rgb(var(--_cu-orange400));\n  --cu-orange300: rgb(var(--_cu-orange300));\n  --cu-orange200: rgb(var(--_cu-orange200));\n  --cu-orange100: rgb(var(--_cu-orange100));\n  --cu-orange50: rgb(var(--_cu-orange50));\n  --cu-pink1100: rgb(var(--_cu-pink1100));\n  --cu-pink1000: rgb(var(--_cu-pink1000));\n  --cu-pink900: rgb(var(--_cu-pink900));\n  --cu-pink800: rgb(var(--_cu-pink800));\n  --cu-pink700: rgb(var(--_cu-pink700));\n  --cu-pink600: rgb(var(--_cu-pink600));\n  --cu-pink600-16: rgb(var(--_cu-pink600), .16);\n  --cu-pink500: rgb(var(--_cu-pink500));\n  --cu-pink500-16: rgb(var(--_cu-pink500), .16);\n  --cu-pink400: rgb(var(--_cu-pink400));\n  --cu-pink300: rgb(var(--_cu-pink300));\n  --cu-pink200: rgb(var(--_cu-pink200));\n  --cu-pink100: rgb(var(--_cu-pink100));\n  --cu-pink50: rgb(var(--_cu-pink50));\n  --cu-violet1100: rgb(var(--_cu-violet1100));\n  --cu-violet1000: rgb(var(--_cu-violet1000));\n  --cu-violet900: rgb(var(--_cu-violet900));\n  --cu-violet800: rgb(var(--_cu-violet800));\n  --cu-violet700: rgb(var(--_cu-violet700));\n  --cu-violet600: rgb(var(--_cu-violet600));\n  --cu-violet600-16: rgb(var(--_cu-violet600), .16);\n  --cu-violet500: rgb(var(--_cu-violet500));\n  --cu-violet500-16: rgb(var(--_cu-violet500), .16);\n  --cu-violet400: rgb(var(--_cu-violet400));\n  --cu-violet300: rgb(var(--_cu-violet300));\n  --cu-violet200: rgb(var(--_cu-violet200));\n  --cu-violet100: rgb(var(--_cu-violet100));\n  --cu-violet50: rgb(var(--_cu-violet50));\n  --cu-brown1100: rgb(var(--_cu-brown1100));\n  --cu-brown1000: rgb(var(--_cu-brown1000));\n  --cu-brown900: rgb(var(--_cu-brown900));\n  --cu-brown800: rgb(var(--_cu-brown800));\n  --cu-brown700: rgb(var(--_cu-brown700));\n  --cu-brown600: rgb(var(--_cu-brown600));\n  --cu-brown600-16: rgb(var(--_cu-brown600), .16);\n  --cu-brown500: rgb(var(--_cu-brown500));\n  --cu-brown500-16: rgb(var(--_cu-brown500), .16);\n  --cu-brown400: rgb(var(--_cu-brown400));\n  --cu-brown300: rgb(var(--_cu-brown300));\n  --cu-brown200: rgb(var(--_cu-brown200));\n  --cu-brown100: rgb(var(--_cu-brown100));\n  --cu-brown50: rgb(var(--_cu-brown50));\n  --cu-black1100: rgb(var(--_cu-black1100));\n  --cu-black1000: rgb(var(--_cu-black1000));\n  --cu-black900: rgb(var(--_cu-black900));\n  --cu-black800: rgb(var(--_cu-black800));\n  --cu-black700: rgb(var(--_cu-black700));\n  --cu-black600: rgb(var(--_cu-black600));\n  --cu-black600-16: rgb(var(--_cu-black600), .16);\n  --cu-black500: rgb(var(--_cu-black500));\n  --cu-black500-16: rgb(var(--_cu-black500), .16);\n  --cu-black400: rgb(var(--_cu-black400));\n  --cu-black300: rgb(var(--_cu-black300));\n  --cu-black200: rgb(var(--_cu-black200));\n  --cu-black100: rgb(var(--_cu-black100));\n  --cu-black50: rgb(var(--_cu-black50)) ;\n}\n\nbody {\n  --rem-divisor: 16;\n  --rem-return-unit: 1rem ;\n}\n\nbody {\n  --cu-size-1: calc(4 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-2: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-3: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-4: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-5: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-6: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-7: calc(28 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-8: calc(32 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-9: calc(36 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-10: calc(40 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-11: calc(44 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-size-12: calc(48 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-1: calc(2 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-2: calc(4 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-3: calc(6 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-4: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-5: calc(10 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-6: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-7: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-8: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-9: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-radii-round: calc(666 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-border-size-1: 1px;\n  --cu-border-size-2: 2px ;\n}\n\nbody {\n  --cu-font-family: -apple-system, \"BlinkMacSystemFont\", \"Segoe UI\", \"Helvetica\", \"Apple Color Emoji\", \"Arial\", sans-serif, \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  --cu-font-weight-regular: 400;\n  --cu-font-weight-medium: 500;\n  --cu-font-weight-semibold: 600;\n  --cu-font-weight-bold: 700;\n  --cu-font-size-1: calc(6 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-2: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-3: calc(10 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-4: calc(11 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-5: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-6: calc(14 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-7: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-8: calc(18 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-9: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-10: calc(22 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-11: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-12: calc(28 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-13: calc(32 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-14: calc(36 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-font-size-15: calc(40 / var(--rem-divisor) * var(--rem-return-unit));\n  --cu-label-weight: var(--cu-font-weight-regular);\n  --cu-label-weight-strong: var(--cu-font-weight-medium);\n  --cu-label-large-font-size: var(--cu-font-size-8);\n  --cu-label-large-line-height: 1.33;\n  --cu-label-medium-font-size: var(--cu-font-size-7);\n  --cu-label-medium-line-height: 1.25;\n  --cu-label-small-font-size: var(--cu-font-size-6);\n  --cu-label-small-line-height: 1.14;\n  --cu-label-xsmall-font-size: var(--cu-font-size-5);\n  --cu-label-xsmall-line-height: 1.33;\n  --cu-paragraph-weight: var(--cu-font-weight-regular);\n  --cu-paragraph-weight-strong: var(--cu-font-weight-medium);\n  --cu-paragraph-line-height: 1.5;\n  --cu-paragraph-large-font-size: var(--cu-font-size-7);\n  --cu-paragraph-large-line-height: var(--cu-paragraph-line-height);\n  --cu-paragraph-medium-font-size: var(--cu-font-size-6);\n  --cu-paragraph-medium-line-height: var(--cu-paragraph-line-height);\n  --cu-paragraph-small-font-size: var(--cu-font-size-5);\n  --cu-paragraph-small-line-height: var(--cu-paragraph-line-height);\n  --cu-heading-weight: var(--cu-font-weight-semibold);\n  --cu-heading-line-height: 1.5;\n  --cu-heading-h1-font-size: var(--cu-font-size-15);\n  --cu-heading-h2-font-size: var(--cu-font-size-13);\n  --cu-heading-h3-font-size: var(--cu-font-size-11);\n  --cu-heading-h4-font-size: var(--cu-font-size-9);\n  --cu-heading-h5-font-size: var(--cu-font-size-8);\n  --cu-heading-h6-font-size: var(--cu-font-size-7);\n  --cu-heading-xxsmall-font-size: var(--cu-font-size-6);\n  --cu-heading-xxsmall-line-height: var(--cu-heading-line-height);\n  --cu-heading-caption-font-size: var(--cu-font-size-4);\n  --cu-heading-caption-line-height: var(--cu-heading-line-height) ;\n}\n\nbody:not(.cu-purple, .cu-neonBlue, .cu-azureBlue, .cu-teal, .cu-mint, .cu-orange, .cu-pink, .cu-violet, .cu-brown, .cu-black, .cu-custom) {\n  --cu-background-primary: var(--theme-main-color, #7b68ee);\n  --cu-background-primary-hover: var(--theme-main-color-dark, #5f48ea);\n  --cu-background-primary-pressed: var(--theme-main-color-dark, #5f48ea);\n  --cu-background-primary-disabled: var(--theme-main-color-light, #d3cdf9);\n  --cu-background-primary-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .12 );\n  --cu-background-primary-on-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .18 );\n  --cu-content-primary: var(--theme-main-color, #7b68ee);\n  --cu-border-primary: var(--theme-main-color, #7b68ee);\n  --cu-border-primary-focus: var(--theme-main-color, #7b68ee);\n  --cu-effect-primary: rgb(var(--theme-main-color-rgb, 123, 104, 238), .2);\n  --cu-link-primary: var(--theme-main-color, #7b68ee);\n  --cu-link-primary-hover: var(--theme-main-color-dark, #5f48ea) ;\n}\n\nbody.dark-theme:not(.cu-purple, .cu-neonBlue, .cu-azureBlue, .cu-teal, .cu-mint, .cu-orange, .cu-pink, .cu-violet, .cu-brown, .cu-black, .cu-custom), .dark-sidebar {\n  --cu-background-primary: var(--theme-main-color, #7b68ee);\n  --cu-background-primary-hover: var(--theme-main-color-dark, #5f48ea);\n  --cu-background-primary-pressed: var(--theme-main-color, #7b68ee);\n  --cu-background-primary-disabled: rgb( var(--theme-main-color-rgb, 123, 104, 238), .5 );\n  --cu-background-primary-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .22 );\n  --cu-background-primary-on-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .3 );\n  --cu-content-primary: var(--theme-main-color, #7b68ee);\n  --cu-border-primary: var(--theme-main-color, #7b68ee);\n  --cu-border-primary-focus: var(--theme-main-color, #7b68ee);\n  --cu-effect-primary: rgb(var(--theme-main-color-rgb, 123, 104, 238), .2);\n  --cu-link-primary: var(--theme-main-color, #7b68ee);\n  --cu-link-primary-hover: var(--theme-main-color-dark, #5f48ea) ;\n}\n\nbody.dark-theme, .dark-sidebar {\n  --cu-background-main: var(--cu-grey1000);\n  --cu-background-main-hover: var(--cu-grey900);\n  --cu-background-main-hover-strong: var(--cu-grey800);\n  --cu-background-main-pressed: var(--cu-grey700);\n  --cu-background-main-offset: var(--cu-grey900);\n  --cu-background-main-inverse: var(--cu-white);\n  --cu-background-main-inverse-offset: var(--cu-grey700);\n  --cu-background-subtle: var(--cu-grey900);\n  --cu-background-subtle-hover: var(--cu-grey800);\n  --cu-background-subtle-hover-strong: var(--cu-grey700);\n  --cu-background-subtle-pressed: var(--cu-grey600);\n  --cu-background-subtle-offset: var(--cu-grey1000);\n  --cu-background-on-main: var(--cu-grey800);\n  --cu-background-on-main-hover: var(--cu-grey700);\n  --cu-background-on-main-pressed: var(--cu-grey600);\n  --cu-background-on-subtle: var(--cu-grey700);\n  --cu-background-on-subtle-hover: var(--cu-grey600);\n  --cu-background-on-subtle-pressed: var(--cu-grey700);\n  --cu-background-success: var(--cu-green500);\n  --cu-background-success-subtle: var(--cu-green1100);\n  --cu-background-warning: var(--cu-yellow500);\n  --cu-background-warning-subtle: var(--cu-yellow1100);\n  --cu-background-danger: var(--cu-red500);\n  --cu-background-danger-hover: var(--cu-red400);\n  --cu-background-danger-pressed: var(--cu-red500);\n  --cu-background-danger-disabled: var(--cu-red900);\n  --cu-background-danger-subtle: var(--cu-red1100);\n  --cu-background-danger-subtle-hover: var(--cu-red1000);\n  --cu-background-danger-subtle-pressed: var(--cu-red1100);\n  --cu-background-tooltip: var(--cu-grey700);\n  --cu-background-modal: var(--cu-grey700);\n  --cu-background-on-dark-hover: var(--cu-white-10);\n  --cu-background-on-dark-pressed: var(--cu-white-20);\n  --cu-background-on-light-hover: var(--cu-grey1000-10);\n  --cu-background-on-light-pressed: var(--cu-grey1000-20);\n  --cu-background-notification: var(--cu-pink500);\n  --cu-content-default: var(--cu-grey100);\n  --cu-content-secondary: var(--cu-grey400);\n  --cu-content-tertiary: var(--cu-grey500);\n  --cu-content-placeholder: var(--cu-grey600);\n  --cu-content-disabled: var(--cu-grey700);\n  --cu-content-success: var(--cu-green400);\n  --cu-content-warning: var(--cu-yellow400);\n  --cu-content-danger: var(--cu-red400);\n  --cu-content-danger-disabled: var(--cu-red900);\n  --cu-content-on-dark: var(--cu-white);\n  --cu-content-on-dark-disabled: var(--cu-white-50);\n  --cu-content-on-dark-secondary: var(--cu-white-80);\n  --cu-content-on-light: var(--cu-grey1000);\n  --cu-content-on-light-disabled: var(--cu-grey1000-50);\n  --cu-border-default: var(--cu-grey800);\n  --cu-border-low-contrast: var(--cu-grey900);\n  --cu-border-high-contrast: var(--cu-grey700);\n  --cu-border-hover: var(--cu-grey600);\n  --cu-border-input: var(--cu-grey600);\n  --cu-border-input-hover: var(--cu-grey500);\n  --cu-border-success: var(--cu-green500);\n  --cu-border-danger: var(--cu-red500);\n  --cu-border-danger-focus: var(--cu-red500);\n  --cu-border-warning: var(--cu-yellow500);\n  --cu-border-on-dark: var(--cu-white-50);\n  --cu-border-on-dark-focus: var(--cu-white);\n  --cu-border-on-light: var(--cu-grey1000-50);\n  --cu-border-on-light-focus: var(--cu-grey1000);\n  --cu-effect-danger: var(--cu-red500-16);\n  --cu-effect-on-dark: var(--cu-white-16);\n  --cu-effect-on-light: var(--cu-grey1000-16);\n  --cu-link-hyperlink: var(--cu-neonBlue400);\n  --cu-link-hyperlink-hover: var(--cu-neonBlue300);\n  --cu-fab-icon-pink: var(--cu-pink500);\n  --cu-fab-icon-yellow: var(--cu-yellow500);\n  --cu-fab-icon-mint: var(--cu-mint500);\n  --cu-fab-icon-azure-blue: var(--cu-azureBlue500);\n  --cu-alert-banner-background: var(--cu-grey700);\n  --cu-alert-banner-background-subtle: var(--cu-grey900);\n  --cu-alert-banner-content: var(--cu-grey100);\n  --cu-alert-banner-content-dark: var(--cu-grey1000);\n  --cu-avatar-user-bg-purple: var(--cu-purple500);\n  --cu-avatar-user-bg-neon-blue: var(--cu-neonBlue500);\n  --cu-avatar-user-bg-azure-blue: var(--cu-azureBlue500);\n  --cu-avatar-user-bg-teal: var(--cu-teal500);\n  --cu-avatar-user-bg-mint: var(--cu-mint500);\n  --cu-avatar-user-bg-yellow: var(--cu-yellow500);\n  --cu-avatar-user-bg-orange: var(--cu-orange500);\n  --cu-avatar-user-bg-red: var(--cu-red500);\n  --cu-avatar-user-bg-pink: var(--cu-pink500);\n  --cu-avatar-user-bg-violet: var(--cu-violet500);\n  --cu-avatar-user-bg-brown: var(--cu-brown500);\n  --cu-avatar-user-bg-black: var(--cu-black500);\n  --cu-avatar-user-online: var(--cu-green400);\n  --cu-avatar-user-guest: var(--cu-grey400);\n  --cu-avatar-user-remove: var(--cu-grey700);\n  --cu-automations-usage-bg-neon-blue: var(--cu-neonBlue1100);\n  --cu-automations-usage-content-neon-blue: var(--cu-neonBlue400);\n  --cu-automations-usage-bg-teal: var(--cu-teal1100);\n  --cu-automations-usage-content-teal: var(--cu-teal400);\n  --cu-avatar-space-bg-purple: var(--cu-purple900);\n  --cu-avatar-space-bg-neon-blue: var(--cu-neonBlue900);\n  --cu-avatar-space-bg-azure-blue: var(--cu-azureBlue900);\n  --cu-avatar-space-bg-teal: var(--cu-teal900);\n  --cu-avatar-space-bg-mint: var(--cu-mint900);\n  --cu-avatar-space-bg-yellow: var(--cu-yellow900);\n  --cu-avatar-space-bg-orange: var(--cu-orange900);\n  --cu-avatar-space-bg-red: var(--cu-red900);\n  --cu-avatar-space-bg-pink: var(--cu-pink900);\n  --cu-avatar-space-bg-violet: var(--cu-violet900);\n  --cu-avatar-space-bg-brown: var(--cu-brown900);\n  --cu-avatar-space-bg-black: var(--cu-black900);\n  --cu-avatar-space-content-purple: var(--cu-purple100);\n  --cu-avatar-space-content-neon-blue: var(--cu-neonBlue100);\n  --cu-avatar-space-content-azure-blue: var(--cu-azureBlue100);\n  --cu-avatar-space-content-teal: var(--cu-teal100);\n  --cu-avatar-space-content-mint: var(--cu-mint100);\n  --cu-avatar-space-content-yellow: var(--cu-yellow100);\n  --cu-avatar-space-content-orange: var(--cu-orange100);\n  --cu-avatar-space-content-red: var(--cu-red100);\n  --cu-avatar-space-content-pink: var(--cu-pink100);\n  --cu-avatar-space-content-violet: var(--cu-violet100);\n  --cu-avatar-space-content-brown: var(--cu-brown100);\n  --cu-avatar-space-content-black: var(--cu-black100);\n  --cu-quill-banner-red: var(--cu-red1100);\n  --cu-quill-banner-orange: var(--cu-orange1100);\n  --cu-quill-banner-yellow: var(--cu-yellow1100);\n  --cu-quill-banner-azure-blue: var(--cu-azureBlue1100);\n  --cu-quill-banner-purple: var(--cu-purple1100);\n  --cu-quill-banner-pink: var(--cu-pink1100);\n  --cu-quill-banner-green: var(--cu-green1100);\n  --cu-quill-banner-black: var(--cu-black1100);\n  --cu-quill-banner-border-red: var(--cu-red500);\n  --cu-quill-banner-border-orange: var(--cu-orange500);\n  --cu-quill-banner-border-yellow: var(--cu-yellow500);\n  --cu-quill-banner-border-azure-blue: var(--cu-azureBlue500);\n  --cu-quill-banner-border-purple: var(--cu-purple500);\n  --cu-quill-banner-border-pink: var(--cu-pink500);\n  --cu-quill-banner-border-green: var(--cu-green500);\n  --cu-quill-banner-border-black: var(--cu-black500);\n  --cu-background-overlay: rgba(var(--_cu-grey1100), .64);\n  --cu-background-overlay-light: rgba(var(--_cu-grey1100), .32);\n  --cu-elevation-1: 0 calc(1 / var(--rem-divisor) * var(--rem-return-unit)) calc(4 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n  --cu-elevation-2: 0 calc(2 / var(--rem-divisor) * var(--rem-return-unit)) calc(8 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n  --cu-elevation-3: 0 calc(4 / var(--rem-divisor) * var(--rem-return-unit)) calc(16 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n  --cu-elevation-4: 0 calc(6 / var(--rem-divisor) * var(--rem-return-unit)) calc(24 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16) ;\n}\n\nbody.dark-theme.cu-purple, body.cu-purple .dark-sidebar {\n  --cu-background-primary: var(--cu-purple500);\n  --cu-background-primary-hover: var(--cu-purple400);\n  --cu-background-primary-pressed: var(--cu-purple500);\n  --cu-background-primary-disabled: var(--cu-purple900);\n  --cu-background-primary-subtle: var(--cu-purple1100);\n  --cu-background-primary-on-subtle: var(--cu-purple1000);\n  --cu-content-primary: var(--cu-purple400);\n  --cu-border-primary: var(--cu-purple500);\n  --cu-border-primary-focus: var(--cu-purple500);\n  --cu-effect-primary: var(--cu-purple500-16);\n  --cu-link-primary: var(--cu-purple400);\n  --cu-link-primary-hover: var(--cu-purple300) ;\n}\n\nbody.dark-theme.cu-neonBlue, body.cu-neonBlue .dark-sidebar {\n  --cu-background-primary: var(--cu-neonBlue500);\n  --cu-background-primary-hover: var(--cu-neonBlue400);\n  --cu-background-primary-pressed: var(--cu-neonBlue500);\n  --cu-background-primary-disabled: var(--cu-neonBlue900);\n  --cu-background-primary-subtle: var(--cu-neonBlue1100);\n  --cu-background-primary-on-subtle: var(--cu-neonBlue1000);\n  --cu-content-primary: var(--cu-neonBlue400);\n  --cu-border-primary: var(--cu-neonBlue500);\n  --cu-border-primary-focus: var(--cu-neonBlue500);\n  --cu-effect-primary: var(--cu-neonBlue500-16);\n  --cu-link-primary: var(--cu-neonBlue400);\n  --cu-link-primary-hover: var(--cu-neonBlue300) ;\n}\n\nbody.dark-theme.cu-azureBlue, body.cu-azureBlue .dark-sidebar {\n  --cu-background-primary: var(--cu-azureBlue500);\n  --cu-background-primary-hover: var(--cu-azureBlue400);\n  --cu-background-primary-pressed: var(--cu-azureBlue500);\n  --cu-background-primary-disabled: var(--cu-azureBlue900);\n  --cu-background-primary-subtle: var(--cu-azureBlue1100);\n  --cu-background-primary-on-subtle: var(--cu-azureBlue1000);\n  --cu-content-primary: var(--cu-azureBlue400);\n  --cu-border-primary: var(--cu-azureBlue500);\n  --cu-border-primary-focus: var(--cu-azureBlue500);\n  --cu-effect-primary: var(--cu-azureBlue500-16);\n  --cu-link-primary: var(--cu-azureBlue400);\n  --cu-link-primary-hover: var(--cu-azureBlue300) ;\n}\n\nbody.dark-theme.cu-teal, body.cu-teal .dark-sidebar {\n  --cu-background-primary: var(--cu-teal500);\n  --cu-background-primary-hover: var(--cu-teal400);\n  --cu-background-primary-pressed: var(--cu-teal500);\n  --cu-background-primary-disabled: var(--cu-teal900);\n  --cu-background-primary-subtle: var(--cu-teal1100);\n  --cu-background-primary-on-subtle: var(--cu-teal1000);\n  --cu-content-primary: var(--cu-teal400);\n  --cu-border-primary: var(--cu-teal500);\n  --cu-border-primary-focus: var(--cu-teal500);\n  --cu-effect-primary: var(--cu-teal500-16);\n  --cu-link-primary: var(--cu-teal400);\n  --cu-link-primary-hover: var(--cu-teal300) ;\n}\n\nbody.dark-theme.cu-mint, body.cu-mint .dark-sidebar {\n  --cu-background-primary: var(--cu-mint500);\n  --cu-background-primary-hover: var(--cu-mint400);\n  --cu-background-primary-pressed: var(--cu-mint500);\n  --cu-background-primary-disabled: var(--cu-mint900);\n  --cu-background-primary-subtle: var(--cu-mint1100);\n  --cu-background-primary-on-subtle: var(--cu-mint1000);\n  --cu-content-primary: var(--cu-mint400);\n  --cu-border-primary: var(--cu-mint500);\n  --cu-border-primary-focus: var(--cu-mint500);\n  --cu-effect-primary: var(--cu-mint500-16);\n  --cu-link-primary: var(--cu-mint400);\n  --cu-link-primary-hover: var(--cu-mint300) ;\n}\n\nbody.dark-theme.cu-orange, body.cu-orange .dark-sidebar {\n  --cu-background-primary: var(--cu-orange500);\n  --cu-background-primary-hover: var(--cu-orange400);\n  --cu-background-primary-pressed: var(--cu-orange500);\n  --cu-background-primary-disabled: var(--cu-orange900);\n  --cu-background-primary-subtle: var(--cu-orange1100);\n  --cu-background-primary-on-subtle: var(--cu-orange1000);\n  --cu-content-primary: var(--cu-orange400);\n  --cu-border-primary: var(--cu-orange500);\n  --cu-border-primary-focus: var(--cu-orange500);\n  --cu-effect-primary: var(--cu-orange500-16);\n  --cu-link-primary: var(--cu-orange400);\n  --cu-link-primary-hover: var(--cu-orange300) ;\n}\n\nbody.dark-theme.cu-pink, body.cu-pink .dark-sidebar {\n  --cu-background-primary: var(--cu-pink500);\n  --cu-background-primary-hover: var(--cu-pink400);\n  --cu-background-primary-pressed: var(--cu-pink500);\n  --cu-background-primary-disabled: var(--cu-pink900);\n  --cu-background-primary-subtle: var(--cu-pink1100);\n  --cu-background-primary-on-subtle: var(--cu-pink1000);\n  --cu-content-primary: var(--cu-pink400);\n  --cu-border-primary: var(--cu-pink500);\n  --cu-border-primary-focus: var(--cu-pink500);\n  --cu-effect-primary: var(--cu-pink500-16);\n  --cu-link-primary: var(--cu-pink400);\n  --cu-link-primary-hover: var(--cu-pink300) ;\n}\n\nbody.dark-theme.cu-violet, body.cu-violet .dark-sidebar {\n  --cu-background-primary: var(--cu-violet500);\n  --cu-background-primary-hover: var(--cu-violet400);\n  --cu-background-primary-pressed: var(--cu-violet500);\n  --cu-background-primary-disabled: var(--cu-violet900);\n  --cu-background-primary-subtle: var(--cu-violet1100);\n  --cu-background-primary-on-subtle: var(--cu-violet1000);\n  --cu-content-primary: var(--cu-violet400);\n  --cu-border-primary: var(--cu-violet500);\n  --cu-border-primary-focus: var(--cu-violet500);\n  --cu-effect-primary: var(--cu-violet500-16);\n  --cu-link-primary: var(--cu-violet400);\n  --cu-link-primary-hover: var(--cu-violet300) ;\n}\n\nbody.dark-theme.cu-brown, body.cu-brown .dark-sidebar {\n  --cu-background-primary: var(--cu-brown500);\n  --cu-background-primary-hover: var(--cu-brown400);\n  --cu-background-primary-pressed: var(--cu-brown500);\n  --cu-background-primary-disabled: var(--cu-brown900);\n  --cu-background-primary-subtle: var(--cu-brown1100);\n  --cu-background-primary-on-subtle: var(--cu-brown1000);\n  --cu-content-primary: var(--cu-brown400);\n  --cu-border-primary: var(--cu-brown500);\n  --cu-border-primary-focus: var(--cu-brown500);\n  --cu-effect-primary: var(--cu-brown500-16);\n  --cu-link-primary: var(--cu-brown400);\n  --cu-link-primary-hover: var(--cu-brown300) ;\n}\n\nbody.dark-theme.cu-black, body.cu-black .dark-sidebar {\n  --cu-background-primary: var(--cu-black500);\n  --cu-background-primary-hover: var(--cu-black400);\n  --cu-background-primary-pressed: var(--cu-black500);\n  --cu-background-primary-disabled: var(--cu-black900);\n  --cu-background-primary-subtle: var(--cu-black1100);\n  --cu-background-primary-on-subtle: var(--cu-black1000);\n  --cu-content-primary: var(--cu-black400);\n  --cu-border-primary: var(--cu-black500);\n  --cu-border-primary-focus: var(--cu-black500);\n  --cu-effect-primary: var(--cu-black500-16);\n  --cu-link-primary: var(--cu-black400);\n  --cu-link-primary-hover: var(--cu-black300) ;\n}\n\nbody.dark-theme.cu-custom, body.cu-custom .dark-sidebar {\n  --cu-custom1100: hsl(var(--cu-custom-hue, 83), 19%, 26%);\n  --cu-custom1000: hsl(var(--cu-custom-hue, 83), 27%, 33%);\n  --cu-custom900: hsl(var(--cu-custom-hue, 83), 32%, 40%);\n  --cu-custom800: hsl(var(--cu-custom-hue, 83), 35%, 47%);\n  --cu-custom700: hsl(var(--cu-custom-hue, 83), 44%, 54%);\n  --cu-custom600: hsl(var(--cu-custom-hue, 83), 67%, 63%);\n  --cu-custom600-16: hsl(var(--cu-custom-hue, 83), 67%, 63%, 16%);\n  --cu-custom500: hsl(var(--cu-custom-hue, 83), 67%, 70%);\n  --cu-custom500-16: hsl(var(--cu-custom-hue, 83), 67%, 70%, 16%);\n  --cu-custom400: hsl(var(--cu-custom-hue, 83), 67%, 76%);\n  --cu-custom300: hsl(var(--cu-custom-hue, 83), 67%, 82%);\n  --cu-custom200: hsl(var(--cu-custom-hue, 83), 67%, 88%);\n  --cu-custom100: hsl(var(--cu-custom-hue, 83), 67%, 94%);\n  --cu-custom50: hsl(var(--cu-custom-hue, 83), 73%, 97%);\n  --cu-background-primary: var(--cu-custom500);\n  --cu-background-primary-hover: var(--cu-custom400);\n  --cu-background-primary-pressed: var(--cu-custom500);\n  --cu-background-primary-disabled: var(--cu-custom900);\n  --cu-background-primary-subtle: var(--cu-custom1100);\n  --cu-background-primary-on-subtle: var(--cu-custom1000);\n  --cu-content-primary: var(--cu-custom400);\n  --cu-border-primary: var(--cu-custom500);\n  --cu-border-primary-focus: var(--cu-custom500);\n  --cu-effect-primary: var(--cu-custom500-16);\n  --cu-link-primary: var(--cu-custom400);\n  --cu-link-primary-hover: var(--cu-custom300) ;\n}\n\nbody {\n  --cu-background-main: var(--cu-white);\n  --cu-background-main-hover: var(--cu-grey50);\n  --cu-background-main-hover-strong: var(--cu-grey100);\n  --cu-background-main-pressed: var(--cu-grey200);\n  --cu-background-main-offset: var(--cu-white);\n  --cu-background-main-inverse: var(--cu-grey1000);\n  --cu-background-main-inverse-offset: var(--cu-grey1000);\n  --cu-background-subtle: var(--cu-grey50);\n  --cu-background-subtle-hover: var(--cu-grey100);\n  --cu-background-subtle-hover-strong: var(--cu-grey200);\n  --cu-background-subtle-pressed: var(--cu-grey300);\n  --cu-background-subtle-offset: var(--cu-grey50);\n  --cu-background-on-main: var(--cu-grey100);\n  --cu-background-on-main-hover: var(--cu-grey200);\n  --cu-background-on-main-pressed: var(--cu-grey300);\n  --cu-background-on-subtle: var(--cu-grey200);\n  --cu-background-on-subtle-hover: var(--cu-grey300);\n  --cu-background-on-subtle-pressed: var(--cu-grey200);\n  --cu-background-success: var(--cu-green600);\n  --cu-background-success-subtle: var(--cu-green50);\n  --cu-background-warning: var(--cu-yellow600);\n  --cu-background-warning-subtle: var(--cu-yellow50);\n  --cu-background-danger: var(--cu-red600);\n  --cu-background-danger-hover: var(--cu-red700);\n  --cu-background-danger-pressed: var(--cu-red800);\n  --cu-background-danger-disabled: var(--cu-red200);\n  --cu-background-danger-subtle: var(--cu-red50);\n  --cu-background-danger-subtle-hover: var(--cu-red100);\n  --cu-background-danger-subtle-pressed: var(--cu-red200);\n  --cu-background-tooltip: var(--cu-grey1000);\n  --cu-background-modal: var(--cu-grey1000);\n  --cu-background-on-dark-hover: var(--cu-white-10);\n  --cu-background-on-dark-pressed: var(--cu-white-20);\n  --cu-background-on-light-hover: var(--cu-grey1000-10);\n  --cu-background-on-light-pressed: var(--cu-grey1000-20);\n  --cu-background-notification: var(--cu-pink600);\n  --cu-content-default: var(--cu-grey1000);\n  --cu-content-secondary: var(--cu-grey700);\n  --cu-content-tertiary: var(--cu-grey600);\n  --cu-content-placeholder: var(--cu-grey500);\n  --cu-content-disabled: var(--cu-grey400);\n  --cu-content-success: var(--cu-green700);\n  --cu-content-warning: var(--cu-yellow700);\n  --cu-content-danger: var(--cu-red700);\n  --cu-content-danger-disabled: var(--cu-red300);\n  --cu-content-on-dark: var(--cu-white);\n  --cu-content-on-dark-disabled: var(--cu-white-50);\n  --cu-content-on-dark-secondary: var(--cu-white-80);\n  --cu-content-on-light: var(--cu-grey1000);\n  --cu-content-on-light-disabled: var(--cu-grey1000-50);\n  --cu-border-default: var(--cu-grey200);\n  --cu-border-low-contrast: rgb(var(--_cu-grey100));\n  --cu-border-high-contrast: rgb(var(--_cu-grey300));\n  --cu-border-hover: var(--cu-grey400);\n  --cu-border-input: var(--cu-grey500);\n  --cu-border-input-hover: var(--cu-grey600);\n  --cu-border-success: var(--cu-green600);\n  --cu-border-danger: var(--cu-red600);\n  --cu-border-danger-focus: var(--cu-red600);\n  --cu-border-warning: var(--cu-yellow600);\n  --cu-border-on-dark: var(--cu-white-50);\n  --cu-border-on-dark-focus: var(--cu-white);\n  --cu-border-on-light: var(--cu-grey1000-50);\n  --cu-border-on-light-focus: var(--cu-grey1000);\n  --cu-effect-danger: var(--cu-red600-16);\n  --cu-effect-on-dark: var(--cu-white-16);\n  --cu-effect-on-light: var(--cu-grey1000-16);\n  --cu-link-hyperlink: var(--cu-neonBlue600);\n  --cu-link-hyperlink-hover: var(--cu-neonBlue700);\n  --cu-fab-icon-pink: var(--cu-pink600);\n  --cu-fab-icon-yellow: var(--cu-yellow600);\n  --cu-fab-icon-mint: var(--cu-mint600);\n  --cu-fab-icon-azure-blue: var(--cu-azureBlue600);\n  --cu-alert-banner-background: var(--cu-grey1000);\n  --cu-alert-banner-background-subtle: var(--cu-grey100);\n  --cu-alert-banner-content: var(--cu-white);\n  --cu-alert-banner-content-dark: var(--cu-grey1000);\n  --cu-avatar-user-bg-purple: var(--cu-purple500);\n  --cu-avatar-user-bg-neon-blue: var(--cu-neonBlue500);\n  --cu-avatar-user-bg-azure-blue: var(--cu-azureBlue500);\n  --cu-avatar-user-bg-teal: var(--cu-teal500);\n  --cu-avatar-user-bg-mint: var(--cu-mint500);\n  --cu-avatar-user-bg-yellow: var(--cu-yellow500);\n  --cu-avatar-user-bg-orange: var(--cu-orange500);\n  --cu-avatar-user-bg-red: var(--cu-red500);\n  --cu-avatar-user-bg-pink: var(--cu-pink500);\n  --cu-avatar-user-bg-violet: var(--cu-violet500);\n  --cu-avatar-user-bg-brown: var(--cu-brown500);\n  --cu-avatar-user-bg-black: var(--cu-black500);\n  --cu-avatar-user-online: var(--cu-green500);\n  --cu-avatar-user-guest: var(--cu-grey400);\n  --cu-avatar-user-remove: var(--cu-grey1000);\n  --cu-automations-usage-bg-neon-blue: var(--cu-neonBlue50);\n  --cu-automations-usage-content-neon-blue: var(--cu-neonBlue700);\n  --cu-automations-usage-bg-teal: var(--cu-teal50);\n  --cu-automations-usage-content-teal: var(--cu-teal700);\n  --cu-avatar-space-bg-purple: var(--cu-purple200);\n  --cu-avatar-space-bg-neon-blue: var(--cu-neonBlue200);\n  --cu-avatar-space-bg-azure-blue: var(--cu-azureBlue200);\n  --cu-avatar-space-bg-teal: var(--cu-teal200);\n  --cu-avatar-space-bg-mint: var(--cu-mint200);\n  --cu-avatar-space-bg-yellow: var(--cu-yellow200);\n  --cu-avatar-space-bg-orange: var(--cu-orange200);\n  --cu-avatar-space-bg-red: var(--cu-red200);\n  --cu-avatar-space-bg-pink: var(--cu-pink200);\n  --cu-avatar-space-bg-violet: var(--cu-violet200);\n  --cu-avatar-space-bg-brown: var(--cu-brown200);\n  --cu-avatar-space-bg-black: var(--cu-black200);\n  --cu-avatar-space-content-purple: var(--cu-purple1000);\n  --cu-avatar-space-content-neon-blue: var(--cu-neonBlue1000);\n  --cu-avatar-space-content-azure-blue: var(--cu-azureBlue1000);\n  --cu-avatar-space-content-teal: var(--cu-teal1000);\n  --cu-avatar-space-content-mint: var(--cu-mint1000);\n  --cu-avatar-space-content-yellow: var(--cu-yellow1000);\n  --cu-avatar-space-content-orange: var(--cu-orange1000);\n  --cu-avatar-space-content-red: var(--cu-red1000);\n  --cu-avatar-space-content-pink: var(--cu-pink1000);\n  --cu-avatar-space-content-violet: var(--cu-violet1000);\n  --cu-avatar-space-content-brown: var(--cu-brown1000);\n  --cu-avatar-space-content-black: var(--cu-black1000);\n  --cu-quill-banner-red: var(--cu-red50);\n  --cu-quill-banner-orange: var(--cu-orange50);\n  --cu-quill-banner-yellow: var(--cu-yellow50);\n  --cu-quill-banner-azure-blue: var(--cu-azureBlue50);\n  --cu-quill-banner-purple: var(--cu-purple50);\n  --cu-quill-banner-pink: var(--cu-pink50);\n  --cu-quill-banner-green: var(--cu-green50);\n  --cu-quill-banner-black: var(--cu-black50);\n  --cu-quill-banner-border-red: var(--cu-red600);\n  --cu-quill-banner-border-orange: var(--cu-orange600);\n  --cu-quill-banner-border-yellow: var(--cu-yellow600);\n  --cu-quill-banner-border-azure-blue: var(--cu-azureBlue600);\n  --cu-quill-banner-border-purple: var(--cu-purple600);\n  --cu-quill-banner-border-pink: var(--cu-pink600);\n  --cu-quill-banner-border-green: var(--cu-green600);\n  --cu-quill-banner-border-black: var(--cu-black600);\n  --cu-background-overlay: rgba(var(--_cu-grey1000), .56);\n  --cu-background-overlay-light: rgba(var(--_cu-grey1000), .32);\n  --cu-elevation-1: 0 calc(1 / var(--rem-divisor) * var(--rem-return-unit)) calc(4 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n  --cu-elevation-2: 0 calc(2 / var(--rem-divisor) * var(--rem-return-unit)) calc(8 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n  --cu-elevation-3: 0 calc(4 / var(--rem-divisor) * var(--rem-return-unit)) calc(16 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n  --cu-elevation-4: 0 calc(6 / var(--rem-divisor) * var(--rem-return-unit)) calc(24 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08) ;\n}\n\nbody.cu-purple {\n  --cu-background-primary: var(--cu-purple600);\n  --cu-background-primary-hover: var(--cu-purple700);\n  --cu-background-primary-pressed: var(--cu-purple800);\n  --cu-background-primary-disabled: var(--cu-purple200);\n  --cu-background-primary-subtle: var(--cu-purple50);\n  --cu-background-primary-on-subtle: var(--cu-purple100);\n  --cu-content-primary: var(--cu-purple700);\n  --cu-border-primary: var(--cu-purple600);\n  --cu-border-primary-focus: var(--cu-purple600);\n  --cu-effect-primary: var(--cu-purple600-16);\n  --cu-link-primary: var(--cu-purple600);\n  --cu-link-primary-hover: var(--cu-purple700) ;\n}\n\nbody.cu-neonBlue {\n  --cu-background-primary: var(--cu-neonBlue600);\n  --cu-background-primary-hover: var(--cu-neonBlue700);\n  --cu-background-primary-pressed: var(--cu-neonBlue800);\n  --cu-background-primary-disabled: var(--cu-neonBlue200);\n  --cu-background-primary-subtle: var(--cu-neonBlue50);\n  --cu-background-primary-on-subtle: var(--cu-neonBlue100);\n  --cu-content-primary: var(--cu-neonBlue700);\n  --cu-border-primary: var(--cu-neonBlue600);\n  --cu-border-primary-focus: var(--cu-neonBlue600);\n  --cu-effect-primary: var(--cu-neonBlue600-16);\n  --cu-link-primary: var(--cu-neonBlue600);\n  --cu-link-primary-hover: var(--cu-neonBlue700) ;\n}\n\nbody.cu-azureBlue {\n  --cu-background-primary: var(--cu-azureBlue600);\n  --cu-background-primary-hover: var(--cu-azureBlue700);\n  --cu-background-primary-pressed: var(--cu-azureBlue800);\n  --cu-background-primary-disabled: var(--cu-azureBlue200);\n  --cu-background-primary-subtle: var(--cu-azureBlue50);\n  --cu-background-primary-on-subtle: var(--cu-azureBlue100);\n  --cu-content-primary: var(--cu-azureBlue700);\n  --cu-border-primary: var(--cu-azureBlue600);\n  --cu-border-primary-focus: var(--cu-azureBlue600);\n  --cu-effect-primary: var(--cu-azureBlue600-16);\n  --cu-link-primary: var(--cu-azureBlue600);\n  --cu-link-primary-hover: var(--cu-azureBlue700) ;\n}\n\nbody.cu-teal {\n  --cu-background-primary: var(--cu-teal600);\n  --cu-background-primary-hover: var(--cu-teal700);\n  --cu-background-primary-pressed: var(--cu-teal800);\n  --cu-background-primary-disabled: var(--cu-teal200);\n  --cu-background-primary-subtle: var(--cu-teal50);\n  --cu-background-primary-on-subtle: var(--cu-teal100);\n  --cu-content-primary: var(--cu-teal700);\n  --cu-border-primary: var(--cu-teal600);\n  --cu-border-primary-focus: var(--cu-teal600);\n  --cu-effect-primary: var(--cu-teal600-16);\n  --cu-link-primary: var(--cu-teal600);\n  --cu-link-primary-hover: var(--cu-teal700) ;\n}\n\nbody.cu-mint {\n  --cu-background-primary: var(--cu-mint600);\n  --cu-background-primary-hover: var(--cu-mint700);\n  --cu-background-primary-pressed: var(--cu-mint800);\n  --cu-background-primary-disabled: var(--cu-mint200);\n  --cu-background-primary-subtle: var(--cu-mint50);\n  --cu-background-primary-on-subtle: var(--cu-mint100);\n  --cu-content-primary: var(--cu-mint700);\n  --cu-border-primary: var(--cu-mint600);\n  --cu-border-primary-focus: var(--cu-mint600);\n  --cu-effect-primary: var(--cu-mint600-16);\n  --cu-link-primary: var(--cu-mint600);\n  --cu-link-primary-hover: var(--cu-mint700) ;\n}\n\nbody.cu-orange {\n  --cu-background-primary: var(--cu-orange600);\n  --cu-background-primary-hover: var(--cu-orange700);\n  --cu-background-primary-pressed: var(--cu-orange800);\n  --cu-background-primary-disabled: var(--cu-orange200);\n  --cu-background-primary-subtle: var(--cu-orange50);\n  --cu-background-primary-on-subtle: var(--cu-orange100);\n  --cu-content-primary: var(--cu-orange700);\n  --cu-border-primary: var(--cu-orange600);\n  --cu-border-primary-focus: var(--cu-orange600);\n  --cu-effect-primary: var(--cu-orange600-16);\n  --cu-link-primary: var(--cu-orange600);\n  --cu-link-primary-hover: var(--cu-orange700) ;\n}\n\nbody.cu-pink {\n  --cu-background-primary: var(--cu-pink600);\n  --cu-background-primary-hover: var(--cu-pink700);\n  --cu-background-primary-pressed: var(--cu-pink800);\n  --cu-background-primary-disabled: var(--cu-pink200);\n  --cu-background-primary-subtle: var(--cu-pink50);\n  --cu-background-primary-on-subtle: var(--cu-pink100);\n  --cu-content-primary: var(--cu-pink700);\n  --cu-border-primary: var(--cu-pink600);\n  --cu-border-primary-focus: var(--cu-pink600);\n  --cu-effect-primary: var(--cu-pink600-16);\n  --cu-link-primary: var(--cu-pink600);\n  --cu-link-primary-hover: var(--cu-pink700) ;\n}\n\nbody.cu-violet {\n  --cu-background-primary: var(--cu-violet600);\n  --cu-background-primary-hover: var(--cu-violet700);\n  --cu-background-primary-pressed: var(--cu-violet800);\n  --cu-background-primary-disabled: var(--cu-violet200);\n  --cu-background-primary-subtle: var(--cu-violet50);\n  --cu-background-primary-on-subtle: var(--cu-violet100);\n  --cu-content-primary: var(--cu-violet700);\n  --cu-border-primary: var(--cu-violet600);\n  --cu-border-primary-focus: var(--cu-violet600);\n  --cu-effect-primary: var(--cu-violet600-16);\n  --cu-link-primary: var(--cu-violet600);\n  --cu-link-primary-hover: var(--cu-violet700) ;\n}\n\nbody.cu-brown {\n  --cu-background-primary: var(--cu-brown600);\n  --cu-background-primary-hover: var(--cu-brown700);\n  --cu-background-primary-pressed: var(--cu-brown800);\n  --cu-background-primary-disabled: var(--cu-brown200);\n  --cu-background-primary-subtle: var(--cu-brown50);\n  --cu-background-primary-on-subtle: var(--cu-brown100);\n  --cu-content-primary: var(--cu-brown700);\n  --cu-border-primary: var(--cu-brown600);\n  --cu-border-primary-focus: var(--cu-brown600);\n  --cu-effect-primary: var(--cu-brown600-16);\n  --cu-link-primary: var(--cu-brown600);\n  --cu-link-primary-hover: var(--cu-brown700) ;\n}\n\nbody.cu-black {\n  --cu-background-primary: var(--cu-black600);\n  --cu-background-primary-hover: var(--cu-black700);\n  --cu-background-primary-pressed: var(--cu-black800);\n  --cu-background-primary-disabled: var(--cu-black200);\n  --cu-background-primary-subtle: var(--cu-black50);\n  --cu-background-primary-on-subtle: var(--cu-black100);\n  --cu-content-primary: var(--cu-black700);\n  --cu-border-primary: var(--cu-black600);\n  --cu-border-primary-focus: var(--cu-black600);\n  --cu-effect-primary: var(--cu-black600-16);\n  --cu-link-primary: var(--cu-black600);\n  --cu-link-primary-hover: var(--cu-black700) ;\n}\n\nbody.cu-custom {\n  --cu-custom1100: hsl(var(--cu-custom-hue, 83), 24%, 25%);\n  --cu-custom1000: hsl(var(--cu-custom-hue, 83), 31%, 33%);\n  --cu-custom900: hsl(var(--cu-custom-hue, 83), 36%, 40%);\n  --cu-custom800: hsl(var(--cu-custom-hue, 83), 41%, 47%);\n  --cu-custom700: hsl(var(--cu-custom-hue, 83), 53%, 54%);\n  --cu-custom600: hsl(var(--cu-custom-hue, 83), 81%, 63%);\n  --cu-custom600-16: hsl(var(--cu-custom-hue, 83), 81%, 63%, 16%);\n  --cu-custom500: hsl(var(--cu-custom-hue, 83), 81%, 70%);\n  --cu-custom500-16: hsl(var(--cu-custom-hue, 83), 81%, 70%, 16%);\n  --cu-custom400: hsl(var(--cu-custom-hue, 83), 81%, 76%);\n  --cu-custom300: hsl(var(--cu-custom-hue, 83), 82%, 82%);\n  --cu-custom200: hsl(var(--cu-custom-hue, 83), 83%, 88%);\n  --cu-custom100: hsl(var(--cu-custom-hue, 83), 80%, 94%);\n  --cu-custom50: hsl(var(--cu-custom-hue, 83), 86%, 97%);\n  --cu-background-primary: var(--cu-custom600);\n  --cu-background-primary-hover: var(--cu-custom700);\n  --cu-background-primary-pressed: var(--cu-custom800);\n  --cu-background-primary-disabled: var(--cu-custom200);\n  --cu-background-primary-subtle: var(--cu-custom50);\n  --cu-background-primary-on-subtle: var(--cu-custom100);\n  --cu-content-primary: var(--cu-custom700);\n  --cu-border-primary: var(--cu-custom600);\n  --cu-border-primary-focus: var(--cu-custom600);\n  --cu-effect-primary: var(--cu-custom600-16);\n  --cu-link-primary: var(--cu-custom600);\n  --cu-link-primary-hover: var(--cu-custom700) ;\n}\n\n.monday-style-menu--large {\n  width: unset;\n}\n\n.monday-style-dialog-content-wrapper {\n  z-index: 10001;\n}\n\n.p-dialog {\n  border-radius: 15px;\n  /*  border-radius: 12px; */\n  border: 1px solid rgba(255, 255, 255, 50%) !important;\n  /*  outline: rgba(120, 120, 120, 10%) solid 1px; */\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  overflow: hidden;\n  background: white;\n  max-height: 100%;\n}\n\ndiv.p-component-overlay.p-component-overlay-enter.p-dialog-mask {\n  z-index: 100 !important;\n}\n\n.p-confirm-dialog .p-dialog-content {\n  padding: 20px !important;\n}\n\n.p-dialog-right .p-dialog {\n  outline: rgba(120, 120, 120, 10%) solid 1px;\n  border-radius: 0px !important;\n  margin-top: 100px !important;\n  padding-bottom: 45px;\n}\n\n.p-dialog:before {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  box-shadow: 0 0 130px 5px rgba(0, 0, 0, 0.3294117647);\n}\n\n.p-dialog-top .p-dialog, .p-dialog-bottom .p-dialog, .p-dialog-left .p-dialog, .p-dialog-right .p-dialog, .p-dialog-top-left .p-dialog, .p-dialog-top-right .p-dialog, .p-dialog-bottom-left .p-dialog, .p-dialog-bottom-right .p-dialog {\n  margin: 0;\n}\n\n.p-dialog .p-dialog-header {\n  border-bottom: 1px solid #D6E4ED;\n  color: #212529;\n  padding: 1rem;\n  border-top-right-radius: 4px;\n  border-top-left-radius: 4px;\n  background: #F8FAFF;\n}\n\n.p-dialog .p-dialog-header .p-dialog-title {\n  font-size: 20px;\n  font-family: source sans pro semibold;\n  font-weight: normal;\n  line-height: 24px;\n  letter-spacing: normal;\n  color: #333D47;\n  flex-grow: 1;\n  word-break: break-word;\n}\n\n.p-dialog .p-dialog-content {\n  padding: 0px;\n}\n\n.p-dialog .p-dialog-footer {\n  border: none;\n}\n\n.p-overlaypanel:before {\n  border-width: 10px !important;\n}\n\n.p-overlaypanel:after {\n  border-width: 8px !important;\n}\n\n.p-overlaypanel:before {\n  border: solid transparent !important;\n  border-color: rgba(255, 255, 255, 0) !important;\n  border-bottom-color: #f2f2f2 !important;\n}\n\n.p-overlaypanel:after {\n  border: solid transparent !important;\n  border-color: rgba(255, 255, 255, 0) !important;\n  border-bottom-color: #ffffff !important;\n}\n\n.p-overlaypanel {\n  background: #ffffff !important;\n  color: rgba(0, 0, 0, 0.87) !important;\n  border: 0 none !important;\n  border-radius: 4px !important;\n  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;\n}\n\n.p-component-overlay {\n  background-color: rgba(46, 67, 84, 0.38) !important;\n}\n\n.p-fileupload .p-fileupload-content {\n  padding: 0px !important;\n  border: none !important;\n}\n\n.switch-group {\n  position: absolute;\n  width: 200%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  transition: left 0.35s;\n  -webkit-transition: left 0.35s;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n}\n\n.switch-handle {\n  position: relative;\n  margin: 0 auto;\n  padding-top: 0px;\n  padding-bottom: 0px;\n  height: 100%;\n  width: 0px;\n  border-width: 0 1px;\n  background-color: #fff !important;\n}\n\n.switch.btn {\n  min-width: auto !important;\n  min-height: auto !important;\n}\n\n.switch.btn.btn-light,\n.switch.btn.btn-outline-light {\n  border: solid 1px rgba(0, 0, 0, 0.15);\n}\n\n.switch-on {\n  line-height: 20px;\n  font-size: 13px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 50%;\n  margin: 0;\n  border: 0;\n  border-radius: 0;\n}\n\n.switch-on.btn {\n  padding-right: 1.5rem;\n}\n\n.switch-off {\n  line-height: 20px;\n  font-size: 13px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n  right: 0;\n  margin: 0;\n  border: 0;\n  border-radius: 0;\n  box-shadow: none;\n}\n\n.switch-off.btn {\n  padding-left: 1.5rem;\n}\n\n.btn-primary {\n  color: #fff;\n  background-color: #d34416;\n  border: solid 1px #d34416;\n}\n\n.btn-primary:hover {\n  color: #fff;\n  background-color: #d34416;\n  border: solid 1px #d34416;\n}\n\n.btn-light {\n  color: #212529;\n  background-color: #f8f9fa;\n  border-color: #f8f9fa;\n}\n\n.btn {\n  display: inline-block;\n  font-weight: 400;\n  text-align: center;\n  vertical-align: middle;\n  cursor: pointer;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  padding: 0.375rem 0.75rem;\n  border-radius: 0.25rem;\n  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\ntd {\n  /* text-align: center; */\n  vertical-align: middle;\n}\n\n.tabs--wrapper {\n  padding: 0px !important;\n}\n\na.tab-inner.tabs-list_tab-inner {\n  padding: 0px !important;\n}\n\nli.tab--wrapper.tabs-list_tab--wrapper {\n  height: calc(100% - 2px) !important;\n  border-bottom: 0px !important;\n}\n\nli.tab--wrapper.tabs-list_tab--wrapper.tab-focus-visible-inset {\n  box-shadow: none;\n}\n\n/*HStack alignment bottom leading yap*/\nul.tabs-list {\n  height: 100% !important;\n}\n\n/* kanban */\nth.e-header-cells.e-template.e-toggle-header div.e-header-wrap {\n  height: 100%;\n  align-items: center;\n}\n\n.p-fileupload .p-fileupload-content {\n  background: transparent;\n}\n\n.monday-style-menu-title {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 11px;\n  font-weight: 600;\n  flex-grow: 1;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: #656f7d;\n  white-space: nowrap;\n}\n\n.monday-style-toast {\n  max-width: 500px;\n  z-index: 1000;\n}\n\ndiv.e-spinner-inner {\n  display: none !important;\n}\n\ndiv.e-spin-show.e-spinner-pane {\n  display: none !important;\n}\n\n@keyframes pop {\n  0% {\n    transform: scale(1);\n    box-shadow: var(--box-shadow);\n  }\n  100% {\n    transform: scale(var(--scale));\n    box-shadow: var(--box-shadow-picked-up);\n  }\n}\n@keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.size-xxs {\n  font-size: 14px;\n}\n\n:root {\n  --editor-max-width: 100%;\n  --editor-font-size: 16px;\n  --editor-line-height: 1.5;\n  --editor-paragraph-spacing: 0rem;\n  --editor-font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\n}\n\n.ce-popover {\n  --width: 400px;\n}\n\n.codex-editor__loader {\n  display: none !important;\n}\n\n/* .ce-block__content,\n.ce-toolbar__content {\n    max-width: var(--editor-max-width);\n}\n */\n.ce-block {\n  font-size: var(--editor-font-size);\n  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n}\n\n.ce-paragraph {\n  font-size: var(--editor-font-size);\n  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n}\n\n.codex-editor {\n  height: fit-content;\n  z-index: 100 !important;\n  color: #212526;\n  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n}\n\nh1.ce-header {\n  color: #212526;\n  font-weight: 500;\n  font-size: 28px;\n  line-height: 1.25;\n}\n\nh2.ce-header {\n  color: #212526;\n  font-weight: 500;\n  font-size: 22px;\n  line-height: 1.25;\n}\n\n.ce-toolbar__actions {\n  right: 100% !important;\n}\n\n.ce-toolbar__settings-btn {\n  color: gray !important;\n}\n\n.ce-toolbar__plus {\n  color: gray !important;\n}\n\n@media (min-width: 651px) {\n  .codex-editor--narrow .ce-toolbox .ce-popover {\n    right: auto !important;\n  }\n}\n.ce-block__content, .ce-toolbar__content {\n  max-width: 100% !important;\n}\n\n.codex-editor__redactor {\n  padding-bottom: 5px !important;\n}\n\n.editable-heading--wrapper {\n  width: auto !important;\n}\n\n/* .editable-heading-input{\n    height: 50px !important;\n} */\n/* .heading-component{\n    line-height: 48px !important;\n} */\n/* h4[data-testid='heading'] {\n    background-color: yellow;\n  } */\n/*   div[data-testid='dialog-content-container'] {\n    padding: 0px !important;\n  } \n   */\ndiv.bottom.react-flow__attribution.react-flow__panel.right[data-message=\"Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev\"][style=\"pointer-events: all;\"] {\n  display: none !important;\n}\n\n/* @import './normalize.css'; */\n/* @media screen and (min-width: 1400px) {\n  html {\n    font-size: 14px;\n\n  }\n}\n\n@media screen and (min-width: 1600px) {\n  html {\n    font-size: 14px;\n  }\n}\n\n@media screen and (min-width: 1900px) {\n  html {\n    font-size: 14px;\n  }\n} */\nhtml,\nbody {\n  margin: 0px;\n  padding: 0;\n  border: 0;\n  color: #505A64;\n  height: 100%;\n  -webkit-user-select: none;\n  position: relative;\n  overflow: hidden;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n  -webkit-font-smoothing: subpixel-antialiased !important;\n  /*  -webkit-font-smoothing: antialiased;\n  */\n  text-size-adjust: 100%;\n  text-rendering: optimizeLegibility;\n  font: 62.5%/1.6 Graphik Regular, sans-serif;\n}\n\nbody {\n  cursor: var(--system-cursor-default), auto;\n  -moz-osx-font-smoothing: grayscale;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n}\n\na {\n  color: inherit;\n}\n\na,\nu {\n  text-decoration: none;\n}\n\ninput:-webkit-autofill::first-line {\n  font-size: 1.8rem !important;\n}\n\n* {\n  /*-webkit-font-smoothing: subpixel-antialiased;\n  -moz-osx-font-smoothing: grayscale;*/\n  box-sizing: border-box;\n}", "",{"version":3,"sources":["webpack://./src/css/theme.css","webpack://./src/css/global.scss","webpack://./src/css/overrides.css","webpack://./src/css/sizes.css","webpack://./src/css/editor.css","webpack://./src/css/EditableHeading.css"],"names":[],"mappings":"AAAA;EACI,0BAAA;ACMJ;;ADHA;EACI,+BAAA;EACA,2BAAA;EACA,0BAAA;EACA,wBAAA;EACA,2BAAA;EACA,gCAAA;EACA,wBAAA;EACA,0BAAA;EACA,wBAAA;EACA,0BAAA;EACA,sBAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,sBAAA;EACA,4BAAA;EACA,gCAAA;EACA,2BAAA;EACA,wBAAA;EACA,wBAAA;EACA,8BAAA;EACA,iCAAA;EACA,uCAAA;EACA,6BAAA;EACA,gCAAA;EACA,iCAAA;EACA,+BAAA;EACA,4BAAA;EACA,qBAAA;EACA,qBAAA;EACA,mCAAA;EACA,yCAAA;EACA,qCAAA;EACA,gCAAA;EACA,mCAAA;EACA,oCAAA;EACA,oCAAA;EACA,0EAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,wCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,wCAAA;EACA,wBAAA;EACA,0BAAA;EACA,0BAAA;EACA,8BAAA;EACA,oDAAA;EACA,kDAAA;EACA,oDAAA;EACA,oDAAA;EACA,4BAAA;EACA,kCAAA;EACA,qCAAA;EACA,2BAAA;EACA,iCAAA;EACA,oCAAA;EACA,kEAAA;EACA,6BAAA;EACA,mCAAA;EACA,sCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,gCAAA;EACA,+BAAA;EACA,qCAAA;EACA,wCAAA;EACA,4BAAA;EACA,kCAAA;EACA,qCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,8DAAA;EACA,0BAAA;EACA,gCAAA;EACA,mCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,2BAAA;EACA,iCAAA;EACA,oCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,4BAAA;EACA,kCAAA;EACA,qCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,4BAAA;EACA,kCAAA;EACA,qCAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,qBAAA;EACA,2BAAA;EACA,8BAAA;EACA,4BAAA;EACA,kCAAA;EACA,qCAAA;EACA,0BAAA;EACA,gCAAA;EACA,mCAAA;EACA,2BAAA;EACA,iCAAA;EACA,oCAAA;EACA,2BAAA;EACA,iCAAA;EACA,oCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,0BAAA;EACA,gCAAA;EACA,mCAAA;EACA,8BAAA;EACA,oCAAA;EACA,uCAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,oBAAA;EACA,0BAAA;EACA,6BAAA;EACA,oBAAA;EACA,0BAAA;EACA,6BAAA;EACA,uBAAA;EACA,6BAAA;EACA,gCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,qBAAA;EACA,2BAAA;EACA,8BAAA;EACA,yBAAA;EACA,+BAAA;EACA,kCAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,sBAAA;EACA,4BAAA;EACA,+BAAA;EACA,4BAAA;EACA,uBAAA;EACA,0BAAA;EACA,iCAAA;EACA,wBAAA;EACA,iCAAA;EACA,gCAAA;EACA,0BAAA;EACA,2BAAA;EACA,6BAAA;EACA,iCAAA;EACA,2BAAA;EACA,0BAAA;EACA,qBAAA;EACA,0BAAA;EACA,sBAAA;EACA,gCAAA;EACA,2BAAA;EACA,0BAAA;EACA,yBAAA;EACA,uBAAA;EACA,yBAAA;EACA,uBAAA;EACA,2BAAA;EACA,qBAAA;EACA,2BAAA;EACA,4BAAA;EACA,yBAAA;EACA,4BAAA;EACA,2BAAA;EACA,2BAAA;EACA,wBAAA;EACA,uBAAA;EACA,iCAAA;EACA,uCAAA;EACA,iCAAA;EACA,2CAAA;EACA,kCAAA;EACA,2BAAA;EACA,+BAAA;EACA,2BAAA;EACA,4BAAA;EACA,2BAAA;EACA,iCAAA;EACA,gCAAA;EACA,6BAAA;EACA,0BAAA;EACA,6CAAA;EACA,oCAAA;EACA,+BAAA;EACA,4BAAA;EACA,0BAAA;EACA,6BAAA;EACA,6BAAA;EACA,2BAAA;EACA,2BAAA;EACA,yBAAA;EACA,iCAAA;EACA,gCAAA;EACA,uCAAA;EACA,4BAAA;EACA,2BAAA;EACA,wBAAA;EACA,2BAAA;EACA,0BAAA;EACA,2BAAA;EACA,yBAAA;EACA,+BAAA;EACA,mCAAA;EACA,8BAAA;EACA,uCAAA;EACA,yDAAA;EACA,wDAAA;EACA,sDAAA;EACA,qCAAA;EACA,2CAAA;EACA,yCAAA;EACA,8CAAA;EACA,0CAAA;EACA,8DAAA;EACA,4CAAA;EACA,0DAAA;EACA,yCAAA;EACA,kCAAA;EACA,kCAAA;EACA,iCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sDAAA;EACA,iCAAA;EACA,6CAAA;EACA,iDAAA;EACA,uFAAA;EACA,uCAAA;EACA,2CAAA;EACA,gCAAA;EACA,6CAAA;EACA,kCAAA;EACA,oDAAA;ACMJ;;ADHA;EACI,+BAAA;EACA,iCAAA;EACA,+BAAA;EACA,gCAAA;EACA,+BAAA;EACA,kDAAA;EACA,gDAAA;EACA,wDAAA;EACA,uDAAA;EACA,qDAAA;EACA,iBAAA;EACA,oBAAA;EACA,sBAAA;EACA,qBAAA;EACA,kBAAA;EACA,mBAAA;EACA,oBAAA;EACA,mBAAA;EACA,qBAAA;EACA,0BAAA;EACA,2BAAA;EACA,yBAAA;EACA,kCAAA;EACA,4EAAA;EACJ,mEAAA;EAGI,kFAAA;EACA,0CAAA;EACA,oCAAA;EACA,+BAAA;EACA,6BAAA;EACA,wBAAA;EACA,yBAAA;EACA,uBAAA;EACA,mBAAA;EACA,oBAAA;EACA,oBAAA;EACA,oBAAA;EACA,oBAAA;EACA,oBAAA;EACA,oBAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,8CAAA;EACA,0CAAA;EACA,wCAAA;EACA,iDAAA;EACA,iDAAA;EACA,iDAAA;EACA,iDAAA;EACA,iDAAA;EACA,4DAAA;EACA,wDAAA;EACA,sDAAA;EACA,0GAAA;EACA,0GAAA;EACA,2GAAA;EACA,0GAAA;EACA,oGAAA;EACA,uIAAA;EACA,2HAAA;EACA,qHAAA;ACIJ;;ADAA;EACI,+CAAA;EACA,uDAAA;EACA,mCAAA;EACA,6BAAA;EACA,oCAAA;EACA,iCAAA;EACA,2CAAA;EACA,2CAAA;EACA,wBAAA;EACA,uCAAA;EACA,0CAAA;EACA,gDAAA;EACA,2CAAA;EACA,4CAAA;EACA,+BAAA;EACA,wDAAA;EACA,oCAAA;EACA,yCAAA;EACA,mCAAA;EACA,6CAAA;EACA,6CAAA;EACA,mCAAA;EACA,mDAAA;EACA,0DAAA;EACA,iEAAA;EACA,iCAAA;EACA,0BAAA;EACA,qCAAA;EACA,iCAAA;EACA,4BAAA;EACA,8CAAA;EACA,6BAAA;EACA,4DAAA;EACA,8CAAA;EACA,2CAAA;EACA,4CAAA;EACA,mCAAA;EACA,4EAAA;EACA,yCAAA;EACA,8EAAA;EACA,gCAAA;EACA,uDAAA;EACA,8CAAA;EACA,iCAAA;EACA,2BAAA;ACGJ;;ADYA;EACI,0BAAA;EACA,0BAAA;EACA,yBAAA;EACA,yBAAA;EACA,yBAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,2BAAA;EACA,0BAAA;EACA,4BAAA;EACA,6BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,6BAAA;EACA,8BAAA;EACA,+BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,+BAAA;EACA,gCAAA;EACA,gCAAA;EACA,gCAAA;EACA,gCAAA;EACA,gCAAA;EACA,+BAAA;EACA,+BAAA;EACA,gCAAA;EACA,+BAAA;EACA,gCAAA;EACA,gCAAA;EACA,gCAAA;EACA,gCAAA;EACA,iCAAA;EACA,iCAAA;EACA,iCAAA;EACA,iCAAA;EACA,gCAAA;EACA,0BAAA;EACA,0BAAA;EACA,0BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,2BAAA;EACA,0BAAA;EACA,0BAAA;EACA,0BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,0BAAA;EACA,2BAAA;EACA,0BAAA;EACA,0BAAA;EACA,4BAAA;EACA,4BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,4BAAA;EACA,4BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,4BAAA;EACA,6BAAA;EACA,6BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,6BAAA;EACA,4BAAA;EACA,6BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,6BAAA;EACA,6BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,6BAAA;EACA,yBAAA;EACA,yBAAA;EACA,yBAAA;EACA,yBAAA;EACA,yBAAA;EACA,yBAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,0BAAA;EACA,0BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,4BAAA;EACA,2BAAA;EACA,4BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,8BAAA;EACA,6BAAA;EACA,2BAAA;EACA,2BAAA;EACA,2BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,4BAAA;EACA,wBAAA;EACA,2BAAA;EACA,0BAAA;EACA,0BAAA;EACA,0BAAA;EACA,0BAAA;EACA,2BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,6BAAA;EACA,4BAAA;EACA,uCAAA;EACA,uCAAA;EACA,8CAAA;EACA,8CAAA;EACA,+CAAA;EACA,8CAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,4CAAA;EACA,4CAAA;EACA,6CAAA;EACA,4CAAA;EACA,mCAAA;EACA,iCAAA;EACA,wCAAA;EACA,wCAAA;EACA,wCAAA;EACA,yCAAA;EACA,wCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,qCAAA;EACA,2CAAA;EACA,2CAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,qCAAA;EACA,qCAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,2CAAA;EACA,mCAAA;EACA,2CAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,2CAAA;EACA,2CAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,+CAAA;EACA,+CAAA;EACA,6CAAA;EACA,6CAAA;EACA,6CAAA;EACA,6CAAA;EACA,qDAAA;EACA,6CAAA;EACA,qDAAA;EACA,6CAAA;EACA,6CAAA;EACA,6CAAA;EACA,6CAAA;EACA,2CAAA;EACA,iDAAA;EACA,iDAAA;EACA,+CAAA;EACA,+CAAA;EACA,+CAAA;EACA,+CAAA;EACA,uDAAA;EACA,+CAAA;EACA,uDAAA;EACA,+CAAA;EACA,+CAAA;EACA,+CAAA;EACA,+CAAA;EACA,6CAAA;EACA,uCAAA;EACA,uCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,mCAAA;EACA,uCAAA;EACA,uCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,mCAAA;EACA,2CAAA;EACA,2CAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,6CAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,qCAAA;EACA,mCAAA;EACA,2CAAA;EACA,2CAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,iDAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,+CAAA;EACA,uCAAA;EACA,+CAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,qCAAA;EACA,yCAAA;EACA,yCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,+CAAA;EACA,uCAAA;EACA,+CAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,uCAAA;EACA,sCAAA;ACTJ;;ADYA;EACI,iBAAA;EACA,wBAAA;ACTJ;;ADYA;EACI,kEAAA;EACA,kEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,oEAAA;EACA,oEAAA;EACA,oEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,mEAAA;EACA,oEAAA;EACA,oEAAA;EACA,oEAAA;EACA,oEAAA;EACA,oEAAA;EACA,yEAAA;EACA,uBAAA;EACA,wBAAA;ACTJ;;ADYA;EACI,6JAAA;EACA,6BAAA;EACA,4BAAA;EACA,8BAAA;EACA,0BAAA;EACA,uEAAA;EACA,uEAAA;EACA,wEAAA;EACA,wEAAA;EACA,wEAAA;EACA,wEAAA;EACA,wEAAA;EACA,wEAAA;EACA,wEAAA;EACA,yEAAA;EACA,yEAAA;EACA,yEAAA;EACA,yEAAA;EACA,yEAAA;EACA,yEAAA;EACA,gDAAA;EACA,sDAAA;EACA,iDAAA;EACA,kCAAA;EACA,kDAAA;EACA,mCAAA;EACA,iDAAA;EACA,kCAAA;EACA,kDAAA;EACA,mCAAA;EACA,oDAAA;EACA,0DAAA;EACA,+BAAA;EACA,qDAAA;EACA,iEAAA;EACA,sDAAA;EACA,kEAAA;EACA,qDAAA;EACA,iEAAA;EACA,mDAAA;EACA,6BAAA;EACA,iDAAA;EACA,iDAAA;EACA,iDAAA;EACA,gDAAA;EACA,gDAAA;EACA,gDAAA;EACA,qDAAA;EACA,+DAAA;EACA,qDAAA;EACA,gEAAA;ACTJ;;ADYA;EACI,yDAAA;EACA,oEAAA;EACA,sEAAA;EACA,wEAAA;EACA,sFAAA;EACA,yFAAA;EACA,sDAAA;EACA,qDAAA;EACA,2DAAA;EACA,wEAAA;EACA,mDAAA;EACA,+DAAA;ACTJ;;ADYA;EACI,yDAAA;EACA,oEAAA;EACA,iEAAA;EACA,uFAAA;EACA,sFAAA;EACA,wFAAA;EACA,sDAAA;EACA,qDAAA;EACA,2DAAA;EACA,wEAAA;EACA,mDAAA;EACA,+DAAA;ACTJ;;ADYA;EACI,wCAAA;EACA,6CAAA;EACA,oDAAA;EACA,+CAAA;EACA,8CAAA;EACA,6CAAA;EACA,sDAAA;EACA,yCAAA;EACA,+CAAA;EACA,sDAAA;EACA,iDAAA;EACA,iDAAA;EACA,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,2CAAA;EACA,mDAAA;EACA,4CAAA;EACA,oDAAA;EACA,wCAAA;EACA,8CAAA;EACA,gDAAA;EACA,iDAAA;EACA,gDAAA;EACA,sDAAA;EACA,wDAAA;EACA,0CAAA;EACA,wCAAA;EACA,iDAAA;EACA,mDAAA;EACA,qDAAA;EACA,uDAAA;EACA,+CAAA;EACA,uCAAA;EACA,yCAAA;EACA,wCAAA;EACA,2CAAA;EACA,wCAAA;EACA,wCAAA;EACA,yCAAA;EACA,qCAAA;EACA,8CAAA;EACA,qCAAA;EACA,iDAAA;EACA,kDAAA;EACA,yCAAA;EACA,qDAAA;EACA,sCAAA;EACA,2CAAA;EACA,4CAAA;EACA,oCAAA;EACA,oCAAA;EACA,0CAAA;EACA,uCAAA;EACA,oCAAA;EACA,0CAAA;EACA,wCAAA;EACA,uCAAA;EACA,0CAAA;EACA,2CAAA;EACA,8CAAA;EACA,uCAAA;EACA,uCAAA;EACA,2CAAA;EACA,0CAAA;EACA,gDAAA;EACA,qCAAA;EACA,yCAAA;EACA,qCAAA;EACA,gDAAA;EACA,+CAAA;EACA,sDAAA;EACA,4CAAA;EACA,kDAAA;EACA,+CAAA;EACA,oDAAA;EACA,sDAAA;EACA,2CAAA;EACA,2CAAA;EACA,+CAAA;EACA,+CAAA;EACA,yCAAA;EACA,2CAAA;EACA,+CAAA;EACA,6CAAA;EACA,6CAAA;EACA,2CAAA;EACA,yCAAA;EACA,0CAAA;EACA,2DAAA;EACA,+DAAA;EACA,kDAAA;EACA,sDAAA;EACA,gDAAA;EACA,qDAAA;EACA,uDAAA;EACA,4CAAA;EACA,4CAAA;EACA,gDAAA;EACA,gDAAA;EACA,0CAAA;EACA,4CAAA;EACA,gDAAA;EACA,8CAAA;EACA,8CAAA;EACA,qDAAA;EACA,0DAAA;EACA,4DAAA;EACA,iDAAA;EACA,iDAAA;EACA,qDAAA;EACA,qDAAA;EACA,+CAAA;EACA,iDAAA;EACA,qDAAA;EACA,mDAAA;EACA,mDAAA;EACA,wCAAA;EACA,8CAAA;EACA,8CAAA;EACA,qDAAA;EACA,8CAAA;EACA,0CAAA;EACA,4CAAA;EACA,4CAAA;EACA,8CAAA;EACA,oDAAA;EACA,oDAAA;EACA,2DAAA;EACA,oDAAA;EACA,gDAAA;EACA,kDAAA;EACA,kDAAA;EACA,uDAAA;EACA,6DAAA;EACA,kJAAA;EACA,kJAAA;EACA,mJAAA;EACA,oJAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,oDAAA;EACA,uDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,8CAAA;EACA,oDAAA;EACA,sDAAA;EACA,uDAAA;EACA,sDAAA;EACA,yDAAA;EACA,2CAAA;EACA,0CAAA;EACA,gDAAA;EACA,6CAAA;EACA,wCAAA;EACA,+CAAA;ACTJ;;ADYA;EACI,+CAAA;EACA,qDAAA;EACA,uDAAA;EACA,wDAAA;EACA,uDAAA;EACA,0DAAA;EACA,4CAAA;EACA,2CAAA;EACA,iDAAA;EACA,8CAAA;EACA,yCAAA;EACA,gDAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,kDAAA;EACA,qDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,kDAAA;EACA,qDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,oDAAA;EACA,uDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,kDAAA;EACA,qDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,oDAAA;EACA,uDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,2CAAA;EACA,iDAAA;EACA,mDAAA;EACA,oDAAA;EACA,mDAAA;EACA,sDAAA;EACA,wCAAA;EACA,uCAAA;EACA,6CAAA;EACA,0CAAA;EACA,qCAAA;EACA,4CAAA;ACTJ;;ADYA;EACI,2CAAA;EACA,iDAAA;EACA,mDAAA;EACA,oDAAA;EACA,mDAAA;EACA,sDAAA;EACA,wCAAA;EACA,uCAAA;EACA,6CAAA;EACA,0CAAA;EACA,qCAAA;EACA,4CAAA;ACTJ;;ADYA;EACI,wDAAA;EACA,wDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,+DAAA;EACA,uDAAA;EACA,+DAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,sDAAA;EACA,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,oDAAA;EACA,uDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,qCAAA;EACA,4CAAA;EACA,oDAAA;EACA,+CAAA;EACA,4CAAA;EACA,gDAAA;EACA,uDAAA;EACA,wCAAA;EACA,+CAAA;EACA,sDAAA;EACA,iDAAA;EACA,+CAAA;EACA,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,2CAAA;EACA,iDAAA;EACA,4CAAA;EACA,kDAAA;EACA,wCAAA;EACA,8CAAA;EACA,gDAAA;EACA,iDAAA;EACA,8CAAA;EACA,qDAAA;EACA,uDAAA;EACA,2CAAA;EACA,yCAAA;EACA,iDAAA;EACA,mDAAA;EACA,qDAAA;EACA,uDAAA;EACA,+CAAA;EACA,wCAAA;EACA,yCAAA;EACA,wCAAA;EACA,2CAAA;EACA,wCAAA;EACA,wCAAA;EACA,yCAAA;EACA,qCAAA;EACA,8CAAA;EACA,qCAAA;EACA,iDAAA;EACA,kDAAA;EACA,yCAAA;EACA,qDAAA;EACA,sCAAA;EACA,iDAAA;EACA,kDAAA;EACA,oCAAA;EACA,oCAAA;EACA,0CAAA;EACA,uCAAA;EACA,oCAAA;EACA,0CAAA;EACA,wCAAA;EACA,uCAAA;EACA,0CAAA;EACA,2CAAA;EACA,8CAAA;EACA,uCAAA;EACA,uCAAA;EACA,2CAAA;EACA,0CAAA;EACA,gDAAA;EACA,qCAAA;EACA,yCAAA;EACA,qCAAA;EACA,gDAAA;EACA,gDAAA;EACA,sDAAA;EACA,0CAAA;EACA,kDAAA;EACA,+CAAA;EACA,oDAAA;EACA,sDAAA;EACA,2CAAA;EACA,2CAAA;EACA,+CAAA;EACA,+CAAA;EACA,yCAAA;EACA,2CAAA;EACA,+CAAA;EACA,6CAAA;EACA,6CAAA;EACA,2CAAA;EACA,yCAAA;EACA,2CAAA;EACA,yDAAA;EACA,+DAAA;EACA,gDAAA;EACA,sDAAA;EACA,gDAAA;EACA,qDAAA;EACA,uDAAA;EACA,4CAAA;EACA,4CAAA;EACA,gDAAA;EACA,gDAAA;EACA,0CAAA;EACA,4CAAA;EACA,gDAAA;EACA,8CAAA;EACA,8CAAA;EACA,sDAAA;EACA,2DAAA;EACA,6DAAA;EACA,kDAAA;EACA,kDAAA;EACA,sDAAA;EACA,sDAAA;EACA,gDAAA;EACA,kDAAA;EACA,sDAAA;EACA,oDAAA;EACA,oDAAA;EACA,sCAAA;EACA,4CAAA;EACA,4CAAA;EACA,mDAAA;EACA,4CAAA;EACA,wCAAA;EACA,0CAAA;EACA,0CAAA;EACA,8CAAA;EACA,oDAAA;EACA,oDAAA;EACA,2DAAA;EACA,oDAAA;EACA,gDAAA;EACA,kDAAA;EACA,kDAAA;EACA,uDAAA;EACA,6DAAA;EACA,kJAAA;EACA,kJAAA;EACA,mJAAA;EACA,oJAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,kDAAA;EACA,sDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,8CAAA;EACA,oDAAA;EACA,sDAAA;EACA,uDAAA;EACA,oDAAA;EACA,wDAAA;EACA,2CAAA;EACA,0CAAA;EACA,gDAAA;EACA,6CAAA;EACA,wCAAA;EACA,+CAAA;ACTJ;;ADYA;EACI,+CAAA;EACA,qDAAA;EACA,uDAAA;EACA,wDAAA;EACA,qDAAA;EACA,yDAAA;EACA,4CAAA;EACA,2CAAA;EACA,iDAAA;EACA,8CAAA;EACA,yCAAA;EACA,gDAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,gDAAA;EACA,oDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,gDAAA;EACA,oDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,kDAAA;EACA,sDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,0CAAA;EACA,gDAAA;EACA,kDAAA;EACA,mDAAA;EACA,gDAAA;EACA,oDAAA;EACA,uCAAA;EACA,sCAAA;EACA,4CAAA;EACA,yCAAA;EACA,oCAAA;EACA,2CAAA;ACTJ;;ADYA;EACI,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,kDAAA;EACA,sDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;ADYA;EACI,2CAAA;EACA,iDAAA;EACA,mDAAA;EACA,oDAAA;EACA,iDAAA;EACA,qDAAA;EACA,wCAAA;EACA,uCAAA;EACA,6CAAA;EACA,0CAAA;EACA,qCAAA;EACA,4CAAA;ACTJ;;ADYA;EACI,2CAAA;EACA,iDAAA;EACA,mDAAA;EACA,oDAAA;EACA,iDAAA;EACA,qDAAA;EACA,wCAAA;EACA,uCAAA;EACA,6CAAA;EACA,0CAAA;EACA,qCAAA;EACA,4CAAA;ACTJ;;ADYA;EACI,wDAAA;EACA,wDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,+DAAA;EACA,uDAAA;EACA,+DAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,uDAAA;EACA,sDAAA;EACA,4CAAA;EACA,kDAAA;EACA,oDAAA;EACA,qDAAA;EACA,kDAAA;EACA,sDAAA;EACA,yCAAA;EACA,wCAAA;EACA,8CAAA;EACA,2CAAA;EACA,sCAAA;EACA,6CAAA;ACTJ;;AC3gDA;EACI,YAAA;AD8gDJ;;AC3gDA;EACI,cAAA;AD8gDJ;;AC3gDA;EACI,mBAAA;EACD,0BAAA;EACC,qDAAA;EACD,kDAAA;EACC,4CAAA;EACA,gBAAA;EACA,iBAAA;EACA,gBAAA;AD8gDJ;;AC1gDA;EACI,uBAAA;AD6gDJ;;AC3gDA;EACI,wBAAA;AD8gDJ;;AC3gDA;EACI,2CAAA;EACA,6BAAA;EACC,4BAAA;EACA,oBAAA;AD8gDL;;AC1gDA;EACI,WAAA;EACA,kBAAA;EACA,QAAA;EACA,OAAA;EACA,MAAA;EACA,SAAA;EACA,qDAAA;AD6gDJ;;AC3gDA;EACI,SAAA;AD8gDJ;;AC3gDA;EACI,gCAAA;EACA,cAAA;EACA,aAAA;EACA,4BAAA;EACA,2BAAA;EACA,mBAAA;AD8gDJ;;AC5gDA;EACI,eAAA;EACA,qCAAA;EACA,mBAAA;EACA,iBAAA;EACA,sBAAA;EACA,cAAA;EACA,YAAA;EACA,sBAAA;AD+gDJ;;AC5gDA;EACI,YAAA;AD+gDJ;;AC5gDA;EACI,YAAA;AD+gDJ;;AC5gDA;EACI,6BAAA;AD+gDJ;;AC5gDA;EACI,4BAAA;AD+gDJ;;AC3gDA;EACI,oCAAA;EACA,+CAAA;EACA,uCAAA;AD8gDJ;;AC3gDA;EACI,oCAAA;EACA,+CAAA;EACA,uCAAA;AD8gDJ;;AC3gDA;EACI,8BAAA;EACA,qCAAA;EACA,yBAAA;EACA,6BAAA;EACA,mIAAA;AD8gDJ;;AC3gDA;EACI,mDAAA;AD8gDJ;;AC1gDA;EACI,uBAAA;EACA,uBAAA;AD6gDJ;;ACzgDA;EACI,kBAAA;EACA,WAAA;EACA,MAAA;EACA,SAAA;EACA,OAAA;EACA,sBAAA;EACA,8BAAA;EACA,sBAAA;EACA,yBAAA;AD4gDJ;;ACzgDA;EACI,kBAAA;EACA,cAAA;EACA,gBAAA;EACA,mBAAA;EACA,YAAA;EACA,UAAA;EACA,mBAAA;EACA,iCAAA;AD4gDJ;;ACzgDA;EACI,0BAAA;EACA,2BAAA;AD4gDJ;;ACzgDA;;EAEI,qCAAA;AD4gDJ;;ACzgDA;EACI,iBAAA;EACA,eAAA;EACA,kBAAA;EACA,MAAA;EACA,SAAA;EACA,OAAA;EACA,UAAA;EACA,SAAA;EACA,SAAA;EACA,gBAAA;AD4gDJ;;ACzgDA;EACI,qBAAA;AD4gDJ;;ACzgDA;EACI,iBAAA;EACA,eAAA;EACA,kBAAA;EACA,MAAA;EACA,SAAA;EACA,SAAA;EACA,QAAA;EACA,SAAA;EACA,SAAA;EACA,gBAAA;EACA,gBAAA;AD4gDJ;;ACzgDA;EACI,oBAAA;AD4gDJ;;ACzgDA;EACI,WAAA;EACA,yBAAA;EACA,yBAAA;AD4gDJ;;ACzgDA;EACI,WAAA;EACA,yBAAA;EACA,yBAAA;AD4gDJ;;ACzgDA;EACI,cAAA;EACA,yBAAA;EACA,qBAAA;AD4gDJ;;ACzgDA;EACI,qBAAA;EACA,gBAAA;EACA,kBAAA;EACA,sBAAA;EACA,eAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qIAAA;AD4gDJ;;ACvgDA;EACI,wBAAA;EACA,sBAAA;AD0gDJ;;ACvgDA;EACI,uBAAA;AD0gDJ;;ACtgDA;EACI,uBAAA;ADygDJ;;ACtgDA;EACI,mCAAA;EACA,6BAAA;ADygDJ;;ACtgDA;EACI,gBAAA;ADygDJ;;ACtgDA,sCAAA;AACA;EACI,uBAAA;ADygDJ;;ACtgDA,WAAA;AAEA;EACI,YAAA;EACA,mBAAA;ADwgDJ;;ACrgDA;EACI,uBAAA;ADwgDJ;;ACrgDA;EACI,mCAAA;EACA,kCAAA;EACA,eAAA;EACA,gBAAA;EACA,YAAA;EACA,yBAAA;EACA,sBAAA;EACA,cAAA;EACA,mBAAA;ADwgDJ;;ACrgDA;EACI,gBAAA;EACA,aAAA;ADwgDJ;;ACpgDA;EACI,wBAAA;ADugDJ;;ACpgDA;EACI,wBAAA;ADugDJ;;ACngDA;EACI;IACE,mBAAA;IACA,6BAAA;EDsgDJ;ECpgDE;IACE,8BAAA;IACA,uCAAA;EDsgDJ;AACF;ACngDE;EACE;IACE,UAAA;EDqgDJ;ECngDE;IACE,UAAA;EDqgDJ;AACF;AElzDA;EACI,eAAA;AFozDJ;;AGrzDA;EACI,wBAAA;EACA,wBAAA;EACA,yBAAA;EACA,gCAAA;EACA,yJAAA;AHwzDJ;;AGrzDA;EACI,cAAA;AHwzDJ;;AGrzDA;EACI,wBAAA;AHwzDJ;;AGrzDA;;;;EAAA;AAKC;EACG,kCAAA;EACA,yJAAA;AHwzDJ;;AGrzDA;EACI,kCAAA;EACA,yJAAA;AHwzDJ;;AGpzDA;EACI,mBAAA;EACA,uBAAA;EACA,cAAA;EACA,yJAAA;AHuzDJ;;AGpzDA;EACI,cAAA;EACC,gBAAA;EACA,eAAA;EACA,iBAAA;AHuzDL;;AGnzDA;EACG,cAAA;EACC,gBAAA;EACA,eAAA;EACA,iBAAA;AHszDJ;;AGlzDA;EACI,sBAAA;AHqzDJ;;AGnzDA;EACI,sBAAA;AHszDJ;;AGpzDA;EACI,sBAAA;AHuzDJ;;AGpzDA;EACA;IACI,sBAAA;EHuzDF;AACF;AGnzDA;EACI,0BAAA;AHqzDJ;;AGlzDC;EACG,8BAAA;AHqzDJ;;AIl4DA;EACI,sBAAA;AJq4DJ;;AIl4DA;;GAAA;AAGA;;GAAA;AAIA;;KAAA;AAIA;;;IAAA;AAKG;EACC,wBAAA;AJk4DJ;;AAh5DA,+BAAA;AAYA;;;;;;;;;;;;;;;;;GAAA;AAoBA;;EAGE,WAAA;EAEA,UAAA;EACA,SAAA;EAEA,cAAA;EACA,YAAA;EACA,yBAAA;EACA,kBAAA;EACA,gBAAA;EACA,kCAAA;EACA,4BAAA;EACA,sBAAA;EAEA,8BAAA;EACA,0BAAA;EACC,uDAAA;EACH;GAAA;EAEE,sBAAA;EACA,kCAAA;EAEA,2CAAA;AAi4DF;;AA53DA;EACE,0CAAA;EAKA,kCAAA;AA23DF;;AAx3DA;EACE,SAAA;AA23DF;;AAx3DA;EACE,cAAA;AA23DF;;AAx3DA;;EAEE,qBAAA;AA23DF;;AAz3DA;EACE,4BAAA;AA43DF;;AAx3DA;EACE;sCAAA;EAEA,sBAAA;AA23DF","sourcesContent":[":root {\n    --main-theme-color:#292F4C;\n}\n\n:root {\n    --color-highlight_blue: #cce5ff;\n    --color-basic_blue: #0073ea;\n    --color-dark_blue: #0060b9;\n    --color-bazooka: #f65f7c;\n    --color-snow_white: #ffffff;\n    --color-riverstone_gray: #f6f7fb;\n    --color-ui_grey: #dcdfec;\n    --color-wolf_gray: #c3c6d4;\n    --color-asphalt: #676879;\n    --color-mud_black: #323338;\n    --color-black: #000000;\n    --color-success: #258750;\n    --color-success-hover: #007038;\n    --color-success-highlight: #bbdbc9;\n    --color-error: #d83a52;\n    --color-error-hover: #b63546;\n    --color-error-highlight: #f4c3cb;\n    --color-link_color: #1f76c2;\n    --color-surface: #292f4c;\n    --primary-color: #0073ea;\n    --primary-hover-color: #0060b9;\n    --primary-selected-color: #cce5ff;\n    --primary-selected-hover-color: #aed4fc;\n    --primary-text-color: #292d34;\n    --text-color-on-primary: #ffffff;\n    --text-color-on-inverted: #ffffff;\n    --secondary-text-color: #676879;\n    --placeholder-color: #676879;\n    --icon-color: #676879;\n    --link-color: #1f76c2;\n    --primary-background-color: #ffffff;\n    --primary-background-hover-color: #dcdfec;\n    --secondary-background-color: #ffffff;\n    --grey-background-color: #f6f7fb;\n    --allgrey-background-color: #f6f7fb;\n    --inverted-color-background: #323338;\n    --disabled-background-color: #ecedf5;\n    --disabled-text-color: rgba(50, 51, 56, var(--disabled-component-opacity));\n    --positive-color: #258750;\n    --positive-color-hover: #007038;\n    --positive-color-selected: #bbdbc9;\n    --positive-color-selected-hover: #b5cec0;\n    --negative-color: #d83a52;\n    --negative-color-hover: #b63546;\n    --negative-color-selected: #f4c3cb;\n    --negative-color-selected-hover: #ecb7bf;\n    --private-color: #f65f7c;\n    --shareable-color: #a25ddc;\n    --ui-border-color: #c3c6d4;\n    --layout-border-color: #d0d4e4;\n    --box-shadow-xs: 0px 4px 6px -4px rgba(0, 0, 0, 0.1);\n    --box-shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.2);\n    --box-shadow-medium: 0px 6px 20px rgba(0, 0, 0, 0.2);\n    --box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);\n    --color-grass_green: #037f4c;\n    --color-grass_green-hover: #116846;\n    --color-grass_green-selected: #81bfa5;\n    --color-done-green: #00c875;\n    --color-done-green-hover: #0f9b63;\n    --color-done-green-selected: #80e3ba;\n    --color-done-green-selected-with-opacity: rgba(128, 227, 186, 0.6);\n    --color-bright-green: #9cd326;\n    --color-bright-green-hover: #7ca32b;\n    --color-bright-green-selected: #cde992;\n    --color-saladish: #cab641;\n    --color-saladish-hover: #9d8f3e;\n    --color-saladish-selected: #e4daa0;\n    --color-egg_yolk: #ffcb00;\n    --color-egg_yolk-hover: #c29e11;\n    --color-egg_yolk-selected: #ffe580;\n    --color-egg_yolk-rgb: 255,213,51;\n    --color-working_orange: #fdab3d;\n    --color-working_orange-hover: #c0873c;\n    --color-working_orange-selected: #fed59e;\n    --color-dark-orange: #ff642e;\n    --color-dark-orange-hover: #c25531;\n    --color-dark-orange-selected: #ffb196;\n    --color-peach: #ffadad;\n    --color-peach-hover: #c2888a;\n    --color-peach-selected: #ffd6d6;\n    --color-sunset: #ff7575;\n    --color-sunset-hover: #c26163;\n    --color-sunset-selected: #ffbaba;\n    --color-sunset-selected-with-opacity: rgba(255, 186, 186, 0.6);\n    --color-stuck-red: #e2445c;\n    --color-stuck-red-hover: #ad3f51;\n    --color-stuck-red-selected: #f0a1ad;\n    --color-dark-red: #bb3354;\n    --color-dark-red-hover: #92334c;\n    --color-dark-red-selected: #dd99a9;\n    --color-sofia_pink: #ff158a;\n    --color-sofia_pink-hover: #c21e71;\n    --color-sofia_pink-selected: #ff8ac4;\n    --color-lipstick: #ff5ac4;\n    --color-lipstick-hover: #c24e9a;\n    --color-lipstick-selected: #fface1;\n    --color-bubble: #faa1f1;\n    --color-bubble-hover: #be80ba;\n    --color-bubble-selected: #fcd0f8;\n    --color-purple: #a25ddc;\n    --color-purple-hover: #8050ab;\n    --color-purple-selected: #d0aeed;\n    --color-dark_purple: #784bd1;\n    --color-dark_purple-hover: #6344a3;\n    --color-dark_purple-selected: #bba5e8;\n    --color-berry: #7e3b8a;\n    --color-berry-hover: #673971;\n    --color-berry-selected: #be9dc4;\n    --color-dark_indigo: #401694;\n    --color-dark_indigo-hover: #3c1f78;\n    --color-dark_indigo-selected: #a08bc9;\n    --color-indigo: #5559df;\n    --color-indigo-hover: #4b4ead;\n    --color-indigo-selected: #aaacef;\n    --color-navy: #225091;\n    --color-navy-hover: #274776;\n    --color-navy-selected: #90a7c8;\n    --color-bright-blue: #579bfc;\n    --color-bright-blue-hover: #4c7cc1;\n    --color-bright-blue-selected: #abcdfd;\n    --color-dark-blue: #0086c0;\n    --color-dark-blue-hover: #0f6d97;\n    --color-dark-blue-selected: #80c2df;\n    --color-aquamarine: #4eccc6;\n    --color-aquamarine-hover: #469e9b;\n    --color-aquamarine-selected: #a6e5e2;\n    --color-chili-blue: #66ccff;\n    --color-chili-blue-hover: #569ec3;\n    --color-chili-blue-selected: #b2e5ff;\n    --color-river: #68a1bd;\n    --color-river-hover: #588095;\n    --color-river-selected: #b3d0de;\n    --color-winter: #9aadbd;\n    --color-winter-hover: #7b8895;\n    --color-winter-selected: #ccd6de;\n    --color-explosive: #c4c4c4;\n    --color-explosive-hover: #98999a;\n    --color-explosive-selected: #e1e1e1;\n    --color-american_gray: #808080;\n    --color-american_gray-hover: #69696a;\n    --color-american_gray-selected: #bfbfbf;\n    --color-blackish: #333333;\n    --color-blackish-hover: #222222;\n    --color-blackish-selected: #999999;\n    --color-brown: #7f5347;\n    --color-brown-hover: #684943;\n    --color-brown-selected: #bfa9a3;\n    --color-orchid: #D974B0;\n    --color-orchid-hover: #AE5D8D;\n    --color-orchid-selected: #ECBAD7;\n    --color-tan: #AD967A;\n    --color-tan-hover: #8A7862;\n    --color-tan-selected: #D6CABC;\n    --color-sky: #A1E3F6;\n    --color-sky-hover: #81B6C5;\n    --color-sky-selected: #D0F1FA;\n    --color-coffee: #BD816E;\n    --color-coffee-hover: #976758;\n    --color-coffee-selected: #DEC0B7;\n    --color-royal: #2B76E5;\n    --color-royal-hover: #225EB7;\n    --color-royal-selected: #95BBF2;\n    --color-teal: #175A63;\n    --color-teal-hover: #12484F;\n    --color-teal-selected: #8BACB1;\n    --color-lavender: #BDA8F9;\n    --color-lavender-hover: #9786C7;\n    --color-lavender-selected: #DED4FC;\n    --color-steel: #A9BEE8;\n    --color-steel-hover: #8798BA;\n    --color-steel-selected: #D4DFF4;\n    --color-lilac: #9D99B9;\n    --color-lilac-hover: #7E7A94;\n    --color-lilac-selected: #CECCDC;\n    --color-pecan: #563E3E;\n    --color-pecan-hover: #453232;\n    --color-pecan-selected: #AB9F9F;\n    --color-dark_marble: #f1f1f1;\n    --color-marble: #f7f7f7;\n    --color-gainsboro: #e1e1e1;\n    --color-extra_light_gray: #edeef0;\n    --color-glitter: #d9f0ff;\n    --color-ultra_light_gray: #ebebeb;\n    --color-very_light_gray: #a1a1a1;\n    --color-jaco_gray: #9699a6;\n    --color-storm_gray: #6b6d77;\n    --color-trolley-grey: #808080;\n    --color-basic_light_blue: #c7e6fa;\n    --color-light_blue: #61caf7;\n    --color-turquoise: #66ccff;\n    --color-aqua: #00d1d1;\n    --color-live_blue: #009aff;\n    --color-jeans: #597bfc;\n    --color-burned_eggplant: #181d37;\n    --color-light-pink: #ff5ac4;\n    --color-dark-pink: #ff158a;\n    --color-dark_red: #bb3354;\n    --color-yellow: #ffcb00;\n    --color-mustered: #cab641;\n    --color-orange: #fdab3d;\n    --color-lime-green: #9cd326;\n    --color-jade: #03c875;\n    --color-green-haze: #00a359;\n    --color-grass-green: #037f4c;\n    --color-amethyst: #a25ddc;\n    --color-dark-purple: #784bd1;\n    --color-blue_links: #0086c0;\n    --color-blue-links: #0086c0;\n    --color-private: #f65f7c;\n    --color-public: #009aff;\n    --color-board_views_grey: #6e6f8f;\n    --color-board_views_grey_hover: #b2b3d0;\n    --color-board_views_blue: #1c1f3b;\n    --color-board_views_blue_secondary: #363a52;\n    --color-border_light_gray: #f5f6f8;\n    --color-brand-blue: #00a9ff;\n    --color-brand-charcoal: #2b2c5c;\n    --color-brand-gold: #ffcc00;\n    --color-brand-green: #11dd80;\n    --color-brand-iris: #595ad4;\n    --color-brand-light-blue: #00cff4;\n    --color-brand-malachite: #00cd6f;\n    --color-brand-purple: #a358d0;\n    --color-brand-red: #f74875;\n    --color-deadline_upcoming_indication: #5d6387;\n    --color-default_group_color: #579bfc;\n    --color-form_btn_hover: #0083d9;\n    --color-form_purple: #575c96;\n    --color-highlight: #dff0ff;\n    --color-green_shadow: #00c875;\n    --color-green-shadow: #00c875;\n    --color-red_shadow: #e2445c;\n    --color-red-shadow: #e2445c;\n    --color-pulse_bg: #f0f0f0;\n    --color-pulse_text_color: #333333;\n    --color-placholder_gray: #d8d8d8;\n    --color-placeholder_light_gray: #efefef;\n    --color-excel-green: #207245;\n    --color-media-blue: #2ea2e9;\n    --color-pdf-red: #bb0706;\n    --color-ppt-orange: #d64e2a;\n    --color-word-blue: #2a5699;\n    --color-zip-orange: #e4901c;\n    --color-like_red: #fb275d;\n    --color-scrollbar_gray: #b2b2b2;\n    --color-timeline_grid_blue: #454662;\n    --color-timeline_blue: #1c1f3b;\n    --color-highlight_blue-rgb: 204,229,255;\n    --color-snow_white-with-opacity: rgba(255, 255, 255, 0.4);\n    --color-wolf_gray-with-opacity: rgba(195, 198, 212, 0.1);\n    --color-asphalt-with-opacity: rgba(103, 104, 121, 0.1);\n    --primary-on-secondary-color: #0073ea;\n    --primary-hover-on-secondary-color: #0060b9;\n    --primary-selected-color-rgb: 204,229,255;\n    --primary-selected-on-secondary-color: #cce5ff;\n    --primary-text-on-secondary-color: #323338;\n    --text-color-on-primary-with-opacity: rgba(255, 255, 255, 0.4);\n    --secondary-text-on-secondary-color: #676879;\n    --placeholder-color-with-opacity: rgba(103, 104, 121, 0.1);\n    --placeholder-on-secondary-color: #676879;\n    --icon-on-secondary-color: #676879;\n    --link-on-secondary-color: #1f76c2;\n    --label-background-color: #cce5ff;\n    --label-background-on-secondary-color: #cce5ff;\n    --primary-background-color-rgb: 255,255,255;\n    --primary-background-hover-on-secondary-color: #dcdfec;\n    --modal-background-color: #ffffff;\n    --secondary-background-color-rgb: 255,255,255;\n    --disabled-background-on-secondary-color: #ecedf5;\n    --disabled-text-on-secondary-color: rgba(50, 51, 56, var(--disabled-component-opacity));\n    --ui-border-on-secondary-color: #c3c6d4;\n    --layout-border-on-secondary-color: #d0d4e4;\n    --dark-background-color: #f6f7fb;\n    --dark-background-on-secondary-color: #f6f7fb;\n    --dialog-background-color: #ffffff;\n    --box-shadow-mediun: 0px 6px 20px rgba(0, 0, 0, 0.2);\n}\n\n:root {\n    --motion-productive-short: 70ms;\n    --motion-productive-medium: 100ms;\n    --motion-productive-long: 150ms;\n    --motion-expressive-short: 250ms;\n    --motion-expressive-long: 400ms;\n    --motion-timing-enter: cubic-bezier(0, 0, 0.35, 1);\n    --motion-timing-exit: cubic-bezier(0.4, 0, 1, 1);\n    --motion-timing-transition: cubic-bezier(0.4, 0, 0.2, 1);\n    --motion-timing-emphasize: cubic-bezier(0, 0, 0.2, 1.4);\n    --expand-animation-timing: var(--motion-timing-enter);\n    --spacing-xs: 4px;\n    --spacing-small: 8px;\n    --spacing-medium: 16px;\n    --spacing-large: 24px;\n    --spacing-xl: 32px;\n    --spacing-xxl: 48px;\n    --spacing-xxxl: 64px;\n    --border-width: 1px;\n    --border-style: solid;\n    --border-radius-small: 4px;\n    --border-radius-medium: 8px;\n    --border-radius-big: 16px;\n    --disabled-component-opacity: 0.38;\n    --font-family: Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif;;\n/* Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif; */\n    \n\n    --title-font-family: Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif;\n    --h1-font-family: var(--title-font-family);\n    --font-smoothing-webkit: antialiased;\n    --font-smoothing-moz: grayscale;\n    --font-weight-very-light: 200;\n    --font-weight-light: 300;\n    --font-weight-normal: 400;\n    --font-weight-bold: 500;\n    --font-size: 1.4rem;\n    --font-size-10: 14px;\n    --font-size-20: 14px;\n    --font-size-30: 16px;\n    --font-size-40: 18px;\n    --font-size-50: 24px;\n    --font-size-60: 30px;\n    --font-line-height-10: 18px;\n    --font-line-height-20: 24px;\n    --font-line-height-30: 24px;\n    --font-line-height-40: 24px;\n    --font-line-height-50: 32px;\n    --font-line-height-60: 42px;\n    --font-size-h1: var(--font-size-60);\n    --font-size-h2: var(--font-size-50);\n    --font-size-h3: var(--font-size-50);\n    --font-size-h4: var(--font-size-40);\n    --font-size-h5: var(--font-size-30);\n    --font-size-general-label: var(--font-size-20);\n    --font-size-paragraph: var(--font-size-30);\n    --font-size-subtext: var(--font-size-10);\n    --font-line-height-h1: var(--font-line-height-60);\n    --font-line-height-h2: var(--font-line-height-50);\n    --font-line-height-h3: var(--font-line-height-50);\n    --font-line-height-h4: var(--font-line-height-40);\n    --font-line-height-h5: var(--font-line-height-30);\n    --font-line-height-general-label: var(--font-line-height-20);\n    --font-line-height-paragraph: var(--font-line-height-30);\n    --font-line-height-subtext: var(--font-line-height-10);\n    --font-h1: var(--font-weight-bold) var(--font-size-h1)/var(--font-line-height-h1) var(--title-font-family);\n    --font-h2: var(--font-weight-bold) var(--font-size-h2)/var(--font-line-height-h2) var(--title-font-family);\n    --font-h3: var(--font-weight-light) var(--font-size-h3)/var(--font-line-height-h3) var(--title-font-family);\n    --font-h4: var(--font-weight-bold) var(--font-size-h4)/var(--font-line-height-h4) var(--title-font-family);\n    --font-h5: var(--font-weight-bold) var(--font-size-h5)/var(--font-line-height-h5) var(--font-family);\n    --font-general-label: var(--font-weight-normal) var(--font-size-general-label)/var(--font-line-height-general-label) var(--font-family);\n    --font-paragraph: var(--font-weight-normal) var(--font-size-paragraph)/var(--font-line-height-paragraph) var(--font-family);\n    --font-subtext: var(--font-weight-normal) var(--font-size-subtext)/var(--font-line-height-subtext) var(--font-family);\n}\n\n\n:root  {\n    --react-modal-background: rgba(41, 47, 76, 0.7);\n    --application-background-color: var(--color-snow_white);\n    --application-border-color: #e6e9ef;\n    --text-color-on-card: #323338;\n    --main-nav-background-color: #292f4c;\n    --pulse-background-color: #f5f6f8;\n    --pulse-background-color-rgb: 245, 246, 248;\n    --pulse-background-color-opacity: #f5f6f880;\n    --pulse-text-color: #666;\n    --pulse-hover-background-color: #e6e9ef;\n    --pulse-selected-background-color: #e5f4ff;\n    --pulse-floating-background-color: 253, 253, 250;\n    --pulse-highlight-background-color: #cce9ff;\n    --surfce-color: rgb(51, 51, 51)/* #292f4c */;\n    --surface-border-color: #4b4e69;\n    --card-background-color: var(--primary-background-color);\n    --card-hover-background-color: white;\n    --card-selected-background-color: #d9f0ff;\n    --card-selected-text-color: #0073ea;\n    --automations-hover-background-color: #f5f6f8;\n    --automations-label-background-color: #f5f6f8;\n    --automations-border-color: #e6e9ef;\n    --automations-account-usage-background-color: white;\n    --automations-account-usage-dropdown-border-color: #d9d9d9;\n    --automations-account-usage-progressbar-background-color: #e6e9ef;\n    --apps-svg-icon-invert: invert(0);\n    --apps-code-color: #5559df;\n    --apps-feature-preview-color: #e5f4ff;\n    --apps-tabs-border-color: #1c1f3b;\n    --card-border-color: #e6e9ef;\n    --avatar-border-color: var(--color-snow_white);\n    --modal-bottom-color: #f7f7f7;\n    --modal-free-indication-color: var(--primary-selected-color);\n    --notification-unread-highlight-color: #d2eaff;\n    --apps-marketplace-highlight-color: #f5f6f8;\n    --redactor-context-background-color: #323338;\n    --redactor-context-link-color: #fff;\n    --ajax-spinner-gif-path: url(https://cdn.monday.com/images/ajax_spinner.gif);\n    --scrollbar-color: var(--color-wolf_gray);\n    --monday-loader-gif-path: url(https://cdn.monday.com/images/loader/loader.gif);\n    --hint-background-color: #ccf4e3;\n    --transparent-overlay: rgba(41, 47, 76, 0.5) !important;\n    --timeline-row-hover: rgba(210, 210, 210, 0.3);\n    --timeline-value-remains: #333333;\n    --topbar-bg-color: #eceff8\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n:root {\n    --_cu-grey1100: 26, 28, 32;\n    --_cu-grey1000: 42, 46, 52;\n    --_cu-grey900: 48, 53, 60;\n    --_cu-grey800: 60, 65, 74;\n    --_cu-grey700: 79, 87, 98;\n    --_cu-grey600: 101, 111, 125;\n    --_cu-grey500: 135, 144, 158;\n    --_cu-grey400: 173, 179, 189;\n    --_cu-grey300: 214, 217, 222;\n    --_cu-grey200: 232, 234, 237;\n    --_cu-grey100: 240, 241, 243;\n    --_cu-grey50: 247, 248, 249;\n    --_cu-white: 255, 255, 255;\n    --_cu-purple1100: 50, 52, 82;\n    --_cu-purple1000: 59, 58, 112;\n    --_cu-purple900: 67, 65, 141;\n    --_cu-purple800: 76, 71, 171;\n    --_cu-purple700: 84, 77, 201;\n    --_cu-purple600: 95, 85, 238;\n    --_cu-purple500: 127, 119, 241;\n    --_cu-purple400: 153, 146, 244;\n    --_cu-purple300: 178, 173, 247;\n    --_cu-purple200: 204, 201, 250;\n    --_cu-purple100: 229, 228, 252;\n    --_cu-purple50: 242, 241, 254;\n    --_cu-neonBlue1100: 46, 55, 84;\n    --_cu-neonBlue1000: 50, 64, 117;\n    --_cu-neonBlue900: 54, 73, 149;\n    --_cu-neonBlue800: 59, 82, 182;\n    --_cu-neonBlue700: 63, 91, 214;\n    --_cu-neonBlue600: 68, 102, 255;\n    --_cu-neonBlue500: 105, 133, 255;\n    --_cu-neonBlue400: 135, 157, 255;\n    --_cu-neonBlue300: 165, 182, 255;\n    --_cu-neonBlue200: 195, 206, 255;\n    --_cu-neonBlue100: 225, 231, 255;\n    --_cu-neonBlue50: 240, 243, 255;\n    --_cu-azureBlue1100: 38, 62, 80;\n    --_cu-azureBlue1000: 34, 77, 107;\n    --_cu-azureBlue900: 30, 93, 135;\n    --_cu-azureBlue800: 25, 109, 162;\n    --_cu-azureBlue700: 21, 124, 190;\n    --_cu-azureBlue600: 16, 144, 224;\n    --_cu-azureBlue500: 64, 166, 230;\n    --_cu-azureBlue400: 102, 184, 235;\n    --_cu-azureBlue300: 140, 202, 240;\n    --_cu-azureBlue200: 179, 220, 245;\n    --_cu-azureBlue100: 217, 237, 250;\n    --_cu-azureBlue50: 236, 246, 253;\n    --_cu-teal1100: 38, 64, 69;\n    --_cu-teal1000: 33, 82, 86;\n    --_cu-teal900: 29, 99, 103;\n    --_cu-teal800: 25, 117, 120;\n    --_cu-teal700: 20, 135, 138;\n    --_cu-teal600: 15, 157, 159;\n    --_cu-teal500: 63, 177, 178;\n    --_cu-teal400: 101, 192, 194;\n    --_cu-teal300: 140, 208, 209;\n    --_cu-teal200: 178, 224, 224;\n    --_cu-teal100: 217, 239, 240;\n    --_cu-teal50: 231, 245, 245;\n    --_cu-mint1100: 45, 68, 66;\n    --_cu-mint1000: 48, 90, 80;\n    --_cu-mint900: 51, 112, 94;\n    --_cu-mint800: 54, 134, 108;\n    --_cu-mint700: 57, 156, 122;\n    --_cu-mint600: 61, 184, 139;\n    --_cu-mint500: 100, 198, 162;\n    --_cu-mint400: 131, 209, 181;\n    --_cu-mint300: 162, 221, 199;\n    --_cu-mint200: 193, 232, 218;\n    --_cu-mint100: 224, 244, 236;\n    --_cu-mint50: 240, 249, 246;\n    --_cu-green1100: 35, 60, 55;\n    --_cu-green1000: 29, 75, 57;\n    --_cu-green900: 22, 89, 60;\n    --_cu-green800: 15, 104, 62;\n    --_cu-green700: 8, 118, 65;\n    --_cu-green600: 0, 136, 68;\n    --_cu-green500: 51, 160, 105;\n    --_cu-green400: 92, 179, 135;\n    --_cu-green300: 133, 198, 165;\n    --_cu-green200: 173, 217, 195;\n    --_cu-green100: 214, 236, 225;\n    --_cu-green50: 235, 245, 240;\n    --_cu-yellow1100: 75, 66, 44;\n    --_cu-yellow1000: 108, 87, 35;\n    --_cu-yellow900: 141, 107, 27;\n    --_cu-yellow800: 174, 128, 19;\n    --_cu-yellow700: 207, 148, 10;\n    --_cu-yellow600: 248, 174, 0;\n    --_cu-yellow500: 249, 190, 51;\n    --_cu-yellow400: 251, 203, 92;\n    --_cu-yellow300: 252, 216, 133;\n    --_cu-yellow200: 253, 229, 173;\n    --_cu-yellow100: 254, 242, 214;\n    --_cu-yellow50: 254, 249, 235;\n    --_cu-orange1100: 71, 56, 47;\n    --_cu-orange1000: 101, 66, 42;\n    --_cu-orange900: 130, 75, 38;\n    --_cu-orange800: 159, 85, 33;\n    --_cu-orange700: 188, 95, 28;\n    --_cu-orange600: 225, 107, 22;\n    --_cu-orange500: 231, 137, 69;\n    --_cu-orange400: 236, 160, 106;\n    --_cu-orange300: 241, 184, 143;\n    --_cu-orange200: 245, 208, 180;\n    --_cu-orange100: 250, 231, 218;\n    --_cu-orange50: 253, 243, 236;\n    --_cu-red1100: 69, 48, 55;\n    --_cu-red1000: 96, 51, 57;\n    --_cu-red900: 123, 53, 60;\n    --_cu-red800: 150, 55, 62;\n    --_cu-red700: 177, 58, 65;\n    --_cu-red600: 211, 61, 68;\n    --_cu-red500: 220, 100, 106;\n    --_cu-red400: 227, 131, 136;\n    --_cu-red300: 234, 162, 165;\n    --_cu-red200: 241, 193, 195;\n    --_cu-red100: 248, 224, 225;\n    --_cu-red50: 252, 239, 240;\n    --_cu-pink1100: 73, 54, 68;\n    --_cu-pink1000: 105, 61, 84;\n    --_cu-pink900: 136, 69, 100;\n    --_cu-pink800: 167, 77, 117;\n    --_cu-pink700: 199, 84, 133;\n    --_cu-pink600: 238, 94, 153;\n    --_cu-pink500: 241, 126, 173;\n    --_cu-pink400: 244, 152, 190;\n    --_cu-pink300: 247, 178, 206;\n    --_cu-pink200: 250, 204, 222;\n    --_cu-pink100: 252, 229, 239;\n    --_cu-pink50: 254, 242, 247;\n    --_cu-violet1100: 64, 54, 80;\n    --_cu-violet1000: 87, 62, 107;\n    --_cu-violet900: 109, 70, 135;\n    --_cu-violet800: 132, 78, 162;\n    --_cu-violet700: 154, 86, 190;\n    --_cu-violet600: 182, 96, 224;\n    --_cu-violet500: 197, 128, 230;\n    --_cu-violet400: 208, 153, 235;\n    --_cu-violet300: 220, 179, 240;\n    --_cu-violet200: 232, 204, 245;\n    --_cu-violet100: 243, 230, 250;\n    --_cu-violet50: 249, 242, 253;\n    --_cu-brown1100: 62, 61, 64;\n    --_cu-brown1000: 83, 76, 76;\n    --_cu-brown900: 103, 92, 88;\n    --_cu-brown800: 124, 107, 101;\n    --_cu-brown700: 144, 121, 113;\n    --_cu-brown600: 170, 141, 128;\n    --_cu-brown500: 187, 163, 153;\n    --_cu-brown400: 201, 182, 174;\n    --_cu-brown300: 214, 200, 194;\n    --_cu-brown200: 228, 219, 214;\n    --_cu-brown100: 241, 237, 235;\n    --_cu-brown50: 248, 246, 245;\n    --_cu-black1100: 0, 0, 0;\n    --_cu-black1000: 10, 11, 13;\n    --_cu-black900: 19, 21, 26;\n    --_cu-black800: 29, 32, 38;\n    --_cu-black700: 38, 42, 51;\n    --_cu-black600: 48, 53, 64;\n    --_cu-black500: 89, 93, 102;\n    --_cu-black400: 123, 126, 133;\n    --_cu-black300: 156, 158, 163;\n    --_cu-black200: 189, 190, 194;\n    --_cu-black100: 222, 223, 224;\n    --_cu-black50: 238, 239, 240;\n    --cu-grey1100: rgb(var(--_cu-grey1100));\n    --cu-grey1000: rgb(var(--_cu-grey1000));\n    --cu-grey1000-50: rgb(var(--_cu-grey1000), .5);\n    --cu-grey1000-20: rgb(var(--_cu-grey1000), .2);\n    --cu-grey1000-16: rgb(var(--_cu-grey1000), .16);\n    --cu-grey1000-10: rgb(var(--_cu-grey1000), .1);\n    --cu-grey900: rgb(var(--_cu-grey900));\n    --cu-grey800: rgb(var(--_cu-grey800));\n    --cu-grey700: rgb(var(--_cu-grey700));\n    --cu-grey600: rgb(var(--_cu-grey600));\n    --cu-grey500: rgb(var(--_cu-grey500));\n    --cu-grey400: rgb(var(--_cu-grey400));\n    --cu-grey300: rgb(var(--_cu-grey300));\n    --cu-grey200: rgb(var(--_cu-grey200));\n    --cu-grey100: rgb(var(--_cu-grey100));\n    --cu-grey100-50: rgb(var(--_cu-grey100), .5);\n    --cu-grey100-20: rgb(var(--_cu-grey100), .2);\n    --cu-grey100-16: rgb(var(--_cu-grey100), .16);\n    --cu-grey100-10: rgb(var(--_cu-grey100), .1);\n    --cu-grey50: rgb(var(--_cu-grey50));\n    --cu-white: rgb(var(--_cu-white));\n    --cu-white-80: rgb(var(--_cu-white), .8);\n    --cu-white-50: rgb(var(--_cu-white), .5);\n    --cu-white-20: rgb(var(--_cu-white), .2);\n    --cu-white-16: rgb(var(--_cu-white), .16);\n    --cu-white-10: rgb(var(--_cu-white), .1);\n    --cu-green1100: rgb(var(--_cu-green1100));\n    --cu-green1000: rgb(var(--_cu-green1000));\n    --cu-green900: rgb(var(--_cu-green900));\n    --cu-green800: rgb(var(--_cu-green800));\n    --cu-green700: rgb(var(--_cu-green700));\n    --cu-green600: rgb(var(--_cu-green600));\n    --cu-green500: rgb(var(--_cu-green500));\n    --cu-green400: rgb(var(--_cu-green400));\n    --cu-green300: rgb(var(--_cu-green300));\n    --cu-green200: rgb(var(--_cu-green200));\n    --cu-green100: rgb(var(--_cu-green100));\n    --cu-green50: rgb(var(--_cu-green50));\n    --cu-yellow1100: rgb(var(--_cu-yellow1100));\n    --cu-yellow1000: rgb(var(--_cu-yellow1000));\n    --cu-yellow900: rgb(var(--_cu-yellow900));\n    --cu-yellow800: rgb(var(--_cu-yellow800));\n    --cu-yellow700: rgb(var(--_cu-yellow700));\n    --cu-yellow600: rgb(var(--_cu-yellow600));\n    --cu-yellow500: rgb(var(--_cu-yellow500));\n    --cu-yellow400: rgb(var(--_cu-yellow400));\n    --cu-yellow300: rgb(var(--_cu-yellow300));\n    --cu-yellow200: rgb(var(--_cu-yellow200));\n    --cu-yellow100: rgb(var(--_cu-yellow100));\n    --cu-yellow50: rgb(var(--_cu-yellow50));\n    --cu-red1100: rgb(var(--_cu-red1100));\n    --cu-red1000: rgb(var(--_cu-red1000));\n    --cu-red900: rgb(var(--_cu-red900));\n    --cu-red800: rgb(var(--_cu-red800));\n    --cu-red700: rgb(var(--_cu-red700));\n    --cu-red600: rgb(var(--_cu-red600));\n    --cu-red600-16: rgb(var(--_cu-red600), .16);\n    --cu-red500: rgb(var(--_cu-red500));\n    --cu-red500-16: rgb(var(--_cu-red500), .16);\n    --cu-red400: rgb(var(--_cu-red400));\n    --cu-red300: rgb(var(--_cu-red300));\n    --cu-red200: rgb(var(--_cu-red200));\n    --cu-red100: rgb(var(--_cu-red100));\n    --cu-red50: rgb(var(--_cu-red50));\n    --cu-purple1100: rgb(var(--_cu-purple1100));\n    --cu-purple1000: rgb(var(--_cu-purple1000));\n    --cu-purple900: rgb(var(--_cu-purple900));\n    --cu-purple800: rgb(var(--_cu-purple800));\n    --cu-purple700: rgb(var(--_cu-purple700));\n    --cu-purple600: rgb(var(--_cu-purple600));\n    --cu-purple600-16: rgb(var(--_cu-purple600), .16);\n    --cu-purple500: rgb(var(--_cu-purple500));\n    --cu-purple500-16: rgb(var(--_cu-purple500), .16);\n    --cu-purple400: rgb(var(--_cu-purple400));\n    --cu-purple300: rgb(var(--_cu-purple300));\n    --cu-purple200: rgb(var(--_cu-purple200));\n    --cu-purple100: rgb(var(--_cu-purple100));\n    --cu-purple50: rgb(var(--_cu-purple50));\n    --cu-neonBlue1100: rgb(var(--_cu-neonBlue1100));\n    --cu-neonBlue1000: rgb(var(--_cu-neonBlue1000));\n    --cu-neonBlue900: rgb(var(--_cu-neonBlue900));\n    --cu-neonBlue800: rgb(var(--_cu-neonBlue800));\n    --cu-neonBlue700: rgb(var(--_cu-neonBlue700));\n    --cu-neonBlue600: rgb(var(--_cu-neonBlue600));\n    --cu-neonBlue600-16: rgb(var(--_cu-neonBlue600), .16);\n    --cu-neonBlue500: rgb(var(--_cu-neonBlue500));\n    --cu-neonBlue500-16: rgb(var(--_cu-neonBlue500), .16);\n    --cu-neonBlue400: rgb(var(--_cu-neonBlue400));\n    --cu-neonBlue300: rgb(var(--_cu-neonBlue300));\n    --cu-neonBlue200: rgb(var(--_cu-neonBlue200));\n    --cu-neonBlue100: rgb(var(--_cu-neonBlue100));\n    --cu-neonBlue50: rgb(var(--_cu-neonBlue50));\n    --cu-azureBlue1100: rgb(var(--_cu-azureBlue1100));\n    --cu-azureBlue1000: rgb(var(--_cu-azureBlue1000));\n    --cu-azureBlue900: rgb(var(--_cu-azureBlue900));\n    --cu-azureBlue800: rgb(var(--_cu-azureBlue800));\n    --cu-azureBlue700: rgb(var(--_cu-azureBlue700));\n    --cu-azureBlue600: rgb(var(--_cu-azureBlue600));\n    --cu-azureBlue600-16: rgb(var(--_cu-azureBlue600), .16);\n    --cu-azureBlue500: rgb(var(--_cu-azureBlue500));\n    --cu-azureBlue500-16: rgb(var(--_cu-azureBlue500), .16);\n    --cu-azureBlue400: rgb(var(--_cu-azureBlue400));\n    --cu-azureBlue300: rgb(var(--_cu-azureBlue300));\n    --cu-azureBlue200: rgb(var(--_cu-azureBlue200));\n    --cu-azureBlue100: rgb(var(--_cu-azureBlue100));\n    --cu-azureBlue50: rgb(var(--_cu-azureBlue50));\n    --cu-teal1100: rgb(var(--_cu-teal1100));\n    --cu-teal1000: rgb(var(--_cu-teal1000));\n    --cu-teal900: rgb(var(--_cu-teal900));\n    --cu-teal800: rgb(var(--_cu-teal800));\n    --cu-teal700: rgb(var(--_cu-teal700));\n    --cu-teal600: rgb(var(--_cu-teal600));\n    --cu-teal600-16: rgb(var(--_cu-teal600), .16);\n    --cu-teal500: rgb(var(--_cu-teal500));\n    --cu-teal500-16: rgb(var(--_cu-teal500), .16);\n    --cu-teal400: rgb(var(--_cu-teal400));\n    --cu-teal300: rgb(var(--_cu-teal300));\n    --cu-teal200: rgb(var(--_cu-teal200));\n    --cu-teal100: rgb(var(--_cu-teal100));\n    --cu-teal50: rgb(var(--_cu-teal50));\n    --cu-mint1100: rgb(var(--_cu-mint1100));\n    --cu-mint1000: rgb(var(--_cu-mint1000));\n    --cu-mint900: rgb(var(--_cu-mint900));\n    --cu-mint800: rgb(var(--_cu-mint800));\n    --cu-mint700: rgb(var(--_cu-mint700));\n    --cu-mint600: rgb(var(--_cu-mint600));\n    --cu-mint600-16: rgb(var(--_cu-mint600), .16);\n    --cu-mint500: rgb(var(--_cu-mint500));\n    --cu-mint500-16: rgb(var(--_cu-mint500), .16);\n    --cu-mint400: rgb(var(--_cu-mint400));\n    --cu-mint300: rgb(var(--_cu-mint300));\n    --cu-mint200: rgb(var(--_cu-mint200));\n    --cu-mint100: rgb(var(--_cu-mint100));\n    --cu-mint50: rgb(var(--_cu-mint50));\n    --cu-orange1100: rgb(var(--_cu-orange1100));\n    --cu-orange1000: rgb(var(--_cu-orange1000));\n    --cu-orange900: rgb(var(--_cu-orange900));\n    --cu-orange800: rgb(var(--_cu-orange800));\n    --cu-orange700: rgb(var(--_cu-orange700));\n    --cu-orange600: rgb(var(--_cu-orange600));\n    --cu-orange600-16: rgb(var(--_cu-orange600), .16);\n    --cu-orange500: rgb(var(--_cu-orange500));\n    --cu-orange500-16: rgb(var(--_cu-orange500), .16);\n    --cu-orange400: rgb(var(--_cu-orange400));\n    --cu-orange300: rgb(var(--_cu-orange300));\n    --cu-orange200: rgb(var(--_cu-orange200));\n    --cu-orange100: rgb(var(--_cu-orange100));\n    --cu-orange50: rgb(var(--_cu-orange50));\n    --cu-pink1100: rgb(var(--_cu-pink1100));\n    --cu-pink1000: rgb(var(--_cu-pink1000));\n    --cu-pink900: rgb(var(--_cu-pink900));\n    --cu-pink800: rgb(var(--_cu-pink800));\n    --cu-pink700: rgb(var(--_cu-pink700));\n    --cu-pink600: rgb(var(--_cu-pink600));\n    --cu-pink600-16: rgb(var(--_cu-pink600), .16);\n    --cu-pink500: rgb(var(--_cu-pink500));\n    --cu-pink500-16: rgb(var(--_cu-pink500), .16);\n    --cu-pink400: rgb(var(--_cu-pink400));\n    --cu-pink300: rgb(var(--_cu-pink300));\n    --cu-pink200: rgb(var(--_cu-pink200));\n    --cu-pink100: rgb(var(--_cu-pink100));\n    --cu-pink50: rgb(var(--_cu-pink50));\n    --cu-violet1100: rgb(var(--_cu-violet1100));\n    --cu-violet1000: rgb(var(--_cu-violet1000));\n    --cu-violet900: rgb(var(--_cu-violet900));\n    --cu-violet800: rgb(var(--_cu-violet800));\n    --cu-violet700: rgb(var(--_cu-violet700));\n    --cu-violet600: rgb(var(--_cu-violet600));\n    --cu-violet600-16: rgb(var(--_cu-violet600), .16);\n    --cu-violet500: rgb(var(--_cu-violet500));\n    --cu-violet500-16: rgb(var(--_cu-violet500), .16);\n    --cu-violet400: rgb(var(--_cu-violet400));\n    --cu-violet300: rgb(var(--_cu-violet300));\n    --cu-violet200: rgb(var(--_cu-violet200));\n    --cu-violet100: rgb(var(--_cu-violet100));\n    --cu-violet50: rgb(var(--_cu-violet50));\n    --cu-brown1100: rgb(var(--_cu-brown1100));\n    --cu-brown1000: rgb(var(--_cu-brown1000));\n    --cu-brown900: rgb(var(--_cu-brown900));\n    --cu-brown800: rgb(var(--_cu-brown800));\n    --cu-brown700: rgb(var(--_cu-brown700));\n    --cu-brown600: rgb(var(--_cu-brown600));\n    --cu-brown600-16: rgb(var(--_cu-brown600), .16);\n    --cu-brown500: rgb(var(--_cu-brown500));\n    --cu-brown500-16: rgb(var(--_cu-brown500), .16);\n    --cu-brown400: rgb(var(--_cu-brown400));\n    --cu-brown300: rgb(var(--_cu-brown300));\n    --cu-brown200: rgb(var(--_cu-brown200));\n    --cu-brown100: rgb(var(--_cu-brown100));\n    --cu-brown50: rgb(var(--_cu-brown50));\n    --cu-black1100: rgb(var(--_cu-black1100));\n    --cu-black1000: rgb(var(--_cu-black1000));\n    --cu-black900: rgb(var(--_cu-black900));\n    --cu-black800: rgb(var(--_cu-black800));\n    --cu-black700: rgb(var(--_cu-black700));\n    --cu-black600: rgb(var(--_cu-black600));\n    --cu-black600-16: rgb(var(--_cu-black600), .16);\n    --cu-black500: rgb(var(--_cu-black500));\n    --cu-black500-16: rgb(var(--_cu-black500), .16);\n    --cu-black400: rgb(var(--_cu-black400));\n    --cu-black300: rgb(var(--_cu-black300));\n    --cu-black200: rgb(var(--_cu-black200));\n    --cu-black100: rgb(var(--_cu-black100));\n    --cu-black50: rgb(var(--_cu-black50))\n}\n\nbody {\n    --rem-divisor: 16;\n    --rem-return-unit: 1rem\n}\n\nbody {\n    --cu-size-1: calc(4 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-2: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-3: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-4: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-5: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-6: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-7: calc(28 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-8: calc(32 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-9: calc(36 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-10: calc(40 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-11: calc(44 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-size-12: calc(48 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-1: calc(2 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-2: calc(4 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-3: calc(6 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-4: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-5: calc(10 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-6: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-7: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-8: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-9: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-radii-round: calc(666 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-border-size-1: 1px;\n    --cu-border-size-2: 2px\n}\n\nbody {\n    --cu-font-family: -apple-system, \"BlinkMacSystemFont\", \"Segoe UI\", \"Helvetica\", \"Apple Color Emoji\", \"Arial\", sans-serif, \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n    --cu-font-weight-regular: 400;\n    --cu-font-weight-medium: 500;\n    --cu-font-weight-semibold: 600;\n    --cu-font-weight-bold: 700;\n    --cu-font-size-1: calc(6 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-2: calc(8 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-3: calc(10 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-4: calc(11 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-5: calc(12 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-6: calc(14 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-7: calc(16 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-8: calc(18 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-9: calc(20 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-10: calc(22 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-11: calc(24 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-12: calc(28 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-13: calc(32 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-14: calc(36 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-font-size-15: calc(40 / var(--rem-divisor) * var(--rem-return-unit));\n    --cu-label-weight: var(--cu-font-weight-regular);\n    --cu-label-weight-strong: var(--cu-font-weight-medium);\n    --cu-label-large-font-size: var(--cu-font-size-8);\n    --cu-label-large-line-height: 1.33;\n    --cu-label-medium-font-size: var(--cu-font-size-7);\n    --cu-label-medium-line-height: 1.25;\n    --cu-label-small-font-size: var(--cu-font-size-6);\n    --cu-label-small-line-height: 1.14;\n    --cu-label-xsmall-font-size: var(--cu-font-size-5);\n    --cu-label-xsmall-line-height: 1.33;\n    --cu-paragraph-weight: var(--cu-font-weight-regular);\n    --cu-paragraph-weight-strong: var(--cu-font-weight-medium);\n    --cu-paragraph-line-height: 1.5;\n    --cu-paragraph-large-font-size: var(--cu-font-size-7);\n    --cu-paragraph-large-line-height: var(--cu-paragraph-line-height);\n    --cu-paragraph-medium-font-size: var(--cu-font-size-6);\n    --cu-paragraph-medium-line-height: var(--cu-paragraph-line-height);\n    --cu-paragraph-small-font-size: var(--cu-font-size-5);\n    --cu-paragraph-small-line-height: var(--cu-paragraph-line-height);\n    --cu-heading-weight: var(--cu-font-weight-semibold);\n    --cu-heading-line-height: 1.5;\n    --cu-heading-h1-font-size: var(--cu-font-size-15);\n    --cu-heading-h2-font-size: var(--cu-font-size-13);\n    --cu-heading-h3-font-size: var(--cu-font-size-11);\n    --cu-heading-h4-font-size: var(--cu-font-size-9);\n    --cu-heading-h5-font-size: var(--cu-font-size-8);\n    --cu-heading-h6-font-size: var(--cu-font-size-7);\n    --cu-heading-xxsmall-font-size: var(--cu-font-size-6);\n    --cu-heading-xxsmall-line-height: var(--cu-heading-line-height);\n    --cu-heading-caption-font-size: var(--cu-font-size-4);\n    --cu-heading-caption-line-height: var(--cu-heading-line-height)\n}\n\nbody:not(.cu-purple,.cu-neonBlue,.cu-azureBlue,.cu-teal,.cu-mint,.cu-orange,.cu-pink,.cu-violet,.cu-brown,.cu-black,.cu-custom) {\n    --cu-background-primary: var(--theme-main-color, #7b68ee);\n    --cu-background-primary-hover: var(--theme-main-color-dark, #5f48ea);\n    --cu-background-primary-pressed: var(--theme-main-color-dark, #5f48ea);\n    --cu-background-primary-disabled: var(--theme-main-color-light, #d3cdf9);\n    --cu-background-primary-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .12 );\n    --cu-background-primary-on-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .18 );\n    --cu-content-primary: var(--theme-main-color, #7b68ee);\n    --cu-border-primary: var(--theme-main-color, #7b68ee);\n    --cu-border-primary-focus: var(--theme-main-color, #7b68ee);\n    --cu-effect-primary: rgb(var(--theme-main-color-rgb, 123, 104, 238), .2);\n    --cu-link-primary: var(--theme-main-color, #7b68ee);\n    --cu-link-primary-hover: var(--theme-main-color-dark, #5f48ea)\n}\n\nbody.dark-theme:not(.cu-purple,.cu-neonBlue,.cu-azureBlue,.cu-teal,.cu-mint,.cu-orange,.cu-pink,.cu-violet,.cu-brown,.cu-black,.cu-custom),.dark-sidebar {\n    --cu-background-primary: var(--theme-main-color, #7b68ee);\n    --cu-background-primary-hover: var(--theme-main-color-dark, #5f48ea);\n    --cu-background-primary-pressed: var(--theme-main-color, #7b68ee);\n    --cu-background-primary-disabled: rgb( var(--theme-main-color-rgb, 123, 104, 238), .5 );\n    --cu-background-primary-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .22 );\n    --cu-background-primary-on-subtle: rgb( var(--theme-main-color-rgb, 123, 104, 238), .3 );\n    --cu-content-primary: var(--theme-main-color, #7b68ee);\n    --cu-border-primary: var(--theme-main-color, #7b68ee);\n    --cu-border-primary-focus: var(--theme-main-color, #7b68ee);\n    --cu-effect-primary: rgb(var(--theme-main-color-rgb, 123, 104, 238), .2);\n    --cu-link-primary: var(--theme-main-color, #7b68ee);\n    --cu-link-primary-hover: var(--theme-main-color-dark, #5f48ea)\n}\n\nbody.dark-theme,.dark-sidebar {\n    --cu-background-main: var(--cu-grey1000);\n    --cu-background-main-hover: var(--cu-grey900);\n    --cu-background-main-hover-strong: var(--cu-grey800);\n    --cu-background-main-pressed: var(--cu-grey700);\n    --cu-background-main-offset: var(--cu-grey900);\n    --cu-background-main-inverse: var(--cu-white);\n    --cu-background-main-inverse-offset: var(--cu-grey700);\n    --cu-background-subtle: var(--cu-grey900);\n    --cu-background-subtle-hover: var(--cu-grey800);\n    --cu-background-subtle-hover-strong: var(--cu-grey700);\n    --cu-background-subtle-pressed: var(--cu-grey600);\n    --cu-background-subtle-offset: var(--cu-grey1000);\n    --cu-background-on-main: var(--cu-grey800);\n    --cu-background-on-main-hover: var(--cu-grey700);\n    --cu-background-on-main-pressed: var(--cu-grey600);\n    --cu-background-on-subtle: var(--cu-grey700);\n    --cu-background-on-subtle-hover: var(--cu-grey600);\n    --cu-background-on-subtle-pressed: var(--cu-grey700);\n    --cu-background-success: var(--cu-green500);\n    --cu-background-success-subtle: var(--cu-green1100);\n    --cu-background-warning: var(--cu-yellow500);\n    --cu-background-warning-subtle: var(--cu-yellow1100);\n    --cu-background-danger: var(--cu-red500);\n    --cu-background-danger-hover: var(--cu-red400);\n    --cu-background-danger-pressed: var(--cu-red500);\n    --cu-background-danger-disabled: var(--cu-red900);\n    --cu-background-danger-subtle: var(--cu-red1100);\n    --cu-background-danger-subtle-hover: var(--cu-red1000);\n    --cu-background-danger-subtle-pressed: var(--cu-red1100);\n    --cu-background-tooltip: var(--cu-grey700);\n    --cu-background-modal: var(--cu-grey700);\n    --cu-background-on-dark-hover: var(--cu-white-10);\n    --cu-background-on-dark-pressed: var(--cu-white-20);\n    --cu-background-on-light-hover: var(--cu-grey1000-10);\n    --cu-background-on-light-pressed: var(--cu-grey1000-20);\n    --cu-background-notification: var(--cu-pink500);\n    --cu-content-default: var(--cu-grey100);\n    --cu-content-secondary: var(--cu-grey400);\n    --cu-content-tertiary: var(--cu-grey500);\n    --cu-content-placeholder: var(--cu-grey600);\n    --cu-content-disabled: var(--cu-grey700);\n    --cu-content-success: var(--cu-green400);\n    --cu-content-warning: var(--cu-yellow400);\n    --cu-content-danger: var(--cu-red400);\n    --cu-content-danger-disabled: var(--cu-red900);\n    --cu-content-on-dark: var(--cu-white);\n    --cu-content-on-dark-disabled: var(--cu-white-50);\n    --cu-content-on-dark-secondary: var(--cu-white-80);\n    --cu-content-on-light: var(--cu-grey1000);\n    --cu-content-on-light-disabled: var(--cu-grey1000-50);\n    --cu-border-default: var(--cu-grey800);\n    --cu-border-low-contrast: var(--cu-grey900);\n    --cu-border-high-contrast: var(--cu-grey700);\n    --cu-border-hover: var(--cu-grey600);\n    --cu-border-input: var(--cu-grey600);\n    --cu-border-input-hover: var(--cu-grey500);\n    --cu-border-success: var(--cu-green500);\n    --cu-border-danger: var(--cu-red500);\n    --cu-border-danger-focus: var(--cu-red500);\n    --cu-border-warning: var(--cu-yellow500);\n    --cu-border-on-dark: var(--cu-white-50);\n    --cu-border-on-dark-focus: var(--cu-white);\n    --cu-border-on-light: var(--cu-grey1000-50);\n    --cu-border-on-light-focus: var(--cu-grey1000);\n    --cu-effect-danger: var(--cu-red500-16);\n    --cu-effect-on-dark: var(--cu-white-16);\n    --cu-effect-on-light: var(--cu-grey1000-16);\n    --cu-link-hyperlink: var(--cu-neonBlue400);\n    --cu-link-hyperlink-hover: var(--cu-neonBlue300);\n    --cu-fab-icon-pink: var(--cu-pink500);\n    --cu-fab-icon-yellow: var(--cu-yellow500);\n    --cu-fab-icon-mint: var(--cu-mint500);\n    --cu-fab-icon-azure-blue: var(--cu-azureBlue500);\n    --cu-alert-banner-background: var(--cu-grey700);\n    --cu-alert-banner-background-subtle: var(--cu-grey900);\n    --cu-alert-banner-content: var(--cu-grey100);\n    --cu-alert-banner-content-dark: var(--cu-grey1000);\n    --cu-avatar-user-bg-purple: var(--cu-purple500);\n    --cu-avatar-user-bg-neon-blue: var(--cu-neonBlue500);\n    --cu-avatar-user-bg-azure-blue: var(--cu-azureBlue500);\n    --cu-avatar-user-bg-teal: var(--cu-teal500);\n    --cu-avatar-user-bg-mint: var(--cu-mint500);\n    --cu-avatar-user-bg-yellow: var(--cu-yellow500);\n    --cu-avatar-user-bg-orange: var(--cu-orange500);\n    --cu-avatar-user-bg-red: var(--cu-red500);\n    --cu-avatar-user-bg-pink: var(--cu-pink500);\n    --cu-avatar-user-bg-violet: var(--cu-violet500);\n    --cu-avatar-user-bg-brown: var(--cu-brown500);\n    --cu-avatar-user-bg-black: var(--cu-black500);\n    --cu-avatar-user-online: var(--cu-green400);\n    --cu-avatar-user-guest: var(--cu-grey400);\n    --cu-avatar-user-remove: var(--cu-grey700);\n    --cu-automations-usage-bg-neon-blue: var(--cu-neonBlue1100);\n    --cu-automations-usage-content-neon-blue: var(--cu-neonBlue400);\n    --cu-automations-usage-bg-teal: var(--cu-teal1100);\n    --cu-automations-usage-content-teal: var(--cu-teal400);\n    --cu-avatar-space-bg-purple: var(--cu-purple900);\n    --cu-avatar-space-bg-neon-blue: var(--cu-neonBlue900);\n    --cu-avatar-space-bg-azure-blue: var(--cu-azureBlue900);\n    --cu-avatar-space-bg-teal: var(--cu-teal900);\n    --cu-avatar-space-bg-mint: var(--cu-mint900);\n    --cu-avatar-space-bg-yellow: var(--cu-yellow900);\n    --cu-avatar-space-bg-orange: var(--cu-orange900);\n    --cu-avatar-space-bg-red: var(--cu-red900);\n    --cu-avatar-space-bg-pink: var(--cu-pink900);\n    --cu-avatar-space-bg-violet: var(--cu-violet900);\n    --cu-avatar-space-bg-brown: var(--cu-brown900);\n    --cu-avatar-space-bg-black: var(--cu-black900);\n    --cu-avatar-space-content-purple: var(--cu-purple100);\n    --cu-avatar-space-content-neon-blue: var(--cu-neonBlue100);\n    --cu-avatar-space-content-azure-blue: var(--cu-azureBlue100);\n    --cu-avatar-space-content-teal: var(--cu-teal100);\n    --cu-avatar-space-content-mint: var(--cu-mint100);\n    --cu-avatar-space-content-yellow: var(--cu-yellow100);\n    --cu-avatar-space-content-orange: var(--cu-orange100);\n    --cu-avatar-space-content-red: var(--cu-red100);\n    --cu-avatar-space-content-pink: var(--cu-pink100);\n    --cu-avatar-space-content-violet: var(--cu-violet100);\n    --cu-avatar-space-content-brown: var(--cu-brown100);\n    --cu-avatar-space-content-black: var(--cu-black100);\n    --cu-quill-banner-red: var(--cu-red1100);\n    --cu-quill-banner-orange: var(--cu-orange1100);\n    --cu-quill-banner-yellow: var(--cu-yellow1100);\n    --cu-quill-banner-azure-blue: var(--cu-azureBlue1100);\n    --cu-quill-banner-purple: var(--cu-purple1100);\n    --cu-quill-banner-pink: var(--cu-pink1100);\n    --cu-quill-banner-green: var(--cu-green1100);\n    --cu-quill-banner-black: var(--cu-black1100);\n    --cu-quill-banner-border-red: var(--cu-red500);\n    --cu-quill-banner-border-orange: var(--cu-orange500);\n    --cu-quill-banner-border-yellow: var(--cu-yellow500);\n    --cu-quill-banner-border-azure-blue: var(--cu-azureBlue500);\n    --cu-quill-banner-border-purple: var(--cu-purple500);\n    --cu-quill-banner-border-pink: var(--cu-pink500);\n    --cu-quill-banner-border-green: var(--cu-green500);\n    --cu-quill-banner-border-black: var(--cu-black500);\n    --cu-background-overlay: rgba(var(--_cu-grey1100), .64);\n    --cu-background-overlay-light: rgba(var(--_cu-grey1100), .32);\n    --cu-elevation-1: 0 calc(1 / var(--rem-divisor) * var(--rem-return-unit)) calc(4 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n    --cu-elevation-2: 0 calc(2 / var(--rem-divisor) * var(--rem-return-unit)) calc(8 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n    --cu-elevation-3: 0 calc(4 / var(--rem-divisor) * var(--rem-return-unit)) calc(16 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16);\n    --cu-elevation-4: 0 calc(6 / var(--rem-divisor) * var(--rem-return-unit)) calc(24 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .16)\n}\n\nbody.dark-theme.cu-purple,body.cu-purple .dark-sidebar {\n    --cu-background-primary: var(--cu-purple500);\n    --cu-background-primary-hover: var(--cu-purple400);\n    --cu-background-primary-pressed: var(--cu-purple500);\n    --cu-background-primary-disabled: var(--cu-purple900);\n    --cu-background-primary-subtle: var(--cu-purple1100);\n    --cu-background-primary-on-subtle: var(--cu-purple1000);\n    --cu-content-primary: var(--cu-purple400);\n    --cu-border-primary: var(--cu-purple500);\n    --cu-border-primary-focus: var(--cu-purple500);\n    --cu-effect-primary: var(--cu-purple500-16);\n    --cu-link-primary: var(--cu-purple400);\n    --cu-link-primary-hover: var(--cu-purple300)\n}\n\nbody.dark-theme.cu-neonBlue,body.cu-neonBlue .dark-sidebar {\n    --cu-background-primary: var(--cu-neonBlue500);\n    --cu-background-primary-hover: var(--cu-neonBlue400);\n    --cu-background-primary-pressed: var(--cu-neonBlue500);\n    --cu-background-primary-disabled: var(--cu-neonBlue900);\n    --cu-background-primary-subtle: var(--cu-neonBlue1100);\n    --cu-background-primary-on-subtle: var(--cu-neonBlue1000);\n    --cu-content-primary: var(--cu-neonBlue400);\n    --cu-border-primary: var(--cu-neonBlue500);\n    --cu-border-primary-focus: var(--cu-neonBlue500);\n    --cu-effect-primary: var(--cu-neonBlue500-16);\n    --cu-link-primary: var(--cu-neonBlue400);\n    --cu-link-primary-hover: var(--cu-neonBlue300)\n}\n\nbody.dark-theme.cu-azureBlue,body.cu-azureBlue .dark-sidebar {\n    --cu-background-primary: var(--cu-azureBlue500);\n    --cu-background-primary-hover: var(--cu-azureBlue400);\n    --cu-background-primary-pressed: var(--cu-azureBlue500);\n    --cu-background-primary-disabled: var(--cu-azureBlue900);\n    --cu-background-primary-subtle: var(--cu-azureBlue1100);\n    --cu-background-primary-on-subtle: var(--cu-azureBlue1000);\n    --cu-content-primary: var(--cu-azureBlue400);\n    --cu-border-primary: var(--cu-azureBlue500);\n    --cu-border-primary-focus: var(--cu-azureBlue500);\n    --cu-effect-primary: var(--cu-azureBlue500-16);\n    --cu-link-primary: var(--cu-azureBlue400);\n    --cu-link-primary-hover: var(--cu-azureBlue300)\n}\n\nbody.dark-theme.cu-teal,body.cu-teal .dark-sidebar {\n    --cu-background-primary: var(--cu-teal500);\n    --cu-background-primary-hover: var(--cu-teal400);\n    --cu-background-primary-pressed: var(--cu-teal500);\n    --cu-background-primary-disabled: var(--cu-teal900);\n    --cu-background-primary-subtle: var(--cu-teal1100);\n    --cu-background-primary-on-subtle: var(--cu-teal1000);\n    --cu-content-primary: var(--cu-teal400);\n    --cu-border-primary: var(--cu-teal500);\n    --cu-border-primary-focus: var(--cu-teal500);\n    --cu-effect-primary: var(--cu-teal500-16);\n    --cu-link-primary: var(--cu-teal400);\n    --cu-link-primary-hover: var(--cu-teal300)\n}\n\nbody.dark-theme.cu-mint,body.cu-mint .dark-sidebar {\n    --cu-background-primary: var(--cu-mint500);\n    --cu-background-primary-hover: var(--cu-mint400);\n    --cu-background-primary-pressed: var(--cu-mint500);\n    --cu-background-primary-disabled: var(--cu-mint900);\n    --cu-background-primary-subtle: var(--cu-mint1100);\n    --cu-background-primary-on-subtle: var(--cu-mint1000);\n    --cu-content-primary: var(--cu-mint400);\n    --cu-border-primary: var(--cu-mint500);\n    --cu-border-primary-focus: var(--cu-mint500);\n    --cu-effect-primary: var(--cu-mint500-16);\n    --cu-link-primary: var(--cu-mint400);\n    --cu-link-primary-hover: var(--cu-mint300)\n}\n\nbody.dark-theme.cu-orange,body.cu-orange .dark-sidebar {\n    --cu-background-primary: var(--cu-orange500);\n    --cu-background-primary-hover: var(--cu-orange400);\n    --cu-background-primary-pressed: var(--cu-orange500);\n    --cu-background-primary-disabled: var(--cu-orange900);\n    --cu-background-primary-subtle: var(--cu-orange1100);\n    --cu-background-primary-on-subtle: var(--cu-orange1000);\n    --cu-content-primary: var(--cu-orange400);\n    --cu-border-primary: var(--cu-orange500);\n    --cu-border-primary-focus: var(--cu-orange500);\n    --cu-effect-primary: var(--cu-orange500-16);\n    --cu-link-primary: var(--cu-orange400);\n    --cu-link-primary-hover: var(--cu-orange300)\n}\n\nbody.dark-theme.cu-pink,body.cu-pink .dark-sidebar {\n    --cu-background-primary: var(--cu-pink500);\n    --cu-background-primary-hover: var(--cu-pink400);\n    --cu-background-primary-pressed: var(--cu-pink500);\n    --cu-background-primary-disabled: var(--cu-pink900);\n    --cu-background-primary-subtle: var(--cu-pink1100);\n    --cu-background-primary-on-subtle: var(--cu-pink1000);\n    --cu-content-primary: var(--cu-pink400);\n    --cu-border-primary: var(--cu-pink500);\n    --cu-border-primary-focus: var(--cu-pink500);\n    --cu-effect-primary: var(--cu-pink500-16);\n    --cu-link-primary: var(--cu-pink400);\n    --cu-link-primary-hover: var(--cu-pink300)\n}\n\nbody.dark-theme.cu-violet,body.cu-violet .dark-sidebar {\n    --cu-background-primary: var(--cu-violet500);\n    --cu-background-primary-hover: var(--cu-violet400);\n    --cu-background-primary-pressed: var(--cu-violet500);\n    --cu-background-primary-disabled: var(--cu-violet900);\n    --cu-background-primary-subtle: var(--cu-violet1100);\n    --cu-background-primary-on-subtle: var(--cu-violet1000);\n    --cu-content-primary: var(--cu-violet400);\n    --cu-border-primary: var(--cu-violet500);\n    --cu-border-primary-focus: var(--cu-violet500);\n    --cu-effect-primary: var(--cu-violet500-16);\n    --cu-link-primary: var(--cu-violet400);\n    --cu-link-primary-hover: var(--cu-violet300)\n}\n\nbody.dark-theme.cu-brown,body.cu-brown .dark-sidebar {\n    --cu-background-primary: var(--cu-brown500);\n    --cu-background-primary-hover: var(--cu-brown400);\n    --cu-background-primary-pressed: var(--cu-brown500);\n    --cu-background-primary-disabled: var(--cu-brown900);\n    --cu-background-primary-subtle: var(--cu-brown1100);\n    --cu-background-primary-on-subtle: var(--cu-brown1000);\n    --cu-content-primary: var(--cu-brown400);\n    --cu-border-primary: var(--cu-brown500);\n    --cu-border-primary-focus: var(--cu-brown500);\n    --cu-effect-primary: var(--cu-brown500-16);\n    --cu-link-primary: var(--cu-brown400);\n    --cu-link-primary-hover: var(--cu-brown300)\n}\n\nbody.dark-theme.cu-black,body.cu-black .dark-sidebar {\n    --cu-background-primary: var(--cu-black500);\n    --cu-background-primary-hover: var(--cu-black400);\n    --cu-background-primary-pressed: var(--cu-black500);\n    --cu-background-primary-disabled: var(--cu-black900);\n    --cu-background-primary-subtle: var(--cu-black1100);\n    --cu-background-primary-on-subtle: var(--cu-black1000);\n    --cu-content-primary: var(--cu-black400);\n    --cu-border-primary: var(--cu-black500);\n    --cu-border-primary-focus: var(--cu-black500);\n    --cu-effect-primary: var(--cu-black500-16);\n    --cu-link-primary: var(--cu-black400);\n    --cu-link-primary-hover: var(--cu-black300)\n}\n\nbody.dark-theme.cu-custom,body.cu-custom .dark-sidebar {\n    --cu-custom1100: hsl(var(--cu-custom-hue, 83), 19%, 26%);\n    --cu-custom1000: hsl(var(--cu-custom-hue, 83), 27%, 33%);\n    --cu-custom900: hsl(var(--cu-custom-hue, 83), 32%, 40%);\n    --cu-custom800: hsl(var(--cu-custom-hue, 83), 35%, 47%);\n    --cu-custom700: hsl(var(--cu-custom-hue, 83), 44%, 54%);\n    --cu-custom600: hsl(var(--cu-custom-hue, 83), 67%, 63%);\n    --cu-custom600-16: hsl(var(--cu-custom-hue, 83), 67%, 63%, 16%);\n    --cu-custom500: hsl(var(--cu-custom-hue, 83), 67%, 70%);\n    --cu-custom500-16: hsl(var(--cu-custom-hue, 83), 67%, 70%, 16%);\n    --cu-custom400: hsl(var(--cu-custom-hue, 83), 67%, 76%);\n    --cu-custom300: hsl(var(--cu-custom-hue, 83), 67%, 82%);\n    --cu-custom200: hsl(var(--cu-custom-hue, 83), 67%, 88%);\n    --cu-custom100: hsl(var(--cu-custom-hue, 83), 67%, 94%);\n    --cu-custom50: hsl(var(--cu-custom-hue, 83), 73%, 97%);\n    --cu-background-primary: var(--cu-custom500);\n    --cu-background-primary-hover: var(--cu-custom400);\n    --cu-background-primary-pressed: var(--cu-custom500);\n    --cu-background-primary-disabled: var(--cu-custom900);\n    --cu-background-primary-subtle: var(--cu-custom1100);\n    --cu-background-primary-on-subtle: var(--cu-custom1000);\n    --cu-content-primary: var(--cu-custom400);\n    --cu-border-primary: var(--cu-custom500);\n    --cu-border-primary-focus: var(--cu-custom500);\n    --cu-effect-primary: var(--cu-custom500-16);\n    --cu-link-primary: var(--cu-custom400);\n    --cu-link-primary-hover: var(--cu-custom300)\n}\n\nbody {\n    --cu-background-main: var(--cu-white);\n    --cu-background-main-hover: var(--cu-grey50);\n    --cu-background-main-hover-strong: var(--cu-grey100);\n    --cu-background-main-pressed: var(--cu-grey200);\n    --cu-background-main-offset: var(--cu-white);\n    --cu-background-main-inverse: var(--cu-grey1000);\n    --cu-background-main-inverse-offset: var(--cu-grey1000);\n    --cu-background-subtle: var(--cu-grey50);\n    --cu-background-subtle-hover: var(--cu-grey100);\n    --cu-background-subtle-hover-strong: var(--cu-grey200);\n    --cu-background-subtle-pressed: var(--cu-grey300);\n    --cu-background-subtle-offset: var(--cu-grey50);\n    --cu-background-on-main: var(--cu-grey100);\n    --cu-background-on-main-hover: var(--cu-grey200);\n    --cu-background-on-main-pressed: var(--cu-grey300);\n    --cu-background-on-subtle: var(--cu-grey200);\n    --cu-background-on-subtle-hover: var(--cu-grey300);\n    --cu-background-on-subtle-pressed: var(--cu-grey200);\n    --cu-background-success: var(--cu-green600);\n    --cu-background-success-subtle: var(--cu-green50);\n    --cu-background-warning: var(--cu-yellow600);\n    --cu-background-warning-subtle: var(--cu-yellow50);\n    --cu-background-danger: var(--cu-red600);\n    --cu-background-danger-hover: var(--cu-red700);\n    --cu-background-danger-pressed: var(--cu-red800);\n    --cu-background-danger-disabled: var(--cu-red200);\n    --cu-background-danger-subtle: var(--cu-red50);\n    --cu-background-danger-subtle-hover: var(--cu-red100);\n    --cu-background-danger-subtle-pressed: var(--cu-red200);\n    --cu-background-tooltip: var(--cu-grey1000);\n    --cu-background-modal: var(--cu-grey1000);\n    --cu-background-on-dark-hover: var(--cu-white-10);\n    --cu-background-on-dark-pressed: var(--cu-white-20);\n    --cu-background-on-light-hover: var(--cu-grey1000-10);\n    --cu-background-on-light-pressed: var(--cu-grey1000-20);\n    --cu-background-notification: var(--cu-pink600);\n    --cu-content-default: var(--cu-grey1000);\n    --cu-content-secondary: var(--cu-grey700);\n    --cu-content-tertiary: var(--cu-grey600);\n    --cu-content-placeholder: var(--cu-grey500);\n    --cu-content-disabled: var(--cu-grey400);\n    --cu-content-success: var(--cu-green700);\n    --cu-content-warning: var(--cu-yellow700);\n    --cu-content-danger: var(--cu-red700);\n    --cu-content-danger-disabled: var(--cu-red300);\n    --cu-content-on-dark: var(--cu-white);\n    --cu-content-on-dark-disabled: var(--cu-white-50);\n    --cu-content-on-dark-secondary: var(--cu-white-80);\n    --cu-content-on-light: var(--cu-grey1000);\n    --cu-content-on-light-disabled: var(--cu-grey1000-50);\n    --cu-border-default: var(--cu-grey200);\n    --cu-border-low-contrast: rgb(var(--_cu-grey100));\n    --cu-border-high-contrast: rgb(var(--_cu-grey300));\n    --cu-border-hover: var(--cu-grey400);\n    --cu-border-input: var(--cu-grey500);\n    --cu-border-input-hover: var(--cu-grey600);\n    --cu-border-success: var(--cu-green600);\n    --cu-border-danger: var(--cu-red600);\n    --cu-border-danger-focus: var(--cu-red600);\n    --cu-border-warning: var(--cu-yellow600);\n    --cu-border-on-dark: var(--cu-white-50);\n    --cu-border-on-dark-focus: var(--cu-white);\n    --cu-border-on-light: var(--cu-grey1000-50);\n    --cu-border-on-light-focus: var(--cu-grey1000);\n    --cu-effect-danger: var(--cu-red600-16);\n    --cu-effect-on-dark: var(--cu-white-16);\n    --cu-effect-on-light: var(--cu-grey1000-16);\n    --cu-link-hyperlink: var(--cu-neonBlue600);\n    --cu-link-hyperlink-hover: var(--cu-neonBlue700);\n    --cu-fab-icon-pink: var(--cu-pink600);\n    --cu-fab-icon-yellow: var(--cu-yellow600);\n    --cu-fab-icon-mint: var(--cu-mint600);\n    --cu-fab-icon-azure-blue: var(--cu-azureBlue600);\n    --cu-alert-banner-background: var(--cu-grey1000);\n    --cu-alert-banner-background-subtle: var(--cu-grey100);\n    --cu-alert-banner-content: var(--cu-white);\n    --cu-alert-banner-content-dark: var(--cu-grey1000);\n    --cu-avatar-user-bg-purple: var(--cu-purple500);\n    --cu-avatar-user-bg-neon-blue: var(--cu-neonBlue500);\n    --cu-avatar-user-bg-azure-blue: var(--cu-azureBlue500);\n    --cu-avatar-user-bg-teal: var(--cu-teal500);\n    --cu-avatar-user-bg-mint: var(--cu-mint500);\n    --cu-avatar-user-bg-yellow: var(--cu-yellow500);\n    --cu-avatar-user-bg-orange: var(--cu-orange500);\n    --cu-avatar-user-bg-red: var(--cu-red500);\n    --cu-avatar-user-bg-pink: var(--cu-pink500);\n    --cu-avatar-user-bg-violet: var(--cu-violet500);\n    --cu-avatar-user-bg-brown: var(--cu-brown500);\n    --cu-avatar-user-bg-black: var(--cu-black500);\n    --cu-avatar-user-online: var(--cu-green500);\n    --cu-avatar-user-guest: var(--cu-grey400);\n    --cu-avatar-user-remove: var(--cu-grey1000);\n    --cu-automations-usage-bg-neon-blue: var(--cu-neonBlue50);\n    --cu-automations-usage-content-neon-blue: var(--cu-neonBlue700);\n    --cu-automations-usage-bg-teal: var(--cu-teal50);\n    --cu-automations-usage-content-teal: var(--cu-teal700);\n    --cu-avatar-space-bg-purple: var(--cu-purple200);\n    --cu-avatar-space-bg-neon-blue: var(--cu-neonBlue200);\n    --cu-avatar-space-bg-azure-blue: var(--cu-azureBlue200);\n    --cu-avatar-space-bg-teal: var(--cu-teal200);\n    --cu-avatar-space-bg-mint: var(--cu-mint200);\n    --cu-avatar-space-bg-yellow: var(--cu-yellow200);\n    --cu-avatar-space-bg-orange: var(--cu-orange200);\n    --cu-avatar-space-bg-red: var(--cu-red200);\n    --cu-avatar-space-bg-pink: var(--cu-pink200);\n    --cu-avatar-space-bg-violet: var(--cu-violet200);\n    --cu-avatar-space-bg-brown: var(--cu-brown200);\n    --cu-avatar-space-bg-black: var(--cu-black200);\n    --cu-avatar-space-content-purple: var(--cu-purple1000);\n    --cu-avatar-space-content-neon-blue: var(--cu-neonBlue1000);\n    --cu-avatar-space-content-azure-blue: var(--cu-azureBlue1000);\n    --cu-avatar-space-content-teal: var(--cu-teal1000);\n    --cu-avatar-space-content-mint: var(--cu-mint1000);\n    --cu-avatar-space-content-yellow: var(--cu-yellow1000);\n    --cu-avatar-space-content-orange: var(--cu-orange1000);\n    --cu-avatar-space-content-red: var(--cu-red1000);\n    --cu-avatar-space-content-pink: var(--cu-pink1000);\n    --cu-avatar-space-content-violet: var(--cu-violet1000);\n    --cu-avatar-space-content-brown: var(--cu-brown1000);\n    --cu-avatar-space-content-black: var(--cu-black1000);\n    --cu-quill-banner-red: var(--cu-red50);\n    --cu-quill-banner-orange: var(--cu-orange50);\n    --cu-quill-banner-yellow: var(--cu-yellow50);\n    --cu-quill-banner-azure-blue: var(--cu-azureBlue50);\n    --cu-quill-banner-purple: var(--cu-purple50);\n    --cu-quill-banner-pink: var(--cu-pink50);\n    --cu-quill-banner-green: var(--cu-green50);\n    --cu-quill-banner-black: var(--cu-black50);\n    --cu-quill-banner-border-red: var(--cu-red600);\n    --cu-quill-banner-border-orange: var(--cu-orange600);\n    --cu-quill-banner-border-yellow: var(--cu-yellow600);\n    --cu-quill-banner-border-azure-blue: var(--cu-azureBlue600);\n    --cu-quill-banner-border-purple: var(--cu-purple600);\n    --cu-quill-banner-border-pink: var(--cu-pink600);\n    --cu-quill-banner-border-green: var(--cu-green600);\n    --cu-quill-banner-border-black: var(--cu-black600);\n    --cu-background-overlay: rgba(var(--_cu-grey1000), .56);\n    --cu-background-overlay-light: rgba(var(--_cu-grey1000), .32);\n    --cu-elevation-1: 0 calc(1 / var(--rem-divisor) * var(--rem-return-unit)) calc(4 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n    --cu-elevation-2: 0 calc(2 / var(--rem-divisor) * var(--rem-return-unit)) calc(8 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n    --cu-elevation-3: 0 calc(4 / var(--rem-divisor) * var(--rem-return-unit)) calc(16 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08);\n    --cu-elevation-4: 0 calc(6 / var(--rem-divisor) * var(--rem-return-unit)) calc(24 / var(--rem-divisor) * var(--rem-return-unit)) rgba(0, 0, 0, .08)\n}\n\nbody.cu-purple {\n    --cu-background-primary: var(--cu-purple600);\n    --cu-background-primary-hover: var(--cu-purple700);\n    --cu-background-primary-pressed: var(--cu-purple800);\n    --cu-background-primary-disabled: var(--cu-purple200);\n    --cu-background-primary-subtle: var(--cu-purple50);\n    --cu-background-primary-on-subtle: var(--cu-purple100);\n    --cu-content-primary: var(--cu-purple700);\n    --cu-border-primary: var(--cu-purple600);\n    --cu-border-primary-focus: var(--cu-purple600);\n    --cu-effect-primary: var(--cu-purple600-16);\n    --cu-link-primary: var(--cu-purple600);\n    --cu-link-primary-hover: var(--cu-purple700)\n}\n\nbody.cu-neonBlue {\n    --cu-background-primary: var(--cu-neonBlue600);\n    --cu-background-primary-hover: var(--cu-neonBlue700);\n    --cu-background-primary-pressed: var(--cu-neonBlue800);\n    --cu-background-primary-disabled: var(--cu-neonBlue200);\n    --cu-background-primary-subtle: var(--cu-neonBlue50);\n    --cu-background-primary-on-subtle: var(--cu-neonBlue100);\n    --cu-content-primary: var(--cu-neonBlue700);\n    --cu-border-primary: var(--cu-neonBlue600);\n    --cu-border-primary-focus: var(--cu-neonBlue600);\n    --cu-effect-primary: var(--cu-neonBlue600-16);\n    --cu-link-primary: var(--cu-neonBlue600);\n    --cu-link-primary-hover: var(--cu-neonBlue700)\n}\n\nbody.cu-azureBlue {\n    --cu-background-primary: var(--cu-azureBlue600);\n    --cu-background-primary-hover: var(--cu-azureBlue700);\n    --cu-background-primary-pressed: var(--cu-azureBlue800);\n    --cu-background-primary-disabled: var(--cu-azureBlue200);\n    --cu-background-primary-subtle: var(--cu-azureBlue50);\n    --cu-background-primary-on-subtle: var(--cu-azureBlue100);\n    --cu-content-primary: var(--cu-azureBlue700);\n    --cu-border-primary: var(--cu-azureBlue600);\n    --cu-border-primary-focus: var(--cu-azureBlue600);\n    --cu-effect-primary: var(--cu-azureBlue600-16);\n    --cu-link-primary: var(--cu-azureBlue600);\n    --cu-link-primary-hover: var(--cu-azureBlue700)\n}\n\nbody.cu-teal {\n    --cu-background-primary: var(--cu-teal600);\n    --cu-background-primary-hover: var(--cu-teal700);\n    --cu-background-primary-pressed: var(--cu-teal800);\n    --cu-background-primary-disabled: var(--cu-teal200);\n    --cu-background-primary-subtle: var(--cu-teal50);\n    --cu-background-primary-on-subtle: var(--cu-teal100);\n    --cu-content-primary: var(--cu-teal700);\n    --cu-border-primary: var(--cu-teal600);\n    --cu-border-primary-focus: var(--cu-teal600);\n    --cu-effect-primary: var(--cu-teal600-16);\n    --cu-link-primary: var(--cu-teal600);\n    --cu-link-primary-hover: var(--cu-teal700)\n}\n\nbody.cu-mint {\n    --cu-background-primary: var(--cu-mint600);\n    --cu-background-primary-hover: var(--cu-mint700);\n    --cu-background-primary-pressed: var(--cu-mint800);\n    --cu-background-primary-disabled: var(--cu-mint200);\n    --cu-background-primary-subtle: var(--cu-mint50);\n    --cu-background-primary-on-subtle: var(--cu-mint100);\n    --cu-content-primary: var(--cu-mint700);\n    --cu-border-primary: var(--cu-mint600);\n    --cu-border-primary-focus: var(--cu-mint600);\n    --cu-effect-primary: var(--cu-mint600-16);\n    --cu-link-primary: var(--cu-mint600);\n    --cu-link-primary-hover: var(--cu-mint700)\n}\n\nbody.cu-orange {\n    --cu-background-primary: var(--cu-orange600);\n    --cu-background-primary-hover: var(--cu-orange700);\n    --cu-background-primary-pressed: var(--cu-orange800);\n    --cu-background-primary-disabled: var(--cu-orange200);\n    --cu-background-primary-subtle: var(--cu-orange50);\n    --cu-background-primary-on-subtle: var(--cu-orange100);\n    --cu-content-primary: var(--cu-orange700);\n    --cu-border-primary: var(--cu-orange600);\n    --cu-border-primary-focus: var(--cu-orange600);\n    --cu-effect-primary: var(--cu-orange600-16);\n    --cu-link-primary: var(--cu-orange600);\n    --cu-link-primary-hover: var(--cu-orange700)\n}\n\nbody.cu-pink {\n    --cu-background-primary: var(--cu-pink600);\n    --cu-background-primary-hover: var(--cu-pink700);\n    --cu-background-primary-pressed: var(--cu-pink800);\n    --cu-background-primary-disabled: var(--cu-pink200);\n    --cu-background-primary-subtle: var(--cu-pink50);\n    --cu-background-primary-on-subtle: var(--cu-pink100);\n    --cu-content-primary: var(--cu-pink700);\n    --cu-border-primary: var(--cu-pink600);\n    --cu-border-primary-focus: var(--cu-pink600);\n    --cu-effect-primary: var(--cu-pink600-16);\n    --cu-link-primary: var(--cu-pink600);\n    --cu-link-primary-hover: var(--cu-pink700)\n}\n\nbody.cu-violet {\n    --cu-background-primary: var(--cu-violet600);\n    --cu-background-primary-hover: var(--cu-violet700);\n    --cu-background-primary-pressed: var(--cu-violet800);\n    --cu-background-primary-disabled: var(--cu-violet200);\n    --cu-background-primary-subtle: var(--cu-violet50);\n    --cu-background-primary-on-subtle: var(--cu-violet100);\n    --cu-content-primary: var(--cu-violet700);\n    --cu-border-primary: var(--cu-violet600);\n    --cu-border-primary-focus: var(--cu-violet600);\n    --cu-effect-primary: var(--cu-violet600-16);\n    --cu-link-primary: var(--cu-violet600);\n    --cu-link-primary-hover: var(--cu-violet700)\n}\n\nbody.cu-brown {\n    --cu-background-primary: var(--cu-brown600);\n    --cu-background-primary-hover: var(--cu-brown700);\n    --cu-background-primary-pressed: var(--cu-brown800);\n    --cu-background-primary-disabled: var(--cu-brown200);\n    --cu-background-primary-subtle: var(--cu-brown50);\n    --cu-background-primary-on-subtle: var(--cu-brown100);\n    --cu-content-primary: var(--cu-brown700);\n    --cu-border-primary: var(--cu-brown600);\n    --cu-border-primary-focus: var(--cu-brown600);\n    --cu-effect-primary: var(--cu-brown600-16);\n    --cu-link-primary: var(--cu-brown600);\n    --cu-link-primary-hover: var(--cu-brown700)\n}\n\nbody.cu-black {\n    --cu-background-primary: var(--cu-black600);\n    --cu-background-primary-hover: var(--cu-black700);\n    --cu-background-primary-pressed: var(--cu-black800);\n    --cu-background-primary-disabled: var(--cu-black200);\n    --cu-background-primary-subtle: var(--cu-black50);\n    --cu-background-primary-on-subtle: var(--cu-black100);\n    --cu-content-primary: var(--cu-black700);\n    --cu-border-primary: var(--cu-black600);\n    --cu-border-primary-focus: var(--cu-black600);\n    --cu-effect-primary: var(--cu-black600-16);\n    --cu-link-primary: var(--cu-black600);\n    --cu-link-primary-hover: var(--cu-black700)\n}\n\nbody.cu-custom {\n    --cu-custom1100: hsl(var(--cu-custom-hue, 83), 24%, 25%);\n    --cu-custom1000: hsl(var(--cu-custom-hue, 83), 31%, 33%);\n    --cu-custom900: hsl(var(--cu-custom-hue, 83), 36%, 40%);\n    --cu-custom800: hsl(var(--cu-custom-hue, 83), 41%, 47%);\n    --cu-custom700: hsl(var(--cu-custom-hue, 83), 53%, 54%);\n    --cu-custom600: hsl(var(--cu-custom-hue, 83), 81%, 63%);\n    --cu-custom600-16: hsl(var(--cu-custom-hue, 83), 81%, 63%, 16%);\n    --cu-custom500: hsl(var(--cu-custom-hue, 83), 81%, 70%);\n    --cu-custom500-16: hsl(var(--cu-custom-hue, 83), 81%, 70%, 16%);\n    --cu-custom400: hsl(var(--cu-custom-hue, 83), 81%, 76%);\n    --cu-custom300: hsl(var(--cu-custom-hue, 83), 82%, 82%);\n    --cu-custom200: hsl(var(--cu-custom-hue, 83), 83%, 88%);\n    --cu-custom100: hsl(var(--cu-custom-hue, 83), 80%, 94%);\n    --cu-custom50: hsl(var(--cu-custom-hue, 83), 86%, 97%);\n    --cu-background-primary: var(--cu-custom600);\n    --cu-background-primary-hover: var(--cu-custom700);\n    --cu-background-primary-pressed: var(--cu-custom800);\n    --cu-background-primary-disabled: var(--cu-custom200);\n    --cu-background-primary-subtle: var(--cu-custom50);\n    --cu-background-primary-on-subtle: var(--cu-custom100);\n    --cu-content-primary: var(--cu-custom700);\n    --cu-border-primary: var(--cu-custom600);\n    --cu-border-primary-focus: var(--cu-custom600);\n    --cu-effect-primary: var(--cu-custom600-16);\n    --cu-link-primary: var(--cu-custom600);\n    --cu-link-primary-hover: var(--cu-custom700)\n}\n","@import './theme';\n@import './overrides';\n@import './sizes';\n@import './editor';\n@import './EditableHeading';\n@import './antd.css';\n\n/* @import './normalize.css'; */\n\n@import './overrides/prime/index.css';\n\n@import './overrides/antd.css';\n\n@import './overrides/exalidraw.css';\n@import './animations.css';\n\n\n\n\n/* @media screen and (min-width: 1400px) {\n  html {\n    font-size: 14px;\n\n  }\n}\n\n@media screen and (min-width: 1600px) {\n  html {\n    font-size: 14px;\n  }\n}\n\n@media screen and (min-width: 1900px) {\n  html {\n    font-size: 14px;\n  }\n} */\n\n\nhtml,\nbody {\n\n  margin: 0px;\n\n  padding: 0;\n  border: 0;\n\n  color: #505A64;\n  height: 100%;\n  -webkit-user-select: none;\n  position: relative;\n  overflow: hidden;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: cover;\n\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n   -webkit-font-smoothing: subpixel-antialiased !important; \n/*  -webkit-font-smoothing: antialiased;\n*/\n  text-size-adjust: 100%;\n  text-rendering: optimizeLegibility;\n\n  font : 62.5%/1.6 Graphik Regular,sans-serif;\n \n\n}\n\nbody {\n  cursor: var(--system-cursor-default), auto;\n\n\n\n  //-webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n}\n\na {\n  color: inherit;\n}\n\na,\nu {\n  text-decoration: none;\n}\ninput:-webkit-autofill::first-line {\n  font-size: 1.8rem !important;\n}\n\n\n* {\n  /*-webkit-font-smoothing: subpixel-antialiased;\n  -moz-osx-font-smoothing: grayscale;*/\n  box-sizing: border-box;\n}",".monday-style-menu--large {\n    width: unset;\n}\n\n.monday-style-dialog-content-wrapper {\n    z-index: 10001;\n}\n\n.p-dialog {\n    border-radius: 15px;\n   /*  border-radius: 12px; */\n    border: 1px solid rgba(255, 255, 255, 50%) !important;\n   /*  outline: rgba(120, 120, 120, 10%) solid 1px; */\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n    overflow: hidden;\n    background: white;\n    max-height: 100%\n}\n\n\ndiv.p-component-overlay.p-component-overlay-enter.p-dialog-mask {\n    z-index: 100 !important;\n}\n.p-confirm-dialog .p-dialog-content  {\n    padding: 20px !important;\n}\n\n.p-dialog-right .p-dialog  {\n    outline: rgba(120, 120, 120, 10%) solid 1px;\n    border-radius: 0px !important;\n     margin-top: 100px !important;\n     padding-bottom: 45px;\n }\n\n\n.p-dialog:before {\n    content: \"\";\n    position: absolute;\n    right: 0;\n    left: 0;\n    top: 0;\n    bottom: 0;\n    box-shadow: 0 0 130px 5px #00000054;\n}\n.p-dialog-top .p-dialog, .p-dialog-bottom .p-dialog, .p-dialog-left .p-dialog, .p-dialog-right .p-dialog, .p-dialog-top-left .p-dialog, .p-dialog-top-right .p-dialog, .p-dialog-bottom-left .p-dialog, .p-dialog-bottom-right .p-dialog {\n    margin: 0;\n}\n\n.p-dialog .p-dialog-header {\n    border-bottom: 1px solid #D6E4ED;\n    color: #212529;\n    padding: 1rem;\n    border-top-right-radius: 4px;\n    border-top-left-radius: 4px;\n    background: #F8FAFF;\n}\n.p-dialog .p-dialog-header .p-dialog-title {\n    font-size: 20px;\n    font-family: source sans pro semibold;\n    font-weight: normal;\n    line-height: 24px;\n    letter-spacing: normal;\n    color: #333D47;\n    flex-grow: 1;\n    word-break: break-word;\n}\n\n.p-dialog .p-dialog-content {\n    padding: 0px;\n}\n\n.p-dialog .p-dialog-footer {\n    border: none;\n}\n\n.p-overlaypanel:before {\n    border-width: 10px !important;\n}\n\n.p-overlaypanel:after {\n    border-width: 8px !important;\n}\n\n\n.p-overlaypanel:before {\n    border: solid transparent !important;\n    border-color: rgba(255, 255, 255, 0) !important;\n    border-bottom-color: #f2f2f2 !important;\n}\n\n.p-overlaypanel:after {\n    border: solid transparent !important;\n    border-color: rgba(255, 255, 255, 0) !important;\n    border-bottom-color: #ffffff !important;\n}\n\n.p-overlaypanel {\n    background: #ffffff !important;\n    color: rgba(0, 0, 0, 0.87) !important;\n    border: 0 none !important;\n    border-radius: 4px !important;\n    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;\n}\n\n.p-component-overlay {\n    background-color: rgba(46,67,84,.38) !important;\n}\n\n\n.p-fileupload .p-fileupload-content {\n    padding: 0px !important;\n    border: none !important;\n}\n\n\n.switch-group {\n    position: absolute;\n    width: 200%;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    transition: left 0.35s;\n    -webkit-transition: left 0.35s;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n}\n\n.switch-handle {\n    position: relative;\n    margin: 0 auto;\n    padding-top: 0px;\n    padding-bottom: 0px;\n    height: 100%;\n    width: 0px;\n    border-width: 0 1px;\n    background-color: #fff !important;\n}\n\n.switch.btn {\n    min-width: auto !important;\n    min-height: auto !important;\n}\n\n.switch.btn.btn-light,\n.switch.btn.btn-outline-light {\n    border: solid 1px rgba(0, 0, 0, .15);\n}\n\n.switch-on {\n    line-height: 20px;\n    font-size: 13px;\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 50%;\n    margin: 0;\n    border: 0;\n    border-radius: 0;\n}\n\n.switch-on.btn {\n    padding-right: 1.5rem;\n}\n\n.switch-off {\n    line-height: 20px;\n    font-size: 13px;\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 50%;\n    right: 0;\n    margin: 0;\n    border: 0;\n    border-radius: 0;\n    box-shadow: none;\n}\n\n.switch-off.btn {\n    padding-left: 1.5rem;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #d34416;\n    border: solid 1px #d34416;\n}\n\n.btn-primary:hover {\n    color: #fff;\n    background-color: #d34416;\n    border: solid 1px #d34416;\n}\n\n.btn-light {\n    color: #212529;\n    background-color: #f8f9fa;\n    border-color: #f8f9fa;\n}\n\n.btn {\n    display: inline-block;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    padding: 0.375rem 0.75rem;\n    border-radius: 0.25rem;\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\n}\n\n\n\ntd {\n    /* text-align: center; */\n    vertical-align: middle;\n}\n\n.tabs--wrapper {\n    padding: 0px !important;\n\n}\n\na.tab-inner.tabs-list_tab-inner {\n    padding: 0px !important;\n}\n\nli.tab--wrapper.tabs-list_tab--wrapper {\n    height: calc(100% - 2px) !important;\n    border-bottom: 0px !important;\n}\n\nli.tab--wrapper.tabs-list_tab--wrapper.tab-focus-visible-inset {\n    box-shadow: none;\n}\n\n/*HStack alignment bottom leading yap*/\nul.tabs-list {\n    height: 100% !important;\n}\n\n/* kanban */\n\nth.e-header-cells.e-template.e-toggle-header div.e-header-wrap {\n    height: 100%;\n    align-items: center;\n}\n\n.p-fileupload .p-fileupload-content {\n    background: transparent;\n}\n\n.monday-style-menu-title {\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    font-size: 11px;\n    font-weight: 600;\n    flex-grow: 1;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    color: #656f7d;\n    white-space: nowrap;\n}\n\n.monday-style-toast {\n    max-width: 500px;\n    z-index: 1000;\n}\n\n\ndiv.e-spinner-inner {\n    display: none !important;\n}\n\ndiv.e-spin-show.e-spinner-pane {\n    display: none !important;\n}\n\n\n@keyframes pop {\n    0% {\n      transform: scale(1);\n      box-shadow: var(--box-shadow);\n    }\n    100% {\n      transform: scale(var(--scale));\n      box-shadow: var(--box-shadow-picked-up);\n    }\n  }\n  \n  @keyframes fadeIn {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 1;\n    }\n  }\n  ",".size-xxs {\n    font-size: 14px;\n}",":root {\n    --editor-max-width: 100%;\n    --editor-font-size: 16px;\n    --editor-line-height: 1.5;\n    --editor-paragraph-spacing: 0rem;\n    --editor-font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\n}\n\n.ce-popover {\n    --width: 400px;\n}\n\n.codex-editor__loader {\n    display: none !important;\n  }\n\n/* .ce-block__content,\n.ce-toolbar__content {\n    max-width: var(--editor-max-width);\n}\n */\n .ce-block {\n    font-size: var(--editor-font-size);\n    font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\n\n }\n.ce-paragraph {\n    font-size: var(--editor-font-size);\n    font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\n\n}\n\n.codex-editor {\n    height: fit-content;\n    z-index: 100 !important;\n    color: #212526;\n    font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\n}\n\nh1.ce-header {\n    color: #212526;\n     font-weight: 500;\n     font-size: 28px;\n     line-height:  1.25;\n    \n }\n\nh2.ce-header {\n   color: #212526;\n    font-weight: 500;\n    font-size: 22px;\n    line-height:  1.25;\n   \n}\n\n.ce-toolbar__actions {\n    right: 100% !important;\n}\n.ce-toolbar__settings-btn {\n    color: gray !important;\n}\n.ce-toolbar__plus {\n    color: gray !important;\n}\n\n@media (min-width: 651px) {\n.codex-editor--narrow .ce-toolbox .ce-popover {\n    right: auto !important;\n}\n\n}\n\n.ce-block__content, .ce-toolbar__content {\n    max-width: 100% !important;\n}\n\n .codex-editor__redactor {\n    padding-bottom: 5px !important;\n} ",".editable-heading--wrapper{\n    width: auto !important;\n}\n\n/* .editable-heading-input{\n    height: 50px !important;\n} */\n/* .heading-component{\n    line-height: 48px !important;\n} */\n\n/* h4[data-testid='heading'] {\n    background-color: yellow;\n  } */\n\n/*   div[data-testid='dialog-content-container'] {\n    padding: 0px !important;\n  } \n   */\n\n   div.bottom.react-flow__attribution.react-flow__panel.right[data-message='Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev'][style='pointer-events: all;'] {\n    display: none !important;\n    }"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/animations.css":
-/*!**********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/animations.css ***!
-  \**********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@keyframes rubberBand {\n    0%{\n        transform: scaleX(1);\n    }\n    40%{\n        transform: scaleX(1.12) scaleY(0.75);\n    }\n    55%{\n        transform: scaleX(0.85) scaleY(1);\n    }\n    65%{\n        transform: scaleX(1.09) scaleY(0.85);\n    }\n    75%{\n        transform: scaleX(0.9)  scaleY(1);\n    }\n    90%{\n        transform: scaleX(1.05) scaleY(0.95);\n    }\n    100%{\n        transform: scaleX(1) scaleY(1);\n    }\n}", "",{"version":3,"sources":["webpack://./src/css/animations.css"],"names":[],"mappings":";AACA;IACI;QACI,oBAAoB;IACxB;IACA;QACI,oCAAoC;IACxC;IACA;QACI,iCAAiC;IACrC;IACA;QACI,oCAAoC;IACxC;IACA;QACI,iCAAiC;IACrC;IACA;QACI,oCAAoC;IACxC;IACA;QACI,8BAA8B;IAClC;AACJ","sourcesContent":["\n@keyframes rubberBand {\n    0%{\n        transform: scaleX(1);\n    }\n    40%{\n        transform: scaleX(1.12) scaleY(0.75);\n    }\n    55%{\n        transform: scaleX(0.85) scaleY(1);\n    }\n    65%{\n        transform: scaleX(1.09) scaleY(0.85);\n    }\n    75%{\n        transform: scaleX(0.9)  scaleY(1);\n    }\n    90%{\n        transform: scaleX(1.05) scaleY(0.95);\n    }\n    100%{\n        transform: scaleX(1) scaleY(1);\n    }\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/antd.css":
-/*!****************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/antd.css ***!
-  \****************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ant-picker-dropdown {\n    z-index: 1200 !important;\n}", "",{"version":3,"sources":["webpack://./src/css/antd.css"],"names":[],"mappings":"AAAA;IACI,wBAAwB;AAC5B","sourcesContent":[".ant-picker-dropdown {\n    z-index: 1200 !important;\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/antd.css":
-/*!**************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/antd.css ***!
-  \**************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ant-tree-switcher {\n    display: list-item ;\n}\n\n.ant-tree-title {\n    white-space: nowrap;\n}\n\n.ant-tree-iconEle {\n    vertical-align: sub !important;\n}", "",{"version":3,"sources":["webpack://./src/css/overrides/antd.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,8BAA8B;AAClC","sourcesContent":[".ant-tree-switcher {\n    display: list-item ;\n}\n\n.ant-tree-title {\n    white-space: nowrap;\n}\n\n.ant-tree-iconEle {\n    vertical-align: sub !important;\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/exalidraw.css":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/exalidraw.css ***!
-  \*******************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.App-menu__left.Island{\n    left: calc(100% - 220px);\n}\n\n.excalidraw.excalidraw-container {\n    overflow: visible;\n\n}\n\n.excalidraw .library-menu-browse-button {\n    display: none !important;\n}\n\n.excalidraw .library-menu-items-container__header--excal{\n    display: none !important;\n}\n\n\n\ndiv.dropdown-menu-group {\n    display: none !important;\n} \n\n", "",{"version":3,"sources":["webpack://./src/css/overrides/exalidraw.css"],"names":[],"mappings":";AACA;IACI,wBAAwB;AAC5B;;AAEA;IACI,iBAAiB;;AAErB;;AAEA;IACI,wBAAwB;AAC5B;;AAEA;IACI,wBAAwB;AAC5B;;;;AAIA;IACI,wBAAwB;AAC5B","sourcesContent":["\ndiv.App-menu__left.Island{\n    left: calc(100% - 220px);\n}\n\n.excalidraw.excalidraw-container {\n    overflow: visible;\n\n}\n\n.excalidraw .library-menu-browse-button {\n    display: none !important;\n}\n\n.excalidraw .library-menu-items-container__header--excal{\n    display: none !important;\n}\n\n\n\ndiv.dropdown-menu-group {\n    display: none !important;\n} \n\n"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/DataTable/index.css":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/DataTable/index.css ***!
-  \*******************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".p-datatable {\n    width: 100%;\n    border: none;\n}\n\n.p-column-title {\n  width: 100%;\n}\n .p-datatable .p-datatable-thead > tr > th {\n    /* font-size: 16px;\n    font-family: source sans pro semibold;\n    text-align: left;\n    padding: 1rem 1rem; */\n  /*   border: none;\n    border-width: 0 0 1px 0; */\n    font-weight: 500;\n    color: #343a40;\n    background: #F9FAFB;\n    transition: box-shadow 0.2s;\n    padding: 0px;\n} \n\n.p-datatable .p-datatable-tbody> tr > td {\n  padding-left: 8px !important;\n  padding-right: 8px !important;\n  height: 38px;\n  padding: 0px;\n} ", "",{"version":3,"sources":["webpack://./src/css/overrides/prime/DataTable/index.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;EACE,WAAW;AACb;CACC;IACG;;;yBAGqB;EACvB;8BAC4B;IAC1B,gBAAgB;IAChB,cAAc;IACd,mBAAmB;IACnB,2BAA2B;IAC3B,YAAY;AAChB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,YAAY;EACZ,YAAY;AACd","sourcesContent":[".p-datatable {\n    width: 100%;\n    border: none;\n}\n\n.p-column-title {\n  width: 100%;\n}\n .p-datatable .p-datatable-thead > tr > th {\n    /* font-size: 16px;\n    font-family: source sans pro semibold;\n    text-align: left;\n    padding: 1rem 1rem; */\n  /*   border: none;\n    border-width: 0 0 1px 0; */\n    font-weight: 500;\n    color: #343a40;\n    background: #F9FAFB;\n    transition: box-shadow 0.2s;\n    padding: 0px;\n} \n\n.p-datatable .p-datatable-tbody> tr > td {\n  padding-left: 8px !important;\n  padding-right: 8px !important;\n  height: 38px;\n  padding: 0px;\n} "],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/component.css":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/component.css ***!
-  \*************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.p-component  {\n    font-family: Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif\n}\n\n.p-component {\n     font-size: 1rem;\n}\n\n\n\n.p-dialog-content {\n    overflow: hidden;\n}", "",{"version":3,"sources":["webpack://./src/css/overrides/prime/component.css"],"names":[],"mappings":";AACA;IACI;AACJ;;AAEA;KACK,eAAe;AACpB;;;;AAIA;IACI,gBAAgB;AACpB","sourcesContent":["\n.p-component  {\n    font-family: Figtree,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif\n}\n\n.p-component {\n     font-size: 1rem;\n}\n\n\n\n.p-dialog-content {\n    overflow: hidden;\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/dropdown/index.css":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/dropdown/index.css ***!
-  \******************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* .p-dropdown-label.p-inputtext {\n    padding: 0px;\n}\n\n.p-dropdown-label-empty {\n    visibility: visible !important;\n}\n\n.p-dropdown:not(.p-disabled).p-focus {\n    outline: 0 none;\n    outline-offset: 0;\n    box-shadow: none !important;\n    border-color: none !important;\n  } */", "",{"version":3,"sources":["webpack://./src/css/overrides/prime/dropdown/index.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;KAaK","sourcesContent":["/* .p-dropdown-label.p-inputtext {\n    padding: 0px;\n}\n\n.p-dropdown-label-empty {\n    visibility: visible !important;\n}\n\n.p-dropdown:not(.p-disabled).p-focus {\n    outline: 0 none;\n    outline-offset: 0;\n    box-shadow: none !important;\n    border-color: none !important;\n  } */"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/index.css":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/index.css ***!
-  \*********************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! -!../../../../node_modules/css-loader/dist/cjs.js!./component.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/component.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_DataTable_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! -!../../../../node_modules/css-loader/dist/cjs.js!./DataTable/index.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/DataTable/index.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_dropdown_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! -!../../../../node_modules/css-loader/dist/cjs.js!./dropdown/index.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/dropdown/index.css");
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_selectbutton_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! -!../../../../node_modules/css-loader/dist/cjs.js!./selectbutton.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/selectbutton.css");
-// Imports
-
-
-
-
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_DataTable_index_css__WEBPACK_IMPORTED_MODULE_3__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_dropdown_index_css__WEBPACK_IMPORTED_MODULE_4__["default"]);
-___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_selectbutton_css__WEBPACK_IMPORTED_MODULE_5__["default"]);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/selectbutton.css":
-/*!****************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/overrides/prime/selectbutton.css ***!
-  \****************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n.p-selectbutton .p-button {\n    background: rgb(255, 255, 255);\n    border: 1px solid rgb(206, 212, 218);\n    color: rgb(73, 80, 87);\n    transition: background-color 0.2s ease 0s, color 0.2s ease 0s, border-color 0.2s ease 0s, box-shadow 0.2s ease 0s;\n}\n\n.p-selectbutton .p-button.p-highlight {\n    background: rgb(59, 130, 246);\n    border-color: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n}\n\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\n    background: rgb(233, 236, 239);\n    border-color: rgb(206, 212, 218);\n    color: rgb(73, 80, 87);\n}\n\n.p-button:enabled:hover, .p-button:not(button):not(a):not(.p-disabled):hover {\n    background: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n    border-color: rgb(59, 130, 246);\n}\n\n.p-selectbutton .p-button.p-highlight:hover {\n    background: rgb(59, 130, 246);\n    border-color: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n}", "",{"version":3,"sources":["webpack://./src/css/overrides/prime/selectbutton.css"],"names":[],"mappings":";;AAEA;IACI,8BAA8B;IAC9B,oCAAoC;IACpC,sBAAsB;IACtB,iHAAiH;AACrH;;AAEA;IACI,6BAA6B;IAC7B,+BAA+B;IAC/B,yBAAyB;AAC7B;;AAEA;IACI,8BAA8B;IAC9B,gCAAgC;IAChC,sBAAsB;AAC1B;;AAEA;IACI,6BAA6B;IAC7B,yBAAyB;IACzB,+BAA+B;AACnC;;AAEA;IACI,6BAA6B;IAC7B,+BAA+B;IAC/B,yBAAyB;AAC7B","sourcesContent":["\n\n.p-selectbutton .p-button {\n    background: rgb(255, 255, 255);\n    border: 1px solid rgb(206, 212, 218);\n    color: rgb(73, 80, 87);\n    transition: background-color 0.2s ease 0s, color 0.2s ease 0s, border-color 0.2s ease 0s, box-shadow 0.2s ease 0s;\n}\n\n.p-selectbutton .p-button.p-highlight {\n    background: rgb(59, 130, 246);\n    border-color: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n}\n\n.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {\n    background: rgb(233, 236, 239);\n    border-color: rgb(206, 212, 218);\n    color: rgb(73, 80, 87);\n}\n\n.p-button:enabled:hover, .p-button:not(button):not(a):not(.p-disabled):hover {\n    background: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n    border-color: rgb(59, 130, 246);\n}\n\n.p-selectbutton .p-button.p-highlight:hover {\n    background: rgb(59, 130, 246);\n    border-color: rgb(59, 130, 246);\n    color: rgb(255, 255, 255);\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-module.exports = function (cssWithMappingToString) {
-  var list = [];
-
-  // return the list of modules as css string
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = "";
-      var needLayer = typeof item[5] !== "undefined";
-      if (item[4]) {
-        content += "@supports (".concat(item[4], ") {");
-      }
-      if (item[2]) {
-        content += "@media ".concat(item[2], " {");
-      }
-      if (needLayer) {
-        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
-      }
-      content += cssWithMappingToString(item);
-      if (needLayer) {
-        content += "}";
-      }
-      if (item[2]) {
-        content += "}";
-      }
-      if (item[4]) {
-        content += "}";
-      }
-      return content;
-    }).join("");
-  };
-
-  // import a list of modules into the list
-  list.i = function i(modules, media, dedupe, supports, layer) {
-    if (typeof modules === "string") {
-      modules = [[null, modules, undefined]];
-    }
-    var alreadyImportedModules = {};
-    if (dedupe) {
-      for (var k = 0; k < this.length; k++) {
-        var id = this[k][0];
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-    for (var _k = 0; _k < modules.length; _k++) {
-      var item = [].concat(modules[_k]);
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        continue;
-      }
-      if (typeof layer !== "undefined") {
-        if (typeof item[5] === "undefined") {
-          item[5] = layer;
-        } else {
-          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
-          item[5] = layer;
-        }
-      }
-      if (media) {
-        if (!item[2]) {
-          item[2] = media;
-        } else {
-          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
-          item[2] = media;
-        }
-      }
-      if (supports) {
-        if (!item[4]) {
-          item[4] = "".concat(supports);
-        } else {
-          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
-          item[4] = supports;
-        }
-      }
-      list.push(item);
-    }
-  };
-  return list;
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
-/*!************************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
-  \************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-module.exports = function (item) {
-  var content = item[1];
-  var cssMapping = item[3];
-  if (!cssMapping) {
-    return content;
-  }
-  if (typeof btoa === "function") {
-    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
-    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
-    var sourceMapping = "/*# ".concat(data, " */");
-    return [content].concat([sourceMapping]).join("\n");
-  }
-  return [content].join("\n");
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-google-drive-picker/dist/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/react-google-drive-picker/dist/index.js ***!
-  \**************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __webpack_require__(/*! react */ "react");
-var typeDefs_1 = __webpack_require__(/*! ./typeDefs */ "./node_modules/react-google-drive-picker/dist/typeDefs.js");
-var useInjectScript_1 = __importDefault(__webpack_require__(/*! ./useInjectScript */ "./node_modules/react-google-drive-picker/dist/useInjectScript.js"));
-function useDrivePicker() {
-    var defaultScopes = ['https://www.googleapis.com/auth/drive.readonly'];
-    var _a = (0, useInjectScript_1.default)('https://apis.google.com/js/api.js'), loaded = _a[0], error = _a[1];
-    var _b = (0, useInjectScript_1.default)('https://accounts.google.com/gsi/client'), loadedGsi = _b[0], errorGsi = _b[1];
-    var _c = (0, react_1.useState)(false), pickerApiLoaded = _c[0], setpickerApiLoaded = _c[1];
-    var _d = (0, react_1.useState)(false), openAfterAuth = _d[0], setOpenAfterAuth = _d[1];
-    var _e = (0, react_1.useState)(false), authWindowVisible = _e[0], setAuthWindowVisible = _e[1];
-    var _f = (0, react_1.useState)(typeDefs_1.defaultConfiguration), config = _f[0], setConfig = _f[1];
-    var _g = (0, react_1.useState)(), authRes = _g[0], setAuthRes = _g[1];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    var picker;
-    // get the apis from googleapis
-    (0, react_1.useEffect)(function () {
-        if (loaded && !error && loadedGsi && !errorGsi && !pickerApiLoaded) {
-            loadApis();
-        }
-    }, [loaded, error, loadedGsi, errorGsi, pickerApiLoaded]);
-    // use effect to open picker after auth
-    (0, react_1.useEffect)(function () {
-        if (openAfterAuth &&
-            config.token &&
-            loaded &&
-            !error &&
-            loadedGsi &&
-            !errorGsi &&
-            pickerApiLoaded) {
-            createPicker(config);
-            setOpenAfterAuth(false);
-        }
-    }, [
-        openAfterAuth,
-        config.token,
-        loaded,
-        error,
-        loadedGsi,
-        errorGsi,
-        pickerApiLoaded,
-    ]);
-    // open the picker
-    var openPicker = function (config) {
-        // global scope given conf
-        setConfig(config);
-        // if we didnt get token generate token.
-        if (!config.token) {
-            var client = google.accounts.oauth2.initTokenClient({
-                client_id: config.clientId,
-                scope: (config.customScopes
-                    ? __spreadArray(__spreadArray([], defaultScopes, true), config.customScopes, true) : defaultScopes).join(' '),
-                callback: function (tokenResponse) {
-                    setAuthRes(tokenResponse);
-                    createPicker(__assign(__assign({}, config), { token: tokenResponse.access_token }));
-                },
-            });
-            client.requestAccessToken();
-        }
-        // if we have token and everything is loaded open the picker
-        if (config.token && loaded && !error && pickerApiLoaded) {
-            return createPicker(config);
-        }
-    };
-    // load the Drive picker api
-    var loadApis = function () {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        window.gapi.load('auth');
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        window.gapi.load('picker', { callback: onPickerApiLoad });
-    };
-    var onPickerApiLoad = function () {
-        setpickerApiLoaded(true);
-    };
-    var createPicker = function (_a) {
-        var token = _a.token, _b = _a.appId, appId = _b === void 0 ? '' : _b, _c = _a.supportDrives, supportDrives = _c === void 0 ? false : _c, developerKey = _a.developerKey, _d = _a.viewId, viewId = _d === void 0 ? 'DOCS' : _d, disabled = _a.disabled, multiselect = _a.multiselect, setOrigin = _a.setOrigin, _e = _a.showUploadView, showUploadView = _e === void 0 ? false : _e, showUploadFolders = _a.showUploadFolders, _f = _a.setParentFolder, setParentFolder = _f === void 0 ? '' : _f, viewMimeTypes = _a.viewMimeTypes, customViews = _a.customViews, _g = _a.locale, locale = _g === void 0 ? 'en' : _g, setIncludeFolders = _a.setIncludeFolders, setSelectFolderEnabled = _a.setSelectFolderEnabled, _h = _a.disableDefaultView, disableDefaultView = _h === void 0 ? false : _h, callbackFunction = _a.callbackFunction;
-        if (disabled)
-            return false;
-        var view = new google.picker.DocsView(google.picker.ViewId[viewId]);
-        if (viewMimeTypes)
-            view.setMimeTypes(viewMimeTypes);
-        if (setIncludeFolders)
-            view.setIncludeFolders(true);
-        if (setSelectFolderEnabled)
-            view.setSelectFolderEnabled(true);
-        var uploadView = new google.picker.DocsUploadView();
-        if (viewMimeTypes)
-            uploadView.setMimeTypes(viewMimeTypes);
-        if (showUploadFolders)
-            uploadView.setIncludeFolders(true);
-        if (setParentFolder)
-            uploadView.setParent(setParentFolder);
-        if (setParentFolder)
-            view.setParent(setParentFolder);
-        picker = new google.picker.PickerBuilder()
-            .setAppId(appId)
-            .setOAuthToken(token)
-            .setDeveloperKey(developerKey)
-            .setLocale(locale)
-            .setCallback(callbackFunction);
-        if (setOrigin) {
-            picker.setOrigin(setOrigin);
-        }
-        if (!disableDefaultView) {
-            picker.addView(view);
-        }
-        if (customViews) {
-            customViews.map(function (view) { return picker.addView(view); });
-        }
-        if (multiselect) {
-            picker.enableFeature(google.picker.Feature.MULTISELECT_ENABLED);
-        }
-        if (showUploadView)
-            picker.addView(uploadView);
-        if (supportDrives) {
-            picker.enableFeature(google.picker.Feature.SUPPORT_DRIVES);
-        }
-        picker.build().setVisible(true);
-        return true;
-    };
-    return [openPicker, authRes];
-}
-exports["default"] = useDrivePicker;
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "./node_modules/react-google-drive-picker/dist/typeDefs.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/react-google-drive-picker/dist/typeDefs.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.defaultConfiguration = void 0;
-exports.defaultConfiguration = {
-    clientId: '',
-    developerKey: '',
-    viewId: 'DOCS',
-    callbackFunction: function () { return null; },
-};
-//# sourceMappingURL=typeDefs.js.map
-
-/***/ }),
-
-/***/ "./node_modules/react-google-drive-picker/dist/useInjectScript.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/react-google-drive-picker/dist/useInjectScript.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __webpack_require__(/*! react */ "react");
-var injectorState = {
-    queue: {},
-    injectorMap: {},
-    scriptMap: {},
-};
-function useInjectScript(url) {
-    var _a = (0, react_1.useState)({
-        loaded: false,
-        error: false,
-    }), state = _a[0], setState = _a[1];
-    (0, react_1.useEffect)(function () {
-        var _a, _b, _c, _d, _e;
-        if (!((_a = injectorState.injectorMap) === null || _a === void 0 ? void 0 : _a[url])) {
-            injectorState.injectorMap[url] = 'init';
-        }
-        // check if the script is already cached
-        if (injectorState.injectorMap[url] === 'loaded') {
-            setState({
-                loaded: true,
-                error: false,
-            });
-            return;
-        }
-        // check if the script already errored
-        if (injectorState.injectorMap[url] === 'error') {
-            setState({
-                loaded: true,
-                error: true,
-            });
-            return;
-        }
-        var onScriptEvent = function (error) {
-            var _a, _b, _c, _d;
-            // Get all error or load functions and call them
-            if (error)
-                console.log('error loading the script');
-            (_b = (_a = injectorState.queue) === null || _a === void 0 ? void 0 : _a[url]) === null || _b === void 0 ? void 0 : _b.forEach(function (job) { return job(error); });
-            if (error && injectorState.scriptMap[url]) {
-                (_d = (_c = injectorState.scriptMap) === null || _c === void 0 ? void 0 : _c[url]) === null || _d === void 0 ? void 0 : _d.remove();
-                injectorState.injectorMap[url] = 'error';
-            }
-            else
-                injectorState.injectorMap[url] = 'loaded';
-            delete injectorState.scriptMap[url];
-        };
-        var stateUpdate = function (error) {
-            setState({
-                loaded: true,
-                error: error,
-            });
-        };
-        if (!((_b = injectorState.scriptMap) === null || _b === void 0 ? void 0 : _b[url])) {
-            injectorState.scriptMap[url] = document.createElement('script');
-            if (injectorState.scriptMap[url]) {
-                injectorState.scriptMap[url].src = url;
-                injectorState.scriptMap[url].async = true;
-                // append the script to the body
-                document.body.append(injectorState.scriptMap[url]);
-                injectorState.scriptMap[url].addEventListener('load', function () {
-                    return onScriptEvent(false);
-                });
-                injectorState.scriptMap[url].addEventListener('error', function () {
-                    return onScriptEvent(true);
-                });
-                injectorState.injectorMap[url] = 'loading';
-            }
-        }
-        if (!((_c = injectorState.queue) === null || _c === void 0 ? void 0 : _c[url])) {
-            injectorState.queue[url] = [stateUpdate];
-        }
-        else {
-            (_e = (_d = injectorState.queue) === null || _d === void 0 ? void 0 : _d[url]) === null || _e === void 0 ? void 0 : _e.push(stateUpdate);
-        }
-        // remove the event listeners
-        return function () {
-            var _a, _b;
-            //checks the main injector instance
-            //prevents Cannot read property 'removeEventListener' of null in hot reload
-            if (!injectorState.scriptMap[url])
-                return;
-            (_a = injectorState.scriptMap[url]) === null || _a === void 0 ? void 0 : _a.removeEventListener('load', function () {
-                return onScriptEvent(true);
-            });
-            (_b = injectorState.scriptMap[url]) === null || _b === void 0 ? void 0 : _b.removeEventListener('error', function () {
-                return onScriptEvent(true);
-            });
-        };
-    }, [url]);
-    return [state.loaded, state.error];
-}
-exports["default"] = useInjectScript;
-//# sourceMappingURL=useInjectScript.js.map
-
-/***/ }),
-
-/***/ "./node_modules/react-promise-suspense/build/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/react-promise-suspense/build/index.js ***!
-  \************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-var __values = (this && this.__values) || function(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-};
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-var deepEqual = __webpack_require__(/*! fast-deep-equal */ "./node_modules/react-promise-suspense/node_modules/fast-deep-equal/index.js");
-var promiseCaches = [];
-var usePromise = function (promise, inputs, lifespan) {
-    var e_1, _a;
-    if (lifespan === void 0) { lifespan = 0; }
-    try {
-        for (var promiseCaches_1 = __values(promiseCaches), promiseCaches_1_1 = promiseCaches_1.next(); !promiseCaches_1_1.done; promiseCaches_1_1 = promiseCaches_1.next()) {
-            var promiseCache_1 = promiseCaches_1_1.value;
-            if (deepEqual(inputs, promiseCache_1.inputs)) {
-                if (Object.prototype.hasOwnProperty.call(promiseCache_1, "error")) {
-                    throw promiseCache_1.error;
-                }
-                else if (Object.prototype.hasOwnProperty.call(promiseCache_1, "response")) {
-                    return promiseCache_1.response;
-                }
-                throw promiseCache_1.promise;
-            }
-        }
-    }
-    catch (e_1_1) { e_1 = { error: e_1_1 }; }
-    finally {
-        try {
-            if (promiseCaches_1_1 && !promiseCaches_1_1.done && (_a = promiseCaches_1.return)) _a.call(promiseCaches_1);
-        }
-        finally { if (e_1) throw e_1.error; }
-    }
-    var promiseCache = {
-        promise: promise.apply(void 0, __spreadArray([], __read(inputs), false)).then(function (response) {
-            promiseCache.response = response;
-        })
-            .catch(function (e) {
-            promiseCache.error = e;
-        })
-            .then(function () {
-            if (lifespan > 0) {
-                setTimeout(function () {
-                    var index = promiseCaches.indexOf(promiseCache);
-                    if (index !== -1) {
-                        promiseCaches.splice(index, 1);
-                    }
-                }, lifespan);
-            }
-        }),
-        inputs: inputs,
-    };
-    promiseCaches.push(promiseCache);
-    throw promiseCache.promise;
-};
-module.exports = usePromise;
-
-
-/***/ }),
-
-/***/ "./node_modules/react-promise-suspense/node_modules/fast-deep-equal/index.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/react-promise-suspense/node_modules/fast-deep-equal/index.js ***!
-  \***********************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-var isArray = Array.isArray;
-var keyList = Object.keys;
-var hasProp = Object.prototype.hasOwnProperty;
-
-module.exports = function equal(a, b) {
-  if (a === b) return true;
-
-  if (a && b && typeof a == 'object' && typeof b == 'object') {
-    var arrA = isArray(a)
-      , arrB = isArray(b)
-      , i
-      , length
-      , key;
-
-    if (arrA && arrB) {
-      length = a.length;
-      if (length != b.length) return false;
-      for (i = length; i-- !== 0;)
-        if (!equal(a[i], b[i])) return false;
-      return true;
-    }
-
-    if (arrA != arrB) return false;
-
-    var dateA = a instanceof Date
-      , dateB = b instanceof Date;
-    if (dateA != dateB) return false;
-    if (dateA && dateB) return a.getTime() == b.getTime();
-
-    var regexpA = a instanceof RegExp
-      , regexpB = b instanceof RegExp;
-    if (regexpA != regexpB) return false;
-    if (regexpA && regexpB) return a.toString() == b.toString();
-
-    var keys = keyList(a);
-    length = keys.length;
-
-    if (length !== keyList(b).length)
-      return false;
-
-    for (i = length; i-- !== 0;)
-      if (!hasProp.call(b, keys[i])) return false;
-
-    for (i = length; i-- !== 0;) {
-      key = keys[i];
-      if (!equal(a[key], b[key])) return false;
-    }
-
-    return true;
-  }
-
-  return a!==a && b!==b;
-};
-
-
-/***/ }),
-
-/***/ "./src/css/global.scss":
-/*!*****************************!*\
-  !*** ./src/css/global.scss ***!
-  \*****************************/
+/***/ "./src/Applets.ts":
+/*!************************!*\
+  !*** ./src/Applets.ts ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   Applets: () => (/* binding */ Applets)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_global_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./global.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/global.scss");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_global_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_global_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_global_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_global_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-var stylesInDOM = [];
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-  for (var i = 0; i < stylesInDOM.length; i++) {
-    if (stylesInDOM[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
-  return result;
-}
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var indexByIdentifier = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3],
-      supports: item[4],
-      layer: item[5]
-    };
-    if (indexByIdentifier !== -1) {
-      stylesInDOM[indexByIdentifier].references++;
-      stylesInDOM[indexByIdentifier].updater(obj);
-    } else {
-      var updater = addElementStyle(obj, options);
-      options.byIndex = i;
-      stylesInDOM.splice(i, 0, {
-        identifier: identifier,
-        updater: updater,
-        references: 1
-      });
-    }
-    identifiers.push(identifier);
-  }
-  return identifiers;
-}
-function addElementStyle(obj, options) {
-  var api = options.domAPI(options);
-  api.update(obj);
-  var updater = function updater(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
-        return;
-      }
-      api.update(obj = newObj);
-    } else {
-      api.remove();
-    }
-  };
-  return updater;
-}
-module.exports = function (list, options) {
-  options = options || {};
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDOM[index].references--;
-    }
-    var newLastIdentifiers = modulesToDom(newList, options);
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-      var _index = getIndexByIdentifier(_identifier);
-      if (stylesInDOM[_index].references === 0) {
-        stylesInDOM[_index].updater();
-        stylesInDOM.splice(_index, 1);
-      }
-    }
-    lastIdentifiers = newLastIdentifiers;
-  };
-};
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
-  \********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-var memo = {};
-
-/* istanbul ignore next  */
-function getTarget(target) {
-  if (typeof memo[target] === "undefined") {
-    var styleTarget = document.querySelector(target);
-
-    // Special case to return head of iframe instead of iframe itself
-    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-      try {
-        // This will throw an exception if access to iframe is blocked
-        // due to cross-origin restrictions
-        styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
-        // istanbul ignore next
-        styleTarget = null;
-      }
-    }
-    memo[target] = styleTarget;
-  }
-  return memo[target];
-}
-
-/* istanbul ignore next  */
-function insertBySelector(insert, style) {
-  var target = getTarget(insert);
-  if (!target) {
-    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-  }
-  target.appendChild(style);
-}
-module.exports = insertBySelector;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
-  \**********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function insertStyleElement(options) {
-  var element = document.createElement("style");
-  options.setAttributes(element, options.attributes);
-  options.insert(element, options.options);
-  return element;
-}
-module.exports = insertStyleElement;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
-  \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function setAttributesWithoutAttributes(styleElement) {
-  var nonce =  true ? __webpack_require__.nc : 0;
-  if (nonce) {
-    styleElement.setAttribute("nonce", nonce);
-  }
-}
-module.exports = setAttributesWithoutAttributes;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function apply(styleElement, options, obj) {
-  var css = "";
-  if (obj.supports) {
-    css += "@supports (".concat(obj.supports, ") {");
-  }
-  if (obj.media) {
-    css += "@media ".concat(obj.media, " {");
-  }
-  var needLayer = typeof obj.layer !== "undefined";
-  if (needLayer) {
-    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
-  }
-  css += obj.css;
-  if (needLayer) {
-    css += "}";
-  }
-  if (obj.media) {
-    css += "}";
-  }
-  if (obj.supports) {
-    css += "}";
-  }
-  var sourceMap = obj.sourceMap;
-  if (sourceMap && typeof btoa !== "undefined") {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  }
-
-  // For old IE
-  /* istanbul ignore if  */
-  options.styleTagTransform(css, styleElement, options.options);
-}
-function removeStyleElement(styleElement) {
-  // istanbul ignore if
-  if (styleElement.parentNode === null) {
-    return false;
-  }
-  styleElement.parentNode.removeChild(styleElement);
-}
-
-/* istanbul ignore next  */
-function domAPI(options) {
-  if (typeof document === "undefined") {
-    return {
-      update: function update() {},
-      remove: function remove() {}
-    };
-  }
-  var styleElement = options.insertStyleElement(options);
-  return {
-    update: function update(obj) {
-      apply(styleElement, options, obj);
+var Applets = [
+    {
+        name: 'Custom Applet',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Custom Applet",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
     },
-    remove: function remove() {
-      removeStyleElement(styleElement);
-    }
-  };
-}
-module.exports = domAPI;
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
-  \*********************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/* istanbul ignore next  */
-function styleTagTransform(css, styleElement) {
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css;
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild);
-    }
-    styleElement.appendChild(document.createTextNode(css));
-  }
-}
-module.exports = styleTagTransform;
-
-/***/ }),
-
-/***/ "./node_modules/toggle-selection/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/toggle-selection/index.js ***!
-  \************************************************/
-/***/ ((module) => {
-
-
-module.exports = function () {
-  var selection = document.getSelection();
-  if (!selection.rangeCount) {
-    return function () {};
-  }
-  var active = document.activeElement;
-
-  var ranges = [];
-  for (var i = 0; i < selection.rangeCount; i++) {
-    ranges.push(selection.getRangeAt(i));
-  }
-
-  switch (active.tagName.toUpperCase()) { // .toUpperCase handles XHTML
-    case 'INPUT':
-    case 'TEXTAREA':
-      active.blur();
-      break;
-
-    default:
-      active = null;
-      break;
-  }
-
-  selection.removeAllRanges();
-  return function () {
-    selection.type === 'Caret' &&
-    selection.removeAllRanges();
-
-    if (!selection.rangeCount) {
-      ranges.forEach(function(range) {
-        selection.addRange(range);
-      });
-    }
-
-    active &&
-    active.focus();
-  };
-};
-
-
-/***/ }),
-
-/***/ "./src/CelminoController.ts":
-/*!**********************************!*\
-  !*** ./src/CelminoController.ts ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CelminoController": () => (/* binding */ CelminoController),
-/* harmony export */   "Guard": () => (/* binding */ Guard)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/WaitViewClass */ "./src/views/WaitViewClass.ts");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-
-
-
-function Guard() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
-    return function GuardClassConstructor(constructor) {
-        return /** @class */ (function (_super) {
-            __extends(class_1, _super);
-            function class_1() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            class_1.prototype.GetDepends = function () {
-                var deps = args.map(function (arg) { return arg(); });
-                return deps;
-            };
-            return class_1;
-        }(constructor));
-    };
-}
-var CelminoController = /** @class */ (function (_super) {
-    __extends(CelminoController, _super);
-    function CelminoController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    CelminoController.prototype.LoadViewInternal = function () {
-        var _this = this;
-        var wait = false;
-        var result = _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is["function"](this.GetDepends) ? this.GetDepends() : [];
-        for (var i = 0; i < result.length; i++) {
-            if (result[i] instanceof _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_1__.WaitViewClass) {
-                wait = true;
-            }
-            else if (result[i] instanceof _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteClass) {
-                return result[i];
-            }
-        }
-        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-            return (_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack.apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(result)(function (item) { return item; }), false), [wait ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() : _this.LoadView()], false)));
-        });
-    };
-    return CelminoController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/NewBiosController.tsx":
-/*!***********************************!*\
-  !*** ./src/NewBiosController.tsx ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BiosMainController": () => (/* binding */ BiosMainController),
-/* harmony export */   "MainController": () => (/* binding */ MainController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/+routes */ "./src/routes/+routes.ts");
-/* harmony import */ var react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-google-drive-picker */ "./node_modules/react-google-drive-picker/dist/index.js");
-/* harmony import */ var react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-
-
-
-
-var queryClient = new _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.QueryClient({
-    defaultOptions: {
-        queries: {
-            staleTime: 5000 * 60 * 1000,
-            retry: false
-        }
-    },
-});
-var BiosMainController = /** @class */ (function (_super) {
-    __extends(BiosMainController, _super);
-    function BiosMainController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    BiosMainController.prototype.LoadView = function () {
-        return ((0,_routes_routes__WEBPACK_IMPORTED_MODULE_1__.Routes)());
-    };
-    return BiosMainController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-var AUTH_TOKEN = 'ya29.a0AfB_byAwIWHhaL_zqPcDldDQYPhva6cfApDLzHHE3Yjp54ajKeERKNcZxtQ8ThJ6ljU_HgfeyN0Qdjay8-4iEarhlLLnGdrO_44QlLAveEMKWKKyP0mim72ua3DCj0H_DL45tHon7hleMJY2_cMcIx-VWPM_QFXitQaCgYKAVISARASFQHGX2Mi4XEZnu71ex9RBkPsLZYhXA0169';
-var GoogleDrive = /** @class */ (function (_super) {
-    __extends(GoogleDrive, _super);
-    function GoogleDrive(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = _this.initialState();
-        _this.handleClick = _this.handleClick.bind(_this);
-        _this.handleChange = _this.handleChange.bind(_this);
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
-        _this.lastChange = 0;
-        return _this;
-    }
-    GoogleDrive.prototype.initialState = function () {
-        return {
-            data: [],
-            loading: false,
-            current: {},
-            parents: [{
-                    id: 'root',
-                    mimeType: 'application/vnd.google-apps.folder',
-                    name: "Root"
-                }],
-            thumbnails: false
-        };
-    };
-    GoogleDrive.prototype.reset = function () {
-        this.setState(this.initialState());
-    };
-    GoogleDrive.prototype.handleClick = function (item) {
-        var self = this;
-        return function (e) {
-            console.log(item);
-            if (item.mimeType == 'application/vnd.google-apps.folder') {
-                var parents = [];
-                for (var i = 0; i < self.state.parents.length; i++) {
-                    if (self.state.parents[i].id == item.id) {
-                        break;
-                    }
-                    parents.push(self.state.parents[i]);
-                }
-                parents.push(item);
-                self.setState({ data: [], current: item, parents: parents });
-                window.setTimeout(function () {
-                    self.loadData();
-                }, 300);
-            }
-            else {
-                var height = Math.max(document.body.clientHeight - 50, 600);
-                var width = Math.max(document.body.clientWidth - 40, 800);
-                window.open(item.webViewLink, 'preview', 'width=' + height + ',height=' + width);
-                //window.open(item.webContentLink)
-            }
-        };
-    };
-    GoogleDrive.prototype.handleChange = function (event) {
-        //this.setState({search: event.target.value});
-    };
-    GoogleDrive.prototype.handleSubmit = function (event) {
-        event.preventDefault();
-        var self = this;
-        window.clearTimeout(this.lastChange);
-        this.setState({ data: [] });
-        this.lastChange = window.setTimeout(function () {
-            self.loadData();
-        }, 300);
-        return false;
-    };
-    GoogleDrive.prototype.copyFile = function (id) {
-        var url = "https://www.googleapis.com/drive/v3/files/" + id + "/copy";
-        var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
-        };
-        fetch(url, { method: 'POST', headers: headers, })
-            .then(function (response) { return response.json(); })
-            .then(function (data) {
-            console.log(data);
-        });
-    };
-    GoogleDrive.prototype.loadData = function () {
-        var _this = this;
-        //AUTH_TOKEN = "ya29.GltjBlFp1_IiifotwFMgCllpXuyC9IFHLYURXTbfZcwheGTAxxmOaO-7cwU8YSRHli2NIJIT53wEPpnSMEvSDzQTVz49WJtBUREcKXSpoArztBYuhQYwP4NRoCmK"
-        var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
-        };
-        var parent = 'root';
-        if (this.state.current.id) {
-            parent = this.state.current.id;
-        }
-        console.log(parent, this.state.current.id, this.state.current);
-        this.setState({ loading: true });
-        var conditions = [];
-        conditions.push("trashed = false");
-        //conditions.push("mimeType = 'application/vnd.google-apps.folder'")
-        conditions.push("'" + parent + "' in parents");
-        var query = encodeURIComponent(conditions.join(" and "));
-        var url = "https://www.googleapis.com/drive/v3/files?q=" + query + "&fields=files(copyRequiresWriterPermission%2CcreatedTime%2Cdescription%2CiconLink%2Cid%2Ckind%2CmimeType%2Cname%2CownedByMe%2Cparents%2Cproperties%2Cshared%2CsharingUser%2Csize%2CteamDriveId%2CthumbnailLink%2Ctrashed%2CwebContentLink%2CwebViewLink)%2CincompleteSearch%2Ckind%2CnextPageToken&key=";
-        //url = 'response.json'
-        fetch(url, { method: 'GET', headers: headers, })
-            .then(function (response) { return response.json(); })
-            .then(function (data) {
-            if (data.files) {
-                _this.setState({ data: data.files });
-            }
-            _this.setState({ loading: false });
-        });
-    };
-    GoogleDrive.prototype.listFiles = function (parent, callback) {
-        console.log("listing", parent);
-        var self = this;
-        var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
-        };
-        var conditions = [];
-        conditions.push("trashed = false");
-        //conditions.push("mimeType = 'application/vnd.google-apps.folder'")
-        conditions.push("'" + parent + "' in parents");
-        var filesFields = "copyRequiresWriterPermission,createdTime,description,iconLink,id,kind,mimeType,name,ownedByMe,parents,properties,shared,sharingUser,size,teamDriveId,thumbnailLink,trashed,webContentLink,webViewLink";
-        var fields = encodeURIComponent("files(" + filesFields + "),incompleteSearch,kind,nextPageToken");
-        var query = encodeURIComponent(conditions.join(" and "));
-        var url = "https://www.googleapis.com/drive/v3/files?q=" + query + "&fields=" + fields + "&key=";
-        //url = 'response.json'
-        fetch(url, { method: 'GET', headers: headers, })
-            .then(function (response) { return response.json(); })
-            .then(function (data) {
-            if (!data.files) {
-                return;
-            }
-            for (var i = 0; i < data.files.length; i++) {
-                var file = data.files[i];
-                var item = {
-                    id: file.id,
-                    name: file.name,
-                    dir: file.mimeType == "application/vnd.google-apps.folder",
-                    owned: file.ownedByMe
-                };
-                //console.log(item.name,item.owned)
-                callback(item);
-                if (file.mimeType == "application/vnd.google-apps.folder") {
-                    var id = file.id;
-                    var name = file.name;
-                    setTimeout(self.listFiles, 200 + i * 100, id, callback);
-                }
-            }
-        });
-    };
-    GoogleDrive.prototype.setOwnerByEmail = function (email, parentid) {
-        var self = this;
-        var headers = {
-            Authorization: 'Bearer ' + AUTH_TOKEN
-        };
-        var permUrl = "https://www.googleapis.com/drive/v2/permissionIds/" + email;
-        fetch(permUrl, { method: 'GET', headers: headers, })
-            .then(function (response) { return response.json(); })
-            .then(function (data) {
-            console.log(data);
-            if (data.id) {
-                var ownerid = data.id;
-                var list = [];
-                self.listFiles(parentid, function (file) {
-                    if (file.owned) {
-                        setTimeout(self.setFileOwner, 100 + list.length * 100, file.id, ownerid);
-                    }
-                });
-            }
-        });
-    };
-    GoogleDrive.prototype.setFileOwner = function (fileid, ownerid) {
-        var headers = {
-            'Authorization': 'Bearer ' + AUTH_TOKEN,
-            'Content-Type': 'application/json'
-        };
-        var perm = {
-            "kind": "drive#permission",
-            "id": ownerid,
-            "type": "user",
-            "role": "owner",
-            "result": {
-                "kind": "drive#permission",
-                "id": ownerid,
-                "type": "user",
-                "role": "writer"
-            }
-        };
-        var permUrl = "https://www.googleapis.com/drive/v2/files/" + fileid + "/permissions/" + ownerid + "?transferOwnership=true&alt=json";
-        fetch(permUrl, {
-            method: 'PUT',
-            headers: headers,
-            body: JSON.stringify(perm)
-        })
-            .then(function (response) { return response.json(); })
-            .then(function (data) {
-            console.log(data);
-        });
-    };
-    GoogleDrive.prototype.render = function () {
-        var self = this;
-        var itemComp = function (item, margin, header) {
-            var style = {
-                cursor: 'pointer'
-            };
-            if (header) {
-                style.fontWeight = 'bold';
-            }
-            if (margin > 0) {
-                style.marginLeft = (margin * 10) + 'px';
-            }
-            var img = "";
-            if (item.iconLink) {
-                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink, title: item.id });
-            }
-            var thumb = "";
-            if (self.thumbnails && item.thumbnailLink) {
-                thumb = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", null,
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("br", null),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.thumbnailLink, title: item.id }));
-            }
-            return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("li", { style: style, key: item.id, className: "collection-item", onClick: self.handleClick(item) },
-                img,
-                " ",
-                item.name,
-                thumb);
-        };
-        var cardComp = function (item, margin, header) {
-            var style = {};
-            if (header) {
-                style.fontWeight = 'bold';
-            }
-            if (margin > 0) {
-                style.marginLeft = (margin * 10) + 'px';
-            }
-            var img = "";
-            if (item.iconLink) {
-                img = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { src: item.iconLink, title: item.id });
-            }
-            var thumb = "";
-            var thumbnailImage = item.thumbnailLink ? item.thumbnailLink : item.iconLink;
-            var imageStyle = {
-                backgroundImage: 'url(' + thumbnailImage + ')',
-                backgroundPosition: 'center center',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                height: '160px'
-            };
-            if (!item.thumbnailLink) {
-                imageStyle.backgroundSize = '50px';
-            }
-            thumb = react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "card-image", style: imageStyle },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: "card-title" }));
-            var labelStyle = {
-                height: '60px',
-                lineHeight: '1.1em',
-                overflow: 'hidden',
-                padding: '10px'
-            };
-            var clickable = {
-                cursor: 'pointer'
-            };
-            return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { key: item.id, style: clickable, className: "col s6 m4 l3" },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "card hoverable", onClick: self.handleClick(item) },
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", null, thumb),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "card-content", style: labelStyle },
-                        img,
-                        " ",
-                        item.name)));
-        };
-        var parentItems = this.state.parents.map(function (item, pos) { return itemComp(item, pos, true); });
-        var listItems = this.state.data.map(function (item, pos) { return cardComp(item, self.state.parents.length, false); });
-        return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("main", null,
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "container" },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("ul", { className: "collection" }, parentItems),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "row" }, listItems),
-                this.state.loading ? react__WEBPACK_IMPORTED_MODULE_3___default().createElement("img", { width: "100%", src: "loading.gif" }) : null)));
-    };
-    GoogleDrive.prototype.componentDidMount = function () {
-        this.loadData();
-    };
-    return GoogleDrive;
-}((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
-var MainController = /** @class */ (function (_super) {
-    __extends(MainController, _super);
-    function MainController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    MainController.prototype.LoadBiosView = function () {
-        var CLIENT_ID = '371171867863-sn17pmbfubttmcr7j646qf8uhfvrp4u7.apps.googleusercontent.com';
-        var API_KEY = 'AIzaSyDxz6OCqsMIFTzNrSfgRThEubqQaYeJb5o';
-        var _a = react_google_drive_picker__WEBPACK_IMPORTED_MODULE_2___default()(), openPicker = _a[0], authResponse = _a[1];
-        var handleOpenPicker = function () {
-            openPicker({
-                clientId: "371171867863-sn17pmbfubttmcr7j646qf8uhfvrp4u7.apps.googleusercontent.com",
-                developerKey: "AIzaSyDxz6OCqsMIFTzNrSfgRThEubqQaYeJb5o",
-                viewId: "DOCS",
-                // token: token, // pass oauth token in case you already have one
-                showUploadView: true,
-                showUploadFolders: true,
-                supportDrives: true,
-                multiselect: true,
-                // customViews: customViewsArray, // custom view
-                callbackFunction: function (data) {
-                    if (data.action === 'cancel') {
-                        console.log('User clicked cancel/close button');
-                    }
-                    console.log(data);
-                },
-            });
-        };
-        function test() {
-            var defaultScopes = ['https://www.googleapis.com/auth/drive.readonly'];
-            var client = google.accounts.oauth2.initTokenClient({
-                client_id: CLIENT_ID,
-                scope: __spreadArray([], defaultScopes, true).join(' '),
-                callback: function (tokenResponse) {
-                    alert(tokenResponse);
-                    /*  setAuthRes(tokenResponse)
-                     createPicker({ ...config, token: tokenResponse.access_token }) */
-                },
-            });
-            client.requestAccessToken();
-        }
-        return (
-        //Routes()
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", null,
-            JSON.stringify(authResponse),
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("button", { onClick: function () { return handleOpenPicker(); } }, "Open Picker"),
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(GoogleDrive, null))));
-    };
-    return MainController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.BiosController));
-
-
-
-/***/ }),
-
-/***/ "./src/dialogs/AddAppletDialog.ts":
-/*!****************************************!*\
-  !*** ./src/dialogs/AddAppletDialog.ts ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AddAppletAction": () => (/* binding */ AddAppletAction),
-/* harmony export */   "AddAppletDialog": () => (/* binding */ AddAppletDialog)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-
-var AddAppletAction = function (formMeta, action) { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-    var label = action.label, successAction = action.successAction, successActions = action.successActions;
-    var formController = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useFormController)();
-    var dialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useDialog)();
-    var formBuilder = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useFormBuilder)();
-    var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-    var invalidateResource = null;
-    var formMutate = null;
-    var createMutate = null;
-    var updateMutate = null;
-    var isFormMutateExcuting = false;
-    var isFormLoading = false;
-    var views = [];
-    var workspaceId = formMeta.workspaceId;
-    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDocument)(workspaceId, 'workspace', 'applets'), createDocument = _a.createDocument, isLoading = _a.isLoading;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Save'))
-        .loading(isLoading)
-        .onClick(function () {
-        var data = __assign({}, formController.GetFormData());
-        createDocument({
-            data: {
-                name: data.name,
-                opa: 'com.celmino.widget.custom-applet-tree',
-                type: 'com.celmino.applet.custom',
-            }
-        }, function () { return dialog.Hide(); });
-    }));
-}); };
-var AddAppletDialog = function (workspaceId) {
-    if (workspaceId == null) {
-        alert("spaceId is null");
-    }
-    else {
-        return {
-            "title": 'Create applet',
-            "workspaceId": workspaceId,
-            "actions": [
-                {
-                    "label": "Add Applet",
-                    "type": "ca_AddApplet",
-                    /*  "successActions": [{
-                         "type": "hide"
-                     },
-                     {
-                         "type": "navigate",
-                         "url": "/app/com.tuvalsoft.app.procetra/workspace/{{id}}"
-                     }
-                     ] */
-                    /*  "successActions": [{
-                     "type": "hide"
-                 },
-                 {
-                     "type": "navigate",
-                     "url": "/app/com.tuvalsoft.app.procetra/workspace/{{id}}"
-                 }
-                 ] */
-                }
-            ],
-            "fieldMap": {
-                "name": {
-                    "label": "name",
-                    "type": "text",
-                    "name": "name"
-                },
-                /*     "parent": {
-                        "name": "parent",
-                        "type": "virtual",
-                        "value": parent
+    {
+        name: 'Enterprise Modelling',
+        type: 'com.celmino.widget.enterprise-modelling-tree',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Enterprise Modelling",
+                "id": "enterprise_modelling",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Folders",
+                        "id": "em_folders",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Parent",
+                                "type": "string"
+                            }
+                        ]
                     },
-                    "path": {
-                        "name": "path",
-                        "type": "virtual",
-                        "value": path
-                    }, */
-            }
-        };
-    }
-};
-
-
-/***/ }),
-
-/***/ "./src/guards/AlreadyLoggedInGuard.ts":
-/*!********************************************!*\
-  !*** ./src/guards/AlreadyLoggedInGuard.ts ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AlreadyLoggedInGuard": () => (/* binding */ AlreadyLoggedInGuard)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
-
-
-
-// redirect to /app if user is logged in
-// it is using login page
-var AlreadyLoggedInGuard = function () {
-    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
-    return (isLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Wait)() :
-        me != null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/app') : (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Release)());
-};
-
-
-/***/ }),
-
-/***/ "./src/guards/LoginGuard.ts":
-/*!**********************************!*\
-  !*** ./src/guards/LoginGuard.ts ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LoginGuard": () => (/* binding */ LoginGuard)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
-
-
-
-var LoginGuard = function () {
-    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
-    return (isLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Wait)() :
-        me == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/login') : (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_2__.Release)());
-};
-
-
-/***/ }),
-
-/***/ "./src/guards/WokspaceGuard.ts":
-/*!*************************************!*\
-  !*** ./src/guards/WokspaceGuard.ts ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DefaultWorkspaceGuard": () => (/* binding */ DefaultWorkspaceGuard),
-/* harmony export */   "WorkspaceGuard": () => (/* binding */ WorkspaceGuard)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/useGetCurrentOrganization */ "./src/hooks/useGetCurrentOrganization.ts");
-/* harmony import */ var _views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/WaitViewClass */ "./src/views/WaitViewClass.ts");
-
-
-
-
-var WorkspaceGuard = function () {
-    var workspaceId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().workspaceId;
-    return {
-        release: workspaceId,
-        view: ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)('/app/workspace/select'))
-    };
-};
-var DefaultWorkspaceGuard = function () {
-    var _a = (0,_hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_2__.useGetCurrentOrganization)(), organization = _a.organization, isLoading = _a.isLoading;
-    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(organization != null, [
-        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', organization === null || organization === void 0 ? void 0 : organization.$id)
-    ]), realms = _b.realms, isRealmsLoading = _b.isLoading;
-    var workspaceId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().workspaceId;
-    return (workspaceId != null ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__.Release)() :
-        isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('fdsfsdf') :
-            isRealmsLoading ? (0,_views_WaitViewClass__WEBPACK_IMPORTED_MODULE_3__.Wait)() :
-                ((realms === null || realms === void 0 ? void 0 : realms.length) === 0) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/select") :
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UINavigate)("/app/workspace/".concat(realms[0].$id)));
-};
-
-
-/***/ }),
-
-/***/ "./src/hooks/useGetCurrentOrganization.ts":
-/*!************************************************!*\
-  !*** ./src/hooks/useGetCurrentOrganization.ts ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useGetCurrentOrganization": () => (/* binding */ useGetCurrentOrganization)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _useGetOrganizationId__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useGetOrganizationId */ "./src/hooks/useGetOrganizationId.ts");
-
-
-var useGetCurrentOrganization = function () {
-    var _a = (0,_useGetOrganizationId__WEBPACK_IMPORTED_MODULE_1__.useGetOrganizationId)(), organizationId = _a.organizationId, isOrganizationIdLoading = _a.isLoading;
-    var isEnabled = !isOrganizationIdLoading && organizationId != null;
-    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetOrganization)({ organizationId: organizationId, hookEnabled: !isOrganizationIdLoading && organizationId != null }), organization = _b.organization, isOrganizationLoading = _b.isLoading;
-    if (isOrganizationIdLoading) {
-        return { isLoading: true, organization: null };
-    }
-    if (isEnabled && isOrganizationLoading) {
-        return { isLoading: true, organization: null };
-    }
-    if (!isOrganizationIdLoading && organizationId == null) {
-        return { isLoading: false, organization: null };
-    }
-    return { isLoading: false, organization: organization };
-};
-
-
-/***/ }),
-
-/***/ "./src/hooks/useGetOrganizationId.ts":
-/*!*******************************************!*\
-  !*** ./src/hooks/useGetOrganizationId.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useGetOrganizationId": () => (/* binding */ useGetOrganizationId)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _useGetSubdomain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useGetSubdomain */ "./src/hooks/useGetSubdomain.ts");
-
-
-
-var useGetOrganizationId = function () {
-    var _a;
-    var subdomain = (0,_useGetSubdomain__WEBPACK_IMPORTED_MODULE_2__.useGetSubdomain)();
-    var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDomainTeam)(), team = _b.team, isLoadingDomainOrganization = _b.isLoading;
-    var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _c.me, isLoadingMe = _c.isLoading;
-    if (!_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.nullOrEmpty(subdomain)) {
-        return { isLoading: isLoadingDomainOrganization, organizationId: team === null || team === void 0 ? void 0 : team.$id };
-    }
-    if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.nullOrEmpty(subdomain)) {
-        return { isLoading: isLoadingMe, organizationId: (_a = me === null || me === void 0 ? void 0 : me.prefs) === null || _a === void 0 ? void 0 : _a.organization };
-    }
-};
-
-
-/***/ }),
-
-/***/ "./src/hooks/useGetSubdomain.ts":
-/*!**************************************!*\
-  !*** ./src/hooks/useGetSubdomain.ts ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useGetSubdomain": () => (/* binding */ useGetSubdomain)
-/* harmony export */ });
-var useGetSubdomain = function (url) {
-    if (url === void 0) { url = window.location.host; }
-    var names = url.split('.');
-    if (names.length === 3) {
-        return names[0];
-    }
-    else {
-        return null;
-    }
-};
-
-
-/***/ }),
-
-/***/ "./src/routes/+routes.ts":
-/*!*******************************!*\
-  !*** ./src/routes/+routes.ts ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Routes": () => (/* binding */ Routes)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _logout_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logout/+controller */ "./src/routes/logout/+controller.ts");
-/* harmony import */ var _app_workspace_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/workspace/+controller */ "./src/routes/app/workspace/+controller.tsx");
-/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/* /+controller */ "./src/routes/app/*/+controller.tsx");
-/* harmony import */ var _app_organization_organizationId_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app/organization/[organizationId]/+controller */ "./src/routes/app/organization/[organizationId]/+controller.ts");
-/* harmony import */ var _app_workspace_workspaceId_applet_appletId_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app/workspace/[workspaceId]/applet/[appletId]/+controller */ "./src/routes/app/workspace/[workspaceId]/applet/[appletId]/+controller.tsx");
-/* harmony import */ var _login_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./login/+controller */ "./src/routes/login/+controller.tsx");
-/* harmony import */ var _signup_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./signup/+controller */ "./src/routes/signup/+controller.ts");
-/* harmony import */ var _app_workspace_select_controller__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app/workspace/select/+controller */ "./src/routes/app/workspace/select/+controller.ts");
-/* harmony import */ var _app_organization_select_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app/organization/select/+controller */ "./src/routes/app/organization/select/+controller.ts");
-/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app/+controller */ "./src/routes/app/+controller.ts");
-/* harmony import */ var _app_workspace_workspaceId_controller__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app/workspace/[workspaceId]/+controller */ "./src/routes/app/workspace/[workspaceId]/+controller.ts");
-/* harmony import */ var _app_default__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app/+default */ "./src/routes/app/+default.ts");
-/* harmony import */ var _reset_password_controller__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./reset-password/+controller */ "./src/routes/reset-password/+controller.ts");
-/* harmony import */ var _update_password_controller__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./update-password/+controller */ "./src/routes/update-password/+controller.ts");
-/* harmony import */ var _LandingController__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./LandingController */ "./src/routes/LandingController.tsx");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var Routes = function () {
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoutes)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/app', _app_controller__WEBPACK_IMPORTED_MODULE_10__.LayoutController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('', _app_default__WEBPACK_IMPORTED_MODULE_12__.DefaultWorkspaceController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('*', _app_controller__WEBPACK_IMPORTED_MODULE_3__.HomeController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('organization/:organizationId', _app_organization_organizationId_controller__WEBPACK_IMPORTED_MODULE_4__.OrganizationController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('organization/select', _app_organization_select_controller__WEBPACK_IMPORTED_MODULE_9__.OrganizationSelectController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('workspace/', _app_workspace_controller__WEBPACK_IMPORTED_MODULE_2__.WorkspaceLayoutController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)(':workspaceId', _app_workspace_workspaceId_controller__WEBPACK_IMPORTED_MODULE_11__.WorkspaceController).children((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('applet/:appletId/*', _app_workspace_workspaceId_applet_appletId_controller__WEBPACK_IMPORTED_MODULE_5__.AppletController))), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('workspace/select', _app_workspace_select_controller__WEBPACK_IMPORTED_MODULE_8__.WorkspaceSelectController)), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/', _LandingController__WEBPACK_IMPORTED_MODULE_15__.LandingController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/login', _login_controller__WEBPACK_IMPORTED_MODULE_6__.LoginController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/signup', _signup_controller__WEBPACK_IMPORTED_MODULE_7__.SignupController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/logout', _logout_controller__WEBPACK_IMPORTED_MODULE_1__.LogoutController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/reset-password', _reset_password_controller__WEBPACK_IMPORTED_MODULE_13__.ResetPasswordController), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRoute)('/update-password', _update_password_controller__WEBPACK_IMPORTED_MODULE_14__.UpdatePasswordController)));
-};
-
-
-/***/ }),
-
-/***/ "./src/routes/LandingController.tsx":
-/*!******************************************!*\
-  !*** ./src/routes/LandingController.tsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LandingController": () => (/* binding */ LandingController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _hooks_useGetSubdomain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useGetSubdomain */ "./src/hooks/useGetSubdomain.ts");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_4__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-
-
-var LeftLogo = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", width: "200", height: "", viewBox: "0 0 1000 207" },
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,-0.6060605238602648,-0.3879324329129332)" },
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 396 82", "data-background-color": "#ffffff", preserveAspectRatio: "xMidYMid meet", height: "207", width: "1000" },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "tight-bounds", transform: "matrix(1,0,0,1,0.24000003255142133,0.15367371738580005)" },
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 395.5199999999999 81.69265256522837", height: "81.69265256522837", width: "395.5199999999999" },
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "81.69265256522837", width: "395.5199999999999" },
-                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "95.33455057168447", width: "461.5680879257202" },
-                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "textblocktransform" },
-                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "95.33455057168447", width: "461.5680879257202", id: "textblock" },
-                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 58.89519999999999", height: "58.89519999999999", width: "461.5680879257202" },
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null,
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null,
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null)),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "text-0" },
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 58.89519999999999", height: "58.89519999999999", width: "461.5680879257202" },
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,0,0.45076616314199214)" },
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "395.52", viewBox: "1.7000000476837158 -35.900001525878906 248.24000549316406 36.400001525878906", height: "57.993667673716004", "data-palette-color": "#233565" },
-                                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M19.7 0.5L19.7 0.5Q16.25 0.5 13.03-0.3 9.8-1.1 7.25-3.1 4.7-5.1 3.2-8.65 1.7-12.2 1.7-17.7L1.7-17.7Q1.7-22.65 3.15-26.13 4.6-29.6 7.1-31.75 9.6-33.9 12.85-34.9 16.1-35.9 19.7-35.9L19.7-35.9Q22.25-35.9 24.68-35.5 27.1-35.1 28.2-34.6L28.2-34.6 34.25-29.55 29.25-21.3 19.7-25.7Q18-25.7 16.53-24.78 15.05-23.85 14.13-22.08 13.2-20.3 13.2-17.7L13.2-17.7Q13.2-14.4 14.23-12.63 15.25-10.85 17.18-10.2 19.1-9.55 21.75-9.55L21.75-9.55Q24.3-9.55 26.58-10.08 28.85-10.6 30.6-11.3 32.35-12 33.25-12.5L33.25-12.5 33.25-2.5Q32.25-2 30.43-1.28 28.6-0.55 25.93-0.03 23.25 0.5 19.7 0.5ZM67.7 0L39.75 0 38.75-3 39.75-8 39.75-35.4 65.5-35.4 68-33.9 64.7-25.4 60.2-25.9 50.85-25.9 50.85-21.9 63.2-21.9 63.2-13.65 56.3-13.65 50.85-14.15 50.85-9.5 64.7-9.5 70.65-3.2 67.7 0ZM100.6 0L74.65 0 73.65-3 74.65-8 74.65-35.4 85.65-35.4 85.65-16.35 85.15-9.5 86.15-9.5 95.1-10 98.65-10.5 103.05-3.2 100.6 0ZM118.74 0L107.04 0 107.04-27.35 106.04-32.35 107.09-35.35 118.74-35.35 128.54-17.85 129.54-17.85 137.64-35.35 149.59-35.35 150.09-32.35 149.59-27.55 149.59 0 138.54 0 138.69-4.25 138.69-18.2 138.14-18.2 136.24-12.95 132.64-5 124.64-5 118.74-18.2 118.24-18.2 118.24-14.15 118.74 0ZM167.64 0L156.59 0 156.59-27.4 156.09-32.4 156.59-35.4 167.64-35.4 167.64 0ZM186.24 0L174.64 0 174.64-27.35 173.64-32.35 174.64-35.35 184.69-35.35 194.79-22.75 197.19-18.6 197.69-18.6 197.69-35.35 209.24-35.35 209.24-32.35 208.74-27.35 208.74 0 198.79 0 186.24-17.1 185.74-17.1 185.74-14.1 186.24 0ZM231.94 0.5L231.94 0.5Q228.74 0.5 225.56-0.28 222.39-1.05 219.76-3.05 217.14-5.05 215.54-8.6 213.94-12.15 213.94-17.7L213.94-17.7Q213.94-23.25 215.54-26.8 217.14-30.35 219.76-32.35 222.39-34.35 225.56-35.13 228.74-35.9 231.94-35.9L231.94-35.9Q235.14-35.9 238.31-35.1 241.49-34.3 244.11-32.3 246.74-30.3 248.34-26.75 249.94-23.2 249.94-17.7L249.94-17.7Q249.94-12.2 248.34-8.65 246.74-5.1 244.11-3.1 241.49-1.1 238.31-0.3 235.14 0.5 231.94 0.5ZM231.94-9.5L231.94-9.5Q235.19-9.5 236.84-11.48 238.49-13.45 238.49-17.7L238.49-17.7Q238.49-21.9 236.84-23.9 235.19-25.9 231.94-25.9L231.94-25.9Q225.44-25.9 225.44-17.7L225.44-17.7Q225.44-13.5 227.06-11.5 228.69-9.5 231.94-9.5Z", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", "data-fill-palette-color": "primary" }))),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", "data-name": "Glyph Icon", viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", height: "58.89519999999999", width: "52.14328792572021", "data-fill-palette-color": "accent", id: "s-0" },
-                                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z", fill: "#8bd8bc", "data-fill-palette-color": "accent" }))))))),
-                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,88.15950479381254,72.58611308974017)" },
-                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 285.2490783380951 22.74843748194431", height: "22.74843748194431", width: "285.2490783380951" },
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,0,0)" },
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "285.2490783380951", viewBox: "1.149999976158142 -38.04999923706055 646.3499755859375 51.54999923706055", height: "22.74843748194431", "data-palette-color": "#233565" },
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M42.75-34.85L47.65-34.85 37.55 0 32.45 0 24.35-28.05 15.95 0 10.9 0.05 1.15-34.85 6-34.85 13.6-5.3 22-34.85 27.1-34.85 35.1-5.4 42.75-34.85ZM64.6 0.45Q60.75 0.45 57.62-1.3 54.5-3.05 52.72-6.28 50.95-9.5 50.95-13.75L50.95-13.75Q50.95-17.95 52.77-21.18 54.6-24.4 57.75-26.13 60.9-27.85 64.8-27.85L64.8-27.85Q68.7-27.85 71.85-26.13 75-24.4 76.82-21.2 78.65-18 78.65-13.75L78.65-13.75Q78.65-9.5 76.77-6.28 74.9-3.05 71.7-1.3 68.5 0.45 64.6 0.45L64.6 0.45ZM64.6-3.55Q67.05-3.55 69.2-4.7 71.35-5.85 72.67-8.15 74-10.45 74-13.75L74-13.75Q74-17.05 72.7-19.35 71.4-21.65 69.3-22.78 67.2-23.9 64.75-23.9L64.75-23.9Q62.25-23.9 60.17-22.78 58.1-21.65 56.85-19.35 55.6-17.05 55.6-13.75L55.6-13.75Q55.6-10.4 56.82-8.1 58.05-5.8 60.1-4.67 62.15-3.55 64.6-3.55L64.6-3.55ZM89.2-22.95Q90.4-25.3 92.62-26.6 94.85-27.9 98.05-27.9L98.05-27.9 98.05-23.2 96.85-23.2Q89.2-23.2 89.2-14.9L89.2-14.9 89.2 0 84.65 0 84.65-27.4 89.2-27.4 89.2-22.95ZM124.79 0L118.59 0 107.84-12.1 107.84 0 103.29 0 103.29-37 107.84-37 107.84-15.25 118.39-27.4 124.74-27.4 111.84-13.75 124.79 0ZM172.89-34.6L177.74-34.6 177.74 0 173.19 0 173.19-25.8 161.69 0 158.49 0 146.94-25.85 146.94 0 142.39 0 142.39-34.6 147.29-34.6 160.09-6 172.89-34.6ZM183.74-13.8Q183.74-18 185.44-21.18 187.14-24.35 190.11-26.1 193.09-27.85 196.74-27.85L196.74-27.85Q200.34-27.85 202.99-26.3 205.64-24.75 206.94-22.4L206.94-22.4 206.94-27.4 211.54-27.4 211.54 0 206.94 0 206.94-5.1Q205.59-2.7 202.91-1.13 200.24 0.45 196.69 0.45L196.69 0.45Q193.04 0.45 190.09-1.35 187.14-3.15 185.44-6.4 183.74-9.65 183.74-13.8L183.74-13.8ZM206.94-13.75Q206.94-16.85 205.69-19.15 204.44-21.45 202.31-22.68 200.19-23.9 197.64-23.9L197.64-23.9Q195.09-23.9 192.99-22.7 190.89-21.5 189.64-19.2 188.39-16.9 188.39-13.8L188.39-13.8Q188.39-10.65 189.64-8.33 190.89-6 192.99-4.78 195.09-3.55 197.64-3.55L197.64-3.55Q200.19-3.55 202.31-4.78 204.44-6 205.69-8.33 206.94-10.65 206.94-13.75L206.94-13.75ZM232.58-27.9Q237.58-27.9 240.68-24.88 243.78-21.85 243.78-16.15L243.78-16.15 243.78 0 239.28 0 239.28-15.5Q239.28-19.6 237.23-21.78 235.18-23.95 231.63-23.95L231.63-23.95Q228.03-23.95 225.91-21.7 223.78-19.45 223.78-15.15L223.78-15.15 223.78 0 219.23 0 219.23-27.4 223.78-27.4 223.78-23.5Q225.13-25.6 227.46-26.75 229.78-27.9 232.58-27.9L232.58-27.9ZM249.53-13.8Q249.53-18 251.23-21.18 252.93-24.35 255.91-26.1 258.88-27.85 262.53-27.85L262.53-27.85Q266.13-27.85 268.78-26.3 271.43-24.75 272.73-22.4L272.73-22.4 272.73-27.4 277.33-27.4 277.33 0 272.73 0 272.73-5.1Q271.38-2.7 268.71-1.13 266.03 0.45 262.48 0.45L262.48 0.45Q258.83 0.45 255.88-1.35 252.93-3.15 251.23-6.4 249.53-9.65 249.53-13.8L249.53-13.8ZM272.73-13.75Q272.73-16.85 271.48-19.15 270.23-21.45 268.11-22.68 265.98-23.9 263.43-23.9L263.43-23.9Q260.88-23.9 258.78-22.7 256.68-21.5 255.43-19.2 254.18-16.9 254.18-13.8L254.18-13.8Q254.18-10.65 255.43-8.33 256.68-6 258.78-4.78 260.88-3.55 263.43-3.55L263.43-3.55Q265.98-3.55 268.11-4.78 270.23-6 271.48-8.33 272.73-10.65 272.73-13.75L272.73-13.75ZM296.33-27.85Q299.88-27.85 302.55-26.3 305.23-24.75 306.53-22.4L306.53-22.4 306.53-27.4 311.13-27.4 311.13 0.6Q311.13 4.35 309.53 7.28 307.93 10.2 304.95 11.85 301.98 13.5 298.03 13.5L298.03 13.5Q292.63 13.5 289.03 10.95 285.43 8.4 284.78 4L284.78 4 289.28 4Q290.03 6.5 292.38 8.03 294.73 9.55 298.03 9.55L298.03 9.55Q301.78 9.55 304.15 7.2 306.53 4.85 306.53 0.6L306.53 0.6 306.53-5.15Q305.18-2.75 302.53-1.15 299.88 0.45 296.33 0.45L296.33 0.45Q292.68 0.45 289.7-1.35 286.73-3.15 285.03-6.4 283.33-9.65 283.33-13.8L283.33-13.8Q283.33-18 285.03-21.18 286.73-24.35 289.7-26.1 292.68-27.85 296.33-27.85L296.33-27.85ZM306.53-13.75Q306.53-16.85 305.28-19.15 304.03-21.45 301.9-22.68 299.78-23.9 297.23-23.9L297.23-23.9Q294.68-23.9 292.58-22.7 290.48-21.5 289.23-19.2 287.98-16.9 287.98-13.8L287.98-13.8Q287.98-10.65 289.23-8.33 290.48-6 292.58-4.78 294.68-3.55 297.23-3.55L297.23-3.55Q299.78-3.55 301.9-4.78 304.03-6 305.28-8.33 306.53-10.65 306.53-13.75L306.53-13.75ZM343.83-14.75Q343.83-13.45 343.68-12L343.68-12 321.78-12Q322.03-7.95 324.55-5.68 327.08-3.4 330.68-3.4L330.68-3.4Q333.63-3.4 335.6-4.78 337.58-6.15 338.38-8.45L338.38-8.45 343.28-8.45Q342.18-4.5 338.88-2.02 335.58 0.45 330.68 0.45L330.68 0.45Q326.78 0.45 323.7-1.3 320.63-3.05 318.88-6.28 317.13-9.5 317.13-13.75L317.13-13.75Q317.13-18 318.83-21.2 320.53-24.4 323.6-26.13 326.68-27.85 330.68-27.85L330.68-27.85Q334.58-27.85 337.58-26.15 340.58-24.45 342.2-21.48 343.83-18.5 343.83-14.75L343.83-14.75ZM339.13-15.7Q339.13-18.3 337.98-20.18 336.83-22.05 334.85-23.03 332.88-24 330.48-24L330.48-24Q327.03-24 324.6-21.8 322.18-19.6 321.83-15.7L321.83-15.7 339.13-15.7ZM382.77-27.9Q385.97-27.9 388.47-26.58 390.97-25.25 392.42-22.6 393.87-19.95 393.87-16.15L393.87-16.15 393.87 0 389.37 0 389.37-15.5Q389.37-19.6 387.35-21.78 385.32-23.95 381.87-23.95L381.87-23.95Q378.32-23.95 376.22-21.68 374.12-19.4 374.12-15.1L374.12-15.1 374.12 0 369.62 0 369.62-15.5Q369.62-19.6 367.6-21.78 365.57-23.95 362.12-23.95L362.12-23.95Q358.57-23.95 356.47-21.68 354.37-19.4 354.37-15.1L354.37-15.1 354.37 0 349.82 0 349.82-27.4 354.37-27.4 354.37-23.45Q355.72-25.6 358-26.75 360.27-27.9 363.02-27.9L363.02-27.9Q366.47-27.9 369.12-26.35 371.77-24.8 373.07-21.8L373.07-21.8Q374.22-24.7 376.87-26.3 379.52-27.9 382.77-27.9L382.77-27.9ZM426.32-14.75Q426.32-13.45 426.17-12L426.17-12 404.27-12Q404.52-7.95 407.05-5.68 409.57-3.4 413.17-3.4L413.17-3.4Q416.12-3.4 418.1-4.78 420.07-6.15 420.87-8.45L420.87-8.45 425.77-8.45Q424.67-4.5 421.37-2.02 418.07 0.45 413.17 0.45L413.17 0.45Q409.27 0.45 406.2-1.3 403.12-3.05 401.37-6.28 399.62-9.5 399.62-13.75L399.62-13.75Q399.62-18 401.32-21.2 403.02-24.4 406.1-26.13 409.17-27.85 413.17-27.85L413.17-27.85Q417.07-27.85 420.07-26.15 423.07-24.45 424.7-21.48 426.32-18.5 426.32-14.75L426.32-14.75ZM421.62-15.7Q421.62-18.3 420.47-20.18 419.32-22.05 417.35-23.03 415.37-24 412.97-24L412.97-24Q409.52-24 407.1-21.8 404.67-19.6 404.32-15.7L404.32-15.7 421.62-15.7ZM445.67-27.9Q450.67-27.9 453.77-24.88 456.87-21.85 456.87-16.15L456.87-16.15 456.87 0 452.37 0 452.37-15.5Q452.37-19.6 450.32-21.78 448.27-23.95 444.72-23.95L444.72-23.95Q441.12-23.95 438.99-21.7 436.87-19.45 436.87-15.15L436.87-15.15 436.87 0 432.32 0 432.32-27.4 436.87-27.4 436.87-23.5Q438.22-25.6 440.54-26.75 442.87-27.9 445.67-27.9L445.67-27.9ZM477.02-23.65L469.87-23.65 469.87-7.5Q469.87-5.5 470.72-4.67 471.57-3.85 473.67-3.85L473.67-3.85 477.02-3.85 477.02 0 472.92 0Q469.12 0 467.22-1.75 465.32-3.5 465.32-7.5L465.32-7.5 465.32-23.65 461.77-23.65 461.77-27.4 465.32-27.4 465.32-34.3 469.87-34.3 469.87-27.4 477.02-27.4 477.02-23.65ZM506.91 0.35Q503.46 0.35 500.74-0.88 498.01-2.1 496.46-4.28 494.91-6.45 494.86-9.3L494.86-9.3 499.71-9.3Q499.96-6.85 501.74-5.18 503.51-3.5 506.91-3.5L506.91-3.5Q510.16-3.5 512.04-5.13 513.91-6.75 513.91-9.3L513.91-9.3Q513.91-11.3 512.81-12.55 511.71-13.8 510.06-14.45 508.41-15.1 505.61-15.85L505.61-15.85Q502.16-16.75 500.09-17.65 498.01-18.55 496.54-20.48 495.06-22.4 495.06-25.65L495.06-25.65Q495.06-28.5 496.51-30.7 497.96-32.9 500.59-34.1 503.21-35.3 506.61-35.3L506.61-35.3Q511.51-35.3 514.64-32.85 517.76-30.4 518.16-26.35L518.16-26.35 513.16-26.35Q512.91-28.35 511.06-29.88 509.21-31.4 506.16-31.4L506.16-31.4Q503.31-31.4 501.51-29.93 499.71-28.45 499.71-25.8L499.71-25.8Q499.71-23.9 500.79-22.7 501.86-21.5 503.44-20.88 505.01-20.25 507.86-19.45L507.86-19.45Q511.31-18.5 513.41-17.57 515.51-16.65 517.01-14.73 518.51-12.8 518.51-9.5L518.51-9.5Q518.51-6.95 517.16-4.7 515.81-2.45 513.16-1.05 510.51 0.35 506.91 0.35L506.91 0.35ZM537.91-23.65L530.76-23.65 530.76-7.5Q530.76-5.5 531.61-4.67 532.46-3.85 534.56-3.85L534.56-3.85 537.91-3.85 537.91 0 533.81 0Q530.01 0 528.11-1.75 526.21-3.5 526.21-7.5L526.21-7.5 526.21-23.65 522.66-23.65 522.66-27.4 526.21-27.4 526.21-34.3 530.76-34.3 530.76-27.4 537.91-27.4 537.91-23.65ZM563.16-27.4L567.71-27.4 567.71 0 563.16 0 563.16-4.05Q561.86-1.95 559.53-0.78 557.21 0.4 554.41 0.4L554.41 0.4Q551.21 0.4 548.66-0.93 546.11-2.25 544.63-4.9 543.16-7.55 543.16-11.35L543.16-11.35 543.16-27.4 547.66-27.4 547.66-11.95Q547.66-7.9 549.71-5.73 551.76-3.55 555.31-3.55L555.31-3.55Q558.96-3.55 561.06-5.8 563.16-8.05 563.16-12.35L563.16-12.35 563.16-27.4ZM573.7-13.8Q573.7-18 575.4-21.18 577.1-24.35 580.08-26.1 583.05-27.85 586.75-27.85L586.75-27.85Q589.95-27.85 592.7-26.38 595.45-24.9 596.9-22.5L596.9-22.5 596.9-37 601.5-37 601.5 0 596.9 0 596.9-5.15Q595.55-2.7 592.9-1.13 590.25 0.45 586.7 0.45L586.7 0.45Q583.05 0.45 580.08-1.35 577.1-3.15 575.4-6.4 573.7-9.65 573.7-13.8L573.7-13.8ZM596.9-13.75Q596.9-16.85 595.65-19.15 594.4-21.45 592.28-22.68 590.15-23.9 587.6-23.9L587.6-23.9Q585.05-23.9 582.95-22.7 580.85-21.5 579.6-19.2 578.35-16.9 578.35-13.8L578.35-13.8Q578.35-10.65 579.6-8.33 580.85-6 582.95-4.78 585.05-3.55 587.6-3.55L587.6-3.55Q590.15-3.55 592.28-4.78 594.4-6 595.65-8.33 596.9-10.65 596.9-13.75L596.9-13.75ZM611.55-31.85Q610.25-31.85 609.35-32.75 608.45-33.65 608.45-34.95L608.45-34.95Q608.45-36.25 609.35-37.15 610.25-38.05 611.55-38.05L611.55-38.05Q612.8-38.05 613.67-37.15 614.55-36.25 614.55-34.95L614.55-34.95Q614.55-33.65 613.67-32.75 612.8-31.85 611.55-31.85L611.55-31.85ZM609.2-27.4L613.75-27.4 613.75 0 609.2 0 609.2-27.4ZM633.45 0.45Q629.6 0.45 626.47-1.3 623.35-3.05 621.57-6.28 619.8-9.5 619.8-13.75L619.8-13.75Q619.8-17.95 621.62-21.18 623.45-24.4 626.6-26.13 629.75-27.85 633.65-27.85L633.65-27.85Q637.55-27.85 640.7-26.13 643.85-24.4 645.67-21.2 647.5-18 647.5-13.75L647.5-13.75Q647.5-9.5 645.62-6.28 643.75-3.05 640.55-1.3 637.35 0.45 633.45 0.45L633.45 0.45ZM633.45-3.55Q635.9-3.55 638.05-4.7 640.2-5.85 641.52-8.15 642.85-10.45 642.85-13.75L642.85-13.75Q642.85-17.05 641.55-19.35 640.25-21.65 638.15-22.78 636.05-23.9 633.6-23.9L633.6-23.9Q631.1-23.9 629.02-22.78 626.95-21.65 625.7-19.35 624.45-17.05 624.45-13.75L624.45-13.75Q624.45-10.4 625.67-8.1 626.9-5.8 628.95-4.67 631-3.55 633.45-3.55L633.45-3.55Z", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", "data-fill-palette-color": "secondary", id: "text-1" }))))))))),
-                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("defs", null)),
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("rect", { width: "395.5199999999999", height: "81.69265256522837", fill: "none", stroke: "none", visibility: "hidden" })))))); };
-var LandingController = /** @class */ (function (_super) {
-    __extends(LandingController, _super);
-    function LandingController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    LandingController.prototype.LoadView = function () {
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var subDomain = (0,_hooks_useGetSubdomain__WEBPACK_IMPORTED_MODULE_3__.useGetSubdomain)();
-        return (!_tuval_core__WEBPACK_IMPORTED_MODULE_4__.is.nullOrEmpty(subDomain) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UINavigate)('/app') :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })(
-            // Header
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement(LeftLogo, null))).width().height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Log in')
-                .padding('0 2rem')
-                .lineHeight('1.6')
-                .fontFamily('Graphik Regular,sans-serif')
-                .fontSize('1.8rem').foregroundColor('#090e13'))
-                .width()
-                .height()
-                .cursor('pointer')
-                .onClick(function () { return navigate('/login'); }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Sign up')
-                .fontFamily('Graphik Medium,sans-serif')
-                .fontSize('1.8rem')
-                .foregroundColor('#242938')
-                .lineHeight('3.4rem'))
-                .padding('.5rem 2.5rem')
-                .width()
-                .border('solid 2px #242938')
-                .onClick(function () { return navigate('/signup'); })).height().position('fixed')
-                .padding('3rem calc(50% - 660px)')
-                .paddingRight('%4').paddingLeft('%4')
-                .marginBottom('5rem')
-                .transition('background .25s,box-shadow .35s')
-                .zIndex(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 20 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Build your company brain').fontFamily('"Hagrid", sans-serif').fontSize('8rem').foregroundColor('#090e13').lineHeight('1.1')
-                .maxLines(2)).height().maxWidth('80%'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Open source alternative to Monday.com, Click Up and Notion with self-hosting and data ownership.').lineHeight('1.6')
-                .maxLines(2)
-                .fontFamily('Graphik Regular,sans-serif')
-                .fontSize('3.2rem').foregroundColor('#090e13'))
-                .paddingTop('1rem')
-                .paddingBottom('3rem')
-                .maxWidth('80%').height()).height()
-                .padding('0 calc(50% - 572px)'))
-                .padding('20rem 0 10rem')
-                .margin('0 0 5rem')));
-    };
-    return LandingController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/*/+controller.tsx":
-/*!*******************************************!*\
-  !*** ./src/routes/app/*_/+controller.tsx ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "HomeController": () => (/* binding */ HomeController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/LeftSideMenu */ "./src/routes/app/*/views/LeftSideMenu.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var HomeController = /** @class */ (function (_super) {
-    __extends(HomeController, _super);
-    function HomeController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    HomeController.prototype.LoadView = function () {
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_1__.LeftSideMenuView)('Home'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteOutlet)().width("100%").height("100%")));
-    };
-    return HomeController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/*/views/DatabaseNameView.tsx":
-/*!******************************************************!*\
-  !*** ./src/routes/app/*_/views/DatabaseNameView.tsx ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DatabaseNameView": () => (/* binding */ DatabaseNameView)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! copy-to-clipboard */ "./node_modules/copy-to-clipboard/index.js");
-/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(copy_to_clipboard__WEBPACK_IMPORTED_MODULE_1__);
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-
-function DatabaseNameView(database, selected, onClickCallback) {
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useParams)(), access_type = _a.access_type, workspaceId = _a.workspaceId;
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)('readonly'), mode = _b[0], setMode = _b[1];
-        // const [name, setName] = useState(applet?.name);
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(database === null || database === void 0 ? void 0 : database.name), newName = _c[0], setNewName = _c[1];
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        //const { updateAppletName } = useUpdateAppletName();
-        // const {applet:_applet} = useGetApplet(applet.$id);
-        return (mode === 'readonly' ?
-            //UIRouteLink(team ? `/app/${getAppFullName()}/team/${team.id}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}` : `/app/${getAppFullName()}/workspace/${spaceItem.id}/folder/${folder.id}/applet/${applet.id}/scope/${applet.scope_id}`)(
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })(
-            /*  Icon(WorkbenchIcons[database.icon] || WorkbenchIcons.DocIcon)
-                 .foregroundColor('#7c828d').fontSize(18)
-                 .onClick(() => {
-                     onClickCallback();
-                 }) */
-            ).width(25).paddingRight('3px'), mode !== 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(database.name).h6().ellipsisMaxLines(1).ellipsis(true)
-                    .fontSize(14).fontWeight('400')
-                    .fontFamily('-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji')
-                    .foregroundColor(selected ? '#7b68ee' : '#151719')).onClick(function () {
-                    //alert(getAppletUrl(access_type, applet.id))
-                    navigate("/app/com.celmino.app.test/workspace/".concat(workspaceId, "/database/").concat(database.$id));
-                }), mode === 'readonly' ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Fragment)() :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().value(newName)
-                    .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
-                    .fontSize(13)
-                    .height('100%')
-                    .padding(0)
-                    .border('dashed 1px #AAA')
-                    .shadow({ focus: 'none' })
-                    .onBlur(function () {
-                    /*   updateAppletName({
-                          appletId: database.$id,
-                          name: newName
-                      }) */
-                    setMode('readonly');
-                })
-                    .onChange(function (e) { return setNewName(e); }))
-                .overflow('hidden').height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTrailing })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-                .model([
-                {
-                    title: 'Add to sub applet',
-                    type: 'Title'
-                },
-                {
-                    title: 'More Applets',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-activity-template-merged'),
-                    /*   onClick: () => SelectOpaDialog.Show(database.$id, 'applet', opas).then((applet) => {
-
-                         
-                      }) */
-                },
-            ])
-                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Add), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)()
-                .model([
-                {
-                    title: 'Applet Options',
-                    type: 'Title'
-                },
-                {
-                    title: 'Rename',
-                    //  icon: WorkbenchIcons.Edit,
-                    onClick: function () {
-                        setMode('edit');
+                    {
+                        "name": "Models",
+                        "id": "em_models",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Parent",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Model Types",
+                        "id": "model_types",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "OrginalName",
+                                "type": "string"
+                            },
+                            {
+                                "key": "TypeNumber",
+                                "type": "number"
+                            },
+                            {
+                                "key": "ApiName",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Type",
+                                "type": "string"
+                            }
+                        ],
+                        "documents": [
+                            {
+                                "Name": "Organizational chart",
+                                "TypeNumber": 1,
+                                "ApiName": "MT_ORG_CHRT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen diagram",
+                                "TypeNumber": 2,
+                                "ApiName": "MT_SCRN_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network topology ",
+                                "TypeNumber": 3,
+                                "ApiName": "MT_NW_TOPLG",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network diagram",
+                                "TypeNumber": 5,
+                                "ApiName": "MT_NW_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "eERM",
+                                "TypeNumber": 6,
+                                "ApiName": "MT_EERM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP SERM",
+                                "TypeNumber": 7,
+                                "ApiName": "MT_SAP_SERM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "eERM attribute allocation diagram",
+                                "TypeNumber": 8,
+                                "ApiName": "MT_EERM_ATTR_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Relations diagram",
+                                "TypeNumber": 9,
+                                "ApiName": "MT_REL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Attribute allocation diagram",
+                                "TypeNumber": 10,
+                                "ApiName": "MT_ATTR_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Table diagram",
+                                "TypeNumber": 11,
+                                "ApiName": "MT_TBL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Value-added chain diagram",
+                                "TypeNumber": 12,
+                                "ApiName": "MT_VAL_ADD_CHN_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC",
+                                "TypeNumber": 13,
+                                "ApiName": "MT_EPC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Function allocation diagram",
+                                "TypeNumber": 14,
+                                "ApiName": "MT_FUNC_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Information flow diagram",
+                                "TypeNumber": 15,
+                                "ApiName": "MT_INFO_FLOW_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Access diagram",
+                                "TypeNumber": 16,
+                                "ApiName": "MT_ACS_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Access diagram (physical)",
+                                "TypeNumber": 17,
+                                "ApiName": "MT_ACS_DGM_PHYs",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "PCD",
+                                "TypeNumber": 18,
+                                "ApiName": "MT_PCD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Function tree",
+                                "TypeNumber": 19,
+                                "ApiName": "MT_FUNC_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system type diagram",
+                                "TypeNumber": 21,
+                                "ApiName": "MT_FUNC_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tecnical terms model",
+                                "TypeNumber": 22,
+                                "ApiName": "MT_TEC_TERMS_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Event diagram",
+                                "TypeNumber": 23,
+                                "ApiName": "MT_EVNT_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Rule diagram",
+                                "TypeNumber": 24,
+                                "ApiName": "MT_RULE_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Function organizational level diagram",
+                                "TypeNumber": 25,
+                                "ApiName": "MT_FUNC_ORG_LVL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process selection matrix",
+                                "TypeNumber": 28,
+                                "ApiName": "MT_PROC_SEL_MTRX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Y diagram",
+                                "TypeNumber": 30,
+                                "ApiName": "MT_Y_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP application diagram",
+                                "TypeNumber": 31,
+                                "ApiName": "MT_SAP_APP_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Classfication diagram",
+                                "TypeNumber": 36,
+                                "ApiName": "MT_CLSF_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Objective diagram",
+                                "TypeNumber": 37,
+                                "ApiName": "MT_OBJ_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system diagram",
+                                "TypeNumber": 38,
+                                "ApiName": "MT_APP_SYS_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "OMT Object model",
+                                "TypeNumber": 39,
+                                "ApiName": "MT_APP_SYS_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "OMT Dynamic model",
+                                "TypeNumber": 40,
+                                "ApiName": "MT_OMT_DYN_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "OMT Functional model",
+                                "TypeNumber": 41,
+                                "ApiName": "MT_OMT_FUNC_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "E Data model",
+                                "TypeNumber": 42,
+                                "ApiName": "MT_E_DATA_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "OMT Data value decomposition",
+                                "TypeNumber": 43,
+                                "ApiName": "MT_OMT_DATA_VAL_DCMPS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Class diagram",
+                                "TypeNumber": 44,
+                                "ApiName": "MT_CLS_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System attributes",
+                                "TypeNumber": 45,
+                                "ApiName": "MT_SYS_ATTRS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System attribute domain",
+                                "TypeNumber": 46,
+                                "ApiName": "MT_SYS_ATTRS_DOM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SeDaM model",
+                                "TypeNumber": 47,
+                                "ApiName": "MT_SEDAM_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Technical resources",
+                                "TypeNumber": 48,
+                                "ApiName": "MT_TEC_RCS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Material diagram",
+                                "TypeNumber": 49,
+                                "ApiName": "MT_MTRL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (material flow)",
+                                "TypeNumber": 50,
+                                "ApiName": "MT_EPC_MTRL_FLOW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "PCD (material flow)",
+                                "TypeNumber": 51,
+                                "ApiName": "MT_PCD_MTRL_FLOW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Communications diagram",
+                                "TypeNumber": 52,
+                                "ApiName": "MT_COMM_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Program flow chart",
+                                "TypeNumber": 53,
+                                "ApiName": "MT_PRG_FLOW_CHRT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Cost category diagram",
+                                "TypeNumber": 54,
+                                "ApiName": "MT_CST_CAT_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "OMT Class description model",
+                                "TypeNumber": 55,
+                                "ApiName": "MT_OMT_CLS_DESC_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "RAMS",
+                                "TypeNumber": 56,
+                                "ApiName": "MT_RAMS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP ALE function model",
+                                "TypeNumber": 57,
+                                "ApiName": "MT_SAP_ALE_FUNC_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP ALE filter model",
+                                "TypeNumber": 58,
+                                "ApiName": "MT_SAP_ALE_FLTR_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP ALE message flow model",
+                                "TypeNumber": 59,
+                                "ApiName": "MT_SAP_ALE_MSG_FLOW_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP ALE message type model",
+                                "TypeNumber": 60,
+                                "ApiName": "MT_SAP_ALE_MSG_TYP_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (instance)",
+                                "TypeNumber": 61,
+                                "ApiName": "MT_EPC_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Material flow diagram",
+                                "TypeNumber": 62,
+                                "ApiName": "MT_MTRL_FLOW_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "PPC",
+                                "TypeNumber": 63,
+                                "ApiName": "MT_PPC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Information carrier diagram",
+                                "TypeNumber": 64,
+                                "ApiName": "MT_INFO_CRR_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Task allocation diagram",
+                                "TypeNumber": 65,
+                                "ApiName": "MT_TSK_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Privileges diagram",
+                                "TypeNumber": 66,
+                                "ApiName": "MT_PRIV_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Event diagram (instance)",
+                                "TypeNumber": 67,
+                                "ApiName": "MT_EVNT_DGM_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Business controls diagram",
+                                "TypeNumber": 68,
+                                "ApiName": "MT_BUS_CTRL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service exchange diagram (graphic)",
+                                "TypeNumber": 69,
+                                "ApiName": "MT_PROD_EXCH_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service tree (graphic)",
+                                "TypeNumber": 69,
+                                "ApiName": "MT_PROD_TREE_GRAPHIC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product tree",
+                                "TypeNumber": 70,
+                                "ApiName": "MT_PROD_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product selection matrix",
+                                "TypeNumber": 71,
+                                "ApiName": "MT_PROD_SEL_MTRX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Office process",
+                                "TypeNumber": 72,
+                                "ApiName": "MT_OFFICE_PROC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product allocation diagram",
+                                "TypeNumber": 73,
+                                "ApiName": "MT_PROD_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Competition model",
+                                "TypeNumber": 74,
+                                "ApiName": "MT_COMP_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Industrial process",
+                                "TypeNumber": 75,
+                                "ApiName": "MT_IND_PROC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process instantiation model",
+                                "TypeNumber": 76,
+                                "ApiName": "MT_PROC_INST_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Shift calendar",
+                                "TypeNumber": 77,
+                                "ApiName": "MT_SHIFT_CAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "CD Diagram",
+                                "TypeNumber": 78,
+                                "ApiName": "MT_CD_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Input/Output diagram",
+                                "TypeNumber": 79,
+                                "ApiName": "MT_IN_OUT_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Knowledge structure diagram",
+                                "TypeNumber": 80,
+                                "ApiName": "MT_KNW_STRC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Knowledge map",
+                                "TypeNumber": 81,
+                                "ApiName": "MT_KNW_MAP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "UML Class description diagram",
+                                "TypeNumber": 82,
+                                "ApiName": "MT_UML_CLS_DESC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service tree",
+                                "TypeNumber": 83,
+                                "ApiName": "MT_PROD_SER_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service exchange diagram",
+                                "TypeNumber": 84,
+                                "ApiName": "MT_PROD_SER_EXCH_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Structuring model",
+                                "TypeNumber": 85,
+                                "ApiName": "MT_STRC_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (column display)",
+                                "TypeNumber": 86,
+                                "ApiName": "MT_EPC_COL_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Program flow chart (PF)",
+                                "TypeNumber": 87,
+                                "ApiName": "MT_PRG_FLOW_CHRT_PF",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (row display)",
+                                "TypeNumber": 88,
+                                "ApiName": "MT_EPC_ROW_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process selection diagram",
+                                "TypeNumber": 89,
+                                "ApiName": "MT_PROC_SEL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Authorization map",
+                                "TypeNumber": 90,
+                                "ApiName": "MT_AUTH_MAP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Authorization hierarchy",
+                                "TypeNumber": 91,
+                                "ApiName": "MT_AUTH_HIER",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Role diagram",
+                                "TypeNumber": 92,
+                                "ApiName": "MT_ROLE_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "E-Business scenario diagram",
+                                "TypeNumber": 93,
+                                "ApiName": "MT_E_BUS_SCN_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "KPI allocation diagram",
+                                "TypeNumber": 94,
+                                "ApiName": "MT_KPI_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "DW structure",
+                                "TypeNumber": 95,
+                                "ApiName": "MT_DW_STRC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "DW transformation",
+                                "TypeNumber": 96,
+                                "ApiName": "MT_DW_TRNS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (table display)",
+                                "TypeNumber": 97,
+                                "ApiName": "MT_EPC_TBL_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Input/Output diagram (inverse)",
+                                "TypeNumber": 98,
+                                "ApiName": "MT_IN_OUT_DGM_INV",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "RAD",
+                                "TypeNumber": 99,
+                                "ApiName": "MT_RAD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Quick model",
+                                "TypeNumber": 100,
+                                "ApiName": "MT_QUICK_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "DTD",
+                                "TypeNumber": 101,
+                                "ApiName": "MT_DTD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "c3 method",
+                                "TypeNumber": 102,
+                                "ApiName": "MT_C3_MTHD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Risk diagram",
+                                "TypeNumber": 103,
+                                "ApiName": "MT_RISK_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen design",
+                                "TypeNumber": 104,
+                                "ApiName": "MT_SCREEN_DESIGN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen navigation",
+                                "TypeNumber": 105,
+                                "ApiName": "MT_SCREEN_NAV",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service architecture diagram",
+                                "TypeNumber": 106,
+                                "ApiName": "MT_SER_ARCH_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service architecture diagram (column display)",
+                                "TypeNumber": 107,
+                                "ApiName": "MT_SER_ARCH_DGM_COL_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system type diagram (column display)",
+                                "TypeNumber": 108,
+                                "ApiName": "MT_APP_SYS_TYP_DGM_COL_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service allocation diagram",
+                                "TypeNumber": 109,
+                                "ApiName": "MT_SER_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "EPC (horizontal table display)",
+                                "TypeNumber": 110,
+                                "ApiName": "MT_EPC_HOR_TBL_DPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP functions mapping (Solution Manager)",
+                                "TypeNumber": 111,
+                                "ApiName": "MT_SAP_FUNC_MAP_SM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Functions mapping (Solution Manager)",
+                                "TypeNumber": 112,
+                                "ApiName": "MT_FUNC_MAP_SM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Business segment matrix",
+                                "TypeNumber": 113,
+                                "ApiName": "MT_BUS_SEG_MTRX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "BPMN process diagram (BPMN 1.x)",
+                                "TypeNumber": 114,
+                                "ApiName": "MT_BPMN_PROC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP integration process (XI)",
+                                "TypeNumber": 115,
+                                "ApiName": "MT_SAP_INT_PROC_XI",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Swimlane tree",
+                                "TypeNumber": 116,
+                                "ApiName": "MT_SWIM_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service collaboration diagram",
+                                "TypeNumber": 117,
+                                "ApiName": "MT_SER_COL_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process support map",
+                                "TypeNumber": 118,
+                                "ApiName": "MT_PROC_SUPP_MAP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP allocation diagram",
+                                "TypeNumber": 119,
+                                "ApiName": "MT_SAP_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IT architecture mapping",
+                                "TypeNumber": 120,
+                                "ApiName": "MT_IT_ARCH_MAP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IT architecture matrix",
+                                "TypeNumber": 121,
+                                "ApiName": "MT_IT_ARCH_MTRX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "BPMN allocation diagram (BPMN 1.x)",
+                                "TypeNumber": 122,
+                                "ApiName": "MT_BPMN_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "SAP organizational elements mapping",
+                                "TypeNumber": 123,
+                                "ApiName": "MT_SAP_ORG_ELM_MAP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Matrix model",
+                                "TypeNumber": 124,
+                                "ApiName": "MT_MTRX_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process schedule",
+                                "TypeNumber": 125,
+                                "ApiName": "MT_PROC_SCH",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transformation",
+                                "TypeNumber": 126,
+                                "ApiName": "MT_TRNS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Mapping model",
+                                "TypeNumber": 127,
+                                "ApiName": "MT_MAP_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "XML model",
+                                "TypeNumber": 128,
+                                "ApiName": "MT_XML_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Schedule",
+                                "TypeNumber": 129,
+                                "ApiName": "MT_SCH",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Composite schedule",
+                                "TypeNumber": 130,
+                                "ApiName": "MT_COMP_SCH",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Project schedule",
+                                "TypeNumber": 131,
+                                "ApiName": "MT_PRJ_SCH",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Work breakdown structure",
+                                "TypeNumber": 132,
+                                "ApiName": "MT_WRK_BRK_STRC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Requirements tree",
+                                "TypeNumber": 133,
+                                "ApiName": "MT_REQ_TREE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Requirement allocation diagram",
+                                "TypeNumber": 134,
+                                "ApiName": "MT_REQ_ALLOC_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Data flow diagram",
+                                "TypeNumber": 135,
+                                "ApiName": "MT_DATA_FLOW_DGM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transformation profile model",
+                                "TypeNumber": 136,
+                                "ApiName": "MT_TRNS_PROF_MDL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "BPMN allocation diagram (2.0 beta)",
+                                "TypeNumber": 137,
+                                "ApiName": "MT_BPMN_ALLOC_DGM_2",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Whiteboard",
+                                "TypeNumber": 138,
+                                "ApiName": "MT_WHITEBOARD",
+                                "Type": "Default"
+                            },
+                        ]
+                    },
+                    // Model Type Tables Start
+                    {
+                        "name": "Organizational chart",
+                        "id": "MT_ORG_CHRT",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Screen diagram",
+                        "id": "MT_SCRN_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Network topology",
+                        "id": "MT_NW_TOPLG",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Network diagram",
+                        "id": "MT_NW_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "eERM",
+                        "id": "MT_EERM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP SERM",
+                        "id": "MT_SAP_SERM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "eERM attribute allocation diagram",
+                        "id": "MT_EERM_ATTR_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Relations diagram",
+                        "id": "MT_REL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Attribute allocation diagram",
+                        "id": "MT_ATTR_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Table diagram",
+                        "id": "MT_TBL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Value-added chain diagram",
+                        "id": "MT_VAL_ADD_CHN_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC",
+                        "id": "MT_EPC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Function allocation diagram",
+                        "id": "MT_FUNC_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Information flow diagram",
+                        "id": "MT_INFO_FLOW_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Access diagram",
+                        "id": "MT_ACS_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Access diagram (physical)",
+                        "id": "MT_ACS_DGM_PHYs",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "PCD",
+                        "id": "MT_PCD",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Function tree",
+                        "id": "MT_FUNC_TREE",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Application system type diagram",
+                        "id": "MT_APP_SYS_TYP_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Tecnical terms model",
+                        "id": "MT_TEC_TERMS_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Event diagram",
+                        "id": "MT_EVNT_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Rule diagram",
+                        "id": "MT_RULE_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Function organizational level diagram",
+                        "id": "MT_FUNC_ORG_LVL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Process selection matrix",
+                        "id": "MT_PROC_SEL_MTRX",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Y diagram",
+                        "id": "MT_Y_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP application diagram",
+                        "id": "MT_SAP_APP_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Classfication diagram",
+                        "id": "MT_CLSF_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Objective diagram",
+                        "id": "MT_OBJ_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Application system diagram",
+                        "id": "MT_APP_SYS_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "OMT Object model",
+                        "id": "MT_OMT_OBJ_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "OMT Dynamic model",
+                        "id": "MT_OMT_DYN_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "OMT Functional model",
+                        "id": "MT_OMT_FUNC_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "E Data model",
+                        "id": "MT_E_DATA_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "OMT Data value decomposition",
+                        "id": "MT_OMT_DATA_VAL_DCMPS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Class diagram",
+                        "id": "MT_CLS_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "System attributes",
+                        "id": "MT_SYS_ATTRS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "System attribute domain",
+                        "id": "MT_SYS_ATTRS_DOM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SeDaM model",
+                        "id": "MT_SEDAM_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Technical resources",
+                        "id": "MT_TEC_RCS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Material diagram",
+                        "id": "MT_MTRL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (material flow)",
+                        "id": "MT_EPC_MTRL_FLOW",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "PCD (material flow)",
+                        "id": "MT_PCD_MTRL_FLOW",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Communications diagram",
+                        "id": "MT_COMM_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Program flow chart",
+                        "id": "MT_PRG_FLOW_CHRT",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Cost category diagram",
+                        "id": "MT_CST_CAT_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "OMT Class description model",
+                        "id": "MT_OMT_CLS_DESC_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "RAMS",
+                        "id": "MT_RAMS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP ALE function model",
+                        "id": "MT_SAP_ALE_FUNC_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP ALE filter model",
+                        "id": "MT_SAP_ALE_FLTR_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP ALE message flow model",
+                        "id": "MT_SAP_ALE_MSG_FLOW_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP ALE message type model",
+                        "id": "MT_SAP_ALE_MSG_TYP_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (instance)",
+                        "id": "MT_EPC_INST",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Material flow diagram",
+                        "id": "MT_MTRL_FLOW_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "PPC",
+                        "id": "MT_PPC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Information carrier diagram",
+                        "id": "MT_INFO_CRR_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Task allocation diagram",
+                        "id": "MT_TSK_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Privileges diagram",
+                        "id": "MT_PRIV_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Event diagram (instance)",
+                        "id": "MT_EVNT_DGM_INST",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Business controls diagram",
+                        "id": "MT_BUS_CTRL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product/Service exchange diagram (graphic)",
+                        "id": "MT_PROD_EXCH_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product/Service tree (graphic)",
+                        "id": "MT_PROD_TREE_GRAPHIC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product tree",
+                        "id": "MT_PROD_TREE",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product selection matrix",
+                        "id": "MT_PROD_SEL_MTRX",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Office process",
+                        "id": "MT_OFFICE_PROC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product allocation diagram",
+                        "id": "MT_PROD_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Competition model",
+                        "id": "MT_COMP_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Industrial process",
+                        "id": "MT_IND_PROC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Process instantiation model",
+                        "id": "MT_PROC_INST_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Shift calendar",
+                        "id": "MT_SHIFT_CAL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "CD Diagram",
+                        "id": "MT_CD_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Input/Output diagram",
+                        "id": "MT_IN_OUT_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Knowledge structure diagram",
+                        "id": "MT_KNW_STRC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Knowledge map",
+                        "id": "MT_KNW_MAP",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "UML Class description diagram",
+                        "id": "MT_UML_CLS_DESC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product/Service tree",
+                        "id": "MT_PROD_SER_TREE",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Product/Service exchange diagram",
+                        "id": "MT_PROD_SER_EXCH_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Structuring model",
+                        "id": "MT_STRC_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (column display)",
+                        "id": "MT_EPC_COL_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Program flow chart (PF)",
+                        "id": "MT_PRG_FLOW_CHRT_PF",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (row display)",
+                        "id": "MT_EPC_ROW_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Process selection diagram",
+                        "id": "MT_PROC_SEL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Authorization map",
+                        "id": "MT_AUTH_MAP",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Authorization hierarchy",
+                        "id": "MT_AUTH_HIER",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Role diagram",
+                        "id": "MT_ROLE_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "E-Business scenario diagram",
+                        "id": "MT_E_BUS_SCN_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "KPI allocation diagram",
+                        "id": "MT_KPI_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DW structure",
+                        "id": "MT_DW_STRC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DW transformation",
+                        "id": "MT_DW_TRNS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (table display)",
+                        "id": "MT_EPC_TBL_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Input/Output diagram (inverse)",
+                        "id": "MT_IN_OUT_DGM_INV",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "RAD",
+                        "id": "MT_RAD",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Quick model",
+                        "id": "MT_QUICK_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DTD",
+                        "id": "MT_DTD",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "c3 method",
+                        "id": "MT_C3_MTHD",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Risk diagram",
+                        "id": "MT_RISK_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Screen design",
+                        "id": "MT_SCREEN_DESIGN",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Screen navigation",
+                        "id": "MT_SCREEN_NAV",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Service architecture diagram",
+                        "id": "MT_SER_ARCH_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Service architecture diagram (column display)",
+                        "id": "MT_SER_ARCH_DGM_COL_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Application system type diagram (column display)",
+                        "id": "MT_APP_SYS_TYP_DGM_COL_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Service allocation diagram",
+                        "id": "MT_SER_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "EPC (horizontal table display)",
+                        "id": "MT_EPC_HOR_TBL_DPLY",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP functions mapping (Solution Manager)",
+                        "id": "MT_SAP_FUNC_MAP_SM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Functions mapping (Solution Manager)",
+                        "id": "MT_FUNC_MAP_SM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Business segment matrix",
+                        "id": "MT_BUS_SEG_MTRX",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "BPMN process diagram (BPMN 1.x)",
+                        "id": "MT_BPMN_PROC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP integration process (XI)",
+                        "id": "MT_SAP_INT_PROC_XI",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Swimlane tree",
+                        "id": "MT_SWIM_TREE",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Service collaboration diagram",
+                        "id": "MT_SER_COL_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Process support map",
+                        "id": "MT_PROC_SUPP_MAP",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP allocation diagram",
+                        "id": "MT_SAP_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "IT architecture mapping",
+                        "id": "MT_IT_ARCH_MAP",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "IT architecture matrix",
+                        "id": "MT_IT_ARCH_MTRX",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "BPMN allocation diagram (BPMN 1.x)",
+                        "id": "MT_BPMN_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SAP organizational elements mapping",
+                        "id": "MT_SAP_ORG_ELM_MAP",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Matrix model",
+                        "id": "MT_MTRX_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Process schedule",
+                        "id": "MT_PROC_SCH",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Transformation",
+                        "id": "MT_TRNS",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Mapping model",
+                        "id": "MT_MAP_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "XML model",
+                        "id": "MT_XML_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Schedule",
+                        "id": "MT_SCH",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Composite schedule",
+                        "id": "MT_COMP_SCH",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Project schedule",
+                        "id": "MT_PRJ_SCH",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Work breakdown structure",
+                        "id": "MT_WRK_BRK_STRC",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Requirements tree",
+                        "id": "MT_REQ_TREE",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Requirement allocation diagram",
+                        "id": "MT_REQ_ALLOC_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Data flow diagram",
+                        "id": "MT_DATA_FLOW_DGM",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Transformation profile model",
+                        "id": "MT_TRNS_PROF_MDL",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "BPMN allocation diagram (2.0 beta)",
+                        "id": "MT_BPMN_ALLOC_DGM_2",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Whiteboard",
+                        "id": "MT_WHITEBOARD",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    // Model Type Tables End
+                    {
+                        "name": "Object Types",
+                        "id": "object_types",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "OrginalName",
+                                "type": "string"
+                            },
+                            {
+                                "key": "TypeNumber",
+                                "type": "number"
+                            },
+                            {
+                                "key": "ApiName",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Type",
+                                "type": "string"
+                            },
+                        ],
+                        "documents": [
+                            {
+                                "Name": "Action",
+                                "TypeNumber": 1,
+                                "ApiName": "OT_ACTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Activity graph",
+                                "TypeNumber": 2,
+                                "ApiName": "OT_ACT_GRAPH",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Actor",
+                                "TypeNumber": 3,
+                                "ApiName": "OT_ACTOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system",
+                                "TypeNumber": 4,
+                                "ApiName": "OT_APP_SYS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system class",
+                                "TypeNumber": 5,
+                                "ApiName": "OT_APP_SYS_CLS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Application system type",
+                                "TypeNumber": 6,
+                                "ApiName": "OT_APP_SYS_TYP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Architecture element",
+                                "TypeNumber": 7,
+                                "ApiName": "OT_ARCH_ELEM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Argument",
+                                "TypeNumber": 8,
+                                "ApiName": "OT_ARGUMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Artifact",
+                                "TypeNumber": 9,
+                                "ApiName": "OT_ARTIFACT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Association",
+                                "TypeNumber": 10,
+                                "ApiName": "OT_ASSOCIATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Association class",
+                                "TypeNumber": 11,
+                                "ApiName": "OT_ASSOCIATION_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Association instance",
+                                "TypeNumber": 12,
+                                "ApiName": "OT_ASSOCIATION_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Association role",
+                                "TypeNumber": 13,
+                                "ApiName": "OT_ASSOCIATION_ROLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Attribute",
+                                "TypeNumber": 14,
+                                "ApiName": "OT_ATTRIBUTE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Attribute link",
+                                "TypeNumber": 15,
+                                "ApiName": "OT_ATTRIBUTE_LINK",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Attribute type",
+                                "TypeNumber": 16,
+                                "ApiName": "OT_ATTRIBUTE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Attribute type group",
+                                "TypeNumber": 17,
+                                "ApiName": "OT_ATTRIBUTE_TYPE_GROUP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Authorization condition",
+                                "TypeNumber": 18,
+                                "ApiName": "OT_AUTH_COND",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Bitmap",
+                                "TypeNumber": 18,
+                                "ApiName": "OT_AUTH_COND",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Break",
+                                "TypeNumber": 18,
+                                "ApiName": "OT_AUTH_COND",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Business object",
+                                "TypeNumber": 19,
+                                "ApiName": "OT_BUSINESS_OBJECT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Business rule",
+                                "TypeNumber": 20,
+                                "ApiName": "OT_BUSINESS_RULE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Business segment",
+                                "TypeNumber": 21,
+                                "ApiName": "OT_BUSINESS_SEGMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Button",
+                                "TypeNumber": 22,
+                                "ApiName": "OT_BUTTON",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Calendar event",
+                                "TypeNumber": 23,
+                                "ApiName": "OT_CALENDAR_EVENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Capability",
+                                "TypeNumber": 24,
+                                "ApiName": "OT_CAPABILITY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Capability",
+                                "TypeNumber": 25,
+                                "ApiName": "OT_CAPABILITY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Class",
+                                "TypeNumber": 26,
+                                "ApiName": "OT_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Classification criterion",
+                                "TypeNumber": 27,
+                                "ApiName": "OT_CLASSIFICATION_CRITERION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Classifier-in-state",
+                                "TypeNumber": 28,
+                                "ApiName": "OT_CLASSIFICATION_CRITERION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Classifier role",
+                                "TypeNumber": 29,
+                                "ApiName": "OT_CLASSIFIER_ROLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Cluster instance",
+                                "TypeNumber": 30,
+                                "ApiName": "OT_CLUSTER_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Cluster/Data model",
+                                "TypeNumber": 31,
+                                "ApiName": "OT_CLUSTER_DATA_MODEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Collaboration",
+                                "TypeNumber": 32,
+                                "ApiName": "OT_COLLABORATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Collaboration instance set",
+                                "TypeNumber": 33,
+                                "ApiName": "OT_COLLABORATION_INST_SET",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Column",
+                                "TypeNumber": 34,
+                                "ApiName": "OT_COLLABORATION_INST_SET",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Combo box",
+                                "TypeNumber": 35,
+                                "ApiName": "OT_COMBO_BOX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Communication",
+                                "TypeNumber": 36,
+                                "ApiName": "OT_COMMUNICATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Complex object",
+                                "TypeNumber": 37,
+                                "ApiName": "OT_COMPLEX_OBJECT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Complex object type",
+                                "TypeNumber": 38,
+                                "ApiName": "OT_COMPLEX_OBJECT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Component",
+                                "TypeNumber": 39,
+                                "ApiName": "OT_COMPONENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Component instance",
+                                "TypeNumber": 40,
+                                "ApiName": "OT_COMPONENT_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Conditional section",
+                                "TypeNumber": 41,
+                                "ApiName": "OT_CONDITIONAL_SECTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Connector",
+                                "TypeNumber": 42,
+                                "ApiName": "OT_CONNECTOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Constant",
+                                "TypeNumber": 43,
+                                "ApiName": "OT_CONSTANT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Constraint",
+                                "TypeNumber": 44,
+                                "ApiName": "OT_CONSTRAINT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Contents",
+                                "TypeNumber": 45,
+                                "ApiName": "OT_CONTENTS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Context information",
+                                "TypeNumber": 46,
+                                "ApiName": "OT_CONTEXT_INFO",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Conversation",
+                                "TypeNumber": 47,
+                                "ApiName": "OT_CONVERSATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Cost category",
+                                "TypeNumber": 48,
+                                "ApiName": "OT_COST_CATEGORY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Cost driver",
+                                "TypeNumber": 49,
+                                "ApiName": "OT_COST_DRIVER",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "COT attribute",
+                                "TypeNumber": 50,
+                                "ApiName": "OT_COT_ATTRIBUTE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "COT attribute (instance)",
+                                "TypeNumber": 51,
+                                "ApiName": "OT_COT_ATTRIBUTE_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Critical factor",
+                                "TypeNumber": 52,
+                                "ApiName": "OT_CRITICAL_FACTOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Data store",
+                                "TypeNumber": 53,
+                                "ApiName": "OT_DATA_STORE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Data value",
+                                "TypeNumber": 54,
+                                "ApiName": "OT_DATA_STORE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "DBMS",
+                                "TypeNumber": 55,
+                                "ApiName": "OT_DBMS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "DBMS type",
+                                "TypeNumber": 56,
+                                "ApiName": "OT_DBMS_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Deployment unit",
+                                "TypeNumber": 57,
+                                "ApiName": "OT_DEPLOYMENT_UNIT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Distribution channel",
+                                "TypeNumber": 58,
+                                "ApiName": "OT_DISTRIBUTION_CHANNEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Documented knowledge",
+                                "TypeNumber": 59,
+                                "ApiName": "OT_DOCUMENTED_KNOWLEDGE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Domain",
+                                "TypeNumber": 60,
+                                "ApiName": "OT_DOMAIN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Domain (physical)",
+                                "TypeNumber": 61,
+                                "ApiName": "OT_DOMAIN_PHYSICAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Draft list",
+                                "TypeNumber": 62,
+                                "ApiName": "OT_DRAFT_LIST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Element",
+                                "TypeNumber": 63,
+                                "ApiName": "OT_ELEMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Element type",
+                                "TypeNumber": 64,
+                                "ApiName": "OT_ELEMENT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Employee variable",
+                                "TypeNumber": 65,
+                                "ApiName": "OT_EMPLOYEE_VARIABLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Entity",
+                                "TypeNumber": 66,
+                                "ApiName": "OT_ENTITY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Entity type",
+                                "TypeNumber": 67,
+                                "ApiName": "OT_ENTITY_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Enumeration",
+                                "TypeNumber": 68,
+                                "ApiName": "OT_ENUMERATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Enumeration attribute type",
+                                "TypeNumber": 69,
+                                "ApiName": "OT_ENUMERATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Enumeration literal",
+                                "TypeNumber": 70,
+                                "ApiName": "OT_ENUMERATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Enumeration occurrence",
+                                "TypeNumber": 71,
+                                "ApiName": "OT_ENUMERATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "ERM attribute",
+                                "TypeNumber": 72,
+                                "ApiName": "OT_ERM_ATTRIBUTE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "ERM attribute instance",
+                                "TypeNumber": 73,
+                                "ApiName": "OT_ERM_ATTRIBUTE_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "ERM domain",
+                                "TypeNumber": 74,
+                                "ApiName": "OT_ERM_DOMAIN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Event",
+                                "TypeNumber": 75,
+                                "ApiName": "OT_EVENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Event instance",
+                                "TypeNumber": 76,
+                                "ApiName": "OT_EVENT_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Exception",
+                                "TypeNumber": 77,
+                                "ApiName": "OT_EXCEPTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Extension point",
+                                "TypeNumber": 78,
+                                "ApiName": "OT_EXTENSION_POINT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Field",
+                                "TypeNumber": 79,
+                                "ApiName": "OT_FIELD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Field (specimen)",
+                                "TypeNumber": 80,
+                                "ApiName": "OT_FIELD",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Filter object type",
+                                "TypeNumber": 81,
+                                "ApiName": "OT_FILTER_OBJECT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Function",
+                                "TypeNumber": 82,
+                                "ApiName": "OT_FUNCTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Gate",
+                                "TypeNumber": 83,
+                                "ApiName": "OT_GATE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "General resource",
+                                "TypeNumber": 84,
+                                "ApiName": "OT_GENERAL_RESOURCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Generalization type",
+                                "TypeNumber": 85,
+                                "ApiName": "OT_GENERAL_RESOURCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Graphical user interface type",
+                                "TypeNumber": 86,
+                                "ApiName": "OT_GRAPHICAL_USER_INTERFACE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Group",
+                                "TypeNumber": 87,
+                                "ApiName": "OT_GROUP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Hardware component",
+                                "TypeNumber": 88,
+                                "ApiName": "OT_HARDWARE_COMPONENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Hardware component class",
+                                "TypeNumber": 84,
+                                "ApiName": "OT_HARDWARE_COMPONENT_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Hardware component type",
+                                "TypeNumber": 85,
+                                "ApiName": "OT_HARDWARE_COMPONENT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Improvement potential",
+                                "TypeNumber": 85,
+                                "ApiName": "OT_IMP_POTENTIAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Index",
+                                "TypeNumber": 85,
+                                "ApiName": "OT_HINDEX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Information carrier",
+                                "TypeNumber": 86,
+                                "ApiName": "OT_INFO_CARRIER",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Information flow",
+                                "TypeNumber": 87,
+                                "ApiName": "OT_INFO_FLOW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Instantiation cycle",
+                                "TypeNumber": 88,
+                                "ApiName": "OT_INST_CYCLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Instantiation interval",
+                                "TypeNumber": 89,
+                                "ApiName": "OT_INST_INTERVAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Instantiation plan",
+                                "TypeNumber": 90,
+                                "ApiName": "OT_INST_PLAN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Interaction instance set",
+                                "TypeNumber": 91,
+                                "ApiName": "OT_INTERACTION_INST_SET",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IS service",
+                                "TypeNumber": 92,
+                                "ApiName": "OT_IS_SERVICE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IT function",
+                                "TypeNumber": 93,
+                                "ApiName": "OT_IT_FUNCTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IT function class",
+                                "TypeNumber": 94,
+                                "ApiName": "OT_IT_FUNCTION_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "IT function type",
+                                "TypeNumber": 95,
+                                "ApiName": "OT_IT_FUNCTION_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Knowledge category",
+                                "TypeNumber": 96,
+                                "ApiName": "OT_KNOWLEDGE_CATEGORY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "KPI instance",
+                                "TypeNumber": 97,
+                                "ApiName": "OT_KPI_INST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Lane",
+                                "TypeNumber": 98,
+                                "ApiName": "OT_LANE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Layout",
+                                "TypeNumber": 99,
+                                "ApiName": "OT_LAYOUT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Link object",
+                                "TypeNumber": 100,
+                                "ApiName": "OT_LINK_OBJECT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "List",
+                                "TypeNumber": 101,
+                                "ApiName": "OT_LIST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "List control",
+                                "TypeNumber": 102,
+                                "ApiName": "OT_LIST_CONTROL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Location",
+                                "TypeNumber": 103,
+                                "ApiName": "OT_LOCATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Loop start",
+                                "TypeNumber": 104,
+                                "ApiName": "OT_LOOP_START",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Main process",
+                                "TypeNumber": 105,
+                                "ApiName": "OT_MAIN_PROCESS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Marketing instrument",
+                                "TypeNumber": 106,
+                                "ApiName": "OT_MARKETING_INSTRUMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Material class",
+                                "TypeNumber": 106,
+                                "ApiName": "OT_MARKETING_INSTRUMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Material flow",
+                                "TypeNumber": 107,
+                                "ApiName": "OT_MATERIAL_FLOW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Material type",
+                                "TypeNumber": 108,
+                                "ApiName": "OT_MATERIAL_FLOW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Measurement unit",
+                                "TypeNumber": 109,
+                                "ApiName": "OT_MEASUREMENT_UNIT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Measurement unit number",
+                                "TypeNumber": 110,
+                                "ApiName": "OT_MEASUREMENT_UNIT_NUMBER",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Memory location",
+                                "TypeNumber": 111,
+                                "ApiName": "OT_MEMORY_LOCATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Message",
+                                "TypeNumber": 112,
+                                "ApiName": "OT_MESSAGE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Message type",
+                                "TypeNumber": 113,
+                                "ApiName": "OT_MESSAGE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Module",
+                                "TypeNumber": 114,
+                                "ApiName": "OT_MODULE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Module class",
+                                "TypeNumber": 115,
+                                "ApiName": "OT_MODULE_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Module type",
+                                "TypeNumber": 116,
+                                "ApiName": "OT_MODULE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Need",
+                                "TypeNumber": 117,
+                                "ApiName": "OT_NEED",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network",
+                                "TypeNumber": 118,
+                                "ApiName": "OT_NETWORK",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network class",
+                                "TypeNumber": 119,
+                                "ApiName": "OT_NETWORK_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network connection",
+                                "TypeNumber": 120,
+                                "ApiName": "OT_NETWORK_CONNECTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network connection class",
+                                "TypeNumber": 121,
+                                "ApiName": "OT_NETWORK_CONNECTION_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network connection type",
+                                "TypeNumber": 122,
+                                "ApiName": "OT_NETWORK_CONNECTION_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network node",
+                                "TypeNumber": 123,
+                                "ApiName": "OT_NETWORK_NODE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network node class",
+                                "TypeNumber": 124,
+                                "ApiName": "OT_NETWORK_NODE_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network node type",
+                                "TypeNumber": 125,
+                                "ApiName": "OT_NETWORK_NODE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Network type",
+                                "TypeNumber": 126,
+                                "ApiName": "OT_NETWORK_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Note",
+                                "TypeNumber": 127,
+                                "ApiName": "OT_NOTE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Object element",
+                                "TypeNumber": 128,
+                                "ApiName": "OT_OBJECT_ELEMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Object instance",
+                                "TypeNumber": 129,
+                                "ApiName": "OT_OBJECT_INSTANCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Object type class",
+                                "TypeNumber": 130,
+                                "ApiName": "OT_OBJECT_TYPE_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Objective",
+                                "TypeNumber": 131,
+                                "ApiName": "OT_OBJECTIVE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operating resource",
+                                "TypeNumber": 132,
+                                "ApiName": "OT_OPERATING_RESOURCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operating resource class",
+                                "TypeNumber": 133,
+                                "ApiName": "OT_OPERATING_RESOURCE_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operating resource type",
+                                "TypeNumber": 134,
+                                "ApiName": "OT_OPERATING_RESOURCE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operating system",
+                                "TypeNumber": 135,
+                                "ApiName": "OT_OPERATING_SYSTEM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operating system type",
+                                "TypeNumber": 136,
+                                "ApiName": "OT_OPERATING_SYSTEM_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operation",
+                                "TypeNumber": 137,
+                                "ApiName": "OT_OPERATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Operator",
+                                "TypeNumber": 138,
+                                "ApiName": "OT_OPERATOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Organizational chart",
+                                "TypeNumber": 139,
+                                "ApiName": "OT_ORGANIZATIONAL_CHART",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Organizational level",
+                                "TypeNumber": 140,
+                                "ApiName": "OT_ORGANIZATIONAL_LEVEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Organizational unit",
+                                "TypeNumber": 141,
+                                "ApiName": "OT_ORGANIZATIONAL_UNIT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Organizational unit type",
+                                "TypeNumber": 142,
+                                "ApiName": "OT_ORGANIZATIONAL_UNIT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Package",
+                                "TypeNumber": 143,
+                                "ApiName": "OT_PACKAGE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Packaging material class",
+                                "TypeNumber": 144,
+                                "ApiName": "OT_PACKAGING_MATERIAL_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Packaging material type",
+                                "TypeNumber": 145,
+                                "ApiName": "OT_PACKAGING_MATERIAL_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Page",
+                                "TypeNumber": 146,
+                                "ApiName": "OT_PAGE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Panel",
+                                "TypeNumber": 147,
+                                "ApiName": "OT_PANEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Parameter",
+                                "TypeNumber": 148,
+                                "ApiName": "OT_PANEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Participant",
+                                "TypeNumber": 149,
+                                "ApiName": "OT_PARTICIPANT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Partition",
+                                "TypeNumber": 150,
+                                "ApiName": "OT_PARTITION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Partner link",
+                                "TypeNumber": 151,
+                                "ApiName": "OT_PARTNER_LINK",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Person",
+                                "TypeNumber": 152,
+                                "ApiName": "OT_PERSON",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Person type",
+                                "TypeNumber": 153,
+                                "ApiName": "OT_PERSON_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Position",
+                                "TypeNumber": 154,
+                                "ApiName": "OT_POSITION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process",
+                                "TypeNumber": 155,
+                                "ApiName": "OT_PROCESS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process component",
+                                "TypeNumber": 156,
+                                "ApiName": "OT_PROCESS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Process support unit",
+                                "TypeNumber": 157,
+                                "ApiName": "OT_PROCESS_SUPPORT_UNIT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service",
+                                "TypeNumber": 158,
+                                "ApiName": "OT_PRODUCT_SERVICE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Product/Service characteristic",
+                                "TypeNumber": 159,
+                                "ApiName": "OT_PRODUCT_SERVICE_CHARACTERISTIC",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Profile",
+                                "TypeNumber": 160,
+                                "ApiName": "OT_PROFILE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Program library",
+                                "TypeNumber": 161,
+                                "ApiName": "OT_PROGRAM_LIBRARY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Program module",
+                                "TypeNumber": 162,
+                                "ApiName": "OT_PROGRAM_MODULE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Program module type",
+                                "TypeNumber": 163,
+                                "ApiName": "OT_PROGRAM_MODULE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Programming language",
+                                "TypeNumber": 164,
+                                "ApiName": "OT_PROGRAMMING_LANGUAGE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Protocol",
+                                "TypeNumber": 165,
+                                "ApiName": "OT_PROTOCOL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Quick object",
+                                "TypeNumber": 166,
+                                "ApiName": "OT_QUICK_OBJECT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Radio button/Check box",
+                                "TypeNumber": 167,
+                                "ApiName": "OT_RADIO_BUTTON_CHECK_BOX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Reception",
+                                "TypeNumber": 168,
+                                "ApiName": "OT_RECEPTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Relation",
+                                "TypeNumber": 169,
+                                "ApiName": "OT_RELATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Relationship",
+                                "TypeNumber": 170,
+                                "ApiName": "OT_RELATIONSHIP",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Relationship type",
+                                "TypeNumber": 171,
+                                "ApiName": "OT_RELATIONSHIP_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Requirement",
+                                "TypeNumber": 172,
+                                "ApiName": "OT_REQUIREMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Risk",
+                                "TypeNumber": 173,
+                                "ApiName": "OT_RISK",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Risk category",
+                                "TypeNumber": 174,
+                                "ApiName": "OT_RISK_CATEGORY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Rule",
+                                "TypeNumber": 175,
+                                "ApiName": "OT_RULE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Rule instance",
+                                "TypeNumber": 176,
+                                "ApiName": "OT_RULE_INSTANCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Schedule",
+                                "TypeNumber": 177,
+                                "ApiName": "OT_SCHEDULE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen",
+                                "TypeNumber": 178,
+                                "ApiName": "OT_SCREEN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen design",
+                                "TypeNumber": 179,
+                                "ApiName": "OT_SCREEN_DESIGN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Screen table",
+                                "TypeNumber": 180,
+                                "ApiName": "OT_SCREEN_TABLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Section",
+                                "TypeNumber": 181,
+                                "ApiName": "OT_SECTION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Security protocol",
+                                "TypeNumber": 182,
+                                "ApiName": "OT_SECURITY_PROTOCOL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Separator",
+                                "TypeNumber": 183,
+                                "ApiName": "OT_SEPARATOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Sequence",
+                                "TypeNumber": 184,
+                                "ApiName": "OT_SEQUENCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service interface",
+                                "TypeNumber": 185,
+                                "ApiName": "OT_SERVICE_INTERFACE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service request",
+                                "TypeNumber": 186,
+                                "ApiName": "OT_SERVICE_REQUEST",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Service type",
+                                "TypeNumber": 187,
+                                "ApiName": "OT_SERVICE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Shift",
+                                "TypeNumber": 187,
+                                "ApiName": "OT_SERVICE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Shift cycle",
+                                "TypeNumber": 188,
+                                "ApiName": "OT_SERVICE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Shift plan",
+                                "TypeNumber": 189,
+                                "ApiName": "OT_SERVICE_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Signal",
+                                "TypeNumber": 190,
+                                "ApiName": "OT_SIGNAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Socket",
+                                "TypeNumber": 191,
+                                "ApiName": "OT_SOCKET",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Sp./gen. operator",
+                                "TypeNumber": 192,
+                                "ApiName": "OT_SP_GEN_OPERATOR",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Spin box",
+                                "TypeNumber": 193,
+                                "ApiName": "OT_SPIN_BOX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "State",
+                                "TypeNumber": 194,
+                                "ApiName": "OT_STATE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "State machine",
+                                "TypeNumber": 195,
+                                "ApiName": "OT_STATE_MACHINE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Stereotype",
+                                "TypeNumber": 196,
+                                "ApiName": "OT_STEREOTYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Structural element",
+                                "TypeNumber": 197,
+                                "ApiName": "OT_STRUCTURAL_ELEMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Subsystem",
+                                "TypeNumber": 198,
+                                "ApiName": "OT_SUBSYSTEM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Subsystem instance",
+                                "TypeNumber": 199,
+                                "ApiName": "OT_SUBSYSTEM_INSTANCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System attribute",
+                                "TypeNumber": 200,
+                                "ApiName": "OT_SYSTEM_ATTRIBUTE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System attribute domain",
+                                "TypeNumber": 201,
+                                "ApiName": "OT_SYSTEM_ATTRIBUTE_DOMAIN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System organizational unit",
+                                "TypeNumber": 202,
+                                "ApiName": "OT_SYSTEM_ORGANIZATIONAL_UNIT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "System organizational unit type",
+                                "TypeNumber": 203,
+                                "ApiName": "OT_SYSTEM_ORGANIZATIONAL_UNIT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Table",
+                                "TypeNumber": 204,
+                                "ApiName": "OT_TABLE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tables (specimen)",
+                                "TypeNumber": 205,
+                                "ApiName": "OT_TABLES",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tag definition",
+                                "TypeNumber": 206,
+                                "ApiName": "OT_TAG_DEFINITION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tagged value",
+                                "TypeNumber": 207,
+                                "ApiName": "OT_TAGGED_VALUE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Task",
+                                "TypeNumber": 208,
+                                "ApiName": "OT_TASK",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tech. operating supply class",
+                                "TypeNumber": 209,
+                                "ApiName": "OT_TECH_OPERATING_SUPPLY_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Technical operating supply",
+                                "TypeNumber": 210,
+                                "ApiName": "OT_TECH_OPERATING_SUPPLY",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Technical operating supply type",
+                                "TypeNumber": 211,
+                                "ApiName": "OT_TECH_OPERATING_SUPPLY_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Technical term",
+                                "TypeNumber": 212,
+                                "ApiName": "OT_TECH_OPERATING_SUPPLY_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Technical terms instance",
+                                "TypeNumber": 213,
+                                "ApiName": "OT_TECH_OPERATING_SUPPLY_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Test definition",
+                                "TypeNumber": 214,
+                                "ApiName": "OT_TEST_DEFINITION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Text",
+                                "TypeNumber": 215,
+                                "ApiName": "OT_TEXT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Text annotation",
+                                "TypeNumber": 216,
+                                "ApiName": "OT_TEXT_ANNOTATION",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Text box",
+                                "TypeNumber": 217,
+                                "ApiName": "OT_TEXT_BOX",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tool",
+                                "TypeNumber": 218,
+                                "ApiName": "OT_TOOL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transaction folder",
+                                "TypeNumber": 219,
+                                "ApiName": "OT_TRANSACTION_FOLDER",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transformation pattern",
+                                "TypeNumber": 220,
+                                "ApiName": "OT_TRANSFORMATION_PATTERN",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transformation pattern component",
+                                "TypeNumber": 221,
+                                "ApiName": "OT_TRANSFORMATION_PATTERN_COMPONENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transformation profile",
+                                "TypeNumber": 222,
+                                "ApiName": "OT_TRANSFORMATION_PROFILE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transport system",
+                                "TypeNumber": 223,
+                                "ApiName": "OT_TRANSPORT_SYSTEM",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transport system class",
+                                "TypeNumber": 224,
+                                "ApiName": "OT_TRANSPORT_SYSTEM_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Transport system type",
+                                "TypeNumber": 225,
+                                "ApiName": "OT_TRANSPORT_SYSTEM_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Tree control",
+                                "TypeNumber": 226,
+                                "ApiName": "OT_TREE_CONTROL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "UML Model",
+                                "TypeNumber": 227,
+                                "ApiName": "OT_UML_MODEL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Use case instance",
+                                "TypeNumber": 228,
+                                "ApiName": "OT_USE_CASE_INSTANCE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "View",
+                                "TypeNumber": 229,
+                                "ApiName": "OT_VIEW",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "View (physical)",
+                                "TypeNumber": 230,
+                                "ApiName": "OT_VIEW_PHYSICAL",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Warehouse equipment",
+                                "TypeNumber": 231,
+                                "ApiName": "OT_WAREHOUSE_EQUIPMENT",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Warehouse equipment class",
+                                "TypeNumber": 232,
+                                "ApiName": "OT_WAREHOUSE_EQUIPMENT_CLASS",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "Warehouse equipment type",
+                                "TypeNumber": 233,
+                                "ApiName": "OT_WAREHOUSE_EQUIPMENT_TYPE",
+                                "Type": "Default"
+                            },
+                            {
+                                "Name": "XOR",
+                                "TypeNumber": 234,
+                                "ApiName": "OT_XOR",
+                                "Type": "Default"
+                            },
+                        ]
+                    },
+                    {
+                        "name": "Action",
+                        "id": "OT_ACTION",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Activity graph",
+                        "id": "OT_ACT_GRAPH",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Actor",
+                        "id": "OT_ACTOR",
+                        "attributes": [
+                            {
+                                "key": "Name",
+                                "type": "string"
+                            }
+                        ]
                     }
-                },
-                {
-                    title: 'Copy link',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__link'),
-                    onClick: function () {
-                        copy_to_clipboard__WEBPACK_IMPORTED_MODULE_1___default()(location.href);
-                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ShowToast)('Copied to clipboard');
-                    }
-                },
-                {
-                    title: 'Add to favorites',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__star'),
-                    onClick: function () {
-                        setMode('edit');
-                    }
-                },
-                {
-                    title: 'Dublicate',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__copy'),
-                    onClick: function () {
-                        var data = __assign({}, database);
-                        delete data['id'];
-                        /*  createApplet(applet, {
-                             onSuccess: (newApplet) => {
-                                 invalidateResourceCache();
-                                 ShowSuccessToast('Dublicated.');
-                                 navigate(getAppletUrl(access_type, team?.id, newApplet.id))
-                             }
-                         }) */
-                    }
-                },
-                {
-                    title: 'Move',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__move'),
-                    onClick: function () {
-                        setMode('edit');
-                    }
-                },
-                {
-                    title: 'Description',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-info4'),
-                    onClick: function () {
-                        // DynoDialog.Show(AppletDescriptionDialog(database.$id))
-                    }
-                },
-                {
-                    title: 'Delete',
-                    icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SvgIcon)('svg-sprite-global__delete', '#bc4841'),
-                    color: '#bc4841',
-                    onClick: function () {
-                        var accept = function () {
-                            /* deleteView(applet.id, {
-                                onSuccess: () => {
-                                    invalidateResCache();
-
-                                    team ?
-                                        navigate(`/app/${getAppFullName()}/team/${team.id}/workspace/${applet.workspace_id}`)
-                                        :
-                                        navigate(`/app/${getAppFullName()}/workspace/${applet.workspace_id}`);
-
-                                }
-                            }) */
-                            // toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
-                        };
-                        var reject = function () {
-                            //alert('reject')
-                            // toast.current.show({ severity: 'warn', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                        };
-                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.confirmDialog)({
-                            message: 'Do you want to delete this applet?',
-                            header: 'Delete Confirmation',
-                            icon: 'pi pi-info-circle',
-                            acceptClassName: 'p-button-danger',
-                            accept: accept,
-                            reject: reject
-                        });
-                        //DynoDialog.Show(AppletDescriptionDialog(applet.id))
-                    }
-                }
-            ])
-                .icon(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Menu)).width(64).height(32).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cHorizontal, 5)
-                .display('var(--show-applet-action-buttons)')
-                .onClick(function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }))
-                // .borderLeft(selected ? 'solid 1px #7B68EE' : '')
-                .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
-                .allHeight(32)
-                //.padding(`0 0 0 20px`)
-                .cursor('pointer')
-                .draggable(true)
-                .onDragStart(function (e) {
-                e.dataTransfer.setData('text/plain', JSON.stringify(database));
-            })
-                .variable('--show-applet-action-buttons', { default: 'none', hover: 'flex' })
-            :
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(
-                // Icon((opas as any).find((opa) => opa.type === database.opa)?.icon || WorkbenchIcons.DocIcon).foregroundColor('#7c828d'),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().value(newName)
-                    .fontFamily('Poppins,Roboto,Rubik,Noto Kufi Arabic,Noto Sans JP,sans-serif')
-                    .fontSize(13)
-                    .height('100%')
-                    .padding(0)
-                    .border('dashed 1px #AAA')
-                    .shadow({ focus: 'none' })
-                    .onBlur(function () {
-                    /*   updateAppletName({
-                          appletId: database.$id,
-                          name: newName
-                      }, () => {
-                          onSuccess: () => {
-                              ShowSuccessToast('We successfully rename applet', 'Undo', () => { */
-                    /* updateApplet(applet.id, {
-                        name: name
-                    }, {
-                        onSuccess: () => {
-                            setName(name);
-                            ShowSuccessToast('We successfully undo rename applet')
-                        }
-                    }) */
-                    /*  })
-                 } */
-                    //})
-                    setMode('readonly');
-                })
-                    .onChange(function (e) { return setNewName(e); }))
-                    //   .borderLeft(selected ? 'solid 1px #7B68EE' : '')
-                    .background({ default: selected ? '#F5F3FD' : '', hover: '#f6f7f9' })
-                    .allHeight(32)
-                    .padding('0 0 0 40px')
-                    .cursor('pointer'));
-    }));
-}
-
-
-/***/ }),
-
-/***/ "./src/routes/app/*/views/LeftSideMenu.tsx":
-/*!**************************************************!*\
-  !*** ./src/routes/app/*_/views/LeftSideMenu.tsx ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CollapseLeftIcon": () => (/* binding */ CollapseLeftIcon),
-/* harmony export */   "CollapseRightIcon": () => (/* binding */ CollapseRightIcon),
-/* harmony export */   "DocIcon": () => (/* binding */ DocIcon),
-/* harmony export */   "DownIcon": () => (/* binding */ DownIcon),
-/* harmony export */   "LeftSideMenuView": () => (/* binding */ LeftSideMenuView),
-/* harmony export */   "SearchIcon": () => (/* binding */ SearchIcon),
-/* harmony export */   "WhiteboardIcon": () => (/* binding */ WhiteboardIcon)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DatabaseNameView */ "./src/routes/app/*/views/DatabaseNameView.tsx");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @realmocean/ui */ "@realmocean/ui");
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_realmocean_ui__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../dialogs/AddAppletDialog */ "./src/dialogs/AddAppletDialog.ts");
-/* harmony import */ var _hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../hooks/useGetCurrentOrganization */ "./src/hooks/useGetCurrentOrganization.ts");
-/* harmony import */ var _celmino_ui__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @celmino/ui */ "@celmino/ui");
-/* harmony import */ var _celmino_ui__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_celmino_ui__WEBPACK_IMPORTED_MODULE_9__);
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-
-
-
-
-
-
-
-
-
-
-function a(strings) {
-    var expr = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        expr[_i - 1] = arguments[_i];
-    }
-    var str = '';
-    strings.forEach(function (string, i) {
-        if (_tuval_core__WEBPACK_IMPORTED_MODULE_1__.is.string(expr[i])) {
-            str += string + '"' + (expr[i] || '') + '"';
-        }
-    });
-    return str;
-}
-var CollapseRightIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "24", height: "24", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M13.435 8.464a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.829 2.829a1 1 0 1 1-1.414-1.415L14.556 13H3a1 1 0 1 1 0-2h11.556l-1.121-1.121a1 1 0 0 1 0-1.415z", "clip-rule": "evenodd" }),
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { d: "M21 4.5a1 1 0 0 1 1 1v13a1 1 0 1 1-2 0v-13a1 1 0 0 1 1-1z", fill: "currentColor" }))); };
-var CollapseLeftIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "100%", height: "100%", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M10.565 15.536a1 1 0 0 1-1.414 0l-2.829-2.829a1 1 0 0 1 0-1.414l2.829-2.829a1 1 0 0 1 1.414 1.415L9.444 11H21a1 1 0 1 1 0 2H9.444l1.121 1.121a1 1 0 0 1 0 1.415Z", "clip-rule": "evenodd" }),
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { d: "M3 19.5a1 1 0 0 1-1-1v-13a1 1 0 1 1 2 0v13a1 1 0 0 1-1 1Z", fill: "currentColor" }))); };
-var HomeIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 16 16", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M8.407 2.06a.6.6 0 0 0-.814 0l-6.5 6a.6.6 0 1 0 .814.881l.493-.455V13A1.6 1.6 0 0 0 4 14.6h3.1V11a.4.4 0 0 1 .4-.4h1c.22 0 .4.18.4.4v3.6H12a1.6 1.6 0 0 0 1.6-1.6V8.486l.493.455a.6.6 0 0 0 .814-.881l-6.5-6zM12.4 7.378 8 3.317 3.6 7.378V13a.4.4 0 0 0 .4.4h1.9V11a1.6 1.6 0 0 1 1.6-1.6h1a1.6 1.6 0 0 1 1.6 1.6v2.4H12a.4.4 0 0 0 .4-.4V7.378z", "clip-rule": "evenodd" }))); };
-var DocIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M6 5a1 1 0 0 1 1-1h6.172a1 1 0 0 1 .707.293l3.828 3.828a1 1 0 0 1 .293.707V19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5zm1-3a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8.828a3 3 0 0 0-.879-2.12l-3.828-3.83A3 3 0 0 0 13.172 2H7zm2 6a1 1 0 0 0 0 2h3a1 1 0 1 0 0-2H9zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9zm-1 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1z", "clip-rule": "evenodd" }))); };
-var DraftIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M19 5H5v3h14V5zm.983 4.742A2 2 0 0 0 21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3a2 2 0 0 0 1.016 1.742A2.18 2.18 0 0 0 4 10v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9c0-.087-.006-.174-.017-.258zM18 10H6v9h12v-9zm-9 3a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1z", "clip-rule": "evenodd" }))); };
-var WhiteboardIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 24 24", style: { color: 'gray' }, width: "16", height: "16", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", fill: "currentColor", d: "M18.142 4.291a3 3 0 0 1 4.242 4.243l-4.455 4.455a2 2 0 0 1-1.158.57l-1.624.209a2 2 0 0 1-2.24-2.24l.21-1.623a2 2 0 0 1 .57-1.159l4.455-4.455Zm2.828 1.414a1 1 0 0 0-1.414 0L15.1 10.16l-.21 1.624 1.624-.21L20.97 7.12a1 1 0 0 0 0-1.415Zm-16.4-.12a1.25 1.25 0 0 0-1.25 1.25v2.522l1.585-1.409a3.097 3.097 0 0 1 4.114 4.63l-.903.803a1.059 1.059 0 1 0 1.452 1.54l1.044-1.044a1 1 0 0 1 1.415 1.414l-1.045 1.044a3.059 3.059 0 1 1-4.195-4.45l.904-.802a1.097 1.097 0 1 0-1.458-1.64l-2.914 2.59v5.301c0 .69.56 1.25 1.25 1.25h13.5c.69 0 1.25-.56 1.25-1.25V14.21a1 1 0 0 1 2 0v3.125a3.25 3.25 0 0 1-3.25 3.25H4.57a3.25 3.25 0 0 1-3.25-3.25V11.59a.72.72 0 0 1 0-.01V6.835a3.25 3.25 0 0 1 3.25-3.25h9.023a1 1 0 1 1 0 2H4.57Z", "clip-rule": "evenodd" }))); };
-var SearchIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "18", height: "18", fill: "currentColor", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M8.75 15.835a7.055 7.055 0 0 0 4.378-1.515l3.782 3.771a.835.835 0 0 0 1.18-1.182l-3.78-3.768a7.085 7.085 0 1 0-5.56 2.694ZM3.335 8.75a5.415 5.415 0 1 1 10.83 0 5.415 5.415 0 0 1-10.83 0Z" }))); };
-var DownIcon = function (props) { return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { viewBox: "0 0 20 20", xmlns: "http://www.w3.org/2000/svg", width: "20", height: "20", fill: "currentColor", "aria-hidden": "true" },
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M5.434 7.434a.8.8 0 0 1 1.132 0L10 10.87l3.434-3.435a.8.8 0 0 1 1.132 1.132l-4 4a.8.8 0 0 1-1.132 0l-4-4a.8.8 0 0 1 0-1.132Z" }))); };
-var fontFamily = '-apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Apple Color Emoji", "Arial", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"';
-/* const menuModel = [
-    {
-        title: 'Home',
-        icon: () => ReactView(<HomeIcon></HomeIcon>).frame(true),
-        link: '/app/com.celmino.app.test/home',
-        subItems: [
-            {
-                name: 'Overview',
-                icon: Icons.API,
-                link: '/app/com.tuvalsoft.app.organizationmanager/b'
-
-            },
-            {
-                name: 'Sessions',
-                icon: "\\e425",
-                link: '/app/com.tuvalsoft.app.organizationmanager/sessions'
-
+                ]
             }
         ]
     },
     {
-        title: 'Project Spaces',
-        icon: () => ReactView(<HomeIcon></HomeIcon>).frame(true),
-        link: '/app/com.celmino.app.test/home',
-        subItems: [
+        name: 'Tasks',
+        tree_type: 'com.celmino.widget.workspace-tree',
+        applet_type: 'com.celmino.applet.workmanagement',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
             {
-                name: 'Overview',
-                icon: Icons.API,
-                link: '/app/com.tuvalsoft.app.organizationmanager/b'
-
-            },
-            {
-                name: 'Sessions',
-                icon: "\\e425",
-                link: '/app/com.tuvalsoft.app.organizationmanager/sessions'
-
+                "name": "Work Management",
+                "id": "work_management",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Spaces",
+                        "id": "wm_spaces",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Folders",
+                        "id": "wm_folders",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Lists",
+                        "id": "wm_lists",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "defaultViewId",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Documents",
+                        "id": "wm_documents",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Document Contents",
+                        "id": "wm_document_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Whiteboards",
+                        "id": "wm_whiteboards",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Whiteboard Contents",
+                        "id": "wm_whiteboard_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 32000
+                            }
+                        ],
+                    },
+                    {
+                        "name": "views",
+                        "id": "wm_views",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            }
+                        ],
+                    }
+                ]
             }
         ]
     },
-
     {
-        title: 'Drafts',
-        icon: () => ReactView(<DraftIcon></DraftIcon>).frame(true),
-        link: '/app/com.tuvalsoft.app.workbench/drafts'
+        name: 'Documents',
+        tree_type: 'com.celmino.widget.document-management-tree',
+        applet_type: 'com.celmino.applet.document-management',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        iconCategory: 'Icons',
+        iconName: 'bell',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Document Management",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "dm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Folders",
+                        "id": "dm_folders",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Documents",
+                        "id": "dm_documents",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Document Contents",
+                        "id": "dm_document_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 932000
+                            }
+                        ],
+                    },
+                    {
+                        "name": "views",
+                        "id": "dm_views",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            }
+                        ],
+                    }
+                ]
+            }
+        ]
     },
     {
-        title: 'Teams',
-        icon: () => Icon(SvgIcon('svg-sprite-teams', '#A1A1A1')),
-        link: `/app/${getAppFullName()}/teams`
+        name: 'Notebooks',
+        type: 'com.celmino.widget.notebook-tree',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Notebooks",
+                "id": "notebooks",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Notebooks",
+                        "id": "nb_notebooks",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Notes",
+                        "id": "nb_notes",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ],
+                    },
+                    {
+                        "name": "Note Contents",
+                        "id": "nb_note_contents",
+                        "attributes": [
+                            {
+                                "key": "content",
+                                "type": "string",
+                                "size": 132000
+                            }
+                        ],
+                    },
+                    {
+                        "name": "views",
+                        "id": "nb_views",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            }
+                        ],
+                    }
+                ]
+            }
+        ]
     },
     {
-        title: 'Whiteboards',
-        icon: () => ReactView(<WhiteboardIcon></WhiteboardIcon>).frame(true),
-        link: '/app/com.tuvalsoft.app.workbench/whiteboards'
-    }
-
-
-]
- */
-//#E8EAED
-var topMenu = [
-    {
-        title: 'Home',
-        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-sidebarHome', 'rgb(79, 87, 98)', '20px', '20px'),
-        url: ''
+        name: 'Meetings',
+        tree_type: 'com.celmino.widget.meeeting-tree',
+        applet_type: 'com.celmino.applet.meetings',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Meetings",
+                "id": "meetings",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting Space",
+                        "id": "meeting_space",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Meeting",
+                        "id": "meeting",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "start_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "end_at",
+                                "type": "datetime"
+                            },
+                            {
+                                "key": "is_template",
+                                "type": "boolean",
+                                "defaultValue": false
+                            },
+                            {
+                                "key": "sections",
+                                "type": "string",
+                                "size": 100000
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
-        title: 'Inbox',
-        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-sidebarInbox', 'rgb(79, 87, 98)', '20px', '20px'),
-        url: ''
+        name: 'Processes',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
     },
     {
-        title: 'Search',
-        icon: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-search', 'rgb(79, 87, 98)', '16px', '16px'),
-        url: ''
+        name: 'Risks',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Controls',
+        type: 'com.celmino.applet.enterprise-modelling',
+        description: 'Monitor your process details in timeframe chart.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Applet Category',
+        tree_type: 'com.celmino.widget.applet-category',
+        applet_type: 'com.celmino.applet.category',
+        description: 'Split your applets by category.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
+    },
+    {
+        name: 'Drive',
+        tree_type: 'com.celmino.widget.applet-category',
+        applet_type: 'com.celmino.applet.category',
+        description: 'Split your applets by category.',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        icon: '\\d320',
+        enabled: true
     }
 ];
-var global_openedIDs = {};
-var LeftSideMenuView = function (selectedItem) {
-    var showAllWorkspaces = true;
-    var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading;
-    var _b = (0,_hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_8__.useGetCurrentOrganization)(), domainTeam = _b.organization, isDomainTeamLoading = _b.isLoading;
-    return ((isLoading || isDomainTeamLoading) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-            var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-            // alert(workspaceId)
-            var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), organizationId = _a.organizationId, workspaceId = _a.workspaceId;
-            var databases = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDatabases)(workspaceId, [
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('category', 'applet')
-            ]).databases;
-            var documents = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDocuments)(workspaceId, 'workspace', 'applets', [
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('parent', '-1'),
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.limit(250),
-                // Query.equal('opa', 'com.celmino.widget.enterprise-modelling-tree')
-            ]).documents;
-            var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({ realmId: workspaceId, enabled: true }).realm;
-            var _b = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _b[0], setIconInfo = _b[1];
-            var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
-            var _hideHandle;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
-                .config({
-                readonly: true,
-                selectedIcon: 'bookmark',
-                selectedCategory: 'Icons',
-                width: 22,
-                height: 22,
-                padding: 1,
-                color: '#0E7169',
-                onChange: function (iconInfo) {
-                    setIconInfo(iconInfo);
-                }
-            })).width(28).height(28)
-                .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
-                .foregroundColor('rgb(21, 23, 25)')
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon)).height(30).cursor('pointer')
-                .padding(6)
-                .background({ hover: '#E8EAED' })
-                .cornerRadius(6))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
-                    realmId: workspaceId,
-                    enabled: (organizationId == null && workspaceId != null)
-                }).realm;
-                var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(domainTeam != null /* (organizationId != null || realm?.teamId != null) */, [
-                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id)
-                ]).realms;
-                var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
-                    .cornerRadius(6)
-                    .background({ hover: '#ECEEEF' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-settings')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Settings'))
-                    .padding(5)
-                    .height()).padding(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('SWITCH WORKSPACES').fontSize(12)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name)).background({ hover: '#E8EAED' })
-                    .cursor('pointer')
-                    .padding(5)
-                    .onClick(function () {
-                    updatePrefs({
-                        prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { workspace: realm.$id })
-                    });
-                    _hideHandle();
-                    navigate("/app/workspace/".concat(realm.$id));
-                })); }), false)).padding()).width(250));
-            }))
-                .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-                .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM))
-                .padding('8px 8px 8px 12px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(menuItem.title)
-                    .foregroundColor('rgb(21, 23, 25)')
-                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
-                    .height()
-                    .padding('6px 10px')
-                    .background({ hover: '#E8EAED' })
-                    .cornerRadius(6)
-                    .cursor('pointer')
-                    .margin('0 8px');
-            })).paddingTop('6px'))
-                //.padding()
-                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
-                //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
-                return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
+
+
+/***/ }),
+
+/***/ "./src/dialogs/SelectAppletDialog.ts":
+/*!*******************************************!*\
+  !*** ./src/dialogs/SelectAppletDialog.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SelectAppletDialog: () => (/* binding */ SelectAppletDialog)
+/* harmony export */ });
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
+/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
+/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Applets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Applets */ "./src/Applets.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
             }
-            //    )
-            ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 5 })(documents ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ScrollView)({ axes: 'cAll', alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(documents)(function (applet) {
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)(applet['opa'])
-                        .config(__assign(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})), { appletId: applet.$id }));
-                })) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)()
-                /*  ...ForEach(spaces)(space =>
-                     Text(space.name)
-                 ), */
-                ).padding(8),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createRealm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateRealm)().createRealm;
-                    var workspace_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)().workspace_id;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('New Applet').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
-                        .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
-                        .onClick(function () {
-                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_6__.DynoDialog.Show((0,_dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_7__.AddAppletDialog)(workspaceId));
-                    }));
-                })).height(),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Install Applet').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
-                        .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
-                        .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
-                            return [2 /*return*/];
-                        });
-                    }); }));
-                })).height(),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Templates').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
-                        .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
-                        .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
-                            return [2 /*return*/];
-                        });
-                    }); }));
-                })).height()], false))))
-                .fontFamily(fontFamily)
-                .allWidth(282)
-                .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
-                .background('#F7F8F9')
-                .borderRight('1px solid rgba(0,0,0,0.05)')
-                .transition('width .2s ease-in-out'));
-        }));
-};
-
-
-/***/ }),
-
-/***/ "./src/routes/app/+controller.ts":
-/*!***************************************!*\
-  !*** ./src/routes/app/+controller.ts ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LayoutController": () => (/* binding */ LayoutController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _CelminoController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../CelminoController */ "./src/CelminoController.ts");
-/* harmony import */ var _guards_LoginGuard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../guards/LoginGuard */ "./src/guards/LoginGuard.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-//import { LoginGuard } from "../../guards/LoginGuard";
-var LayoutController = /** @class */ (function (_super) {
-    __extends(LayoutController, _super);
-    function LayoutController() {
-        return _super !== null && _super.apply(this, arguments) || this;
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
-    LayoutController.prototype.LoadView = function () {
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteOutlet)().width("100%").height("100%"));
-    };
-    LayoutController = __decorate([
-        (0,_CelminoController__WEBPACK_IMPORTED_MODULE_1__.Guard)(_guards_LoginGuard__WEBPACK_IMPORTED_MODULE_2__.LoginGuard)
-    ], LayoutController);
-    return LayoutController;
-}(_CelminoController__WEBPACK_IMPORTED_MODULE_1__.CelminoController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/+default.ts":
-/*!************************************!*\
-  !*** ./src/routes/app/+default.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DefaultWorkspaceController": () => (/* binding */ DefaultWorkspaceController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _CelminoController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../CelminoController */ "./src/CelminoController.ts");
-/* harmony import */ var _guards_WokspaceGuard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../guards/WokspaceGuard */ "./src/guards/WokspaceGuard.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var DefaultWorkspaceController = /** @class */ (function (_super) {
-    __extends(DefaultWorkspaceController, _super);
-    function DefaultWorkspaceController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    DefaultWorkspaceController.prototype.LoadView = function () {
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Default page'));
-    };
-    DefaultWorkspaceController = __decorate([
-        (0,_CelminoController__WEBPACK_IMPORTED_MODULE_1__.Guard)(_guards_WokspaceGuard__WEBPACK_IMPORTED_MODULE_2__.DefaultWorkspaceGuard)
-    ], DefaultWorkspaceController);
-    return DefaultWorkspaceController;
-}(_CelminoController__WEBPACK_IMPORTED_MODULE_1__.CelminoController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/organization/[organizationId]/+controller.ts":
-/*!*********************************************************************!*\
-  !*** ./src/routes/app/organization/[organizationId]/+controller.ts ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "OrganizationController": () => (/* binding */ OrganizationController)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../views/CreateWorkspaceView */ "./src/views/CreateWorkspaceView.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var OrganizationController = /** @class */ (function (_super) {
-    __extends(OrganizationController, _super);
-    function OrganizationController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    OrganizationController.prototype.LoadView = function () {
-        var organizationId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useParams)().organizationId;
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(), workspaceName = _a[0], setWorkspaceName = _a[1];
-        var createRealm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateRealm)().createRealm;
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-        return ((0,_views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_2__.CreateWorkspaceView)()
-        /*    VStack({ alignment: cTopLeading })(
-               Input().renderer(InputRenderer).onChange((e: any) => {
-                   setWorkspaceName(e.target.value)
-               }),
-               Button().renderer(ButtonRenderer).label('Submit')
-               .onClick(async () => {
-                   createRealm({
-                       name: workspaceName,
-                       organizationId: organizationId,
-                   }, async (workspace) => {
-
-
-                       const database = await Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace');
-                       const appletCol = await Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets');
-                       const nameAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false);
-                       const opaAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false);
-                       const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false);
-                       const iconName = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'iconName', 255, false);
-                       const iconCategory = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'iconCategory', 255, false);
-
-
-                       navigate(`/app/workspace/${workspace.$id}`)
-                   })
-
-
-
-
-               })
-           ) */
-        );
-    };
-    return OrganizationController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIFormController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/organization/select/+controller.ts":
-/*!***********************************************************!*\
-  !*** ./src/routes/app/organization/select/+controller.ts ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "OrganizationSelectController": () => (/* binding */ OrganizationSelectController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../views/CreateOrganizationView */ "./src/views/CreateOrganizationView.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var OrganizationSelectController = /** @class */ (function (_super) {
-    __extends(OrganizationSelectController, _super);
-    function OrganizationSelectController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    OrganizationSelectController.prototype.LoadView = function () {
-        return ((0,_views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_1__.CreateOrganizationView)());
-    };
-    return OrganizationSelectController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/workspace/+controller.tsx":
-/*!**************************************************!*\
-  !*** ./src/routes/app/workspace/+controller.tsx ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "WorkspaceLayoutController": () => (/* binding */ WorkspaceLayoutController)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../views/CreateOrganizationView */ "./src/views/CreateOrganizationView.tsx");
-/* harmony import */ var _hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks/useGetCurrentOrganization */ "./src/hooks/useGetCurrentOrganization.ts");
-/* harmony import */ var _views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../views/CreateWorkspaceView */ "./src/views/CreateWorkspaceView.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
 };
 var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
@@ -6590,1521 +7730,342 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 
 
 
-
-
-
-
-var _hideHandle = null;
-var WorkspaceLayoutController = /** @class */ (function (_super) {
-    __extends(WorkspaceLayoutController, _super);
-    function WorkspaceLayoutController() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var appletMenu = [
+    {
+        category: 'Explore',
+        items: [
+            { name: 'All applets', icon: 'Apps' },
+            { name: 'Featured', icon: 'Star' },
+            { name: 'Recent', icon: 'Clock' },
+            { name: 'Popular', icon: 'Fire' },
+            { name: 'My applets', icon: 'User' }
+        ]
+    },
+    {
+        category: 'Browse by category',
+        items: [
+            { name: 'Data', icon: 'Data' },
+            { name: 'Design', icon: 'Design' },
+            { name: 'Development', icon: 'Development' },
+            { name: 'Finance', icon: 'Finance' },
+            { name: 'Health', icon: 'Health' },
+            { name: 'HR', icon: 'HR' },
+            { name: 'Marketing', icon: 'Marketing' },
+            { name: 'Operations', icon: 'Operations' },
+            { name: 'Sales', icon: 'Sales' },
+            { name: 'Security', icon: 'Security' },
+            { name: 'Support', icon: 'Support' },
+            { name: 'Other', icon: 'Other' }
+        ]
     }
-    WorkspaceLayoutController.prototype.BindRouterParams = function () {
-    };
-    WorkspaceLayoutController.prototype.LoadView = function () {
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
-        var organizationId = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.useParams)().organizationId;
-        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console'), me = _a.me, isLoading = _a.isLoading, isError = _a.isError;
-        var _b = (0,_hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_6__.useGetCurrentOrganization)(), organization = _b.organization, isDomainTeamLoading = _b.isLoading;
-        return (isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UINavigate)('/login') :
-            isDomainTeamLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)('Organizasyon Alınıyor') :
-                (organization == null) ? (0,_views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__.CreateOrganizationView)() :
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIViewBuilder)(function () {
-                        var deleteCache = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteCache)('console').deleteCache;
-                        var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
-                        var accounts = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccounts)().accounts;
-                        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListAccountMemberships)('console'), memberships = _a.memberships, isMembershipLoading = _a.isLoading;
-                        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.useParams)(), organizationId = _b.organizationId, workspaceId = _b.workspaceId;
-                        var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(organization != null, [
-                            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', (organizationId !== null && organizationId !== void 0 ? organizationId : _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.localhost()) ? me === null || me === void 0 ? void 0 : me.prefs.organization : organization === null || organization === void 0 ? void 0 : organization.$id)
-                        ]), realms = _c.realms, isRealmsLoading = _c.isLoading;
-                        return ((!isMembershipLoading && memberships.length === 0) ? (0,_views_CreateOrganizationView__WEBPACK_IMPORTED_MODULE_5__.CreateOrganizationView)() :
-                            isRealmsLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)('Realms loading...') :
-                                realms.length === 0 ? (0,_views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_7__.CreateWorkspaceView)() :
-                                    (organizationId == null && workspaceId == null && !_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.nullOrEmpty(me === null || me === void 0 ? void 0 : me.prefs.workspace)) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UINavigate)("/app/workspace/".concat(me === null || me === void 0 ? void 0 : me.prefs.workspace)) :
-                                        (organizationId == null && workspaceId == null && realms.length > 0) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UINavigate)("/app/workspace/".concat(realms[0].$id)) :
-                                            isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)('Loading...') :
-                                                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIViewBuilder)(function () {
-                                                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIScene)(isError ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UINavigate)('/login') :
-                                                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icons.Add).fontSize(20))
-                                                            .width(50).height(50)
-                                                            .cornerRadius('50%')
-                                                            .onClick(function () {
-                                                        })).width().height().position('absolute').right('10px').bottom('10px')
-                                                            //.tooltip('Create support ticker')
-                                                            .zIndex(100000), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.ReactView)(react__WEBPACK_IMPORTED_MODULE_4___default().createElement("svg", { width: "24", height: "24", xmlns: "http://www.w3.org/2000/svg", "data-name": "Glyph Icon", viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", "data-fill-palette-color": "accent", id: "s-0" },
-                                                            react__WEBPACK_IMPORTED_MODULE_4___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z", fill: "#8bd8bc", "data-fill-palette-color": "accent" }))).frame(true).paddingLeft('15px')).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)('ST').fontSize(10))
-                                                            .background('rgb(255, 87, 34)')
-                                                            .cornerRadius('50%')
-                                                            .width(20)
-                                                            .height(20)).height(30).cursor('pointer').padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cHorizontal, 10))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIViewBuilder)(function () {
-                                                            var teams = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListTeams)('console').teams;
-                                                            var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                                                            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)({ spacing: 0 }).apply(void 0, __spreadArray(__spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)().allWidth(30).allHeight(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(me.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
-                                                                    .cornerRadius(6)
-                                                                    .background({ hover: '#ECEEEF' })).padding(5),
-                                                                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('ORGANIZATION(S)').fontSize(12)).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cVertical, 5)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.ForEach)(teams)(function (team) {
-                                                                // UIRouteLink(`/app/organization/${team.$id}`)(
-                                                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)(team.name)).allHeight(32)
-                                                                    .cursor('pointer')
-                                                                    .background({ hover: '#F0F1F3' })
-                                                                    .padding('7px 0')
-                                                                    .onClick(function () {
-                                                                    _hideHandle();
-                                                                    if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.localhost()) {
-                                                                        deleteCache();
-                                                                        updatePrefs({
-                                                                            prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { organization: team.$id })
-                                                                        }, function () {
-                                                                            navigate("/app/organization/".concat(team.$id));
-                                                                        });
-                                                                    }
-                                                                    else {
-                                                                        window.location.href = "https://".concat(team.$id, ".celmino.io");
-                                                                    }
-                                                                });
-                                                            }
-                                                            //).width('100%')
-                                                            ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.SvgIcon)('cu3-icon-logout')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Logout').fontSize(14)).allHeight(32)
-                                                                    .cursor('pointer')
-                                                                    .background({ hover: '#F0F1F3' })
-                                                                    .padding('7px 0')
-                                                                    .onClick(function () {
-                                                                    _hideHandle();
-                                                                    navigate('/logout');
-                                                                })], false)).padding().width(256));
-                                                        }))
-                                                            //  .padding(0)
-                                                            //.open(isOpen)
-                                                            .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-                                                            .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.DialogPosition.BOTTOM_END)).width()))
-                                                            .fontSize('1.2rem')
-                                                            .height(40).minHeight('40px')
-                                                            .foregroundColor('white'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cTop })(
-                                                        //LeftSidemenu(false),
-                                                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cTopLeading })(
-                                                        //DialogContainer(),
-                                                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)(
-                                                        // UIRouteOutlet().width('100%').height('100%')
-                                                        //Desktop('')
-                                                        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIRouteOutlet)().width('100%').height('100%')
-                                                        // UIRouteOutlet().width('100%').height('100%')
-                                                        )
-                                                            .overflow('hidden')
-                                                            .cornerRadius(20))
-                                                            //.cornerRadius(20)
-                                                            .background('#F6F7FB')
-                                                            .overflow('hidden')
-                                                            .width('100%')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.SvgIcon)('cu3-icon-circleCheckFilled', '16px', '16px', 'white'))).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.SvgIcon)('cu3-icon-nineDots', '16px', '16px', 'white'))).height(30).cursor('pointer').padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cHorizontal, 10))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIViewBuilder)(function () {
-                                                            var teams = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListTeams)('console').teams;
-                                                            var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                                                            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)({ spacing: 0 }).apply(void 0, __spreadArray(__spreadArray([(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)().allWidth(30).allHeight(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(me.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
-                                                                    .cornerRadius(6)
-                                                                    .background({ hover: '#ECEEEF' })).padding(5),
-                                                                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('ORGANIZATION(S)').fontSize(12)).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cVertical, 5)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.ForEach)(teams)(function (team) {
-                                                                // UIRouteLink(`/app/organization/${team.$id}`)(
-                                                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Text)(team.name)).allHeight(32)
-                                                                    .cursor('pointer')
-                                                                    .background({ hover: '#F0F1F3' })
-                                                                    .padding('7px 0')
-                                                                    .onClick(function () {
-                                                                    _hideHandle();
-                                                                    if (_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.localhost()) {
-                                                                        deleteCache();
-                                                                        updatePrefs({
-                                                                            prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { organization: team.$id })
-                                                                        }, function () {
-                                                                            navigate("/app/organization/".concat(team.$id));
-                                                                        });
-                                                                    }
-                                                                    else {
-                                                                        window.location.href = "https://".concat(team.$id, ".celmino.io");
-                                                                    }
-                                                                });
-                                                            }
-                                                            //).width('100%')
-                                                            ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_3__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.SvgIcon)('cu3-icon-logout')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)('Logout').fontSize(14)).allHeight(32)
-                                                                    .cursor('pointer')
-                                                                    .background({ hover: '#F0F1F3' })
-                                                                    .padding('7px 0')
-                                                                    .onClick(function () {
-                                                                    _hideHandle();
-                                                                    navigate('/logout');
-                                                                })], false)).padding().width(256)
-                                                                .marginBottom('10px'));
-                                                        }))
-                                                            //  .padding(0)
-                                                            //.open(isOpen)
-                                                            .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-                                                            .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.DialogPosition.TOP)).width()))
-                                                            .fontSize('1.2rem')
-                                                            .height(40).minHeight('40px')
-                                                            .foregroundColor('white'))
-                                                            //  .allHeight('100%')
-                                                            .overflow('hidden')
-                                                            //  .display('block')
-                                                            .background('#323452'));
-                                                }));
-                    }));
-    };
-    return WorkspaceLayoutController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_3__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/workspace/[workspaceId]/+controller.ts":
-/*!***************************************************************!*\
-  !*** ./src/routes/app/workspace/[workspaceId]/+controller.ts ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "WorkspaceController": () => (/* binding */ WorkspaceController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../* /views/LeftSideMenu */ "./src/routes/app/*/views/LeftSideMenu.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var WorkspaceController = /** @class */ (function (_super) {
-    __extends(WorkspaceController, _super);
-    function WorkspaceController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    WorkspaceController.prototype.LoadView = function () {
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_views_LeftSideMenu__WEBPACK_IMPORTED_MODULE_1__.LeftSideMenuView)('Home'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIRouteOutlet)().width("100%").height("100%")));
-    };
-    return WorkspaceController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/app/workspace/[workspaceId]/applet/[appletId]/+controller.tsx":
-/*!**********************************************************************************!*\
-  !*** ./src/routes/app/workspace/[workspaceId]/applet/[appletId]/+controller.tsx ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AppletController": () => (/* binding */ AppletController),
-/* harmony export */   "OPA": () => (/* binding */ OPA),
-/* harmony export */   "OpaLoader": () => (/* binding */ OpaLoader),
-/* harmony export */   "Paths": () => (/* binding */ Paths),
-/* harmony export */   "getAppName": () => (/* binding */ getAppName)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-promise-suspense */ "./node_modules/react-promise-suspense/build/index.js");
-/* harmony import */ var react_promise_suspense__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_promise_suspense__WEBPACK_IMPORTED_MODULE_4__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-
-
-var OPA = /** @class */ (function (_super) {
-    __extends(OPA, _super);
-    function OPA(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {};
+];
+var SelectAppletDialog = /** @class */ (function (_super) {
+    __extends(SelectAppletDialog, _super);
+    function SelectAppletDialog() {
+        var _this = _super.call(this) || this;
+        _this.ShowHeader = true;
+        _this.Header = 'Form';
+        _this.Width = '90vw';
+        _this.Height = '90vh';
+        _this.filtered_opas = _Applets__WEBPACK_IMPORTED_MODULE_3__.Applets;
         return _this;
     }
-    Object.defineProperty(OPA.prototype, "Name", {
-        get: function () {
-            return this.props.name;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    OPA.prototype.render = function () {
-        return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement(this.props.controller, { content: this.props.content, onSave: this.props.onSave }));
+    SelectAppletDialog.prototype.BindRouterParams = function (_a) {
+        var workspaceId = _a.workspaceId, parent = _a.parent;
+        this.workspaceId = workspaceId;
+        this.parent = parent;
     };
-    return OPA;
-}((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
-
-function getAppName() {
-    try {
-        var regex = /\/app\/com\.([A-Za-z]+)\.([A-Za-z]+)\.([A-Za-z]+)/i;
-        // Alternative syntax using RegExp constructor
-        // const regex = new RegExp('(?:^\\/app\\/+|\\G(?!^)\\.)\\K\\w+', 'g')
-        var str = window.location.href;
-        var m = void 0;
-        console.log(m = regex.exec(str));
-        return m[3];
-    }
-    catch (_a) {
-        return '';
-    }
-}
-var AppCache = {};
-var Paths = {};
-var OpaLoader = function (_a) {
-    var opa_name = _a.opa_name;
-    //const { opa_name } = useParams();
-    //let opa_name = 'com.tuvalsoft.opa.task';
-    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
-    /* if (`/app/${app_name}` === location.pathname && Paths[app_name] != null && Paths[app_name] !== `/app/${app_name}`) {
-        console.log(`/app/${app_name}` === location.pathname)
-        return (<Navigate to={Paths[app_name]}></Navigate>)
-    } else {
-        Paths[app_name] = location.pathname;
-    } */
-    var controllerPromise = new Promise(function (resolve, reject) {
-        if (AppCache[opa_name]) {
-            resolve(AppCache[opa_name]);
-        }
-        else {
-            var app_path = "/realmocean/store/app/open-testing/".concat(opa_name);
-            // alert(app_path)
-            var app_path_local = "/system/".concat(opa_name);
-            _tuval_core__WEBPACK_IMPORTED_MODULE_1__.ModuleLoader.LoadBundledModule(app_path_local, opa_name).then(function (_app) {
-                if (_app != null) {
-                    var app = new _app();
-                    AppCache[opa_name] = app.GetMainController();
-                    resolve(app.GetMainController());
-                }
-                else {
-                }
-            });
-        }
-        /*   setTimeout(() => {
-              const app = AppStore.find(app => app.name === app_name)
-              resolve(app.controller)
-          }, 2000
-          ) */
-    });
-    var fetchController = function (input) { return controllerPromise.then(function (res) { return res; }); };
-    var contoller = react_promise_suspense__WEBPACK_IMPORTED_MODULE_4___default()(fetchController, [opa_name]);
-    return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement(OPA, { name: opa_name, controller: contoller }));
-};
-var AppletController = /** @class */ (function (_super) {
-    __extends(AppletController, _super);
-    function AppletController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    AppletController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)(), workspaceId = _a.workspaceId, appletId = _a.appletId;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetDocument)({
-            projectId: workspaceId,
-            databaseId: 'workspace',
-            collectionId: 'applets',
-            documentId: appletId
-        }), applet = _b.document, isLoading = _b.isLoading;
-        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Applet Loading...') :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })(
-            // LeftSideMenuView(''),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)(
-            //  NotesLeftMenu(note_id),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_3___default().createElement((react__WEBPACK_IMPORTED_MODULE_3___default().Suspense), { fallback: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, null, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Spinner)()).render()) },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(ErrorBoundary, null,
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement(OpaLoader, { opa_name: applet.type })))).frame(true).width('100%').height('100%'))).overflow('hidden')).background('white'))).background('#FAFBFC')));
+    SelectAppletDialog.prototype.OnOK = function (applet) {
+        this.ShowDialogAsyncResolve(applet);
+        this.Hide();
     };
-    return AppletController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIFormController));
-
-/**
- * NEW: The error boundary has a function component wrapper.
- */
-function ErrorBoundary(_a) {
-    var children = _a.children;
-    var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(false), hasError = _b[0], setHasError = _b[1];
-    var location = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
-    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-        if (hasError) {
-            setHasError(false);
-        }
-    }, [location.key]);
-    return (
-    /**
-     * NEW: The class component error boundary is now
-     *      a child of the functional component.
-     */
-    react__WEBPACK_IMPORTED_MODULE_3___default().createElement(ErrorBoundaryInner, { hasError: hasError, setHasError: setHasError }, children));
-}
-/**
- * NEW: The class component accepts getters and setters for
- *      the parent functional component's error state.
- */
-var ErrorBoundaryInner = /** @class */ (function (_super) {
-    __extends(ErrorBoundaryInner, _super);
-    function ErrorBoundaryInner(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = { hasError: false };
-        _this.ref = react__WEBPACK_IMPORTED_MODULE_3___default().createRef();
-        return _this;
-    }
-    ErrorBoundaryInner.getDerivedStateFromError = function (_error) {
-        return { hasError: true };
+    SelectAppletDialog.prototype.OnCancel = function () {
+        this.Hide();
     };
-    ErrorBoundaryInner.prototype.componentDidUpdate = function (prevProps, _previousState) {
-        if (!this.props.hasError && prevProps.hasError) {
-            this.setState({ hasError: false });
-        }
-    };
-    ErrorBoundaryInner.prototype.componentDidCatch = function (_error, _errorInfo) {
-        if (_errorInfo && _errorInfo.componentStack) {
-            // The component stack is sometimes useful in development mode
-            // In production it can be somewhat obfuscated, so feel free to omit this line.
-            //console.log(_errorInfo.componentStack);
-        }
-        _error['Hey'] = 'sdfsdf';
-        _error['Mert'] = 'sdfsdf';
-        //Tracker.track(_error);
-        this.props.setHasError(true);
-        this.setState({ errorText: JSON.stringify(_error) });
-    };
-    ErrorBoundaryInner.prototype.render = function () {
-        return this.state.hasError
-            ? react__WEBPACK_IMPORTED_MODULE_3___default().createElement("p", null, this.state.errorText)
-            : this.props.children;
-    };
-    return ErrorBoundaryInner;
-}((react__WEBPACK_IMPORTED_MODULE_3___default().Component)));
-
-
-/***/ }),
-
-/***/ "./src/routes/app/workspace/select/+controller.ts":
-/*!********************************************************!*\
-  !*** ./src/routes/app/workspace/select/+controller.ts ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "WorkspaceSelectController": () => (/* binding */ WorkspaceSelectController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../views/CreateWorkspaceView */ "./src/views/CreateWorkspaceView.tsx");
-/* harmony import */ var _hooks_useGetOrganizationId__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../hooks/useGetOrganizationId */ "./src/hooks/useGetOrganizationId.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var WorkspaceSelectController = /** @class */ (function (_super) {
-    __extends(WorkspaceSelectController, _super);
-    function WorkspaceSelectController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    WorkspaceSelectController.prototype.LoadView = function () {
-        var _a = (0,_hooks_useGetOrganizationId__WEBPACK_IMPORTED_MODULE_2__.useGetOrganizationId)(), organizationId = _a.organizationId, isLoading = _a.isLoading;
-        return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spinner)() :
-            organizationId == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UINavigate)('/app/organization/select') :
-                (0,_views_CreateWorkspaceView__WEBPACK_IMPORTED_MODULE_1__.CreateWorkspaceView)());
-    };
-    return WorkspaceSelectController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/login/+controller.tsx":
-/*!******************************************!*\
-  !*** ./src/routes/login/+controller.tsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LoginController": () => (/* binding */ LoginController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _CelminoController__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CelminoController */ "./src/CelminoController.ts");
-/* harmony import */ var _guards_AlreadyLoggedInGuard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../guards/AlreadyLoggedInGuard */ "./src/guards/AlreadyLoggedInGuard.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var LeftLogo = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", width: "200", height: "207", viewBox: "0 0 1000 207" },
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,-0.6060605238602648,-0.3879324329129332)" },
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 396 82", "data-background-color": "#ffffff", preserveAspectRatio: "xMidYMid meet", height: "207", width: "1000" },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "tight-bounds", transform: "matrix(1,0,0,1,0.24000003255142133,0.15367371738580005)" },
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 395.5199999999999 81.69265256522837", height: "81.69265256522837", width: "395.5199999999999" },
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "81.69265256522837", width: "395.5199999999999" },
-                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "95.33455057168447", width: "461.5680879257202" },
-                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "textblocktransform" },
-                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 95.33455057168447", height: "95.33455057168447", width: "461.5680879257202", id: "textblock" },
-                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 58.89519999999999", height: "58.89519999999999", width: "461.5680879257202" },
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null,
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null,
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", null)),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { id: "text-0" },
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 461.5680879257202 58.89519999999999", height: "58.89519999999999", width: "461.5680879257202" },
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,0,0.45076616314199214)" },
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "395.52", viewBox: "1.7000000476837158 -35.900001525878906 248.24000549316406 36.400001525878906", height: "57.993667673716004", "data-palette-color": "#233565" },
-                                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M19.7 0.5L19.7 0.5Q16.25 0.5 13.03-0.3 9.8-1.1 7.25-3.1 4.7-5.1 3.2-8.65 1.7-12.2 1.7-17.7L1.7-17.7Q1.7-22.65 3.15-26.13 4.6-29.6 7.1-31.75 9.6-33.9 12.85-34.9 16.1-35.9 19.7-35.9L19.7-35.9Q22.25-35.9 24.68-35.5 27.1-35.1 28.2-34.6L28.2-34.6 34.25-29.55 29.25-21.3 19.7-25.7Q18-25.7 16.53-24.78 15.05-23.85 14.13-22.08 13.2-20.3 13.2-17.7L13.2-17.7Q13.2-14.4 14.23-12.63 15.25-10.85 17.18-10.2 19.1-9.55 21.75-9.55L21.75-9.55Q24.3-9.55 26.58-10.08 28.85-10.6 30.6-11.3 32.35-12 33.25-12.5L33.25-12.5 33.25-2.5Q32.25-2 30.43-1.28 28.6-0.55 25.93-0.03 23.25 0.5 19.7 0.5ZM67.7 0L39.75 0 38.75-3 39.75-8 39.75-35.4 65.5-35.4 68-33.9 64.7-25.4 60.2-25.9 50.85-25.9 50.85-21.9 63.2-21.9 63.2-13.65 56.3-13.65 50.85-14.15 50.85-9.5 64.7-9.5 70.65-3.2 67.7 0ZM100.6 0L74.65 0 73.65-3 74.65-8 74.65-35.4 85.65-35.4 85.65-16.35 85.15-9.5 86.15-9.5 95.1-10 98.65-10.5 103.05-3.2 100.6 0ZM118.74 0L107.04 0 107.04-27.35 106.04-32.35 107.09-35.35 118.74-35.35 128.54-17.85 129.54-17.85 137.64-35.35 149.59-35.35 150.09-32.35 149.59-27.55 149.59 0 138.54 0 138.69-4.25 138.69-18.2 138.14-18.2 136.24-12.95 132.64-5 124.64-5 118.74-18.2 118.24-18.2 118.24-14.15 118.74 0ZM167.64 0L156.59 0 156.59-27.4 156.09-32.4 156.59-35.4 167.64-35.4 167.64 0ZM186.24 0L174.64 0 174.64-27.35 173.64-32.35 174.64-35.35 184.69-35.35 194.79-22.75 197.19-18.6 197.69-18.6 197.69-35.35 209.24-35.35 209.24-32.35 208.74-27.35 208.74 0 198.79 0 186.24-17.1 185.74-17.1 185.74-14.1 186.24 0ZM231.94 0.5L231.94 0.5Q228.74 0.5 225.56-0.28 222.39-1.05 219.76-3.05 217.14-5.05 215.54-8.6 213.94-12.15 213.94-17.7L213.94-17.7Q213.94-23.25 215.54-26.8 217.14-30.35 219.76-32.35 222.39-34.35 225.56-35.13 228.74-35.9 231.94-35.9L231.94-35.9Q235.14-35.9 238.31-35.1 241.49-34.3 244.11-32.3 246.74-30.3 248.34-26.75 249.94-23.2 249.94-17.7L249.94-17.7Q249.94-12.2 248.34-8.65 246.74-5.1 244.11-3.1 241.49-1.1 238.31-0.3 235.14 0.5 231.94 0.5ZM231.94-9.5L231.94-9.5Q235.19-9.5 236.84-11.48 238.49-13.45 238.49-17.7L238.49-17.7Q238.49-21.9 236.84-23.9 235.19-25.9 231.94-25.9L231.94-25.9Q225.44-25.9 225.44-17.7L225.44-17.7Q225.44-13.5 227.06-11.5 228.69-9.5 231.94-9.5Z", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", "data-fill-palette-color": "primary" }))),
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null,
-                                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", "data-name": "Glyph Icon", viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", height: "58.89519999999999", width: "52.14328792572021", "data-fill-palette-color": "accent", id: "s-0" },
-                                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z", fill: "#8bd8bc", "data-fill-palette-color": "accent" }))))))),
-                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,88.15950479381254,72.58611308974017)" },
-                                                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { viewBox: "0 0 285.2490783380951 22.74843748194431", height: "22.74843748194431", width: "285.2490783380951" },
-                                                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { transform: "matrix(1,0,0,1,0,0)" },
-                                                        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "285.2490783380951", viewBox: "1.149999976158142 -38.04999923706055 646.3499755859375 51.54999923706055", height: "22.74843748194431", "data-palette-color": "#233565" },
-                                                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M42.75-34.85L47.65-34.85 37.55 0 32.45 0 24.35-28.05 15.95 0 10.9 0.05 1.15-34.85 6-34.85 13.6-5.3 22-34.85 27.1-34.85 35.1-5.4 42.75-34.85ZM64.6 0.45Q60.75 0.45 57.62-1.3 54.5-3.05 52.72-6.28 50.95-9.5 50.95-13.75L50.95-13.75Q50.95-17.95 52.77-21.18 54.6-24.4 57.75-26.13 60.9-27.85 64.8-27.85L64.8-27.85Q68.7-27.85 71.85-26.13 75-24.4 76.82-21.2 78.65-18 78.65-13.75L78.65-13.75Q78.65-9.5 76.77-6.28 74.9-3.05 71.7-1.3 68.5 0.45 64.6 0.45L64.6 0.45ZM64.6-3.55Q67.05-3.55 69.2-4.7 71.35-5.85 72.67-8.15 74-10.45 74-13.75L74-13.75Q74-17.05 72.7-19.35 71.4-21.65 69.3-22.78 67.2-23.9 64.75-23.9L64.75-23.9Q62.25-23.9 60.17-22.78 58.1-21.65 56.85-19.35 55.6-17.05 55.6-13.75L55.6-13.75Q55.6-10.4 56.82-8.1 58.05-5.8 60.1-4.67 62.15-3.55 64.6-3.55L64.6-3.55ZM89.2-22.95Q90.4-25.3 92.62-26.6 94.85-27.9 98.05-27.9L98.05-27.9 98.05-23.2 96.85-23.2Q89.2-23.2 89.2-14.9L89.2-14.9 89.2 0 84.65 0 84.65-27.4 89.2-27.4 89.2-22.95ZM124.79 0L118.59 0 107.84-12.1 107.84 0 103.29 0 103.29-37 107.84-37 107.84-15.25 118.39-27.4 124.74-27.4 111.84-13.75 124.79 0ZM172.89-34.6L177.74-34.6 177.74 0 173.19 0 173.19-25.8 161.69 0 158.49 0 146.94-25.85 146.94 0 142.39 0 142.39-34.6 147.29-34.6 160.09-6 172.89-34.6ZM183.74-13.8Q183.74-18 185.44-21.18 187.14-24.35 190.11-26.1 193.09-27.85 196.74-27.85L196.74-27.85Q200.34-27.85 202.99-26.3 205.64-24.75 206.94-22.4L206.94-22.4 206.94-27.4 211.54-27.4 211.54 0 206.94 0 206.94-5.1Q205.59-2.7 202.91-1.13 200.24 0.45 196.69 0.45L196.69 0.45Q193.04 0.45 190.09-1.35 187.14-3.15 185.44-6.4 183.74-9.65 183.74-13.8L183.74-13.8ZM206.94-13.75Q206.94-16.85 205.69-19.15 204.44-21.45 202.31-22.68 200.19-23.9 197.64-23.9L197.64-23.9Q195.09-23.9 192.99-22.7 190.89-21.5 189.64-19.2 188.39-16.9 188.39-13.8L188.39-13.8Q188.39-10.65 189.64-8.33 190.89-6 192.99-4.78 195.09-3.55 197.64-3.55L197.64-3.55Q200.19-3.55 202.31-4.78 204.44-6 205.69-8.33 206.94-10.65 206.94-13.75L206.94-13.75ZM232.58-27.9Q237.58-27.9 240.68-24.88 243.78-21.85 243.78-16.15L243.78-16.15 243.78 0 239.28 0 239.28-15.5Q239.28-19.6 237.23-21.78 235.18-23.95 231.63-23.95L231.63-23.95Q228.03-23.95 225.91-21.7 223.78-19.45 223.78-15.15L223.78-15.15 223.78 0 219.23 0 219.23-27.4 223.78-27.4 223.78-23.5Q225.13-25.6 227.46-26.75 229.78-27.9 232.58-27.9L232.58-27.9ZM249.53-13.8Q249.53-18 251.23-21.18 252.93-24.35 255.91-26.1 258.88-27.85 262.53-27.85L262.53-27.85Q266.13-27.85 268.78-26.3 271.43-24.75 272.73-22.4L272.73-22.4 272.73-27.4 277.33-27.4 277.33 0 272.73 0 272.73-5.1Q271.38-2.7 268.71-1.13 266.03 0.45 262.48 0.45L262.48 0.45Q258.83 0.45 255.88-1.35 252.93-3.15 251.23-6.4 249.53-9.65 249.53-13.8L249.53-13.8ZM272.73-13.75Q272.73-16.85 271.48-19.15 270.23-21.45 268.11-22.68 265.98-23.9 263.43-23.9L263.43-23.9Q260.88-23.9 258.78-22.7 256.68-21.5 255.43-19.2 254.18-16.9 254.18-13.8L254.18-13.8Q254.18-10.65 255.43-8.33 256.68-6 258.78-4.78 260.88-3.55 263.43-3.55L263.43-3.55Q265.98-3.55 268.11-4.78 270.23-6 271.48-8.33 272.73-10.65 272.73-13.75L272.73-13.75ZM296.33-27.85Q299.88-27.85 302.55-26.3 305.23-24.75 306.53-22.4L306.53-22.4 306.53-27.4 311.13-27.4 311.13 0.6Q311.13 4.35 309.53 7.28 307.93 10.2 304.95 11.85 301.98 13.5 298.03 13.5L298.03 13.5Q292.63 13.5 289.03 10.95 285.43 8.4 284.78 4L284.78 4 289.28 4Q290.03 6.5 292.38 8.03 294.73 9.55 298.03 9.55L298.03 9.55Q301.78 9.55 304.15 7.2 306.53 4.85 306.53 0.6L306.53 0.6 306.53-5.15Q305.18-2.75 302.53-1.15 299.88 0.45 296.33 0.45L296.33 0.45Q292.68 0.45 289.7-1.35 286.73-3.15 285.03-6.4 283.33-9.65 283.33-13.8L283.33-13.8Q283.33-18 285.03-21.18 286.73-24.35 289.7-26.1 292.68-27.85 296.33-27.85L296.33-27.85ZM306.53-13.75Q306.53-16.85 305.28-19.15 304.03-21.45 301.9-22.68 299.78-23.9 297.23-23.9L297.23-23.9Q294.68-23.9 292.58-22.7 290.48-21.5 289.23-19.2 287.98-16.9 287.98-13.8L287.98-13.8Q287.98-10.65 289.23-8.33 290.48-6 292.58-4.78 294.68-3.55 297.23-3.55L297.23-3.55Q299.78-3.55 301.9-4.78 304.03-6 305.28-8.33 306.53-10.65 306.53-13.75L306.53-13.75ZM343.83-14.75Q343.83-13.45 343.68-12L343.68-12 321.78-12Q322.03-7.95 324.55-5.68 327.08-3.4 330.68-3.4L330.68-3.4Q333.63-3.4 335.6-4.78 337.58-6.15 338.38-8.45L338.38-8.45 343.28-8.45Q342.18-4.5 338.88-2.02 335.58 0.45 330.68 0.45L330.68 0.45Q326.78 0.45 323.7-1.3 320.63-3.05 318.88-6.28 317.13-9.5 317.13-13.75L317.13-13.75Q317.13-18 318.83-21.2 320.53-24.4 323.6-26.13 326.68-27.85 330.68-27.85L330.68-27.85Q334.58-27.85 337.58-26.15 340.58-24.45 342.2-21.48 343.83-18.5 343.83-14.75L343.83-14.75ZM339.13-15.7Q339.13-18.3 337.98-20.18 336.83-22.05 334.85-23.03 332.88-24 330.48-24L330.48-24Q327.03-24 324.6-21.8 322.18-19.6 321.83-15.7L321.83-15.7 339.13-15.7ZM382.77-27.9Q385.97-27.9 388.47-26.58 390.97-25.25 392.42-22.6 393.87-19.95 393.87-16.15L393.87-16.15 393.87 0 389.37 0 389.37-15.5Q389.37-19.6 387.35-21.78 385.32-23.95 381.87-23.95L381.87-23.95Q378.32-23.95 376.22-21.68 374.12-19.4 374.12-15.1L374.12-15.1 374.12 0 369.62 0 369.62-15.5Q369.62-19.6 367.6-21.78 365.57-23.95 362.12-23.95L362.12-23.95Q358.57-23.95 356.47-21.68 354.37-19.4 354.37-15.1L354.37-15.1 354.37 0 349.82 0 349.82-27.4 354.37-27.4 354.37-23.45Q355.72-25.6 358-26.75 360.27-27.9 363.02-27.9L363.02-27.9Q366.47-27.9 369.12-26.35 371.77-24.8 373.07-21.8L373.07-21.8Q374.22-24.7 376.87-26.3 379.52-27.9 382.77-27.9L382.77-27.9ZM426.32-14.75Q426.32-13.45 426.17-12L426.17-12 404.27-12Q404.52-7.95 407.05-5.68 409.57-3.4 413.17-3.4L413.17-3.4Q416.12-3.4 418.1-4.78 420.07-6.15 420.87-8.45L420.87-8.45 425.77-8.45Q424.67-4.5 421.37-2.02 418.07 0.45 413.17 0.45L413.17 0.45Q409.27 0.45 406.2-1.3 403.12-3.05 401.37-6.28 399.62-9.5 399.62-13.75L399.62-13.75Q399.62-18 401.32-21.2 403.02-24.4 406.1-26.13 409.17-27.85 413.17-27.85L413.17-27.85Q417.07-27.85 420.07-26.15 423.07-24.45 424.7-21.48 426.32-18.5 426.32-14.75L426.32-14.75ZM421.62-15.7Q421.62-18.3 420.47-20.18 419.32-22.05 417.35-23.03 415.37-24 412.97-24L412.97-24Q409.52-24 407.1-21.8 404.67-19.6 404.32-15.7L404.32-15.7 421.62-15.7ZM445.67-27.9Q450.67-27.9 453.77-24.88 456.87-21.85 456.87-16.15L456.87-16.15 456.87 0 452.37 0 452.37-15.5Q452.37-19.6 450.32-21.78 448.27-23.95 444.72-23.95L444.72-23.95Q441.12-23.95 438.99-21.7 436.87-19.45 436.87-15.15L436.87-15.15 436.87 0 432.32 0 432.32-27.4 436.87-27.4 436.87-23.5Q438.22-25.6 440.54-26.75 442.87-27.9 445.67-27.9L445.67-27.9ZM477.02-23.65L469.87-23.65 469.87-7.5Q469.87-5.5 470.72-4.67 471.57-3.85 473.67-3.85L473.67-3.85 477.02-3.85 477.02 0 472.92 0Q469.12 0 467.22-1.75 465.32-3.5 465.32-7.5L465.32-7.5 465.32-23.65 461.77-23.65 461.77-27.4 465.32-27.4 465.32-34.3 469.87-34.3 469.87-27.4 477.02-27.4 477.02-23.65ZM506.91 0.35Q503.46 0.35 500.74-0.88 498.01-2.1 496.46-4.28 494.91-6.45 494.86-9.3L494.86-9.3 499.71-9.3Q499.96-6.85 501.74-5.18 503.51-3.5 506.91-3.5L506.91-3.5Q510.16-3.5 512.04-5.13 513.91-6.75 513.91-9.3L513.91-9.3Q513.91-11.3 512.81-12.55 511.71-13.8 510.06-14.45 508.41-15.1 505.61-15.85L505.61-15.85Q502.16-16.75 500.09-17.65 498.01-18.55 496.54-20.48 495.06-22.4 495.06-25.65L495.06-25.65Q495.06-28.5 496.51-30.7 497.96-32.9 500.59-34.1 503.21-35.3 506.61-35.3L506.61-35.3Q511.51-35.3 514.64-32.85 517.76-30.4 518.16-26.35L518.16-26.35 513.16-26.35Q512.91-28.35 511.06-29.88 509.21-31.4 506.16-31.4L506.16-31.4Q503.31-31.4 501.51-29.93 499.71-28.45 499.71-25.8L499.71-25.8Q499.71-23.9 500.79-22.7 501.86-21.5 503.44-20.88 505.01-20.25 507.86-19.45L507.86-19.45Q511.31-18.5 513.41-17.57 515.51-16.65 517.01-14.73 518.51-12.8 518.51-9.5L518.51-9.5Q518.51-6.95 517.16-4.7 515.81-2.45 513.16-1.05 510.51 0.35 506.91 0.35L506.91 0.35ZM537.91-23.65L530.76-23.65 530.76-7.5Q530.76-5.5 531.61-4.67 532.46-3.85 534.56-3.85L534.56-3.85 537.91-3.85 537.91 0 533.81 0Q530.01 0 528.11-1.75 526.21-3.5 526.21-7.5L526.21-7.5 526.21-23.65 522.66-23.65 522.66-27.4 526.21-27.4 526.21-34.3 530.76-34.3 530.76-27.4 537.91-27.4 537.91-23.65ZM563.16-27.4L567.71-27.4 567.71 0 563.16 0 563.16-4.05Q561.86-1.95 559.53-0.78 557.21 0.4 554.41 0.4L554.41 0.4Q551.21 0.4 548.66-0.93 546.11-2.25 544.63-4.9 543.16-7.55 543.16-11.35L543.16-11.35 543.16-27.4 547.66-27.4 547.66-11.95Q547.66-7.9 549.71-5.73 551.76-3.55 555.31-3.55L555.31-3.55Q558.96-3.55 561.06-5.8 563.16-8.05 563.16-12.35L563.16-12.35 563.16-27.4ZM573.7-13.8Q573.7-18 575.4-21.18 577.1-24.35 580.08-26.1 583.05-27.85 586.75-27.85L586.75-27.85Q589.95-27.85 592.7-26.38 595.45-24.9 596.9-22.5L596.9-22.5 596.9-37 601.5-37 601.5 0 596.9 0 596.9-5.15Q595.55-2.7 592.9-1.13 590.25 0.45 586.7 0.45L586.7 0.45Q583.05 0.45 580.08-1.35 577.1-3.15 575.4-6.4 573.7-9.65 573.7-13.8L573.7-13.8ZM596.9-13.75Q596.9-16.85 595.65-19.15 594.4-21.45 592.28-22.68 590.15-23.9 587.6-23.9L587.6-23.9Q585.05-23.9 582.95-22.7 580.85-21.5 579.6-19.2 578.35-16.9 578.35-13.8L578.35-13.8Q578.35-10.65 579.6-8.33 580.85-6 582.95-4.78 585.05-3.55 587.6-3.55L587.6-3.55Q590.15-3.55 592.28-4.78 594.4-6 595.65-8.33 596.9-10.65 596.9-13.75L596.9-13.75ZM611.55-31.85Q610.25-31.85 609.35-32.75 608.45-33.65 608.45-34.95L608.45-34.95Q608.45-36.25 609.35-37.15 610.25-38.05 611.55-38.05L611.55-38.05Q612.8-38.05 613.67-37.15 614.55-36.25 614.55-34.95L614.55-34.95Q614.55-33.65 613.67-32.75 612.8-31.85 611.55-31.85L611.55-31.85ZM609.2-27.4L613.75-27.4 613.75 0 609.2 0 609.2-27.4ZM633.45 0.45Q629.6 0.45 626.47-1.3 623.35-3.05 621.57-6.28 619.8-9.5 619.8-13.75L619.8-13.75Q619.8-17.95 621.62-21.18 623.45-24.4 626.6-26.13 629.75-27.85 633.65-27.85L633.65-27.85Q637.55-27.85 640.7-26.13 643.85-24.4 645.67-21.2 647.5-18 647.5-13.75L647.5-13.75Q647.5-9.5 645.62-6.28 643.75-3.05 640.55-1.3 637.35 0.45 633.45 0.45L633.45 0.45ZM633.45-3.55Q635.9-3.55 638.05-4.7 640.2-5.85 641.52-8.15 642.85-10.45 642.85-13.75L642.85-13.75Q642.85-17.05 641.55-19.35 640.25-21.65 638.15-22.78 636.05-23.9 633.6-23.9L633.6-23.9Q631.1-23.9 629.02-22.78 626.95-21.65 625.7-19.35 624.45-17.05 624.45-13.75L624.45-13.75Q624.45-10.4 625.67-8.1 626.9-5.8 628.95-4.67 631-3.55 633.45-3.55L633.45-3.55Z", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", "data-fill-palette-color": "secondary", id: "text-1" }))))))))),
-                            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", null))),
-                    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("defs", null)),
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement("rect", { width: "395.5199999999999", height: "81.69265256522837", fill: "none", stroke: "none", visibility: "hidden" })))))); };
-var GoogleLogo = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("g", { "clip-path": "url(#clip0)" },
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M24 12.2755C24 11.4598 23.9325 10.6397 23.7885 9.83716H12.2406V14.4581H18.8536C18.5791 15.9485 17.6974 17.2669 16.4063 18.1047V21.103H20.3516C22.6684 19.013 24 15.9264 24 12.2755Z", fill: "#4285F4" }),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M12.2408 23.9999C15.5427 23.9999 18.3274 22.9373 20.3562 21.103L16.4109 18.1046C15.3133 18.8366 13.8962 19.2511 12.2453 19.2511C9.05125 19.2511 6.3431 17.139 5.3714 14.2994H1.30017V17.3903C3.37852 21.4425 7.6117 23.9999 12.2408 23.9999Z", fill: "#34A853" }),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M5.36688 14.2995C4.85404 12.8091 4.85404 11.1953 5.36688 9.70496V6.61401H1.30015C-0.436312 10.0048 -0.436312 13.9996 1.30015 17.3904L5.36688 14.2995Z", fill: "#FBBC04" }),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M12.2407 4.74881C13.9862 4.72235 15.6732 5.36611 16.9373 6.54781L20.4327 3.12176C18.2194 1.08465 15.2818 -0.0353205 12.2407 -4.58262e-05C7.61169 -4.58262e-05 3.37852 2.55737 1.30017 6.61395L5.36689 9.7049C6.33409 6.86088 9.04674 4.74881 12.2407 4.74881Z", fill: "#EA4335" })),
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("defs", null,
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("clipPath", { id: "clip0" },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("rect", { width: "24", height: "24", fill: "white" }))))); };
-var MicrosoftLogo = function () { return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M11.5352 0.929382H0.929321V11.5353H11.5352V0.929382Z", fill: "#F35325" }),
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M23.0707 0.929382H12.4647V11.5353H23.0707V0.929382Z", fill: "#81BC06" }),
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M11.5352 12.4647H0.929321V23.0707H11.5352V12.4647Z", fill: "#05A6F0" }),
-    react__WEBPACK_IMPORTED_MODULE_2___default().createElement("path", { d: "M23.0707 12.4647H12.4647V23.0707H23.0707V12.4647Z", fill: "#FFBA08" }))); };
-/*
-
-http://localhost:4200/landing?query=1#2
-
-window.location.hash: "#2"
- ​
-window.location.host: "localhost:4200"
- ​
-window.location.hostname: "localhost"
- ​
-window.location.href: "http://localhost:4200/landing?query=1#2"
- ​
-window.location.origin: "http://localhost:4200"
- ​
-window.location.pathname: "/landing"
- ​
-window.location.port: "4200"
- ​
-window.location.protocol: "http:"
-
-window.location.search: "?query=1"
-
-var subDomain = /:\/\/([^\/]+)/.exec(window.location.href)[1];
-*/
-var LoginController = /** @class */ (function (_super) {
-    __extends(LoginController, _super);
-    function LoginController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    LoginController.prototype.LoadView = function () {
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateEmailSession)('console'), createEmailSession = _a.createEmailSession, isSuccess = _a.isSuccess, isError = _a.isError, error = _a.error;
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), email = _b[0], setEmail = _b[1];
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _c[0], setPassword = _c[1];
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTop })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ReactView)(react__WEBPACK_IMPORTED_MODULE_2___default().createElement(LeftLogo, null))).width('20%').height()
-            .position('absolute')
-            .left('0px').top('0px')
-            .cursor('pointer')
-            .onClick(function () {
-            navigate('/');
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Sign in').fontSize('6rem').foregroundColor('#090e13').lineHeight('1.4')
-            .fontFamily('"Hagrid", sans-serif')).height().marginBottom('.7rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ spacing: 20 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(GoogleLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Google').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height(48).width('100%')
-            .minWidth('32rem')
-            .maxWidth('40rem')
-            .marginBottom('2rem')
-            .cursor('pointer')
-            .background('white')
-            .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
-            .onClick(function () {
-            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("google", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(MicrosoftLogo), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with Microsoft').fontFamily('"Graphik Regular", sans-serif').fontSize(20)).height(48).width('100%')
-            .minWidth('32rem')
-            .maxWidth('40rem')
-            .cursor('pointer')
-            .background('white')
-            .shadow({ hover: '0 4px 16px rgba(0, 0, 0, 0.1)' })
-            .onClick(function () {
-            _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.createOAuth2Session("microsoft", "".concat(window.location.protocol, "//").concat(window.location.host, "/app"), "".concat(window.location.protocol, "//").concat(window.location.host, "/login-failure"));
-        })).height().width().paddingTop('3rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('OR').padding('0 20px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)')).padding('2.4rem 0').maxWidth('40rem').height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().fontSize('1.8rem')
-            .allHeight(40)
-            //  .placeholder('Enter your email')
-            .transition('all 0.3s ease-in-out')
-            .border('none')
-            .borderBottom({ hover: '2px solid #162330' })
-            .background('white')
-            .outline({ focus: 'none' })
-            .padding('0 1.5rem').width(332)
-            .onChange(function (e) { return setEmail(e); })).height().marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SecureField)().fontSize(16).padding(10)
-            .onChange(function (e) { return setPassword(e); })).height()
-            .marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign in with email')
-            .fontFamily('"Graphik Regular", sans-serif')
-            .fontSize('2rem'))
-            .height()
-            .cursor('pointer')
-            .lineHeight('4.8rem')
-            .padding('0 5rem')
-            .background('#242938')
-            .cornerRadius(3)
-            .foregroundColor('white')
-            .onClick(function () {
-            createEmailSession({
-                email: email,
-                password: password
-            }, function () {
-                navigate('/');
-            });
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Reset password')
-            .fontSize('1.6rem')
-            .fontFamily('"Graphik Regular", sans-serif')
-            .cursor('pointer')
-            .onClick(function () {
-            navigate('/reset-password');
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Sign up')
-            .fontSize('1.6rem')
-            .fontFamily('"Graphik Regular", sans-serif')
-            .cursor('pointer')
-            .onClick(function () {
-            navigate('/signup');
-        }))).height()).width().height()).height().marginTop('10rem'))
-            .paddingTop('14rem')
-            .paddingRight('calc(50% - 660px)')
-            .paddingLeft('calc(50% - 660px)')
-            .minHeight('100vh'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)().height('9rem')
-            .position('absolute')
-            .bottom('0px')
-            .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
-    };
-    LoginController = __decorate([
-        (0,_CelminoController__WEBPACK_IMPORTED_MODULE_3__.Guard)(_guards_AlreadyLoggedInGuard__WEBPACK_IMPORTED_MODULE_4__.AlreadyLoggedInGuard)
-    ], LoginController);
-    return LoginController;
-}(_CelminoController__WEBPACK_IMPORTED_MODULE_3__.CelminoController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/logout/+controller.ts":
-/*!******************************************!*\
-  !*** ./src/routes/logout/+controller.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LogoutController": () => (/* binding */ LogoutController)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var LogoutController = /** @class */ (function (_super) {
-    __extends(LogoutController, _super);
-    function LogoutController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    LogoutController.prototype.LoadView = function () {
-        var deleteSession = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useDeleteSession)('console').deleteSession;
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-            deleteSession({ sessionId: 'current' }, function () { return window.location.href = '/login'; });
-        }, []);
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Spinner)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Logging out...')));
-    };
-    return LogoutController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/reset-password/+controller.ts":
-/*!**************************************************!*\
-  !*** ./src/routes/reset-password/+controller.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ResetPasswordController": () => (/* binding */ ResetPasswordController)
-/* harmony export */ });
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var ResetPasswordController = /** @class */ (function (_super) {
-    __extends(ResetPasswordController, _super);
-    function ResetPasswordController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    /* LoadViewInternal(): UIView {
-        const result = (this as any).GetDepends();
-        return UIViewBuilder(()=> {
-            return (
-                VStack(
-                    result ,
-                    this.LoadView()
-                )
-            )
-        })
-    } */
-    ResetPasswordController.prototype.LoadView = function () {
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(''), workspaceName = _a[0], setWorkspaceName = _a[1];
-        var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.useState)(''), email = _b[0], setEmail = _b[1];
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIViewBuilder)(function () {
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Heading)('Reset password').fontFamily('"Hagrid", sans-serif').fontSize('6rem').foregroundColor('#090e13').lineHeight(90), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_1__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.TextField)()
-                .fontSize('1.8rem')
-                .lineHeight('4.6rem')
-                .placeholder('Email address')
-                .transition('all 0.3s ease-in-out')
-                .border('none')
-                .borderBottom({ default: '2px solid #ffffff', hover: '2px solid #162330' })
-                .background('white')
-                .outline({ focus: 'none' })
-                .padding('0 1.5rem')
-                .onChange(function (e) { return setEmail(e); }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.Text)('Send reset link')
-                .fontFamily('"Graphik Regular", sans-serif')
-                .fontSize('2rem'))
-                .height()
-                .lineHeight('4.8rem')
-                .padding('0 5rem')
-                .background('#242938')
-                .cornerRadius(3)
-                .foregroundColor('white')
-                .cursor('pointer')
-                .onClick(function () {
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Services.Accounts.createRecovery(email, "".concat(window.location.origin, "/update-password"));
-            })).height().marginBottom('1.5rem')
-                .maxWidth('40rem')).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.HStack)().height('9rem')
-                .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
-        }));
-    };
-    return ResetPasswordController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/signup/+controller.ts":
-/*!******************************************!*\
-  !*** ./src/routes/signup/+controller.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SignupController": () => (/* binding */ SignupController)
-/* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-var SignupController = /** @class */ (function (_super) {
-    __extends(SignupController, _super);
-    function SignupController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SignupController.prototype.LoadView = function () {
+    SelectAppletDialog.prototype.LoadView = function () {
         var _this = this;
-        var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateAccount)('console'), createAccount = _a.createAccount, isCreateAccountSuccess = _a.isSuccess, isCreateAccountError = _a.isError, createAccountError = _a.error;
-        var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateEmailSession)('console'), createEmailSession = _b.createEmailSession, isSuccess = _b.isSuccess, isError = _b.isError, error = _b.error;
-        var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), userName = _c[0], setUserName = _c[1];
-        var _d = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), email = _d[0], setEmail = _d[1];
-        var _e = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), password = _e[0], setPassword = _e[1];
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useNavigate)();
-        var _f = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateOrganization)(), createTeam = _f.createTeam, isOrganizationCreateError = _f.isError, OrgError = _f.error;
-        var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdatePrefs)({}).updatePrefs;
-        var deleteCache = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useDeleteCache)('console').deleteCache;
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)().width('50%'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 20 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)('Sign up').size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HeadingSizes.LARGE), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Name'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().onChange(function (e) { return setUserName(e); })).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Email'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)().onChange(function (e) { return setEmail(e); })).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Password'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.SecureField)().onChange(function (e) { return setPassword(e); })).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('Signup')).width('100%')
-            .onClick(function () {
-            createAccount({
-                name: userName,
-                email: email,
-                password: password
-            }, function (account) {
-                createEmailSession({
-                    email: email,
-                    password: password
-                }, function () { return __awaiter(_this, void 0, void 0, function () {
-                    var team, e_1;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                _a.trys.push([0, 2, , 3]);
-                                return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Teams.create(account.$id, "".concat(userName, "'s Organization"))];
-                            case 1:
-                                team = _a.sent();
-                                //  alert(JSON.stringify(team))
-                                //if (is.localhost()) {
-                                updatePrefs({
-                                    prefs: __assign(__assign({}, ((account === null || account === void 0 ? void 0 : account.prefs) ? account === null || account === void 0 ? void 0 : account.prefs : {})), { organization: team.$id })
-                                }, function () {
-                                    deleteCache();
-                                    navigate("/app/workspace/select");
-                                });
-                                return [3 /*break*/, 3];
-                            case 2:
-                                e_1 = _a.sent();
-                                alert('Hata');
-                                return [3 /*break*/, 3];
-                            case 3: return [2 /*return*/];
-                        }
-                    });
-                }); });
-            });
-        }), (isError || isCreateAccountError) && (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(createAccountError === null || createAccountError === void 0 ? void 0 : createAccountError.message), (isCreateAccountSuccess && isSuccess) && (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UINavigate)('/')).width('50%').padding(100)));
-    };
-    return SignupController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/routes/update-password/+controller.ts":
-/*!***************************************************!*\
-  !*** ./src/routes/update-password/+controller.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "UpdatePasswordController": () => (/* binding */ UpdatePasswordController)
-/* harmony export */ });
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/antd */ "@realmocean/antd");
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-var UpdatePasswordController = /** @class */ (function (_super) {
-    __extends(UpdatePasswordController, _super);
-    function UpdatePasswordController() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    /* LoadViewInternal(): UIView {
-        const result = (this as any).GetDepends();
-        return UIViewBuilder(()=> {
-            return (
-                VStack(
-                    result ,
-                    this.LoadView()
-                )
-            )
-        })
-    } */
-    UpdatePasswordController.prototype.LoadView = function () {
-        var _this = this;
-        var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-        var params = new URLSearchParams(window.location.search);
-        var userId = params.get('userId');
-        var secret = params.get('secret');
-        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(''), password = _a[0], setPassword = _a[1];
-        var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(''), password1 = _b[0], setPassword1 = _b[1];
-        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)('Password').fontFamily('"Hagrid", sans-serif').fontSize('6rem').foregroundColor('#090e13').lineHeight(90), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.TextField)().fontSize('1.8rem')
-            .allHeight(40)
-            .placeholder('New password')
-            .transition('all 0.3s ease-in-out')
-            .border('none')
-            .borderBottom({ hover: '2px solid #162330' })
-            .background('white')
-            .outline({ focus: 'none' })
-            .padding('0 1.5rem').width(332)
-            .onChange(function (e) { return setPassword(e); })).height().marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.TextField)().fontSize('1.8rem')
-            .allHeight(40)
-            .placeholder('Confirm password')
-            .transition('all 0.3s ease-in-out')
-            .border('none')
-            .borderBottom({ hover: '2px solid #162330' })
-            .background('white')
-            .outline({ focus: 'none' })
-            .padding('0 1.5rem').width(332)
-            .onChange(function (e) { return setPassword1(e); })).height().marginBottom('1.5rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.ButtonRenderer).label('Submit')
-            .onClick(function () { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                if (password === password1) {
-                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Accounts.updateRecovery(userId, secret, password, password1);
-                }
-                return [2 /*return*/];
-            });
-        }); }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Log in with another email')
-            .fontSize(16))
-            .height()
-            .onClick(function () {
-            navigate('/logout');
-        })).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().height('9rem')
-            .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
-    };
-    return UpdatePasswordController;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIController));
-
-
-
-/***/ }),
-
-/***/ "./src/views/CreateOrganizationView.tsx":
-/*!**********************************************!*\
-  !*** ./src/views/CreateOrganizationView.tsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CelminoLogo": () => (/* binding */ CelminoLogo),
-/* harmony export */   "CelminoLogoText": () => (/* binding */ CelminoLogoText),
-/* harmony export */   "CelminoLogoText1": () => (/* binding */ CelminoLogoText1),
-/* harmony export */   "CreateOrganizationView": () => (/* binding */ CreateOrganizationView)
-/* harmony export */ });
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/antd */ "@realmocean/antd");
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
-/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-
-
-var CelminoLogoText = function (_a) {
-    var _b = _a === void 0 ? {} : _a, _c = _b.width, width = _c === void 0 ? 200 : _c, _d = _b.height, height = _d === void 0 ? 30 : _d;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement("svg", { width: width, viewBox: "1.7000000476837158 -35.900001525878906 248.24000549316406 36.400001525878906", height: height, "data-palette-color": "#233565" },
-        react__WEBPACK_IMPORTED_MODULE_5___default().createElement("path", { d: "M19.7 0.5L19.7 0.5Q16.25 0.5 13.03-0.3 9.8-1.1 7.25-3.1 4.7-5.1 3.2-8.65 1.7-12.2 1.7-17.7L1.7-17.7Q1.7-22.65 3.15-26.13 4.6-29.6 7.1-31.75 9.6-33.9 12.85-34.9 16.1-35.9 19.7-35.9L19.7-35.9Q22.25-35.9 24.68-35.5 27.1-35.1 28.2-34.6L28.2-34.6 34.25-29.55 29.25-21.3 19.7-25.7Q18-25.7 16.53-24.78 15.05-23.85 14.13-22.08 13.2-20.3 13.2-17.7L13.2-17.7Q13.2-14.4 14.23-12.63 15.25-10.85 17.18-10.2 19.1-9.55 21.75-9.55L21.75-9.55Q24.3-9.55 26.58-10.08 28.85-10.6 30.6-11.3 32.35-12 33.25-12.5L33.25-12.5 33.25-2.5Q32.25-2 30.43-1.28 28.6-0.55 25.93-0.03 23.25 0.5 19.7 0.5ZM67.7 0L39.75 0 38.75-3 39.75-8 39.75-35.4 65.5-35.4 68-33.9 64.7-25.4 60.2-25.9 50.85-25.9 50.85-21.9 63.2-21.9 63.2-13.65 56.3-13.65 50.85-14.15 50.85-9.5 64.7-9.5 70.65-3.2 67.7 0ZM100.6 0L74.65 0 73.65-3 74.65-8 74.65-35.4 85.65-35.4 85.65-16.35 85.15-9.5 86.15-9.5 95.1-10 98.65-10.5 103.05-3.2 100.6 0ZM118.74 0L107.04 0 107.04-27.35 106.04-32.35 107.09-35.35 118.74-35.35 128.54-17.85 129.54-17.85 137.64-35.35 149.59-35.35 150.09-32.35 149.59-27.55 149.59 0 138.54 0 138.69-4.25 138.69-18.2 138.14-18.2 136.24-12.95 132.64-5 124.64-5 118.74-18.2 118.24-18.2 118.24-14.15 118.74 0ZM167.64 0L156.59 0 156.59-27.4 156.09-32.4 156.59-35.4 167.64-35.4 167.64 0ZM186.24 0L174.64 0 174.64-27.35 173.64-32.35 174.64-35.35 184.69-35.35 194.79-22.75 197.19-18.6 197.69-18.6 197.69-35.35 209.24-35.35 209.24-32.35 208.74-27.35 208.74 0 198.79 0 186.24-17.1 185.74-17.1 185.74-14.1 186.24 0ZM231.94 0.5L231.94 0.5Q228.74 0.5 225.56-0.28 222.39-1.05 219.76-3.05 217.14-5.05 215.54-8.6 213.94-12.15 213.94-17.7L213.94-17.7Q213.94-23.25 215.54-26.8 217.14-30.35 219.76-32.35 222.39-34.35 225.56-35.13 228.74-35.9 231.94-35.9L231.94-35.9Q235.14-35.9 238.31-35.1 241.49-34.3 244.11-32.3 246.74-30.3 248.34-26.75 249.94-23.2 249.94-17.7L249.94-17.7Q249.94-12.2 248.34-8.65 246.74-5.1 244.11-3.1 241.49-1.1 238.31-0.3 235.14 0.5 231.94 0.5ZM231.94-9.5L231.94-9.5Q235.19-9.5 236.84-11.48 238.49-13.45 238.49-17.7L238.49-17.7Q238.49-21.9 236.84-23.9 235.19-25.9 231.94-25.9L231.94-25.9Q225.44-25.9 225.44-17.7L225.44-17.7Q225.44-13.5 227.06-11.5 228.69-9.5 231.94-9.5Z", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", className: "wordmark-text-0", "data-fill-palette-color": "primary" }))));
-};
-var CelminoLogoText1 = function (_a) {
-    var _b = _a === void 0 ? {} : _a, _c = _b.width, width = _c === void 0 ? 200 : _c, _d = _b.height, height = _d === void 0 ? 30 : _d;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement("svg", { width: width, viewBox: "1.7000000476837158 -35.900001525878906 248.24000549316406 36.400001525878906", height: height, "data-palette-color": "#233565" },
-        react__WEBPACK_IMPORTED_MODULE_5___default().createElement("path", { d: "M19.7 0.5L19.7 0.5Q16.25 0.5 13.03-0.3 9.8-1.1 7.25-3.1 4.7-5.1 3.2-8.65 1.7-12.2 1.7-17.7L1.7-17.7Q1.7-22.65 3.15-26.13 4.6-29.6 7.1-31.75 9.6-33.9 12.85-34.9 16.1-35.9 19.7-35.9L19.7-35.9Q22.25-35.9 24.68-35.5 27.1-35.1 28.2-34.6L28.2-34.6 34.25-29.55 29.25-21.3 19.7-25.7Q18-25.7 16.53-24.78 15.05-23.85 14.13-22.08 13.2-20.3 13.2-17.7L13.2-17.7Q13.2-14.4 14.23-12.63 15.25-10.85 17.18-10.2 19.1-9.55 21.75-9.55L21.75-9.55Q24.3-9.55 26.58-10.08 28.85-10.6 30.6-11.3 32.35-12 33.25-12.5L33.25-12.5 33.25-2.5Q32.25-2 30.43-1.28 28.6-0.55 25.93-0.03 23.25 0.5 19.7 0.5ZM67.7 0L39.75 0 38.75-3 39.75-8 39.75-35.4 65.5-35.4 68-33.9 64.7-25.4 60.2-25.9 50.85-25.9 50.85-21.9 63.2-21.9 63.2-13.65 56.3-13.65 50.85-14.15 50.85-9.5 64.7-9.5 70.65-3.2 67.7 0ZM100.6 0L74.65 0 73.65-3 74.65-8 74.65-35.4 85.65-35.4 85.65-16.35 85.15-9.5 86.15-9.5 95.1-10 98.65-10.5 103.05-3.2 100.6 0ZM118.74 0L107.04 0 107.04-27.35 106.04-32.35 107.09-35.35 118.74-35.35 128.54-17.85 129.54-17.85 137.64-35.35 149.59-35.35 150.09-32.35 149.59-27.55 149.59 0 138.54 0 138.69-4.25 138.69-18.2 138.14-18.2 136.24-12.95 132.64-5 124.64-5 118.74-18.2 118.24-18.2 118.24-14.15 118.74 0ZM167.64 0L156.59 0 156.59-27.4 156.09-32.4 156.59-35.4 167.64-35.4 167.64 0ZM186.24 0L174.64 0 174.64-27.35 173.64-32.35 174.64-35.35 184.69-35.35 194.79-22.75 197.19-18.6 197.69-18.6 197.69-35.35 209.24-35.35 209.24-32.35 208.74-27.35 208.74 0 198.79 0 186.24-17.1 185.74-17.1 185.74-14.1 186.24 0ZM231.94 0.5L231.94 0.5Q228.74 0.5", opacity: "1", transform: "matrix(1,0,0,1,0,0)", fill: "#233565", className: "wordmark-text-0", "data-fill-palette-color": "primary" }))));
-};
-var CelminoLogo = function (_a) {
-    var _b = _a === void 0 ? {} : _a, _c = _b.width, width = _c === void 0 ? 52 : _c, _d = _b.height, height = _d === void 0 ? 58 : _d, _e = _b.color, color = _e === void 0 ? '#8bd8bc' : _e;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ReactView)(react__WEBPACK_IMPORTED_MODULE_5___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: color, viewBox: "7.210000038146973 4 49.58000183105469 56", x: "409.4248", y: "0", height: height, width: width, id: "s-0" },
-        react__WEBPACK_IMPORTED_MODULE_5___default().createElement("path", { d: "M49.13 20.84l-16-9.26V4L55.7 17.05ZM32 50.52L16 41.26V22.74l16-9.26 16 9.26V41.26ZM30.91 11.58l-16 9.26L8.3 17.05 30.91 4ZM13.77 22.74V41.26L7.21 45.05V19Zm1.1 20.42l16 9.26V60L8.3 47Zm18.22 9.26l16-9.26L55.7 47 33.09 60ZM50.23 41.26V22.74L56.79 19v26.1Z" }))));
-};
-var CreateOrganizationView = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-    var deleteCache = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useDeleteCache)('console').deleteCache;
-    var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(), organizationName = _a[0], setOrganizationName = _a[1];
-    var _b = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(), organizationId = _b[0], setOrganizationId = _b[1];
-    var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(''), mode = _c[0], setMode = _c[1];
-    var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetMe)('console').me;
-    var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-    var deleteSession = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useDeleteSession)('console').deleteSession;
-    var _d = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListAccountMemberships)('console'), memberships = _d.memberships, isMembershipLoading = _d.isLoading;
-    var _e = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateOrganization)(), createTeam = _e.createTeam, isError = _e.isError, error = _e.error;
-    var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useUpdatePrefs)({}).updatePrefs;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)('Celmino').fontSize('3rem').fontWeight('600').foregroundColor('#090e13')
-        .fontFamily('"Hagrid", sans-serif'), CelminoLogo({ color: '#02B99D' })).height().padding(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(me === null || me === void 0 ? void 0 : me.email).fontSize('2rem').foregroundColor('#090e13'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)('Organizations').fontSize('4rem').foregroundColor('#090e13').lineHeight(90)
-        .fontFamily('"Hagrid", sans-serif'), _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack.apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(memberships)(function (membership) {
-        return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)(membership.teamName).fontFamily('"Graphik Regular", sans-serif').fontSize(20))
-            .cursor('pointer')
-            .height()
-            .padding(7)
-            .cornerRadius(6)
-            .background({ hover: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.darken)('#7FE8D4', 0.05) })
-            .onClick(function () {
-            if (_tuval_core__WEBPACK_IMPORTED_MODULE_4__.is.localhost()) {
-                updatePrefs({
-                    prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { organization: membership.teamId })
-                }, function () {
-                    deleteCache();
-                    navigate("/app/workspace/select");
-                });
-            }
-            else {
-                window.location.href = "https://".concat(membership.teamId, ".celmino.io");
-            }
-        });
-    })).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cHorizontal, 20).height().maxWidth('100%'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)('Create Organization').fontSize('20px')
-        .padding('1.6rem 2rem 1.6rem 0')
-        .foregroundColor('#242938'))
-        .height()
-        .onClick(function () {
-        setMode('create');
-    }), mode === 'create' &&
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Input)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.InputRenderer).onChange(function (e) {
-            setOrganizationId(e.target.value);
-        }).width(200), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)('.celmino.io').fontSize(16)).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Input)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.InputRenderer).onChange(function (e) {
-            setOrganizationName(e.target.value);
-        }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.ButtonRenderer).label('Submit')
-            .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                createTeam({
-                    name: organizationName,
-                    id: organizationId
-                }, function (team) { return __awaiter(void 0, void 0, void 0, function () {
-                    return __generator(this, function (_a) {
-                        /*    const database = await Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace');
-                           const appletCol = await Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets');
-                           const nameAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false);
-                           const opaAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false);
-                           const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false); */
-                        if (_tuval_core__WEBPACK_IMPORTED_MODULE_4__.is.localhost()) {
-                            updatePrefs({
-                                prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { organization: team.$id })
-                            }, function () {
-                                deleteCache();
-                                navigate("/app/workspace/select");
-                            });
-                        }
-                        else {
-                            window.location.href = "https://".concat(organizationId, ".celmino.io");
-                        }
-                        return [2 /*return*/];
-                    });
-                }); });
-                return [2 /*return*/];
-            });
-        }); })).height(), isError && (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)(error.message).fontSize(16), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_3__.Text)('Log in with another email')
-        .fontSize(16))
-        .height()
-        .onClick(function () {
-        navigate('/logout');
-    })).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().height('9rem')
-        .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
-}); };
-
-
-/***/ }),
-
-/***/ "./src/views/CreateWorkspaceView.tsx":
-/*!*******************************************!*\
-  !*** ./src/views/CreateWorkspaceView.tsx ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CreateWorkspaceView": () => (/* binding */ CreateWorkspaceView)
-/* harmony export */ });
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/antd */ "@realmocean/antd");
-/* harmony import */ var _realmocean_antd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @realmocean/sdk */ "@realmocean/sdk");
-/* harmony import */ var _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useGetCurrentOrganization */ "./src/hooks/useGetCurrentOrganization.ts");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-var CreateWorkspaceView = function () { return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-    var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useState)(''), workspaceName = _a[0], setWorkspaceName = _a[1];
-    var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useGetMe)('console').me;
-    var navigate = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-    // const { organizationId } = useParams();
-    var _b = (0,_hooks_useGetCurrentOrganization__WEBPACK_IMPORTED_MODULE_3__.useGetCurrentOrganization)(), organization = _b.organization, isOrganizationLoading = _b.isLoading;
-    var _c = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateRealm)(), createRealm = _c.createRealm, isLoading = _c.isLoading;
-    var deleteSession = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useDeleteSession)('console').deleteSession;
-    return (isOrganizationLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Loading...') : organization == null ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UINavigate)('/app/organization/select') :
-        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-            var _a = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useListRealms)(organization != null, [
-                _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Query.equal('teamId', organization.$id)
-            ]), realms = _a.realms, isRealmsLoading = _a.isLoading;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Select another organization')
-                .fontSize(16))
-                .height()
-                .onClick(function () {
-                navigate('/app/organization/select');
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)('Workspaces').fontFamily('"Hagrid", sans-serif').fontSize('6rem').foregroundColor('#090e13').lineHeight(90), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(organization === null || organization === void 0 ? void 0 : organization.name).fontSize('2.8rem').foregroundColor('#090e13')
-                .fontFamily('Graphik Medium,sans-serif'), _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack.apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 10 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)(realm.name).fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icons.MoveArrowRight))
-                    .cursor('pointer')
-                    .height()
-                    .padding('1.6rem 2rem 1.6rem 0')
-                    .foregroundColor('#242938')
-                    .cornerRadius(6)
-                    .background({ hover: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.darken)('#7FE8D4', 0.05) })
-                    .onClick(function () {
-                    navigate("/app/workspace/".concat(realm.$id));
-                });
-            })).padding(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cHorizontal, 20).height().maxWidth('100%'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('rgba(125, 141, 154, 0.1)'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Create a new workspace').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height().padding('1.6rem 2rem 1.6rem 0'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Log in with another email').fontFamily('"Graphik Regular", sans-serif').fontSize('2rem')).height().padding('1.6rem 2rem 1.6rem 0')
-                .onClick(function () {
-                navigate('/logout');
-            }), 
-            /* HStack(
-                TextField()
-                    .padding()
-                    .border('none')
-                    .borderBottom('1px solid #000')
-                    .background('transparent')
-                    .outline({ focus: 'none' })
-                    .maxWidth(300)
-                    .onChange((value: string) => {
-                        setWorkspaceName(value)
-                    })
-
-            ).width('50%')
-                .height(), */
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Button)().renderer(_realmocean_antd__WEBPACK_IMPORTED_MODULE_0__.ButtonRenderer).label('Submit')
-                .loading(isLoading)
-                .disabled(isLoading)
-                .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var createDocument = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.useCreateDocument)(this.workspaceId, 'workspace', 'applets').createDocument;
+        var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(''), installingOpa = _a[0], setInstallingOpa = _a[1];
+        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('applet').fontSize(20).fontWeight('700'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('library').fontSize(20).fontWeight('400')), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icons.Close).onClick(function () { return _this.OnCancel(); })).height(50).padding().background('#F9FAFB'), 
+        /*     Search().width(300).allHeight(70).padding()
+                .onChange((e) => this.filtered_opas = opas.filter(opa => opa.name.toLowerCase().indexOf(e.toLowerCase()) > -1)), */
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(appletMenu)(function (menu) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(menu.category).fontWeight('500').fontSize('var(--font-size-h4)')
+                    .paddingLeft('12px')
+                    .marginBottom('12px')], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(menu.items)(function (item) {
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(item.name).fontSize('var(--font-size-h5)')
+                    .padding('var(--spacing-xs) 0 var(--spacing-xs)')
+                    .paddingLeft('12px')
+                    .cornerRadius('var(--border-radius-small)')
+                    .lineHeight('var(--font-line-height-h2)')
+                    .foregroundColor('#323338')).height();
+            }), false)).height().marginBottom('var(--spacing-large)');
+        })).padding('var(--spacing-medium)')
+            .width(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(this.filtered_opas)(function (opa) {
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })(opa.image &&
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(opa.image).width(50).height(50).cornerRadius('20%'), 
+            // .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(opa.name).h4(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(opa.description || '').h6().ellipsis(true)
+                .ellipsisMaxLines(2), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cCenter })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('Add'))
+                // .loading(isLoading && (opa.type === this.last_added_opa_type))
+                .disabled(!opa.enabled)
+                .kind(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ButtonType.SECONDARY)
+                .size(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ButtonSize.SMALL)
+                .loading(installingOpa === opa.type)
+                .width('100%')
+                .onClick(function () { return __awaiter(_this, void 0, void 0, function () {
+                var _this = this;
                 return __generator(this, function (_a) {
-                    createRealm({
-                        name: workspaceName,
-                        organizationId: organization === null || organization === void 0 ? void 0 : organization.$id,
-                    }, function (workspace) { return __awaiter(void 0, void 0, void 0, function () {
-                        var database, appletCol, nameAttr, parent, opaAttr, typeAttr, iconName, iconCategory;
+                    /*  this.SetValue('name', opa.name);
+                     this.SetValue('folder_id', this.folder_id);
+                     this.SetValue('space_id', this.space_id);
+                    this.SetValue('item_type', 'opa');
+                     this.SetValue('item_sub_type', opa.type);
+                     this.SetValue('app_id', 'com.tuvalsoft.app.workbench');
+                     this.SetValue('content', '')
+
+                     this.last_added_opa_type = opa.type; */
+                    /* fetch('./data.json')
+                    .then((response) => response.json())
+                    .then((json) => console.log(json)); */
+                    createDocument({
+                        data: {
+                            name: opa.name,
+                            opa: opa.tree_type,
+                            type: opa.applet_type,
+                            iconName: opa.iconName,
+                            iconCategory: opa.iconCategory,
+                            parent: this.parent
+                        }
+                    }, function (applet) { return __awaiter(_this, void 0, void 0, function () {
+                        var _loop_1, this_1, i;
+                        var _this = this;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace')];
+                                case 0:
+                                    if (!opa.databases) return [3 /*break*/, 5];
+                                    setInstallingOpa(opa.type);
+                                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Client.setProject(this.workspaceId);
+                                    _loop_1 = function (i) {
+                                        var template, name_1, id, category, collections, db_1, _loop_2, j, error_1;
+                                        return __generator(this, function (_b) {
+                                            switch (_b.label) {
+                                                case 0:
+                                                    template = opa.databases[i];
+                                                    name_1 = template.name, id = template.id, category = template.category, collections = template.collections;
+                                                    _b.label = 1;
+                                                case 1:
+                                                    _b.trys.push([1, 7, , 8]);
+                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.create(this_1.workspaceId, applet.$id, opa.name, category)];
+                                                case 2:
+                                                    db_1 = _b.sent();
+                                                    _loop_2 = function (j) {
+                                                        var collection, name_2, id_1, attributes, documents, col, i_1, _c, key, type, _d, defaultValue, _e, size, _f;
+                                                        return __generator(this, function (_g) {
+                                                            switch (_g.label) {
+                                                                case 0:
+                                                                    collection = collections[j];
+                                                                    name_2 = collection.name, id_1 = collection.id, attributes = collection.attributes, documents = collection.documents;
+                                                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createCollection(this_1.workspaceId, db_1.$id, id_1, name_2, [], false)];
+                                                                case 1:
+                                                                    col = _g.sent();
+                                                                    i_1 = 0;
+                                                                    _g.label = 2;
+                                                                case 2:
+                                                                    if (!(i_1 < attributes.length)) return [3 /*break*/, 12];
+                                                                    _c = attributes[i_1], key = _c.key, type = _c.type, _d = _c.defaultValue, defaultValue = _d === void 0 ? null : _d, _e = _c.size, size = _e === void 0 ? 255 : _e;
+                                                                    _f = type;
+                                                                    switch (_f) {
+                                                                        case 'string': return [3 /*break*/, 3];
+                                                                        case 'number': return [3 /*break*/, 5];
+                                                                        case 'datetime': return [3 /*break*/, 7];
+                                                                        case 'boolean': return [3 /*break*/, 9];
+                                                                    }
+                                                                    return [3 /*break*/, 11];
+                                                                case 3: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(this_1.workspaceId, db_1.$id, col.$id, key, size, false, '', false)];
+                                                                case 4:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 5: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createIntegerAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
+                                                                case 6:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 7: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createDatetimeAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false)];
+                                                                case 8:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 9: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createBooleanAttribute(this_1.workspaceId, db_1.$id, col.$id, key, false, defaultValue !== null && defaultValue !== void 0 ? defaultValue : false)];
+                                                                case 10:
+                                                                    _g.sent();
+                                                                    return [3 /*break*/, 11];
+                                                                case 11:
+                                                                    i_1++;
+                                                                    return [3 /*break*/, 2];
+                                                                case 12:
+                                                                    setTimeout(function () {
+                                                                        documents === null || documents === void 0 ? void 0 : documents.forEach(function (document) { return __awaiter(_this, void 0, void 0, function () {
+                                                                            var doc;
+                                                                            return __generator(this, function (_a) {
+                                                                                switch (_a.label) {
+                                                                                    case 0: return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createDocument(this.workspaceId, db_1.$id, col.$id, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.ID.unique(), document)];
+                                                                                    case 1:
+                                                                                        doc = _a.sent();
+                                                                                        console.log(doc);
+                                                                                        return [2 /*return*/];
+                                                                                }
+                                                                            });
+                                                                        }); });
+                                                                    }, 3000);
+                                                                    return [2 /*return*/];
+                                                            }
+                                                        });
+                                                    };
+                                                    j = 0;
+                                                    _b.label = 3;
+                                                case 3:
+                                                    if (!(j < collections.length)) return [3 /*break*/, 6];
+                                                    return [5 /*yield**/, _loop_2(j)];
+                                                case 4:
+                                                    _b.sent();
+                                                    _b.label = 5;
+                                                case 5:
+                                                    j++;
+                                                    return [3 /*break*/, 3];
+                                                case 6: return [3 /*break*/, 8];
+                                                case 7:
+                                                    error_1 = _b.sent();
+                                                    console.log(error_1);
+                                                    return [3 /*break*/, 8];
+                                                case 8: return [2 /*return*/];
+                                            }
+                                        });
+                                    };
+                                    this_1 = this;
+                                    i = 0;
+                                    _a.label = 1;
                                 case 1:
-                                    database = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets')];
+                                    if (!(i < opa.databases.length)) return [3 /*break*/, 4];
+                                    return [5 /*yield**/, _loop_1(i)];
                                 case 2:
-                                    appletCol = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false)];
+                                    _a.sent();
+                                    _a.label = 3;
                                 case 3:
-                                    nameAttr = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'parent', 255, false)];
+                                    i++;
+                                    return [3 /*break*/, 1];
                                 case 4:
-                                    parent = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false)];
+                                    setInstallingOpa('');
+                                    this.OnOK(applet);
+                                    return [3 /*break*/, 6];
                                 case 5:
-                                    opaAttr = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false)];
-                                case 6:
-                                    typeAttr = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'iconName', 255, false)];
-                                case 7:
-                                    iconName = _a.sent();
-                                    return [4 /*yield*/, _realmocean_sdk__WEBPACK_IMPORTED_MODULE_1__.Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'iconCategory', 255, false)];
-                                case 8:
-                                    iconCategory = _a.sent();
-                                    navigate("/app/workspace/".concat(workspace.$id));
-                                    return [2 /*return*/];
+                                    this.OnOK(applet);
+                                    _a.label = 6;
+                                case 6: return [2 /*return*/];
                             }
                         });
                     }); });
                     return [2 /*return*/];
                 });
-            }); }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Log in with another email')
-                .fontSize(16))
-                .height()
-                .onClick(function () {
-                navigate('/logout');
-            })).width(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().height('9rem')
-                .background('linear-gradient(0deg,#fff 42.67%,hsla(0,0%,100%,.8) 60.67%,hsla(0,0%,100%,0))')).background('#7FE8D4'));
-        }));
-}); };
+            }); })).height()).height(230).width(290)
+                .padding()
+                .shadow({ hover: 'var(--box-shadow-medium)' })
+                .cornerRadius('var(--border-radius-medium)')
+                .border({ default: 'solid 1px var(--layout-border-color)', hover: 'solid 1px var(--dialog-background-color)' })).width().height().padding();
+        })).wrap('wrap').height()))));
+    };
+    SelectAppletDialog.Show = function (workspaceId, parent) {
+        if (parent === void 0) { parent = '-1'; }
+        var dialog = new SelectAppletDialog();
+        dialog.ShowHeader = false;
+        /*  if (width) {
+             dialog.Width = width;
+         } */
+        dialog.BindRouterParams({ workspaceId: workspaceId, parent: parent });
+        return dialog.ShowDialogAsync();
+    };
+    __decorate([
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()
+    ], SelectAppletDialog.prototype, "filtered_opas", void 0);
+    __decorate([
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()
+    ], SelectAppletDialog.prototype, "workspaceId", void 0);
+    __decorate([
+        (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ViewProperty)()
+    ], SelectAppletDialog.prototype, "parent", void 0);
+    return SelectAppletDialog;
+}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.DialogView));
+
 
 
 /***/ }),
 
-/***/ "./src/views/WaitViewClass.ts":
-/*!************************************!*\
-  !*** ./src/views/WaitViewClass.ts ***!
-  \************************************/
+/***/ "./src/dialogs/index.ts":
+/*!******************************!*\
+  !*** ./src/dialogs/index.ts ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Release": () => (/* binding */ Release),
-/* harmony export */   "ReleaseViewClass": () => (/* binding */ ReleaseViewClass),
-/* harmony export */   "Wait": () => (/* binding */ Wait),
-/* harmony export */   "WaitViewClass": () => (/* binding */ WaitViewClass)
+/* harmony export */   SelectAppletDialog: () => (/* reexport safe */ _SelectAppletDialog__WEBPACK_IMPORTED_MODULE_0__.SelectAppletDialog)
 /* harmony export */ });
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/* harmony import */ var _SelectAppletDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectAppletDialog */ "./src/dialogs/SelectAppletDialog.ts");
 
-var WaitViewClass = /** @class */ (function (_super) {
-    __extends(WaitViewClass, _super);
-    function WaitViewClass() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return WaitViewClass;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));
-
-var ReleaseViewClass = /** @class */ (function (_super) {
-    __extends(ReleaseViewClass, _super);
-    function ReleaseViewClass() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return ReleaseViewClass;
-}(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIView));
-
-var Wait = function () { return (new WaitViewClass()); };
-var Release = function () { return (new ReleaseViewClass()); };
 
 
 /***/ }),
 
-/***/ "@celmino/ui":
-/*!*****************************!*\
-  !*** external "celmino$ui" ***!
-  \*****************************/
-/***/ ((module) => {
+/***/ "./src/exports.ts":
+/*!************************!*\
+  !*** ./src/exports.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-module.exports = celmino$ui;
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
+/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/index.ts");
+
+
+var globalObject = undefined;
+/// #if WEB
+if (_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.workerContext()) {
+    globalObject = self;
+}
+else {
+    globalObject = window;
+}
+/// #endif
+/// #if NODE
+//globalObject = global;
+/// #endif
+globalObject['celmino$ui'] = _index__WEBPACK_IMPORTED_MODULE_1__;
+_tuval_core__WEBPACK_IMPORTED_MODULE_0__.ModuleLoader.FireModuleLoadedEvent('celmino$ui', _index__WEBPACK_IMPORTED_MODULE_1__);
+if (_tuval_core__WEBPACK_IMPORTED_MODULE_0__.is.workerContext()) {
+    console.log('celmino ui yüklendi.');
+    //console.log(globalObject['tuval$forms']);
+}
+
 
 /***/ }),
 
-/***/ "@realmocean/antd":
-/*!**********************************!*\
-  !*** external "realmocean$antd" ***!
-  \**********************************/
-/***/ ((module) => {
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-module.exports = realmocean$antd;
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SelectAppletDialog: () => (/* reexport safe */ _dialogs__WEBPACK_IMPORTED_MODULE_0__.SelectAppletDialog)
+/* harmony export */ });
+/* harmony import */ var _dialogs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dialogs */ "./src/dialogs/index.ts");
+/* harmony import */ var _exports__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exports */ "./src/exports.ts");
+
+
+
 
 /***/ }),
 
@@ -8115,18 +8076,7 @@ module.exports = realmocean$antd;
 /***/ ((module) => {
 
 "use strict";
-module.exports = realmocean$sdk;
-
-/***/ }),
-
-/***/ "@realmocean/ui":
-/*!********************************!*\
-  !*** external "realmocean$ui" ***!
-  \********************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = realmocean$ui;
+module.exports = __WEBPACK_EXTERNAL_MODULE__realmocean_sdk__;
 
 /***/ }),
 
@@ -8137,7 +8087,7 @@ module.exports = realmocean$ui;
 /***/ ((module) => {
 
 "use strict";
-module.exports = tuval$core;
+module.exports = __WEBPACK_EXTERNAL_MODULE__tuval_core__;
 
 /***/ }),
 
@@ -8148,7 +8098,7 @@ module.exports = tuval$core;
 /***/ ((module) => {
 
 "use strict";
-module.exports = tuval$forms;
+module.exports = __WEBPACK_EXTERNAL_MODULE__tuval_forms__;
 
 /***/ }),
 
@@ -8159,7 +8109,7 @@ module.exports = tuval$forms;
 /***/ ((module) => {
 
 "use strict";
-module.exports = tuval$react;
+module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 
 /***/ })
 
@@ -8177,13 +8127,13 @@ module.exports = tuval$react;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
+/******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -8230,112 +8180,16 @@ module.exports = tuval$react;
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nc = undefined;
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!***********************!*\
-  !*** ./src/index.tsx ***!
-  \***********************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tuval/core */ "@tuval/core");
-/* harmony import */ var _tuval_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tuval_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _NewBiosController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewBiosController */ "./src/NewBiosController.tsx");
-/* harmony import */ var _css_global_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css/global.scss */ "./src/css/global.scss");
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @realmocean/ui */ "@realmocean/ui");
-/* harmony import */ var _realmocean_ui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_realmocean_ui__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dialogs/AddAppletDialog */ "./src/dialogs/AddAppletDialog.ts");
-
-
-
-
-
-
-(function (history) {
-    var pushState = history.pushState;
-    history.pushState = function (state) {
-        var result = pushState.apply(history, arguments);
-        if (typeof history.onpushstate == "function") {
-            history.onpushstate({ state: state });
-        }
-        return result;
-    };
-})(window.history);
-window.onpopstate = history.onpushstate = function (e) {
-    _tuval_core__WEBPACK_IMPORTED_MODULE_0__.EventBus.Default.fire('history.changed', { url: window.location.href });
-};
-//RM.install({
-//  token: 'a2kx9xb:n9iz4ut',
-//    ingestUrl: 'https://in.requestmetrics.com/v1'
-/* ingestUrl: scriptEl.getAttribute("data-rm-ingest"),
-monitorSelfCalls: !!scriptEl.getAttribute("data-rm-monitor-self"),
-tags: tags */
-// });
-var params = new Proxy(new URLSearchParams(window.location.search), {
-    get: function (searchParams, prop) { return searchParams.get(prop); },
-});
-// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-//let value = params.some_key; // "some_value"
-//StartBios(MainController);
-window.addEventListener("load", function (event) {
-    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.StartBios)(_NewBiosController__WEBPACK_IMPORTED_MODULE_2__.MainController);
-    /*  if (params.tenant_id) {
-         RealmBrokerClient.SetTenantAndGetSessionInfo(params.tenant_id).then((session_info: any) => {
-           
-             StateService.SetStateVariable('session', session_info);
-             StateService.SetSessionId(session_info.session_id);
- 
-             container.register('IStateService', { useValue: StateService });
- 
-             Tracker.configure({
-                 userId: session_info.account_id,
-                 sessionId: session_info.session_id
-             });
- 
- 
-             Tracker.addMetadata('realm', useSessionService().RealmId);
-             Tracker.addMetadata('tenant', useSessionService().TenantId);
- 
- 
-             StartBios(BiosController);
- 
-         })
-     } else {
-         RealmBrokerClient.GetSessionInfo().then((session_info: any) => {
-          
-             StateService.SetStateVariable('session', session_info);
-             StateService.SetSessionId(session_info.session_id);
- 
-             container.register('IStateService', { useValue: StateService });
- 
-             Tracker.configure({
-                 userId: session_info.account_id,
-                 sessionId: session_info.session_id
-             });
- 
-             Tracker.addMetadata('realm', useSessionService().RealmId);
-             Tracker.addMetadata('tenant', useSessionService().TenantId);
- 
-             StartBios(BiosController);
- 
-         })
-     } */
-});
-//StartBios(BiosController)
-_realmocean_ui__WEBPACK_IMPORTED_MODULE_4__.FormBuilder.injectAction('ca_AddApplet', _dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_5__.AddAppletAction);
-
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
+/******/ 	
+/******/ 	return __webpack_exports__;
 /******/ })()
 ;
+});
 //# sourceMappingURL=index.js.map
-                tuval$core.ModuleLoader.FireModuleLoadedEvent('bios', tuval$core['__APPS__']['bios']);
-                
+// console.log('forms-core module loaded.');

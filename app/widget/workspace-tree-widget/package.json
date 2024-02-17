@@ -101,6 +101,7 @@
         ]
     },
     "devDependencies": {
+        "@celmino/ui": "^1.0.11",
         "@realmocean/bpmn": "^21.0.0-beta.2",
         "@realmocean/charts": "^0.0.6",
         "@realmocean/common": "^1.0.201",

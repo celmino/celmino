@@ -108,6 +108,18 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
+"@celmino/ui@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@celmino/ui/-/ui-1.0.10.tgz"
+  integrity sha512-qm6lhaVtbZMmQqeUtrGeBnHPylbWOQt5WulmaXj2abVjfPYP4amr/V840u2+W2dm+EvVcTM8bKPLyuqwB52BbQ==
+  dependencies:
+    "@tuval/forms" "^1.0.109"
+    css-loader "^6.8.1"
+    sass "^1.63.6"
+    sass-loader "^13.3.2"
+    style-loader "^3.3.3"
+    to-string-loader "^1.2.0"
+
 "@codemirror/lang-json@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@codemirror/lang-json/-/lang-json-6.0.1.tgz"

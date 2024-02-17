@@ -34,7 +34,7 @@ const appletMenu = [
     }
 ]
 
-export class SelectAppletDialog extends DialogView {
+export class _SelectAppletDialog extends DialogView {
 
     private last_added_opa_type: string;
 
@@ -231,7 +231,7 @@ export class SelectAppletDialog extends DialogView {
         )
     }
     public static Show(workspaceId: string) {
-        const dialog = new SelectAppletDialog();
+        const dialog = new _SelectAppletDialog();
         dialog.ShowHeader = false;
         /*  if (width) {
              dialog.Width = width;

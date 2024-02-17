@@ -81,6 +81,7 @@ const webConfig = {
         '@realmocean/antd':'realmocean$antd',
         '@realmocean/sdk': 'realmocean$sdk',
         '@realmocean/ui': 'realmocean$ui',
+        '@celmino/ui': 'celmino$ui',
 
         'react': 'tuval$react',
         'react-dom/client': 'tuval$react$dom'

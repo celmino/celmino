@@ -4247,9 +4247,9 @@ var TopicController = /** @class */ (function (_super) {
                 }); */
             }
         }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.MenuButton)().view(function () {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((topic.duration == null || topic.duration == 0) ?
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(((topic === null || topic === void 0 ? void 0 : topic.duration) == null || (topic === null || topic === void 0 ? void 0 : topic.duration) == 0) ?
                 (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)('\\d37b').fontSize(20).foregroundColor('#8895a7') :
-                (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)(topic.duration + "'").fontSize(14).fontWeight('700').foregroundColor('rgb(136, 149, 167)')).allWidth(34).allHeight(30)
+                (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_4__.Text)((topic === null || topic === void 0 ? void 0 : topic.duration) + "'").fontSize(14).fontWeight('700').foregroundColor('rgb(136, 149, 167)')).allWidth(34).allHeight(30)
                 .border('solid 1px #e1e7ec')
                 .background({ hover: '#f0f2f5' })
                 .cornerRadius(3)
@@ -4738,23 +4738,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AssignUser": () => (/* binding */ AssignUser)
 /* harmony export */ });
-/* harmony import */ var _realmocean_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/services */ "@realmocean/services");
-/* harmony import */ var _realmocean_services__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_services__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tuval/forms */ "@tuval/forms");
-/* harmony import */ var _tuval_forms__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tuval_forms__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @realmocean/vibe */ "./node_modules/@realmocean/vibe/index.js");
+/* harmony import */ var _realmocean_vibe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__);
 
 var AssignUser = function (_a) {
     var _b = _a.account_id, account_id = _b === void 0 ? null : _b, _c = _a.readonly, readonly = _c === void 0 ? false : _c, _d = _a.width, width = _d === void 0 ? 36 : _d, _e = _a.height, height = _e === void 0 ? 36 : _e, _f = _a.onChange, onChange = _f === void 0 ? void 0 : _f;
-    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_1__.UIWidget)("com.tuvalsoft.widget.userselect")
-        .config({
-        tenant_id: (0,_realmocean_services__WEBPACK_IMPORTED_MODULE_0__.useSessionService)().TenantId,
-        selectedAccountId: account_id,
+    return ((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_0__.Text)('Select User')
+    /* UIWidget("com.tuvalsoft.widget.userselect")
+    .config({
+        tenant_id: useSessionService().TenantId,
+        selectedAccountId:account_id,
         readonly: readonly,
         width: width,
         height: height,
-        onChange: onChange
-    }));
+        onChange
+    }) */
+    );
 };
 
 
@@ -4843,17 +4842,6 @@ module.exports = realmocean$calendars;
 
 "use strict";
 module.exports = realmocean$sdk;
-
-/***/ }),
-
-/***/ "@realmocean/services":
-/*!**************************************!*\
-  !*** external "realmocean$services" ***!
-  \**************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = realmocean$services;
 
 /***/ }),
 

@@ -149,7 +149,7 @@ export class SelectAppletDialog extends DialogView {
                                                     /* fetch('./data.json')
                                                     .then((response) => response.json())
                                                     .then((json) => console.log(json)); */
-                                                    alert(this.parent)
+                                                   
                                                     createDocument({
                                                         data: {
                                                             name: opa.name,

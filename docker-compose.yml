@@ -184,6 +184,7 @@ services:
       - _APP_MIGRATIONS_FIREBASE_CLIENT_SECRET
       - _APP_ASSISTANT_OPENAI_API_KEY
       - _APP_LOCALHOST_DOMAIN
+      - _APP_FRONTEND_LIBS
 
   realmocean-realtime:
     entrypoint: realtime

@@ -6,6 +6,8 @@ import './css/global.scss';
 import { FormBuilder } from '@realmocean/ui';
 import { AddAppletAction } from './dialogs/AddAppletDialog';
 
+declare var gapi;
+
 
 (function (history: any) {
     var pushState = history.pushState;
@@ -46,7 +48,8 @@ const params: any = new Proxy(new URLSearchParams(window.location.search), {
 //StartBios(MainController);
 
 window.addEventListener("load", (event) => {
-   
+
+       
 
     StartBios(MainController);
 

@@ -93,6 +93,7 @@ export const CreateWorkspaceView = () => UIViewBuilder(() => {
                                         const database = await Services.Databases.create(workspace.$id, 'workspace', 'Workspace', 'workspace');
                                         const appletCol = await Services.Databases.createCollection(workspace.$id, database.$id, 'applets', 'Applets');
                                         const nameAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'name', 255, false);
+                                        const parent = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'parent', 255, false);
                                         const opaAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'opa', 255, false);
                                         const typeAttr = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'type', 255, false);
                                         const iconName = await Services.Databases.createStringAttribute(workspace.$id, database.$id, appletCol.$id, 'iconName', 255, false);

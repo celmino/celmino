@@ -51,7 +51,7 @@ export class SignupController extends UIController {
                                     password: password
                                 }, async () => {
                                     try {
-                                        const team = await Services.Teams.create(account.$id, userName);
+                                        const team = await Services.Teams.create(account.$id, `${userName}'s Organization`);
                                       //  alert(JSON.stringify(team))
                                         //if (is.localhost()) {
                                         updatePrefs({
