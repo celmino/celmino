@@ -18,7 +18,7 @@ export interface TreeNodeProps {
     level?: number;
     // isExpand?: boolean;
     // expandChanged?: (isExpand: boolean) => void;
-    title?: string;
+    title?: string | UIView;
     titleChanged?: (title: string) => void;
     isEditing?: boolean;
     editingChanged?: (isEditing: boolean) => void;
@@ -90,7 +90,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                     }),
 
                 // Title
-                isEditing ? UIViewBuilder(() => {
+                (isEditing && is.string(title)) ? UIViewBuilder(() => {
                     const [newTitle, setNewTitle] = useState(title);
                     //  const { updateDocument } = useUpdateDocument(workspaceId);
                     return (
@@ -98,7 +98,7 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                             TextField()
                                 .border('0')
                                 .fontSize(14)
-                               // .fontWeight('500')
+                                // .fontWeight('500')
                                 .marginLeft(-2)
                                 .padding(cVertical, 3)
                                 .value(newTitle)
@@ -133,18 +133,19 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                     :
 
                     HStack({ alignment: cLeading, spacing: 5 })(
+                        is.string(title) ?
+                            HStack({ alignment: cLeading })(
+                                Text(title)
+                                    .fontWeight(isSelected ? '400' : '400')
+                                    .fontSize(nodeType === 'root' ? 14 : 14)
+                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                                    .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
+                                    .lineHeight(22)
+                            )
 
-                        HStack({ alignment: cLeading })(
-                            Text(title)
-                                .fontWeight(isSelected ? '400' : '400')
-                                .fontSize(nodeType === 'root' ? 14 : 14)
-                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
-                                .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
-                                .lineHeight(22)
-                        )
-
-                            //.width('calc(100% - 40px)')
-                            .height(32)
+                                //.width('calc(100% - 40px)')
+                                .height(32)
+                            : title
                     )
                         .onClick(() => {
                             requestNavigation();
@@ -177,7 +178,8 @@ export const TreeNode = (treeNodeProps: TreeNodeProps) => UIViewBuilder(() => {
                 //.width('calc(100% - 0px)')
                 .transform('translate3d(0px, 0, 0)')
                 .fontWeight('500')
-                .allHeight(30)//.padding(5)
+                .height()//.padding(5)
+                .minHeight(30)
                 //.padding(cVertical, isEditing ? 0 : 5)
                 .paddingLeft(`${20 * level}px`)
                 .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })

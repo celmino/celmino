@@ -236,6 +236,7 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
         var isLoading = false;
         var items = (this.props.data || {}).items;
         var _b = this.props.config || {}, workspaceId = _b.workspaceId, appletId = _b.appletId, onItemSelected = _b.onItemSelected;
+        var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_3__.useGetMe)('console').me;
         var _c = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_utils__WEBPACK_IMPORTED_MODULE_2__.getAppletId)() === appletId), isOpen = _c[0], setIsOpen = _c[1];
         var listId = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.getListId)();
         // const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
@@ -245,7 +246,7 @@ var WorkspaceTreeWidgetController = /** @class */ (function (_super) {
             .config({
             workspaceId: workspaceId,
             appletId: appletId,
-            appletName: 'My Space',
+            appletName: (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)('My Space'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Text)(me === null || me === void 0 ? void 0 : me.email).fontSize(12).foregroundColor('#7C828D')).allHeight(50),
             //iconName: applet.iconName,
             //iconCategory: applet.iconCategory,
             //isEditing: isEditing,

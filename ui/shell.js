@@ -15,7 +15,7 @@ if (shell.exec('npm run wbuild').code !== 0) {
 shell.cp('-Rf', './dist/index.js',  `../realmocean/system/celmino-ui.js`);
 
 
-/* shell.cd('../runtime');
-shell.exec(`docker-compose restart`); */
+shell.cd('../runtime');
+shell.exec(`docker-compose restart`);
 
 shell.echo(`All done.`);

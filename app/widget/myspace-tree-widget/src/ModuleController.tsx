@@ -10,7 +10,7 @@ import { WorkbenchIcons } from './views/WorkbenchIcons';
 import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { DynoDialog } from '@realmocean/ui';
 import { getAppletId, getDocumentId, getListId, getViewId, isAppletOnly, isAppletSettings } from './utils';
-import { Query, useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
+import { Query, useCreateDocument, useGetDocument, useGetMe, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { useLocalStorageState } from './views/localStorageState';
 import { TextField, Text as VibeText } from '@realmocean/vibe';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
@@ -211,7 +211,7 @@ export class WorkspaceTreeWidgetController extends UIController {
         const { items } = this.props.data || {};
         const { workspaceId, appletId, onItemSelected } = this.props.config || {};
 
-
+        const {me} = useGetMe('console');
         const [isOpen, setIsOpen] = useState(getAppletId() === appletId);
 
         let listId = getListId();
@@ -227,7 +227,10 @@ export class WorkspaceTreeWidgetController extends UIController {
                     .config({
                         workspaceId,
                         appletId,
-                        appletName: 'My Space',
+                        appletName: VStack({alignment:cLeading})(
+                            Text('My Space'),
+                            Text(me?.email).fontSize(12).foregroundColor('#7C828D')
+                        ).allHeight(50),
                         //iconName: applet.iconName,
                         //iconCategory: applet.iconCategory,
                         //isEditing: isEditing,

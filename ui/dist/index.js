@@ -3296,7 +3296,7 @@ var Applets = [
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
         image: '/images/applets/google_drive.svg',
-        icon: '\\d320',
+        //icon: '\\d320',
         enabled: true,
         databases: [
             {
@@ -3313,7 +3313,8 @@ var Applets = [
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d20d',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -3329,7 +3330,8 @@ var Applets = [
         type: 'com.celmino.widget.enterprise-modelling-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d1e7',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -7013,7 +7015,8 @@ var Applets = [
         applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d1e4',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -7269,11 +7272,12 @@ var Applets = [
         name: 'Documents',
         tree_type: 'com.celmino.widget.document-management-tree',
         applet_type: 'com.celmino.applet.document-management',
-        description: 'Monitor your process details in timeframe chart.',
-        image: '/images/applets/documents.png',
+        description: 'Documents applet is effortless document management, offering seamless organization and collaboration capabilities. Access, edit, and share documents with ease, enhancing productivity across devices.',
+        // image: '/images/applets/documents.png',
         iconCategory: 'Icons',
         iconName: 'bell',
-        icon: '\\d320',
+        icon: '\\d1e2',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -7417,7 +7421,8 @@ var Applets = [
         type: 'com.celmino.widget.notebook-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d2fb',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -7516,7 +7521,8 @@ var Applets = [
         applet_type: 'com.celmino.applet.meetings',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d25f',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -7618,6 +7624,7 @@ var Applets = [
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
@@ -7625,7 +7632,8 @@ var Applets = [
         type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d3c9',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
@@ -7633,7 +7641,8 @@ var Applets = [
         type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\e862',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
@@ -7651,7 +7660,29 @@ var Applets = [
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
-        icon: '\\d320',
+        icon: '\\d214',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'OKR',
+        type: 'com.tuvalsoft.applet.okr',
+        broker: 'com.tuvalsoft.broker.realm',
+        defaultView: 'com.okr.view.objectives',
+        defaultViewTitle: 'Objectives',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e5',
+        iconBackColor: '#66B47C',
+        //icon: SvgIcon('svg-sprite-cu2-view-1'),
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        enabled: true
+    },
+    {
+        name: 'Strategy',
+        type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
         enabled: true
     }
 ];
@@ -7819,11 +7850,11 @@ var SelectAppletDialog = /** @class */ (function (_super) {
             }), false)).height().marginBottom('var(--spacing-large)');
         })).padding('var(--spacing-medium)')
             .width(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(this.filtered_opas)(function (opa) {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 10 })(opa.image &&
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(opa.image).width(50).height(50).cornerRadius('20%'), 
-            // .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(opa.name).h4(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Heading)(opa.description || '').h6().ellipsis(true)
-                .ellipsisMaxLines(2), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cCenter })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('Add'))
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 })(opa.image &&
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(opa.image).width(50).height(50).cornerRadius('20%'), opa.icon &&
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(opa.icon).fontSize(40).foregroundColor('white')).width(50).height(50).cornerRadius('20%').background(opa.iconBackColor || '#9A0707')
+            //    .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
+            , (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(opa.name).fontSize('1.8rem').lineHeight('2rem'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('By Tuvalsoft').fontSize('1.4rem').foregroundColor('#676879'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(opa.description || '').maxLines(2).fontSize('1.4rem').foregroundColor('#676879')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cCenter })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('Add'))
                 // .loading(isLoading && (opa.type === this.last_added_opa_type))
                 .disabled(!opa.enabled)
                 .kind(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ButtonType.SECONDARY)

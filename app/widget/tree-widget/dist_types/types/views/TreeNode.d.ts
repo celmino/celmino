@@ -4,7 +4,7 @@ export interface TreeNodeProps {
     isLoading?: boolean;
     isSelected?: boolean;
     level?: number;
-    title?: string;
+    title?: string | UIView;
     titleChanged?: (title: string) => void;
     isEditing?: boolean;
     editingChanged?: (isEditing: boolean) => void;

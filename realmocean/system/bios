@@ -6239,24 +6239,42 @@ var LeftSideMenuView = function (selectedItem) {
             var _b = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _b[0], setIconInfo = _b[1];
             var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
             var _hideHandle;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
+            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
+                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(menuItem.title)
+                    .foregroundColor('rgb(21, 23, 25)')
+                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
+                    .height()
+                    .padding('6px 10px')
+                    .background({ hover: '#E8EAED' })
+                    .cornerRadius(6)
+                    .cursor('pointer')
+                    .margin('0 8px');
+            })).paddingTop('6px'))
+                //.padding()
+                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.organization-space-tree')
+                .config({
+                organizationId: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id,
+                organizationName: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.name
+            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.myspace-tree')
+                .config({}), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 6 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
                 .config({
                 readonly: true,
                 selectedIcon: 'bookmark',
                 selectedCategory: 'Icons',
-                width: 22,
-                height: 22,
+                width: 32,
+                height: 32,
                 padding: 1,
                 color: '#0E7169',
                 onChange: function (iconInfo) {
                     setIconInfo(iconInfo);
                 }
-            })).width(28).height(28)
+            })).width(36).height(36)
                 .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Heading)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
+                .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('WORKSPACE').fontSize('1rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
                 .foregroundColor('rgb(21, 23, 25)')
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon)).height(30).cursor('pointer')
-                .padding(6)
+                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height()).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon))
+                .height().cursor('pointer')
+                .padding(10)
                 .background({ hover: '#E8EAED' })
                 .cornerRadius(6))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
                 var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
@@ -6284,20 +6302,8 @@ var LeftSideMenuView = function (selectedItem) {
             }))
                 .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
                 .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM))
-                .padding('8px 8px 8px 12px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(menuItem.title)
-                    .foregroundColor('rgb(21, 23, 25)')
-                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
-                    .height()
-                    .padding('6px 10px')
-                    .background({ hover: '#E8EAED' })
-                    .cornerRadius(6)
-                    .cursor('pointer')
-                    .margin('0 8px');
-            })).paddingTop('6px'))
-                //.padding()
-                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.myspace-tree')
-                .config({}), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
+                .height()
+                .padding('8px 8px 8px 0px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
                 //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
                 return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
             }
@@ -6315,7 +6321,7 @@ var LeftSideMenuView = function (selectedItem) {
                     var workspace_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)().workspace_id;
                     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
                     //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('New Applet').fontSize(11).fontWeight('500'))
+                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('New Applet').fontSize(11).fontWeight('500'))
                         .margin('5px 20px')
                         .cornerRadius(5)
                         .cursor('pointer')
@@ -6332,7 +6338,7 @@ var LeftSideMenuView = function (selectedItem) {
                     var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
                     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
                     //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Install Applet').fontSize(11).fontWeight('500'))
+                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Install Applet').fontSize(11).fontWeight('500'))
                         .margin('5px 20px')
                         .cornerRadius(5)
                         .cursor('pointer')
@@ -6352,7 +6358,7 @@ var LeftSideMenuView = function (selectedItem) {
                     var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
                     return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
                     //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Text)('Templates').fontSize(11).fontWeight('500'))
+                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Templates').fontSize(11).fontWeight('500'))
                         .margin('5px 20px')
                         .cornerRadius(5)
                         .cursor('pointer')

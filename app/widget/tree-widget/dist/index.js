@@ -4158,7 +4158,7 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
         setExpanded(!expanded);
     }), 
     // Title
-    isEditing ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
+    (isEditing && _tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.string(title)) ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIViewBuilder)(function () {
         var _a = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(title), newTitle = _a[0], setNewTitle = _a[1];
         //  const { updateDocument } = useUpdateDocument(workspaceId);
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.TextField)()
@@ -4194,14 +4194,16 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
         }));
     })
         :
-            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(title)
-                .fontWeight(isSelected ? '400' : '400')
-                .fontSize(nodeType === 'root' ? 14 : 14)
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
-                .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
-                .lineHeight(22))
-                //.width('calc(100% - 40px)')
-                .height(32))
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading, spacing: 5 })(_tuval_core__WEBPACK_IMPORTED_MODULE_2__.is.string(title) ?
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_1__.Text)(title)
+                    .fontWeight(isSelected ? '400' : '400')
+                    .fontSize(nodeType === 'root' ? 14 : 14)
+                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                    .foregroundColor(isSelected ? '#7b68ee' : 'rgb(21, 23, 25)')
+                    .lineHeight(22))
+                    //.width('calc(100% - 40px)')
+                    .height(32)
+                : title)
                 .onClick(function () {
                 requestNavigation();
             })
@@ -4224,7 +4226,8 @@ var TreeNode = function (treeNodeProps) { return (0,_tuval_forms__WEBPACK_IMPORT
         //.width('calc(100% - 0px)')
         .transform('translate3d(0px, 0, 0)')
         .fontWeight('500')
-        .allHeight(30) //.padding(5)
+        .height() //.padding(5)
+        .minHeight(30)
         //.padding(cVertical, isEditing ? 0 : 5)
         .paddingLeft("".concat(20 * level, "px"))
         .background({ default: isSelected ? '#E6EDFE' : '', hover: '#EBEDEF' })

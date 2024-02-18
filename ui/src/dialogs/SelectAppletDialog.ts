@@ -116,13 +116,22 @@ export class SelectAppletDialog extends DialogView {
                         HStack({ alignment: cTopLeading })(
                             ...ForEach(this.filtered_opas)(opa =>
                                 VStack(
-                                    VStack({ alignment: cTopLeading, spacing: 10 })(
+                                    VStack({ alignment: cTopLeading, spacing: 5 })(
                                         opa.image &&
                                         UIImage(opa.image).width(50).height(50).cornerRadius('20%'),
-                                        // .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
-                                        Heading(opa.name).h4(),
-                                        Heading(opa.description || '').h6().ellipsis(true)
-                                            .ellipsisMaxLines(2)
+                                        opa.icon &&
+                                        HStack(
+                                            Icon(opa.icon).fontSize(40).foregroundColor('white')
+                                        ).width(50).height(50).cornerRadius('20%').background(opa.iconBackColor || '#9A0707')
+                                        //    .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
+                                        ,
+                                        Text(opa.name).fontSize('1.8rem').lineHeight('2rem'),
+                                        Text('By Tuvalsoft').fontSize('1.4rem').foregroundColor('#676879'),
+                                        HStack({alignment:cLeading})(
+                                            Text(opa.description || '').maxLines(2).fontSize('1.4rem').foregroundColor('#676879')
+                                            
+                                        ).height()
+
                                         ,
                                         Spacer(),
                                         HStack({ alignment: cCenter })(
@@ -149,7 +158,7 @@ export class SelectAppletDialog extends DialogView {
                                                     /* fetch('./data.json')
                                                     .then((response) => response.json())
                                                     .then((json) => console.log(json)); */
-                                                   
+
                                                     createDocument({
                                                         data: {
                                                             name: opa.name,
@@ -175,7 +184,7 @@ export class SelectAppletDialog extends DialogView {
                                                                         const col = await Services.Databases.createCollection(this.workspaceId, db.$id, id, name, [], false);
 
                                                                         for (let i = 0; i < attributes.length; i++) {
-                                                                            const { key, type, defaultValue = null, size = 255} = attributes[i];
+                                                                            const { key, type, defaultValue = null, size = 255 } = attributes[i];
                                                                             switch (type) {
                                                                                 case 'string':
                                                                                     await Services.Databases.createStringAttribute(this.workspaceId, db.$id, col.$id, key, size, false, '', false);

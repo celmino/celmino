@@ -1,5 +1,5 @@
 
-import { Models, Query, useCreateDatabase, useCreateRealm,  useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
+import { Models, Query, useCreateDatabase, useCreateRealm, useGetMe, useGetOrganization, useGetRealm, useGetTeam, useListDatabases, useListDocuments, useListRealms, useListTeams, useUpdatePrefs } from "@realmocean/sdk";
 import { is } from "@tuval/core";
 import {
     DialogPosition,
@@ -16,7 +16,7 @@ import {
     ScrollView,
     Spacer,
     SvgIcon,
-    Text,
+
     TextField,
     UIRouteLink, UIViewBuilder,
     UIWidget,
@@ -28,7 +28,7 @@ import {
 } from "@tuval/forms";
 import React, { useState } from "react";
 import { DatabaseNameView } from "./DatabaseNameView";
-import { Text as VibeText } from '@realmocean/vibe';
+import { Text } from '@realmocean/vibe';
 import { DynoDialog } from '@realmocean/ui'
 import { AddAppletDialog } from "../../../../dialogs/AddAppletDialog";
 import { useGetCurrentOrganization } from "../../../../hooks/useGetCurrentOrganization";
@@ -205,7 +205,7 @@ let global_openedIDs = {};
 export const LeftSideMenuView = (selectedItem: string) => {
     const showAllWorkspaces = true;
     const { me, isLoading } = useGetMe('console');
-    const { organization: domainTeam, isLoading:isDomainTeamLoading } = useGetCurrentOrganization();
+    const { organization: domainTeam, isLoading: isDomainTeamLoading } = useGetCurrentOrganization();
 
     return (
         (isLoading || isDomainTeamLoading) ? Fragment() :
@@ -236,109 +236,13 @@ export const LeftSideMenuView = (selectedItem: string) => {
                     VStack({ alignment: cTopLeading })(
                         VStack({ alignment: cTopLeading })(
                             VStack({ alignment: cTopLeading })(
-                                HStack(
-                                    PopupButton(
-                                        HStack({ alignment: cLeading, spacing: 5 })(
-                                            HStack(
-                                                UIWidget("com.tuvalsoft.widget.icons")
-                                                    .config({
-                                                        readonly: true,
-                                                        selectedIcon: 'bookmark', //iconInfo.iconName,
-                                                        selectedCategory: 'Icons',//iconInfo.iconCategory,
-                                                        width: 22,
-                                                        height: 22,
-                                                        padding: 1,
-                                                        color: '#0E7169',
-                                                        onChange: (iconInfo) => {
-                                                            setIconInfo(iconInfo)
-                                                        }
-                                                    })
-                                            ).width(28).height(28)
-                                                .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                                                .cornerRadius(6),
-                                            HStack({ alignment: cLeading })(
-                                                Heading(realm?.name).fontSize(16).fontWeight('500')
-                                                    .foregroundColor('rgb(21, 23, 25)')
-                                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
-                                            ).height(),
-                                            Icon(DownIcon)
 
-                                        ).height(30).cursor('pointer')
-                                            .padding(6)
-                                            .background({ hover: '#E8EAED' })
-                                            .cornerRadius(6)
-                                    )(
-                                        UIViewBuilder(() => {
-
-                                            const { realm }: { realm: Models.Realm } = useGetRealm({
-                                                realmId: workspaceId,
-                                                enabled: (organizationId == null && workspaceId != null)
-                                            });
-
-                                            const { realms } = useListRealms( domainTeam != null/* (organizationId != null || realm?.teamId != null) */, [
-                                                Query.equal('teamId',domainTeam?.$id)
-                                            ]);
-
-                                            const { me } = useGetMe('console');
-                                            return (
-                                                VStack({ alignment: cTopLeading })(
-                                                    VStack(
-                                                        HStack({ alignment: cLeading, spacing: 5 })(
-                                                            HStack().width(30).height(30).cornerRadius('50%').background('gray'),
-                                                            VStack({ alignment: cLeading })(
-                                                                VibeText(realm.name).fontSize(14).foregroundColor('#212526'),
-                                                                VibeText(me.email).fontSize(12).foregroundColor('#6d7a83'),
-                                                            )
-                                                        ).padding(5)
-                                                            .cornerRadius(6)
-                                                            .background({ hover: '#ECEEEF' }),
-                                                            HStack({ alignment: cLeading, spacing: 5 })(
-                                                                Icon(SvgIcon('cu3-icon-settings')),
-                                                                VibeText('Settings')
-                                                            )
-                                                            .padding(5)
-                                                            .height()
-                                                    ).padding(5),
-                                                    HDivider().height(1).background('#ECEDEE'),
-                                                    VStack({ alignment: cTopLeading })(
-                                                        VibeText('SWITCH WORKSPACES').fontSize(12),
-                                                        ...ForEach(realms)(realm => (
-                                                            HStack({ alignment: cLeading })(
-                                                                VibeText(realm.name)
-                                                            ).background({ hover: '#E8EAED' })
-                                                                .cursor('pointer')
-                                                                .padding(5)
-                                                                .onClick(() => {
-
-                                                                    updatePrefs({
-                                                                        prefs: {
-                                                                            ...(me?.prefs ? me?.prefs : {}),
-                                                                            workspace: realm.$id
-                                                                        }
-
-                                                                    })
-                                                                    _hideHandle();
-                                                                    navigate(`/app/workspace/${realm.$id}`)
-                                                                })
-                                                        ))
-                                                    ).padding()
-
-                                                ).width(250)
-                                            )
-                                        })
-
-                                    )
-                                        .hideHandle(hideHandle => _hideHandle = hideHandle)
-                                        .dialogPosition(DialogPosition.BOTTOM)
-                                )
-
-                                    .padding('8px 8px 8px 12px'),
                                 HDivider().height(1).background('#ECEDEE'),
                                 VStack({ alignment: cTopLeading, spacing: 2 })(
                                     ...ForEach(topMenu)(menuItem =>
                                         HStack({ alignment: cLeading, spacing: 8 })(
                                             Icon(menuItem.icon),
-                                            VibeText(menuItem.title)
+                                            Text(menuItem.title)
                                                 .foregroundColor('rgb(21, 23, 25)')
                                                 .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
                                         )
@@ -359,18 +263,127 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
                             HDivider().height(1).background('#ECEDEE'),
 
+                            UIWidget('com.celmino.widget.organization-space-tree')
+                                .config({
+                                    organizationId: domainTeam?.$id,
+                                    organizationName: domainTeam?.name
+
+                                }),
                             UIWidget('com.celmino.widget.myspace-tree')
-                            .config({
-                              
-                            }),
-                           
+                                .config({
+
+                                }),
+                            HDivider().height(1).background('#ECEDEE'),
+                            HStack(
+                                PopupButton(
+
+                                    HStack({ alignment: cLeading, spacing: 6 })(
+                                        HStack(
+                                            UIWidget("com.tuvalsoft.widget.icons")
+                                                .config({
+                                                    readonly: true,
+                                                    selectedIcon: 'bookmark', //iconInfo.iconName,
+                                                    selectedCategory: 'Icons',//iconInfo.iconCategory,
+                                                    width: 32,
+                                                    height: 32,
+                                                    padding: 1,
+                                                    color: '#0E7169',
+                                                    onChange: (iconInfo) => {
+                                                        setIconInfo(iconInfo)
+                                                    }
+                                                })
+                                        ).width(36).height(36)
+                                            .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
+                                            .cornerRadius(6),
+                                        VStack({ alignment: cLeading })(
+                                            Text('WORKSPACE').fontSize('1rem'),
+                                            HStack({ alignment: cLeading })(
+                                                Text(realm?.name).fontSize(16).fontWeight('500')
+                                                    .foregroundColor('rgb(21, 23, 25)')
+                                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
+                                            ).height()
+                                        ).height(),
+                                        Icon(DownIcon)
+
+                                    )
+                                    .height().cursor('pointer')
+                                        .padding(10)
+                                        .background({ hover: '#E8EAED' })
+                                        .cornerRadius(6)
+
+                                )(
+                                    UIViewBuilder(() => {
+
+                                        const { realm }: { realm: Models.Realm } = useGetRealm({
+                                            realmId: workspaceId,
+                                            enabled: (organizationId == null && workspaceId != null)
+                                        });
+
+                                        const { realms } = useListRealms(domainTeam != null/* (organizationId != null || realm?.teamId != null) */, [
+                                            Query.equal('teamId', domainTeam?.$id)
+                                        ]);
+
+                                        const { me } = useGetMe('console');
+                                        return (
+                                            VStack({ alignment: cTopLeading })(
+                                                VStack(
+                                                    HStack({ alignment: cLeading, spacing: 5 })(
+                                                        HStack().width(30).height(30).cornerRadius('50%').background('gray'),
+                                                        VStack({ alignment: cLeading })(
+                                                            Text(realm.name).fontSize(14).foregroundColor('#212526'),
+                                                            Text(me.email).fontSize(12).foregroundColor('#6d7a83'),
+                                                        )
+                                                    ).padding(5)
+                                                        .cornerRadius(6)
+                                                        .background({ hover: '#ECEEEF' }),
+                                                    HStack({ alignment: cLeading, spacing: 5 })(
+                                                        Icon(SvgIcon('cu3-icon-settings')),
+                                                        Text('Settings')
+                                                    )
+                                                        .padding(5)
+                                                        .height()
+                                                ).padding(5),
+                                                HDivider().height(1).background('#ECEDEE'),
+                                                VStack({ alignment: cTopLeading })(
+                                                    Text('SWITCH WORKSPACES').fontSize(12),
+                                                    ...ForEach(realms)(realm => (
+                                                        HStack({ alignment: cLeading })(
+                                                            Text(realm.name)
+                                                        ).background({ hover: '#E8EAED' })
+                                                            .cursor('pointer')
+                                                            .padding(5)
+                                                            .onClick(() => {
+
+                                                                updatePrefs({
+                                                                    prefs: {
+                                                                        ...(me?.prefs ? me?.prefs : {}),
+                                                                        workspace: realm.$id
+                                                                    }
+
+                                                                })
+                                                                _hideHandle();
+                                                                navigate(`/app/workspace/${realm.$id}`)
+                                                            })
+                                                    ))
+                                                ).padding()
+
+                                            ).width(250)
+                                        )
+                                    })
+
+                                )
+                                    .hideHandle(hideHandle => _hideHandle = hideHandle)
+                                    .dialogPosition(DialogPosition.BOTTOM)
+                            )
+                                .height()
+                                .padding('8px 8px 8px 0px'),
 
                             VStack({ alignment: cTopLeading })(
                                 /*  VStack({ alignment: cLeading })(
                                      Text('APPLETS')
                                          .fontSize(11)
                                          .fontWeight('700'),
- 
+     
                                  ).height(40).padding('1px 18px 0 20px'), */
                                 ...ForEach(databases)(database =>
                                     //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
