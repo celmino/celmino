@@ -1,8 +1,111 @@
 
 
 export const Applets = [
+   
+
+    {
+        name: 'Product Management',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Manage your produck development life circle.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
+        name: ' Digital video production',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Track Video stages and grouped tasks. Write your scripts, brainstorm ideas, and add notes. Calculate budget and never miss deadlines.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Customer Feedback',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Time to make your Feedback aggregation shine bright like a 💎',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Content Marketing',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Here you can aggregate feedback from different sources, manage conversations, and extract useful insights.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Customer Discovery',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Monitor your process details in timeframe chart.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
     {
         name: 'Google Drive',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
@@ -15,19 +118,20 @@ export const Applets = [
                 "id": "document_management",
                 "category": "app",
                 "collections": [
-                   
+
                 ]
             }
         ]
     },
     {
         name: 'Custom Applet',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d20d',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -35,18 +139,19 @@ export const Applets = [
                 "id": "document_management",
                 "category": "app",
                 "collections": [
-                   
+
                 ]
             }
         ]
     },
     {
         name: 'Enterprise Modelling',
-        type: 'com.celmino.widget.enterprise-modelling-tree',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.enterprise-modelling-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d1e7',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -3784,12 +3889,13 @@ export const Applets = [
     },
     {
         name: 'Tasks',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.workspace-tree',
         applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d1e4',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -4049,14 +4155,15 @@ export const Applets = [
     },
     {
         name: 'Documents',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.document-management-tree',
         applet_type: 'com.celmino.applet.document-management',
         description: 'Documents applet is effortless document management, offering seamless organization and collaboration capabilities. Access, edit, and share documents with ease, enhancing productivity across workspaces.',
-       // image: '/images/applets/documents.png',
-        iconCategory:'Icons',
-        iconName:'bell',
+        // image: '/images/applets/documents.png',
+        iconCategory: 'Icons',
+        iconName: 'bell',
         icon: '\\d1e2',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -4201,11 +4308,12 @@ export const Applets = [
     },
     {
         name: 'Notebooks',
-        type: 'com.celmino.widget.notebook-tree',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.notebook-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d2fb',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -4304,12 +4412,13 @@ export const Applets = [
     },
     {
         name: 'Meetings',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.meeeting-tree',
         applet_type: 'com.celmino.applet.meetings',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d25f',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true,
         databases: [
             {
@@ -4401,18 +4510,19 @@ export const Applets = [
                             }
                         ]
                     }
-                   
+
                 ]
             }
         ]
     },
     {
         name: 'Processes',
-        type: 'com.celmino.applet.enterprise-modelling',
+        type: 'Applet',
+        tree_type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
@@ -4421,20 +4531,22 @@ export const Applets = [
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d3c9',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
         name: 'Controls',
-        type: 'com.celmino.applet.enterprise-modelling',
+        type: 'Applet',
+        tree_type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\e862',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
         name: 'Applet Category',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
@@ -4444,34 +4556,38 @@ export const Applets = [
     },
     {
         name: 'Drive',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d214',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true
     },
     {
         name: 'OKR',
-        type: 'com.tuvalsoft.applet.okr',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.applet-category',
         broker: 'com.tuvalsoft.broker.realm',
-        defaultView:'com.okr.view.objectives',
-        defaultViewTitle:'Objectives',
+        defaultView: 'com.okr.view.objectives',
+        defaultViewTitle: 'Objectives',
         description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
-        icon:'\\d1e5',
-        iconBackColor:'#66B47C',
+        icon: '\\d1e5',
+        iconBackColor: '#66B47C',
         //icon: SvgIcon('svg-sprite-cu2-view-1'),
-       // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
+        // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         enabled: true
     },
     {
         name: 'Strategy',
-        type: 'com.tuvalsoft.opa.task',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
         description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
         icon: '\\d1e1',
-        iconBackColor:'#66B47C',
+        iconBackColor: '#66B47C',
         enabled: true
     }
-   
+
 ];
+

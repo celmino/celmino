@@ -3291,7 +3291,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var Applets = [
     {
+        name: 'Product Management',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Manage your produck development life circle.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
+        name: ' Digital video production',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Track Video stages and grouped tasks. Write your scripts, brainstorm ideas, and add notes. Calculate budget and never miss deadlines.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
+        name: 'Customer Feedback',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Time to make your Feedback aggregation shine bright like a 💎',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
+        name: 'Content Marketing',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Here you can aggregate feedback from different sources, manage conversations, and extract useful insights.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
+        name: 'Customer Discovery',
+        type: 'Template',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Monitor your process details in timeframe chart.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": []
+            }
+        ]
+    },
+    {
         name: 'Google Drive',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
@@ -3309,6 +3400,7 @@ var Applets = [
     },
     {
         name: 'Custom Applet',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
@@ -3327,7 +3419,8 @@ var Applets = [
     },
     {
         name: 'Enterprise Modelling',
-        type: 'com.celmino.widget.enterprise-modelling-tree',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.enterprise-modelling-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d1e7',
@@ -7011,6 +7104,7 @@ var Applets = [
     },
     {
         name: 'Tasks',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.workspace-tree',
         applet_type: 'com.celmino.applet.workmanagement',
         description: 'Monitor your process details in timeframe chart.',
@@ -7270,9 +7364,10 @@ var Applets = [
     },
     {
         name: 'Documents',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.document-management-tree',
         applet_type: 'com.celmino.applet.document-management',
-        description: 'Documents applet is effortless document management, offering seamless organization and collaboration capabilities. Access, edit, and share documents with ease, enhancing productivity across devices.',
+        description: 'Documents applet is effortless document management, offering seamless organization and collaboration capabilities. Access, edit, and share documents with ease, enhancing productivity across workspaces.',
         // image: '/images/applets/documents.png',
         iconCategory: 'Icons',
         iconName: 'bell',
@@ -7418,7 +7513,8 @@ var Applets = [
     },
     {
         name: 'Notebooks',
-        type: 'com.celmino.widget.notebook-tree',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.notebook-tree',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d2fb',
@@ -7517,6 +7613,7 @@ var Applets = [
     },
     {
         name: 'Meetings',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.meeeting-tree',
         applet_type: 'com.celmino.applet.meetings',
         description: 'Monitor your process details in timeframe chart.',
@@ -7620,7 +7717,8 @@ var Applets = [
     },
     {
         name: 'Processes',
-        type: 'com.celmino.applet.enterprise-modelling',
+        type: 'Applet',
+        tree_type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d320',
@@ -7638,7 +7736,8 @@ var Applets = [
     },
     {
         name: 'Controls',
-        type: 'com.celmino.applet.enterprise-modelling',
+        type: 'Applet',
+        tree_type: 'com.celmino.applet.enterprise-modelling',
         description: 'Monitor your process details in timeframe chart.',
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\e862',
@@ -7647,6 +7746,7 @@ var Applets = [
     },
     {
         name: 'Applet Category',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
@@ -7656,6 +7756,7 @@ var Applets = [
     },
     {
         name: 'Drive',
+        type: 'Applet',
         tree_type: 'com.celmino.widget.applet-category',
         applet_type: 'com.celmino.applet.category',
         description: 'Split your applets by category.',
@@ -7666,7 +7767,8 @@ var Applets = [
     },
     {
         name: 'OKR',
-        type: 'com.tuvalsoft.applet.okr',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.applet-category',
         broker: 'com.tuvalsoft.broker.realm',
         defaultView: 'com.okr.view.objectives',
         defaultViewTitle: 'Objectives',
@@ -7679,7 +7781,8 @@ var Applets = [
     },
     {
         name: 'Strategy',
-        type: 'com.tuvalsoft.opa.task',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
         description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
         icon: '\\d1e1',
         iconBackColor: '#66B47C',
@@ -7850,9 +7953,12 @@ var SelectAppletDialog = /** @class */ (function (_super) {
             }), false)).height().marginBottom('var(--spacing-large)');
         })).padding('var(--spacing-medium)')
             .width(300), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.ForEach)(this.filtered_opas)(function (opa) {
-            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 })(opa.image &&
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(opa.image).width(50).height(50).cornerRadius('20%'), opa.icon &&
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(opa.icon).fontSize(40).foregroundColor('white')).width(50).height(50).cornerRadius('20%').background(opa.iconBackColor || '#9A0707')
+            return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)(opa.image &&
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIImage)(opa.image).width(50).height(50).cornerRadius('20%')
+                    .filter(opa.type === 'Applet' ? 'grayscale(1)' : 'none'), opa.icon &&
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Icon)(opa.icon).fontSize(40).foregroundColor('rgb(109, 122, 131)')).width(50).height(50).cornerRadius('20%'), 
+            //.background(opa.iconBackColor || '#9A0707'),
+            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(opa.type).fontSize('1.4rem').fontWeight('500').foregroundColor('hsl(205, 9%, 47%)')).height()
             //    .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
             , (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(opa.name).fontSize('1.8rem').lineHeight('2rem'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('By Tuvalsoft').fontSize('1.4rem').foregroundColor('#676879'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)(opa.description || '').maxLines(2).fontSize('1.4rem').foregroundColor('#676879')).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Spacer)(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cCenter })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.Button)((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_2__.Text)('Add'))
                 // .loading(isLoading && (opa.type === this.last_added_opa_type))
