@@ -136,6 +136,7 @@
         "webpack-cli": "^4.7.2"
     },
     "dependencies": {
+        "@celmino/ui": "^1.0.11",
         "@celmino/workprotocol": "^0.0.134"
     }
 }

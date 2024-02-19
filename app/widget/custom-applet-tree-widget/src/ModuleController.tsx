@@ -1,27 +1,26 @@
 import {
-    Button, ForEach, FormBuilder, Fragment, HStack, Heading, Icon, Icons, Loader,
-    LoaderSizes, MenuButton, OptionsContext, Spacer, Spinner, SvgIcon, Text, UIController, UIView, UIViewBuilder, UIWidget, VStack, cHorizontal, cLeading, cTopLeading, cTrailing, cVertical, useEffect, useNavigate, useState
+    ForEach, FormBuilder,
+    Fragment,
+    HStack,
+    Icon,
+    Spinner, SvgIcon,
+    UIController, UIView, UIViewBuilder, UIWidget, VStack,
+    cLeading,
+    cTopLeading,
+    useNavigate, useParams, useState
 } from '@tuval/forms';
 
-import { LeftSideMenuView } from './views/WorkspaceTree';
-import { useGetWorkspaces } from '@celmino/workprotocol';
-import { useSessionService } from '@realmocean/services';
-import { WorkbenchIcons } from './views/WorkbenchIcons';
-import { AddSpaceDialog, SaveSpaceAction } from './dialogs/AddSpaceDialog';
+import { Query, useCreateDocument, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
 import { DynoDialog } from '@realmocean/ui';
-import { getAppletId, getDocumentId, getListId, getViewId, isAppletOnly, isAppletSettings } from './utils';
-import { Query, useGetDocument, useListDocuments, useUpdateDocument } from '@realmocean/sdk';
-import { useLocalStorageState } from './views/localStorageState';
-import { TextField, Text as VibeText } from '@realmocean/vibe';
+import { AddBoardDialog } from './dialogs/AddBoardDialog';
+import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
 import { AddFolderDialog } from './dialogs/AddFolderDialog';
 import { AddListDialog } from './dialogs/AddListDialog';
-import { SelectOpaDialog } from './dialogs/SelectOpaDialog';
-import { opas } from './Opas';
-import { AddDocumentDialog } from './dialogs/AddDocumentDialog';
+import { SaveSpaceAction } from './dialogs/AddSpaceDialog';
 import { AddWhiteboardDialog } from './dialogs/AddWhiteboardDialog';
-import { AddBoardDialog } from './dialogs/AddBoardDialog';
-import React from 'react';
 import { BoardIcon, CalendarIcon, FeedIcon, ListIcon, ReportIcon, TableIcon, TimelineIcon } from './resources/Icons';
+import { getAppletId, getDocumentId, getListId, getViewId, isAppletOnly, isAppletSettings } from './utils';
+import { SelectAppletDialog } from '@celmino/ui';
 
 
 const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, onItemSelected) => UIViewBuilder(() => {
@@ -34,6 +33,21 @@ const subNodes = (TreeNode, level, nodeType, parentId, workspaceId, appletId, on
     return (
         VStack({ alignment: cTopLeading })(
             ...ForEach(items)(item =>
+                item.type === 'applet' ? HStack({ alignment: cLeading })(
+                    UIViewBuilder(() => {
+                        const { document: applet, isLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: item.$id })
+                        return (
+                            isLoading ? Fragment(): 
+                            UIWidget(applet['opa'])
+                                .config({
+                                    ...(useParams() || {}),
+                                    appletId: applet.$id
+                                })
+                        )
+                    })
+
+
+                ).paddingLeft(`${20 * level}px`) :
                 TreeNode({
                     title: item.name,
                     level: level,
@@ -217,7 +231,7 @@ export class CustomAppletTreeModuleController extends UIController {
         const { document: applet, isLoading: isAppletLoading } = useGetDocument({ projectId: workspaceId, databaseId: 'workspace', collectionId: 'applets', documentId: appletId })
         const { updateDocument } = useUpdateDocument(workspaceId);
 
-
+        const { createDocument: createTreeItem } = useCreateDocument(workspaceId, appletId, 'wm_tree');
 
         return (
             isAppletLoading ? Spinner() :
@@ -282,6 +296,23 @@ export class CustomAppletTreeModuleController extends UIController {
                                             title: 'Smart Folder',
                                             icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
                                             onClick: () => DynoDialog.Show(AddFolderDialog(workspaceId, appletId, '-1', '/'))
+                                        },
+                                        {
+                                            title: 'Applet',
+                                            icon: SvgIcon('cu3-icon-sidebarFolderOpen', '#151719', '18px', '18px'),
+                                            onClick: () => {
+                                                SelectAppletDialog.Show(workspaceId, appletId).then((applet) => {
+                                                    createTreeItem({
+                                                        documentId: applet.$id,
+                                                        data: {
+                                                            name: applet.name,
+                                                            path: "/",
+                                                            parent: '-1',
+                                                            type: 'applet'
+                                                        }
+                                                    }, () => void 0)
+                                                });
+                                            }
                                         },
 
 

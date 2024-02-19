@@ -120,19 +120,23 @@ export class SelectAppletDialog extends DialogView {
                                         HStack(
                                             opa.image &&
                                             UIImage(opa.image).width(50).height(50).cornerRadius('20%')
-                                            .filter(opa.type === 'Applet' ? 'grayscale(1)' : 'none'),
+                                                .filter(opa.type === 'Applet' ? 'grayscale(1)' : 'none'),
                                             opa.icon &&
                                             HStack(
                                                 Icon(opa.icon).fontSize(40).foregroundColor('rgb(109, 122, 131)')
                                             ).width(50).height(50).cornerRadius('20%'),
-                                           
+
                                             //.background(opa.iconBackColor || '#9A0707'),
                                             Spacer(),
                                             Text(opa.type).fontSize('1.4rem').fontWeight('500').foregroundColor('hsl(205, 9%, 47%)')
                                         ).height()
                                         //    .shadow('0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15)'),
                                         ,
-                                        Text(opa.name).fontSize('1.8rem').lineHeight('2rem'),
+                                        HStack({ alignment: cLeading })(
+                                            Text(opa.name).fontSize('1.8rem').lineHeight('2rem').maxLines(2)
+                                        )
+                                            .minHeight('4rem')
+                                            .height(),
                                         Text('By Tuvalsoft').fontSize('1.4rem').foregroundColor('#676879'),
                                         HStack({ alignment: cLeading })(
                                             Text(opa.description || '').maxLines(2).fontSize('1.4rem').foregroundColor('#676879')
@@ -232,7 +236,7 @@ export class SelectAppletDialog extends DialogView {
 
                                                 })
                                         ).height()
-                                    ).height(230).width(290)
+                                    ).height(250).width(290)
                                         .padding()
                                         .shadow({ hover: 'var(--box-shadow-medium)' })
                                         .cornerRadius('var(--border-radius-medium)')

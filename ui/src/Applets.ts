@@ -1,11 +1,52 @@
 
 
 export const Applets = [
-   
+
 
     {
-        name: 'Product Management',
-        type: 'Template',
+        name: 'StartUp accelerator management',
+        type: 'Solution',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Educators can share educational materials, monitor student engagement, and collect feedback using this template.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Content Sharing and Monitoring',
+        type: 'Solution',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Educators can share educational materials, monitor student engagement, and collect feedback using this template.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+
+    {
+        name: 'Digital Marketing and Social Media Management',
+        type: 'Solution',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Manage your produck development life circle.',
@@ -24,8 +65,49 @@ export const Applets = [
         ]
     },
     {
+        name: 'Product Management',
+        type: 'Solution',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Manage your produck development life circle.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+
+    {
+        name: 'OKR Tracking',
+        type: 'Solution',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Track Video stages and grouped tasks. Write your scripts, brainstorm ideas, and add notes. Calculate budget and never miss deadlines.',
+        image: '/images/applets/google_drive.svg',
+        //icon: '\\d320',
+        enabled: true,
+        databases: [
+            {
+                "name": "Customer Discovery",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+
+                ]
+            }
+        ]
+    },
+    {
         name: ' Digital video production',
-        type: 'Template',
+        type: 'Solution',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Track Video stages and grouped tasks. Write your scripts, brainstorm ideas, and add notes. Calculate budget and never miss deadlines.',
@@ -45,7 +127,7 @@ export const Applets = [
     },
     {
         name: 'Customer Feedback',
-        type: 'Template',
+        type: 'Solution',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Time to make your Feedback aggregation shine bright like a 💎',
@@ -65,7 +147,7 @@ export const Applets = [
     },
     {
         name: 'Content Marketing',
-        type: 'Template',
+        type: 'Solution',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Here you can aggregate feedback from different sources, manage conversations, and extract useful insights.',
@@ -85,7 +167,7 @@ export const Applets = [
     },
     {
         name: 'Customer Discovery',
-        type: 'Template',
+        type: 'Solution',
         tree_type: 'com.celmino.widget.custom-applet-tree',
         applet_type: 'com.celmino.applet.custom',
         description: 'Monitor your process details in timeframe chart.',
@@ -132,6 +214,67 @@ export const Applets = [
         // image: '/static/opa/images/com.tuvalsoft.opa.task/icon.png',
         icon: '\\d20d',
         iconBackColor: '#66B47C',
+        enabled: true,
+        databases: [
+            {
+                "name": "Custom Applet",
+                "id": "document_management",
+                "category": "app",
+                "collections": [
+                    {
+                        "name": "Menu Tree",
+                        "id": "wm_tree",
+                        "attributes": [
+                            {
+                                "key": "name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "type",
+                                "type": "string"
+                            },
+                            {
+                                "key": "parent",
+                                "type": "string"
+                            },
+                            {
+                                "key": "path",
+                                "type": "string"
+                            },
+                            {
+                                "key": "viewer",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_name",
+                                "type": "string"
+                            },
+                            {
+                                "key": "icon_category",
+                                "type": "string"
+                            },
+                            {
+                                "key": "bg_color",
+                                "type": "string"
+                            },
+                            {
+                                "key": "fg_color",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Spider',
+        type: 'Applet',
+        tree_type: 'com.celmino.widget.custom-applet-tree',
+        applet_type: 'com.celmino.applet.custom',
+        description: 'Monitor your process details in timeframe chart.',
+        image: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTIwLjQ1IDE4LjQ4NEw3Ny41OSA5MC41ODhDNzQuODY1IDEzOS4xOCA1My44NDIgMTc2LjM4IDI1LjIgMjEwLjYybC02LjcxNi0xLjc2djE5LjMybDIuNTU3LjY3MmMxNS4zNSA0NS4wNjUgOS4wODggOTAuODI3IDEuODIgMTM4LjI5NGwtNC4zNzYgMi4wNDd2MjAuNjNsOS4xOC00LjI5NGM2LjUxNiAxMC43MDcgMTMuNjU4IDI3LjA0NyAxOS4wNiA0MS4zMyA0LjI4MyAxMS4zMyA3LjQ3NCAyMC45ODQgOS4yNTMgMjYuNTM1bC0zNy40OTMgMzcuNjl2Mi40M2gyMy45NDJsMjguNTUtMjguN2M5LjI3LS4zNjMgNDEuNzctMS40NzMgODIuNy0uNzUgNDYuNzQ0LjgyNSAxMDIuNjEyIDQuMyAxMzkuMDUgMTMuNjY3bDUuMDggMTUuNzg0aDE5LjYzMmwtNy40My0yMy4wODhjMzUuOTQtNDEuNTEgNzEuOTEyLTgwLjUyNSAxMzEuNzM0LTEwMi4zNGw1MS43NzQgMjAuNDg2di0yMC4wOTdsLTQyLjk4My0xNy4wMDhjLTYuMzc0LTM5LjIxIDEyLjc1NS03Ni42NjUgMzAuNjItMTE2LjY4bDEyLjM2My0yLjU4NXYtMTkuMDkybC02LjMyMyAxLjMyMy01LjQ1LTIuODAzQzQyNS42NTYgMTgyLjggNDA1LjQxIDEzMy42NCAzODguNDQ0IDc4LjkzbDQ0LjE4NC02MC40NDZoLTIzLjE1bC0zOC42IDUyLjgxYy01OC4yNzMgMS4yNTQtMTEyLjQ3NS0yLjQ2My0xNTQuNDQ2LTM3Ljc5bC0yLjI3NC0xNS4wMmgtMTguOWwyLjgzOCAxOC43NUMxNzAuOTYgNjYuMjI0IDE0MC41MzIgODUuMTg4IDkzLjUxMiA4MC41OWwtNDkuMjItNjIuMTA2SDIwLjQ0OHptMTk5LjkxNyA0MS4wMDRjNDAuNjA4IDI2LjMwNCA4OC40OTggMzAuODk0IDEzNi43NTQgMzAuNjNsLTMzLjE0IDQ1LjM0Yy0zNi41ODguMzk2LTY5Ljg1Ni0zLjAzNC05NS44NDUtMjQuNjM4bC03Ljc2OC01MS4zMzJ6bS0xOC44MzQuNDRsOC4yOSA1NC43NzVjLTE3LjgxNSAxOC42MTYtMzcuMjk0IDMwLjE4LTY3Ljk5NSAyNi44NTRMMTA4Ljc1MiA5OS44MmMzOC41OTMtLjc0IDY4LjM1OC0xNy4xNDQgOTIuNzgtMzkuODkyek0zNzQuODU3IDk3LjUyYzE1LjUzNiA0Ni45NjcgMzcuMDUgOTIuNjkgODQuNTUgMTIyLjcyMmwtNTEuNzY4IDEwLjgyLS44MTYtLjQxN2MtMzcuMjctMTkuMTQ1LTUwLjQ0NS01MS42NC02MS45MzUtODguODNsLS43MTYtMi4zMTUgMzAuNjgzLTQxLjk4em0tMjgwLjc0IDEzLjkxOGwzNC4zOTMgNDMuMzk4Yy0yLjUyMyAyOS41ODMtMTUuNDA0IDUyLjY2LTMzLjE0IDc0LjIwN0w0NC45NjYgMjE1LjgxYzIzLjcxNC0yOS43NzQgNDIuNjQtNjMuMzkzIDQ5LjE1Mi0xMDQuMzczem0xMzcuODQ4IDI0LjY5YzIzLjkzNiAxMy42OTQgNTEuMDUgMTcuNCA3OC40MDQgMTcuOTQ4bC0zMi45MSA0NS4wMjhjLTE1LjA1OC02LjM2NC0yNi4xMzctMTcuNzUzLTM4LjU3LTMwLjMyNWwtMi4zNDMtMi4zNy00LjU4Mi0zMC4yOHptLTE4Ljc3OC44MWw1LjU5MiAzNi45NTVjLTExLjE3NiA3LjUtMjQuNDM2IDEyLjE1LTM5LjA0NiAxNS40OTJsLTIyLjkwMi0yOC44OTdjMjIuNzEtMS4zOTUgNDEuMDk1LTEwLjY4IDU2LjM1Ni0yMy41NXptMTE3LjM4IDIxLjE3M2M5Ljc0NiAyOS4xNTUgMjMuMTQ2IDU4LjAxNyA1MC41OCA3OC40OWwtNTUuOTI4IDExLjY5Yy0xMi45OTctMTEuMTgyLTE5Ljk3Ny0yNC43MzQtMjcuMTU2LTM5Ljg5bC0xLjY3LTMuNTMgMzQuMTc0LTQ2Ljc2em0tMTg2LjQzMiAxNi40NDNsMTkuMTQyIDI0LjE1NC0uMDc4LjcxYy0xLjkzIDE3LjM2NS04Ljg3NyAyOS42My0xNi42NSA0My4wNjNsLTMxLjUzNi04LjI4YzEzLjIxMi0xNy4zNTYgMjMuOTQtMzYuODI4IDI5LjEyLTU5LjY0N3ptNzcuNjc0IDE5LjM1M2w2LjAxMiAzOS43NDJjLTMuNjE3LjY5LTcuMDU2IDEuODc1LTEwLjI1IDMuNDhsLTI1LjE3Ny0zMS43NjdjMTAuMTktMi43NSAyMC4xMy02LjM0NSAyOS40MTQtMTEuNDU0em0xOS4zNiAzLjA0M2M3LjM1NSA2LjU3OCAxNS41MiAxMi43MjIgMjUuMTUyIDE3LjM5bC0xNS44MzQgMjEuNjYyYy0xLjE3Ni0uNDkzLTIuMzc3LS45NC0zLjYwNy0xLjMxOGwtNS43MS0zNy43MzV6bS02Mi43NSAyMC44NjRsMjQuOTEgMzEuNDNjLTEuNTkzIDIuMTk3LTIuOTYgNC41NjYtNC4wOCA3LjA3bC0zMy45MTQtOC45MDJjNC45NTUtOC43NTcgOS44My0xOC4yNTMgMTMuMDg0LTI5LjU5OHptMTA1LjUyNSA0LjA4MmM1LjEyIDEwLjQxNSAxMS4xMDQgMjEuMDk1IDE5LjY1MyAzMC45MTNsLTMxLjE0MyA2LjUwOGMtMS41OC00LjQ5Ni0zLjk0My04LjYyNC02LjkzNy0xMi4yMWwxOC40MjctMjUuMjEyek00Mi4xNzIgMjM0LjRsNDguODczIDEyLjgzYzkuMjI3IDI4LjIxNSA1Ljc5NSA1Ny4wOCAxLjIgODcuNDQ4TDQzLjE3MyAzNTcuNjRjNS45NS00MC4xNDcgMTAuMjktODEuNDE0LTEtMTIzLjI0em00MTYuMTQyIDUuMTYyYy0xNC45MzMgMzIuNjM1LTMwLjExNCA2Ni43MzMtMjcuNDMzIDEwNC4xM2wtNDMuNzQtMTcuMzA3Yy0zLjYtMjUuMDE2IDguNzc2LTQ5LjQ0NSAyMC43MjUtNzYuMjc4bDUwLjQ1LTEwLjU0NHptLTM0Ni41NzYgMTMuMWwyNy42MTQgNy4yNDguNTYyIDEuNGM2LjEgMTUuMTMzIDUuMzgzIDMxLjc3MiAyLjkgNDkuNzA4bC0zMC4zMTggMTQuMTg1YzMuMjE0LTIzLjUxMiA0Ljk3Ni00Ny44MTItLjc1OC03Mi41NHptMjczLjI5NSAyLjIxN2MtOS4wNDMgMTkuODE3LTE3Ljc5NyA0MC44MDMtMTcuMjUyIDYzLjg0N2wtMzYuNTg3LTE0LjQ3N2MtLjAwNC0xMy4xNDggMS4zOTUtMjIuODQgOS4xMi0zMy45Mmw0Ljk4LTcuMTQ0IDM5Ljc0LTguMzA3em0tMjI0LjM2IDEwLjYyOGwzNS4yMzcgOS4yNTJjLjIyIDMuNjM2Ljk0IDcuMTM1IDIuMDc4IDEwLjQ0bC0zNS4yNyAxNi41MDNjMS4wNS0xMS45LjkyNy0yNC4wNDgtMi4wNDQtMzYuMTk1em0xNTkuMTYgM2MtNC42MjUgOS40MzMtNi4zOCAxOC44OS02Ljk0OCAyOC40OThsLTM5LjI3OC0xNS41NGMuMjY2LTEuMTI1LjQ3LTIuMjczLjY0LTMuNDNsNDUuNTg1LTkuNTI4em0tNTQuNzk2IDI5LjY2MmwzNi41MDQgMTQuNDQzYy04LjkxIDQuNTgtMTcuMzE2IDEwLjUzNi0yNC42NzcgMTYuMTYtMy45MDcgMi45ODYtNy4xMDcgNS42MDItOS44ODYgNy45NDJsLTEwLjEwMi0zMS4zOTdjMy4wNC0yIDUuNzg2LTQuNDA4IDguMTYyLTcuMTQ4em0tNTguMTIgMy40ODRMMTY5LjI2IDMzOS41MWMtMi41NTgtNi4yLTYuMDE4LTExLjE0Ny05LjU4OC0xNS4yMzVsLjA4OC0uNTU2IDQ3LjE1NC0yMi4wNjZ6bTE3LjczIDguNjcyYzMuMzc3Ljk0IDYuOTMgMS40NTUgMTAuNjA3IDEuNDU1IDEuMzUgMCAyLjY4Ni0uMDY3IDQuMDAyLS4ybDEwLjQ3MyAzMi41NGMtMTMuMzE0LS4xNi0zNy42MTMuMDc2LTYxLjY5MyAzLjAxbDM2LjYxLTM2LjgwNHptMTAzLjQ4NiAxMi44MWwyNS4zNjMgMTAuMDM0Yy0yOS40IDE0LjkyLTUwLjM3NiAzNS44OTYtNjkuMjUyIDU3LjJMMjczLjIgMzU2LjA1YzMuNTU0LTMuMTc0IDguNzMtNy42MyAxNS4wMS0xMi40MjcgMTEuNDItOC43MjcgMjYuMjA4LTE3LjcgMzUuNjg1LTE5LjYyN2w0LjIzOC0uODZ6TTE0MS42MzUgMzMyLjJsMS41MTcgMS41MjVjNS44NDggNS44NzUgOS45NzMgMTAuMzAzIDExLjIyMyAyMC43NWwtMzEuMTQzIDMxLjMwOGMtLjM1LTIuMjctLjczOC00LjYzLTEuMi03LjE0Mi0yLjAxLTEwLjk1LTQuNDQ4LTIyLjk0Mi05LjMyNS0zMi45MDRsMjguOTI4LTEzLjUzNXptMjM1LjkyOCAxMC40OTNsMzkuMjE4IDE1LjUxOGMtNDkuNDIzIDIyLjUtODIuOTE1IDU2LjY4NC0xMTMuNDUgOTEuNDdsLTEyLjQzNS0zOC42NDdjMjQuMTAzLTI3LjgzOCA0Ny42NzMtNTMuNjE2IDg2LjY2OC02OC4zNHpNOTUuNTc3IDM1My43NWMzLjAwMiA2LjgzNyA2LjIyMiAxOC4xNyA4LjA3NiAyOC4yNjYgMS41ODIgOC42MSAyLjUgMTYuMDggMi45OCAyMC40NWwtMzUuODgyIDM2LjA3NWMtMS42OC00Ljk4LTMuNzc3LTEwLjk2LTYuNTUtMTguMjktNS4zNzQtMTQuMjE2LTExLjk5My0zMC4wMTItMTkuNjEtNDIuNjRsNTAuOTg2LTIzLjg2em0xNTAuODYzIDkuMTQ4YzMuOTY4LS4wMDYgNi44MTQuMDMgOS4zNS4wNjVsMTAuMzk2IDMyLjNjLTI2LjI1Ny00LjE1LTU4LjYzMy00LjE5LTg3LjA1Ny0zLjE4NS0xNS41NzUuNTUtMjguMDA0IDEuMzI3LTM3Ljg1NyAyLjA2NWwyNC4xMDgtMjQuMjM3Ljk1LS4yM2MyMy43NDYtNS43OSA1OS44Ni02Ljc0NiA4MC4xMS02Ljc3OHptLTQyLjE5MiA0Ny4zOWMyNC45MjQtLjA1MyA1MC4zNjYgMS4yNjYgNjguNDE2IDUuMTAzbDEzLjQyOCA0MS43MjdjLTM4LjcwOC04LjIzLTg4Ljk4NC0xMC45NzctMTMyLjA4Ni0xMS43MzgtMjcuMjIyLS40ODItNDkuMjM3LS4xODgtNjMuODcuMTczbDMwLjgtMzAuOTYzYzcuNzY1LS43NTcgMzAuNzEtMi44NDIgNTguODUzLTMuODM2IDcuOS0uMjggMTYuMTUtLjQ1IDI0LjQ1OC0uNDY3eiIvPjwvc3ZnPg==',
+        //icon: '\\d320',
         enabled: true,
         databases: [
             {
@@ -4587,7 +4730,69 @@ export const Applets = [
         icon: '\\d1e1',
         iconBackColor: '#66B47C',
         enabled: true
-    }
-
+    },
+    {
+        name: 'Incidents',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'KPIs',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'Community',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'Work Mining',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'Assets',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'Aristo',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
+    {
+        name: 'Wiki',
+        type: 'Applet',
+        tree_type: 'com.tuvalsoft.opa.task',
+        description: 'Use Task List to organize your tasks in anyway imaginable – sort, filter, group, and customize columns.',
+        icon: '\\d1e1',
+        iconBackColor: '#66B47C',
+        enabled: true
+    },
 ];
 

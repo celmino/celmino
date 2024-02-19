@@ -136,6 +136,8 @@
         "webpack-cli": "^4.7.2"
     },
     "dependencies": {
-        "@realmocean/sdk": "^1.0.64"
+        "@realmocean/sdk": "^1.0.64",
+        "arraybuffer-loader": "^1.0.8",
+        "editorjs-form-builder": "^0.2.3"
     }
 }
