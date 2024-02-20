@@ -53,50 +53,57 @@ export class DocumentController extends UIController {
                                 UIViewBuilder(() => {
                                     const { openDialog } = useDialogStack();
                                     return (
-                                        UIWidget(document?.type)
-                                            .config({
-                                                defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
-                                                clamp:true,
-                                                workspaceId: workspaceId,
-                                                appletId: appletId,
-                                                tools: {
-                                                    image: {
-                                                        class: InlineImage,
-                                                        inlineToolbar: true,
-                                                        config: {
-                                                            embed: {
-                                                                display: true,
-                                                            },
-                                                            unsplash: {
-                                                                appName: 'your_app_name',
-                                                                clientId: 'your_client_id'
-                                                            }
-                                                        }
-                                                    },
-                                                    link: {
-                                                        class: SimpleImage,
-                                                        inlineToolbar: true,
-                                                        shortcut: 'CMD+SHIFT+W',
-                                                        config: {
-                                                            workspaceId: workspaceId,
-                                                            appletId: appletId,
-                                                            openDialog
+                                        VStack({ alignment: cTopLeading })(
+                                            UIWidget('com.celmino.widget.tldraw')
+                                                .config({
 
-                                                        },
-                                                    }
-                                                },
-                                                onChange: (data) => {
-                                                    console.log(data)
-                                                    updateDocument({
-                                                        databaseId: appletId,
-                                                        collectionId: 'dm_document_contents',
-                                                        documentId: documentId,
-                                                        data: {
-                                                            content: JSON.stringify(data)
-                                                        }
-                                                    })
-                                                }
-                                            })
+
+                                                })
+                                        )
+                                        /*  UIWidget(document?.type)
+                                             .config({
+                                                 defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
+                                                 clamp:true,
+                                                 workspaceId: workspaceId,
+                                                 appletId: appletId,
+                                                 tools: {
+                                                     image: {
+                                                         class: InlineImage,
+                                                         inlineToolbar: true,
+                                                         config: {
+                                                             embed: {
+                                                                 display: true,
+                                                             },
+                                                             unsplash: {
+                                                                 appName: 'your_app_name',
+                                                                 clientId: 'your_client_id'
+                                                             }
+                                                         }
+                                                     },
+                                                     link: {
+                                                         class: SimpleImage,
+                                                         inlineToolbar: true,
+                                                         shortcut: 'CMD+SHIFT+W',
+                                                         config: {
+                                                             workspaceId: workspaceId,
+                                                             appletId: appletId,
+                                                             openDialog
+ 
+                                                         },
+                                                     }
+                                                 },
+                                                 onChange: (data) => {
+                                                     console.log(data)
+                                                     updateDocument({
+                                                         databaseId: appletId,
+                                                         collectionId: 'dm_document_contents',
+                                                         documentId: documentId,
+                                                         data: {
+                                                             content: JSON.stringify(data)
+                                                         }
+                                                     })
+                                                 }
+                                             }) */
                                     )
                                 })
 
