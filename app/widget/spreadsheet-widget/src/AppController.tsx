@@ -26,7 +26,7 @@ export class MyTestController extends UIController {
   public override LoadView(): UIView {
     const { openDialog } = useDialogStack();
 
-    const { onChange = void 0, defaultValue = null, workspaceId } = this.props.config || {};
+    const { onChange = void 0, defaultValue = null, workspaceId, height = '100%', onSelf = () => void 0 } = this.props.config || {};
 
     console.log('defaultValue')
     console.log(defaultValue)
@@ -36,10 +36,10 @@ export class MyTestController extends UIController {
 
     useEffect(() => {
       const timerID = setInterval(() => {
-
         if (spreadsheetRef.current != null && !(spreadsheetRef as any).loading) {
           spreadsheetRef.current.saveAsJson().then((content) => {
 
+          
             console.log("Content")
             console.log(content);
             console.log("PrevValue")
@@ -76,11 +76,13 @@ export class MyTestController extends UIController {
     return (
       VStack({ alignment: cTopLeading })(
         UISpreadsheet({
+          height,
           allowOpen: true,
           showRibbon: true,
           cellStyle: {
             fontFamily: 'Roboto',
           },
+          
           openComplete: (e) => {
 
 
@@ -140,7 +142,7 @@ export class MyTestController extends UIController {
                   appletId: info.appletId,
                   $id: info.item.$id,
                   name: info.item.name,
-                   viewer: info.item.viewer
+                  viewer: info.item.viewer
                 }), range, info.item.name);
               })
 
@@ -207,7 +209,10 @@ export class MyTestController extends UIController {
           ) */
           .model(defaultValue?.jsonObject)
           // .model(content)
-          .self(spreadsheetRef as any)
+          .self((_self) => {
+            spreadsheetRef.current = _self;
+            onSelf(_self);
+          })
       )
 
     ).overflow('hidden')

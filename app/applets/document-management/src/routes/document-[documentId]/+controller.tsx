@@ -1,4 +1,4 @@
-import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment, cTopLeading, UIViewBuilder, HStack, Button, useDialogStack } from "@tuval/forms";
+import { UIController, UIView, useParams, Routes, Text, UIWidget, VStack, ReactView, DialogStack, Fragment, cTopLeading, UIViewBuilder, HStack, Button, useDialogStack, TextField, useState } from "@tuval/forms";
 import { ActionPanel } from "../../views/ActionPanel";
 import { DocumentHeader } from "../../views/ViewHeader";
 import React from "react";
@@ -32,7 +32,6 @@ export class DocumentController extends UIController {
         })
 
         const { updateDocument } = useUpdateDocument(workspaceId);
-
         return (
             (isDocumentLoading || isLoading) ? Fragment() :
                 ReactView(
@@ -50,17 +49,18 @@ export class DocumentController extends UIController {
                                         }
                                     })
                                 }),
+                              
                                 UIViewBuilder(() => {
                                     const { openDialog } = useDialogStack();
                                     return (
-                                        VStack({ alignment: cTopLeading })(
+                                       /*  VStack({ alignment: cTopLeading })(
                                             UIWidget('com.celmino.widget.tldraw')
                                                 .config({
 
 
                                                 })
-                                        )
-                                        /*  UIWidget(document?.type)
+                                        ) */
+                                          UIWidget(document?.type)
                                              .config({
                                                  defaultValue: is.nullOrEmpty(content?.content) ? null : JSON.parse(content.content),
                                                  clamp:true,
@@ -103,7 +103,7 @@ export class DocumentController extends UIController {
                                                          }
                                                      })
                                                  }
-                                             }) */
+                                             }) 
                                     )
                                 })
 

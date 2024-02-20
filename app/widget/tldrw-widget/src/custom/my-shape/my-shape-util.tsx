@@ -10,9 +10,12 @@ import {
 	TLOnResizeHandler,
 	resizeBox,
 	structuredClone,
+	throttle,
 	useIsEditing,
 } from '@tldraw/tldraw'
-import { Button, HStack, Text, TextField, UIWidget, VStack } from '@tuval/forms'
+import { Convert, is } from '@tuval/core'
+import { Button, Fragment, HStack, Text, TextField, UIWidget, VStack, cTopLeading, useEffect } from '@tuval/forms'
+
 import React from 'react'
 import { useState } from 'react'
 
@@ -28,6 +31,8 @@ type ICatDog = TLBaseShape<
 >
 
 export class CatDogUtil extends ShapeUtil<ICatDog> {
+
+	private spreadsheet: any;
 	// [2]
 	static override type = 'catdog' as const
 	static override props: ShapeProps<ICatDog> = {
@@ -42,6 +47,8 @@ export class CatDogUtil extends ShapeUtil<ICatDog> {
 
 	// [4]
 	override canEdit = () => true
+	shapeHeight: number;
+	tha: () => void
 
 	// [5]
 	getDefaultProps(): ICatDog['props'] {
@@ -53,6 +60,8 @@ export class CatDogUtil extends ShapeUtil<ICatDog> {
 
 	// [6]
 	getGeometry(shape: ICatDog) {
+
+
 		return new Rectangle2d({
 			width: shape.props.w,
 			height: shape.props.h,
@@ -65,48 +74,58 @@ export class CatDogUtil extends ShapeUtil<ICatDog> {
 		// [a]
 		const isEditing = useIsEditing(shape.id)
 
-		const [animal, setAnimal] = useState<boolean>(true)
+		useEffect(() => {
+			this.tha = throttle(() => {
+				if (this.spreadsheet != null) {
+				
+					this.spreadsheet.height = '100%';
+					this.spreadsheet.refresh();
+				}
+			}, 100)
+		}, [this.spreadsheet])
 
 		// [b]
 		return (
 			<HTMLContainer id={shape.id}>
 				<div
 					style={{
-						border: '1px solid rgba(0, 0, 0, 0.1)',
-						boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.04)',
-						display: 'flex',
-						borderRadius: '50%',
+
+
 						height: '100%',
-						flexDirection: 'column',
-						alignItems: 'center',
-						justifyContent: 'center',
+
 						pointerEvents: 'all',
-						backgroundColor: animal ? 'hsl(180, 34%, 86%)' : 'hsl(10, 34%, 86%)',
+						backgroundColor: 'white',
 						position: 'relative',
 					}}
 				>
-					<button
-						style={{
-							display: isEditing ? 'block' : 'none',
-							border: 'none',
-							position: 'absolute',
-							top: 0,
-							left: 50,
-							cursor: 'pointer',
-							padding: '8px 8px',
-							borderRadius: '4px',
-							backgroundColor: 'hsl(120, 54%, 46%)',
-							color: '#fff',
-							textDecoration: 'none',
-							boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.04)',
-						}}
-						disabled={!isEditing}
-						onPointerDown={(e) => e.stopPropagation()}
-						onClick={() => setAnimal((prev) => !prev)}
-					>
-						Change
-					</button>
-					<p style={{ fontSize: shape.props.h / 1.5, margin: 0 }}>{animal ? '🐶' : '🐱'}</p>
+					{
+						VStack({ alignment: cTopLeading })(
+							
+							HStack(
+								UIWidget('com.tuvalsoft.widget.spreadsheet')
+									.config({
+										height: Convert.ToInt32(shape.props.h),
+										onChange: () => void 0,
+										onSelf: (_self) => { this.spreadsheet = _self },
+									})
+								/* isEditing ?
+									Button(
+										Text('dsfsdf')
+									).onClick(() => alert('clicked'))
+									: Text('Click for editing') */
+							)
+								.border('1px solid rgba(0, 0, 0, 0.1)')
+								.shadow('0px 1px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.04)')
+								.onPointerDown(() => (e) => { alert('fsd'); e.stopPropagation() }),
+							!isEditing ?
+								HStack(
+								)
+									.zIndex(1)
+									.position('absolute').left('px').top('0px').background('transparent') : Fragment()
+						)
+							.render()
+					}
+
 				</div>
 			</HTMLContainer>
 		)
@@ -120,6 +139,14 @@ export class CatDogUtil extends ShapeUtil<ICatDog> {
 
 	// [9]
 	override onResize: TLOnResizeHandler<ICatDog> = (shape, info) => {
+		this.shapeHeight = shape.props.h;
+		if (is.function(this.tha)) {
+			//this.tha();
+			setTimeout(()=> this.tha(), 10)
+		}
+
+
+
 		return resizeBox(shape, info)
 	}
 
@@ -176,7 +203,7 @@ a Rectangle2d object.
 We define the component method. This controls what the shape looks like and it returns JSX.
 
 	[a] We can use the useIsEditing hook to check if the shape is in the editing state. If it is,
-	    we want our shape to render differently.
+		we want our shape to render differently.
 	
 	[b] The HTML container is a really handy wrapper for custom shapes, it essentially creates a
 		div with some helpful css for you. We can use the isEditing variable to conditionally

@@ -67,10 +67,10 @@ var MyTestController = /** @class */ (function (_super) {
     }
     MyTestController.prototype.LoadView = function () {
         var openDialog = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useDialogStack)().openDialog;
-        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, workspaceId = _a.workspaceId;
+        var _a = this.props.config || {}, _b = _a.onChange, onChange = _b === void 0 ? void 0 : _b, _c = _a.defaultValue, defaultValue = _c === void 0 ? null : _c, workspaceId = _a.workspaceId, _d = _a.height, height = _d === void 0 ? '100%' : _d, _e = _a.onSelf, onSelf = _e === void 0 ? function () { return void 0; } : _e;
         console.log('defaultValue');
         console.log(defaultValue);
-        var _d = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(null), prevValue = _d[0], setPrevValue = _d[1];
+        var _f = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useState)(null), prevValue = _f[0], setPrevValue = _f[1];
         (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
             var timerID = setInterval(function () {
                 if (spreadsheetRef.current != null && !spreadsheetRef.loading) {
@@ -103,6 +103,7 @@ var MyTestController = /** @class */ (function (_super) {
         var spreadsheetRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
         //const aa = ()=> alert(spreadsheet?.toString());
         return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_0__.cTopLeading })((0,_realmocean_spreadsheet__WEBPACK_IMPORTED_MODULE_2__.UISpreadsheet)({
+            height: height,
             allowOpen: true,
             showRibbon: true,
             cellStyle: {
@@ -215,7 +216,10 @@ var MyTestController = /** @class */ (function (_super) {
             ) */
             .model(defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue.jsonObject)
             // .model(content)
-            .self(spreadsheetRef))).overflow('hidden');
+            .self(function (_self) {
+            spreadsheetRef.current = _self;
+            onSelf(_self);
+        }))).overflow('hidden');
     };
     return MyTestController;
 }(_tuval_forms__WEBPACK_IMPORTED_MODULE_0__.UIController));

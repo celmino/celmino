@@ -115,7 +115,7 @@
         "@realmocean/navigations": "^21.0.0-beta.28",
         "@realmocean/query-builder": "^0.0.2",
         "@realmocean/services": "^21.0.0-beta.5",
-        "@realmocean/spreadsheet": "^24.1.47",
+        "@realmocean/spreadsheet": "^24.1.48",
         "@tuval/cg": "^0.0.16",
         "@tuval/core": "^0.0.103",
         "@tuval/forms": "^1.0.162",

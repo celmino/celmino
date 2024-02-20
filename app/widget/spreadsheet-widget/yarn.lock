@@ -606,10 +606,10 @@
   resolved "https://registry.npmjs.org/@realmocean/services/-/services-21.0.0-beta.5.tgz"
   integrity sha512-evwPRir4c25I+PquTjKm+K+l9jUrQcb61Ho7RCgj4kd0bHm3cmm/OZIVrtLYUdizD4rAydMkvF8+9c3bAMHRmA==
 
-"@realmocean/spreadsheet@^24.1.47":
-  version "24.1.47"
-  resolved "https://registry.npmjs.org/@realmocean/spreadsheet/-/spreadsheet-24.1.47.tgz"
-  integrity sha512-AvlCuOhy6KvKwWUk9RYKRvvVEDtQv8/k2JCi8UcvanaIfrz9hAvND6hQwn89PuUQt1MUWcv6Bmd9GJmf/HCHgA==
+"@realmocean/spreadsheet@^24.1.48":
+  version "24.1.48"
+  resolved "https://registry.npmjs.org/@realmocean/spreadsheet/-/spreadsheet-24.1.48.tgz"
+  integrity sha512-1xyFA1stjN+l9plQkEUzVU0VBcSss1qw4567+hzT4YWuNQVlRCeyXaFRfdytt46D3qnu4Qd8crVg7J/yVKQgVA==
 
 "@storybook/channels@7.6.10":
   version "7.6.10"
