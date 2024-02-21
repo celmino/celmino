@@ -14,6 +14,7 @@ import {
     PopupButton,
     ReactView,
     ScrollView,
+    SortableListView,
     Spacer,
     SvgIcon,
 
@@ -23,6 +24,7 @@ import {
     VStack,
     cHorizontal,
     cLeading, cTopLeading,
+    cVertical,
     getAppFullName,
     useNavigate, useParams, useQueryParams
 } from "@tuval/forms";
@@ -218,11 +220,10 @@ export const LeftSideMenuView = (selectedItem: string) => {
                     Query.equal('category', 'applet')
                 ]);
 
-                const { documents } = useListDocuments(workspaceId, 'workspace', 'applets', [
+                const { documents, isLoading } = useListDocuments(workspaceId, 'workspace', 'applets', [
                     Query.equal('parent', '-1'),
                     Query.limit(250),
                     // Query.equal('opa', 'com.celmino.widget.enterprise-modelling-tree')
-
                 ]);
 
                 const { realm } = useGetRealm({ realmId: workspaceId, enabled: true });
@@ -230,318 +231,294 @@ export const LeftSideMenuView = (selectedItem: string) => {
 
                 const { updatePrefs } = useUpdatePrefs({});
 
+                const [isSorting, setIsSorting] = useState(true);
+
                 let _hideHandle;
 
                 return (
-                    VStack({ alignment: cTopLeading })(
+                    isLoading ? Fragment() :
                         VStack({ alignment: cTopLeading })(
                             VStack({ alignment: cTopLeading })(
+                                VStack({ alignment: cTopLeading })(
 
-                                HDivider().height(1).background('#ECEDEE'),
-                                VStack({ alignment: cTopLeading, spacing: 2 })(
-                                    ...ForEach(topMenu)(menuItem =>
-                                        HStack({ alignment: cLeading, spacing: 8 })(
-                                            Icon(menuItem.icon),
-                                            Text(menuItem.title)
-                                                .foregroundColor('rgb(21, 23, 25)')
-                                                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
-                                        )
-                                            .height()
-                                            .padding('6px 10px')
-                                            .background({ hover: '#E8EAED' })
-                                            .cornerRadius(6)
-                                            .cursor('pointer')
-                                            .margin('0 8px')
-                                    )
-
-                                ).paddingTop('6px')
-
-
-                            )
-                                //.padding()
-                                .height(),
-
-                            HDivider().height(1).background('#ECEDEE'),
-
-                            UIWidget('com.celmino.widget.organization-space-tree')
-                                .config({
-                                    organizationId: domainTeam?.$id,
-                                    organizationName: domainTeam?.name
-
-                                }),
-                            UIWidget('com.celmino.widget.myspace-tree')
-                                .config({
-
-                                }),
-                            HDivider().height(1).background('#ECEDEE'),
-                            HStack(
-                                PopupButton(
-
-                                    HStack({ alignment: cLeading, spacing: 6 })(
-                                        HStack(
-                                            UIWidget("com.tuvalsoft.widget.icons")
-                                                .config({
-                                                    readonly: true,
-                                                    selectedIcon: 'bookmark', //iconInfo.iconName,
-                                                    selectedCategory: 'Icons',//iconInfo.iconCategory,
-                                                    width: 32,
-                                                    height: 32,
-                                                    padding: 1,
-                                                    color: '#0E7169',
-                                                    onChange: (iconInfo) => {
-                                                        setIconInfo(iconInfo)
-                                                    }
-                                                })
-                                        ).width(36).height(36)
-                                            .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                                            .cornerRadius(6),
-                                        VStack({ alignment: cLeading })(
-                                            Text('WORKSPACE').fontSize('1rem'),
-                                            HStack({ alignment: cLeading })(
-                                                Text(realm?.name).fontSize(16).fontWeight('500')
+                                    HDivider().height(1).background('#ECEDEE'),
+                                    VStack({ alignment: cTopLeading, spacing: 2 })(
+                                        ...ForEach(topMenu)(menuItem =>
+                                            HStack({ alignment: cLeading, spacing: 8 })(
+                                                Icon(menuItem.icon),
+                                                Text(menuItem.title)
                                                     .foregroundColor('rgb(21, 23, 25)')
-                                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
-                                            ).height()
-                                        ).height(),
-                                        Icon(DownIcon)
-
-                                    )
-                                    .height().cursor('pointer')
-                                        .padding(10)
-                                        .background({ hover: '#E8EAED' })
-                                        .cornerRadius(6)
-
-                                )(
-                                    UIViewBuilder(() => {
-
-                                        const { realm }: { realm: Models.Realm } = useGetRealm({
-                                            realmId: workspaceId,
-                                            enabled: (organizationId == null && workspaceId != null)
-                                        });
-
-                                        const { realms } = useListRealms(domainTeam != null/* (organizationId != null || realm?.teamId != null) */, [
-                                            Query.equal('teamId', domainTeam?.$id)
-                                        ]);
-
-                                        const { me } = useGetMe('console');
-                                        return (
-                                            VStack({ alignment: cTopLeading })(
-                                                VStack(
-                                                    HStack({ alignment: cLeading, spacing: 5 })(
-                                                        HStack().width(30).height(30).cornerRadius('50%').background('gray'),
-                                                        VStack({ alignment: cLeading })(
-                                                            Text(realm.name).fontSize(14).foregroundColor('#212526'),
-                                                            Text(me.email).fontSize(12).foregroundColor('#6d7a83'),
-                                                        )
-                                                    ).padding(5)
-                                                        .cornerRadius(6)
-                                                        .background({ hover: '#ECEEEF' }),
-                                                    HStack({ alignment: cLeading, spacing: 5 })(
-                                                        Icon(SvgIcon('cu3-icon-settings')),
-                                                        Text('Settings')
-                                                    )
-                                                        .padding(5)
-                                                        .height()
-                                                ).padding(5),
-                                                HDivider().height(1).background('#ECEDEE'),
-                                                VStack({ alignment: cTopLeading })(
-                                                    Text('SWITCH WORKSPACES').fontSize(12),
-                                                    ...ForEach(realms)(realm => (
-                                                        HStack({ alignment: cLeading })(
-                                                            Text(realm.name)
-                                                        ).background({ hover: '#E8EAED' })
-                                                            .cursor('pointer')
-                                                            .padding(5)
-                                                            .onClick(() => {
-
-                                                                updatePrefs({
-                                                                    prefs: {
-                                                                        ...(me?.prefs ? me?.prefs : {}),
-                                                                        workspace: realm.$id
-                                                                    }
-
-                                                                })
-                                                                _hideHandle();
-                                                                navigate(`/app/workspace/${realm.$id}`)
-                                                            })
-                                                    ))
-                                                ).padding()
-
-                                            ).width(250)
+                                                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')
+                                            )
+                                                .height()
+                                                .padding('6px 10px')
+                                                .background({ hover: '#E8EAED' })
+                                                .cornerRadius(6)
+                                                .cursor('pointer')
+                                                .margin('0 8px')
                                         )
-                                    })
+
+                                    ).paddingTop('6px')
+
 
                                 )
-                                    .hideHandle(hideHandle => _hideHandle = hideHandle)
-                                    .dialogPosition(DialogPosition.BOTTOM)
-                            )
-                                .height()
-                                .padding('8px 8px 8px 0px'),
+                                    //.padding()
+                                    .height(),
 
-                            VStack({ alignment: cTopLeading })(
-                                /*  VStack({ alignment: cLeading })(
-                                     Text('APPLETS')
-                                         .fontSize(11)
-                                         .fontWeight('700'),
-     
-                                 ).height(40).padding('1px 18px 0 20px'), */
-                                ...ForEach(databases)(database =>
-                                    //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
-                                    DatabaseNameView(database, false, () => { })
-                                    //    )
-                                ),
-                                VStack({ alignment: cTopLeading, spacing: 5 })(
-                                    documents ?
-                                        ScrollView({ axes: 'cAll', alignment: cTopLeading })(
-                                            // Text(documents[0]['opa']),
-                                            ...ForEach(documents)(applet =>
-                                                UIWidget(applet['opa'])
+                                HDivider().height(1).background('#ECEDEE'),
+
+                                UIWidget('com.celmino.widget.organization-space-tree')
+                                    .config({
+                                        organizationId: domainTeam?.$id,
+                                        organizationName: domainTeam?.name
+
+                                    }),
+                                UIWidget('com.celmino.widget.myspace-tree')
+                                    .config({
+
+                                    }),
+                                HDivider().height(1).background('#ECEDEE'),
+                                HStack(
+                                    PopupButton(
+
+                                        HStack({ alignment: cLeading, spacing: 6 })(
+                                            HStack(
+                                                UIWidget("com.tuvalsoft.widget.icons")
                                                     .config({
-                                                        ...(useParams() || {}),
-                                                        appletId: applet.$id
-                                                    }),
-                                            )
-                                        ) : Fragment()
-                                    /*  ...ForEach(spaces)(space =>
-                                         Text(space.name)
-                                     ), */
+                                                        readonly: true,
+                                                        selectedIcon: 'bookmark', //iconInfo.iconName,
+                                                        selectedCategory: 'Icons',//iconInfo.iconCategory,
+                                                        width: 32,
+                                                        height: 32,
+                                                        padding: 1,
+                                                        color: '#0E7169',
+                                                        onChange: (iconInfo) => {
+                                                            setIconInfo(iconInfo)
+                                                        }
+                                                    })
+                                            ).width(36).height(36)
+                                                .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
+                                                .cornerRadius(6),
+                                            VStack({ alignment: cLeading })(
+                                                Text('WORKSPACE').fontSize('1rem'),
+                                                HStack({ alignment: cLeading })(
+                                                    Text(realm?.name).fontSize(16).fontWeight('500')
+                                                        .foregroundColor('rgb(21, 23, 25)')
+                                                        .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'),
+                                                ).height()
+                                            ).height(),
+                                            Icon(DownIcon)
 
-
-
-                                ).padding(8),
-                                HStack(
-                                    UIViewBuilder(() => {
-                                        const { createRealm } = useCreateRealm();
-                                        const { workspace_id } = useParams();
-                                        return (
-                                            HStack({ spacing: 5 })(
-                                                //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-
-                                                Text('New Applet').fontSize(11).fontWeight('500')
-
-
-                                            )
-                                                .margin('5px 20px')
-                                                .cornerRadius(5)
-                                                .cursor('pointer')
-                                                .foregroundColor('#7c828d')
-                                                .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                                                .height(24)
-                                                .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                                                .padding('8px 12px 8px 26px')
-                                                .onClick(() => {
-                                                    DynoDialog.Show(AddAppletDialog(workspaceId));
-
-                                                })
                                         )
-                                    })
-                                ).height(),
+                                            .height().cursor('pointer')
+                                            .padding(10)
+                                            .background({ hover: '#E8EAED' })
+                                            .cornerRadius(6)
 
-                                HStack(
-                                    UIViewBuilder(() => {
-                                        const { createDatabase } = useCreateDatabase(workspaceId);
-                                        return (
-                                            HStack({ spacing: 5 })(
-                                                //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                                                Text('Install Applet').fontSize(11).fontWeight('500')
+                                    )(
+                                        UIViewBuilder(() => {
+
+                                            const { realm }: { realm: Models.Realm } = useGetRealm({
+                                                realmId: workspaceId,
+                                                enabled: (organizationId == null && workspaceId != null)
+                                            });
+
+                                            const { realms } = useListRealms(domainTeam != null/* (organizationId != null || realm?.teamId != null) */, [
+                                                Query.equal('teamId', domainTeam?.$id)
+                                            ]);
+
+                                            const { me } = useGetMe('console');
+                                            return (
+                                                VStack({ alignment: cTopLeading })(
+                                                    VStack(
+                                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                                            HStack().width(30).height(30).cornerRadius('50%').background('gray'),
+                                                            VStack({ alignment: cLeading })(
+                                                                Text(realm.name).fontSize(14).foregroundColor('#212526'),
+                                                                Text(me.email).fontSize(12).foregroundColor('#6d7a83'),
+                                                            )
+                                                        ).padding(5)
+                                                            .cornerRadius(6)
+                                                            .background({ hover: '#ECEEEF' }),
+                                                        HStack({ alignment: cLeading, spacing: 5 })(
+                                                            Icon(SvgIcon('cu3-icon-settings')),
+                                                            Text('Settings')
+                                                        )
+                                                            .padding(5)
+                                                            .height()
+                                                    ).padding(5),
+                                                    HDivider().height(1).background('#ECEDEE'),
+                                                    VStack({ alignment: cTopLeading })(
+                                                        Text('SWITCH WORKSPACES').fontSize(12),
+                                                        ...ForEach(realms)(realm => (
+                                                            HStack({ alignment: cLeading })(
+                                                                Text(realm.name)
+                                                            ).background({ hover: '#E8EAED' })
+                                                                .cursor('pointer')
+                                                                .padding(5)
+                                                                .onClick(() => {
+
+                                                                    updatePrefs({
+                                                                        prefs: {
+                                                                            ...(me?.prefs ? me?.prefs : {}),
+                                                                            workspace: realm.$id
+                                                                        }
+
+                                                                    })
+                                                                    _hideHandle();
+                                                                    navigate(`/app/workspace/${realm.$id}`)
+                                                                })
+                                                        ))
+                                                    ).padding()
+
+                                                ).width(250)
                                             )
-                                                .margin('5px 20px')
-                                                .cornerRadius(5)
-                                                .cursor('pointer')
-                                                .foregroundColor('#7c828d')
-                                                .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                                                .height(24)
-                                                .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                                                .padding('8px 12px 8px 26px')
-                                                .onClick(async () => {
-                                                    SelectAppletDialog.Show(workspaceId);
-                                                })
-                                        )
-                                    })
-                                ).height(),
-                                HStack(
+                                        })
+
+                                    )
+                                        .hideHandle(hideHandle => _hideHandle = hideHandle)
+                                        .dialogPosition(DialogPosition.BOTTOM)
+                                )
+                                    .height()
+                                    .padding('8px 8px 8px 0px'),
+
+                                VStack({ alignment: cTopLeading })(
+                                    /*  VStack({ alignment: cLeading })(
+                                         Text('APPLETS')
+                                             .fontSize(11)
+                                             .fontWeight('700'),
+         
+                                     ).height(40).padding('1px 18px 0 20px'), */
+                                    ...ForEach(databases)(database =>
+                                        //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
+                                        DatabaseNameView(database, false, () => { })
+                                        //    )
+                                    ),
                                     UIViewBuilder(() => {
-                                        const { createDatabase } = useCreateDatabase(workspaceId);
+                                        const [realms, setRealms] = useState(documents.map(document => ({ id: document.$id, ...document })));
                                         return (
-                                            HStack({ spacing: 5 })(
-                                                //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                                                Text('Templates').fontSize(11).fontWeight('500')
-                                            )
-                                                .margin('5px 20px')
-                                                .cornerRadius(5)
-                                                .cursor('pointer')
-                                                .foregroundColor('#7c828d')
-                                                .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                                                .height(24)
-                                                .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                                                .padding('8px 12px 8px 26px')
-                                                .onClick(async () => {
-                                                    SelectAppletDialog.Show(workspaceId);
-                                                })
+                                            VStack({ alignment: cTopLeading, spacing: 5 })(
+                                                documents ?
+                                                    ScrollView({ axes: cVertical, alignment: cTopLeading })(
+                                                        // Text(documents[0]['opa']),
+                                                        isSorting ?
+                                                            SortableListView()
+                                                                .items(realms)
+                                                                .renderItem(realm =>
+                                                                    UIWidget(realm['opa'])
+                                                                        .config({
+                                                                            ...(useParams() || {}),
+                                                                            appletId: realm.$id
+                                                                        }),
+                                                                )
+                                                                .onChange(realms => setRealms(realms)) :
+                                                            VStack({ alignment: cTopLeading, spacing: 5 })(
+                                                                ...ForEach(documents)(applet =>
+                                                                    UIWidget(applet['opa'])
+                                                                        .config({
+                                                                            ...(useParams() || {}),
+                                                                            appletId: applet.$id
+                                                                        }),
+                                                                )
+                                                            )
+                                                    ) : Fragment()
+                                                /*  ...ForEach(spaces)(space =>
+                                                     Text(space.name)
+                                                 ), */
+
+
+
+                                            ).padding(8)
                                         )
-                                    })
-                                ).height(),
+                                    }
+                                    ),
+                                    HStack(
+                                        UIViewBuilder(() => {
+                                            const { createRealm } = useCreateRealm();
+                                            const { workspace_id } = useParams();
+                                            return (
+                                                HStack({ spacing: 5 })(
+                                                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
 
-                                /* HStack({ alignment: cLeading })(
-                                    Text('SPACES')
-                                        .fontSize(11)
-                                        .fontWeight('700')
-                                ).height(40).padding('1px 18px 0 20px'), */
-
-                                /*    VStack({ spacing: 5 })(
-                                       UIViewBuilder(() => {
-                                           const { createProject } = useCreateProject();
-                                           const { workspace_id } = useQueryParams();
-                                           return (
-                                               HStack({ spacing: 5 })(
-                                                   Text('NEW SPACE').fontSize(11).fontWeight('500')
-                                               )
-                                                   .margin('5px 20px')
-                                                   .cornerRadius(5)
-                                                   .cursor('pointer')
-                                                   .foregroundColor('#7c828d')
-                                                   .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                                                   .height(24)
-                                                   .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                                                   .padding('8px 12px 8px 26px')
-                                                   .onClick(() => {
-                                                       DynoDialog.Show(AddSpaceDialog());
-                                                   })
-                                           )
-                                       }),
-             
-                                       VStack({ alignment: cTopLeading, spacing: 5 })(
-                                           ScrollView({ axes: 'cAll', alignment: cTopLeading })(
-                                               UIWidget('com.celmino.widget.enterprise-modelling-tree')
-                                                   .config({
-                                                       workspaceId
-                                                   }),
-                                               UIWidget('com.celmino.widget.enterprise-modelling-tree')
-                                                   .config({
-                                                       workspaceId
-                                                   })
-                                           )
-                                         
-             
-             
-                                       )
-             
-                                   ).padding(cHorizontal, '1rem')
-                                       .paddingBottom('0px'), */
+                                                    Text('New Applet').fontSize(11).fontWeight('500')
 
 
+                                                )
+                                                    .margin('5px 20px')
+                                                    .cornerRadius(5)
+                                                    .cursor('pointer')
+                                                    .foregroundColor('#7c828d')
+                                                    .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                                                    .height(24)
+                                                    .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                                                    .padding('8px 12px 8px 26px')
+                                                    .onClick(() => {
+                                                        DynoDialog.Show(AddAppletDialog(workspaceId));
 
+                                                    })
+                                            )
+                                        })
+                                    ).height(),
+
+                                    HStack(
+                                        UIViewBuilder(() => {
+                                            const { createDatabase } = useCreateDatabase(workspaceId);
+                                            return (
+                                                HStack({ spacing: 5 })(
+                                                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
+                                                    Text('Install Applet').fontSize(11).fontWeight('500')
+                                                )
+                                                    .margin('5px 20px')
+                                                    .cornerRadius(5)
+                                                    .cursor('pointer')
+                                                    .foregroundColor('#7c828d')
+                                                    .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                                                    .height(24)
+                                                    .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                                                    .padding('8px 12px 8px 26px')
+                                                    .onClick(async () => {
+                                                        SelectAppletDialog.Show(workspaceId);
+                                                    })
+                                            )
+                                        })
+                                    ).height(),
+                                    HStack(
+                                        UIViewBuilder(() => {
+                                            const { createDatabase } = useCreateDatabase(workspaceId);
+                                            return (
+                                                HStack({ spacing: 5 })(
+                                                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
+                                                    Text('Templates').fontSize(11).fontWeight('500')
+                                                )
+                                                    .margin('5px 20px')
+                                                    .cornerRadius(5)
+                                                    .cursor('pointer')
+                                                    .foregroundColor('#7c828d')
+                                                    .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                                                    .height(24)
+                                                    .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                                                    .padding('8px 12px 8px 26px')
+                                                    .onClick(async () => {
+                                                        SelectAppletDialog.Show(workspaceId);
+                                                    })
+                                            )
+                                        })
+                                    ).height(),
+
+
+
+
+
+                                )
 
                             )
-
                         )
-                    )
-                        .fontFamily(fontFamily)
-                        .allWidth(282)
-                        .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
-                        .background('#F7F8F9')
-                        .borderRight('1px solid rgba(0,0,0,0.05)')
-                        .transition('width .2s ease-in-out')
+                            .fontFamily(fontFamily)
+                            .allWidth(282)
+                            .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
+                            .background('#F7F8F9')
+                            .borderRight('1px solid rgba(0,0,0,0.05)')
+                            .transition('width .2s ease-in-out')
                 )
             }
 

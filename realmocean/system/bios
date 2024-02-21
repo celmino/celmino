@@ -6230,156 +6230,171 @@ var LeftSideMenuView = function (selectedItem) {
             var databases = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDatabases)(workspaceId, [
                 _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('category', 'applet')
             ]).databases;
-            var documents = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDocuments)(workspaceId, 'workspace', 'applets', [
+            var _b = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListDocuments)(workspaceId, 'workspace', 'applets', [
                 _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('parent', '-1'),
                 _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.limit(250),
                 // Query.equal('opa', 'com.celmino.widget.enterprise-modelling-tree')
-            ]).documents;
+            ]), documents = _b.documents, isLoading = _b.isLoading;
             var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({ realmId: workspaceId, enabled: true }).realm;
-            var _b = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _b[0], setIconInfo = _b[1];
+            var _c = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({}), iconInfo = _c[0], setIconInfo = _c[1];
             var updatePrefs = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useUpdatePrefs)({}).updatePrefs;
+            var _d = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(true), isSorting = _d[0], setIsSorting = _d[1];
             var _hideHandle;
-            return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
-                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(menuItem.title)
+            return (isLoading ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)() :
+                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 2 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(topMenu)(function (menuItem) {
+                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 8 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(menuItem.icon), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(menuItem.title)
+                        .foregroundColor('rgb(21, 23, 25)')
+                        .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
+                        .height()
+                        .padding('6px 10px')
+                        .background({ hover: '#E8EAED' })
+                        .cornerRadius(6)
+                        .cursor('pointer')
+                        .margin('0 8px');
+                })).paddingTop('6px'))
+                    //.padding()
+                    .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.organization-space-tree')
+                    .config({
+                    organizationId: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id,
+                    organizationName: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.name
+                }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.myspace-tree')
+                    .config({}), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 6 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
+                    .config({
+                    readonly: true,
+                    selectedIcon: 'bookmark',
+                    selectedCategory: 'Icons',
+                    width: 32,
+                    height: 32,
+                    padding: 1,
+                    color: '#0E7169',
+                    onChange: function (iconInfo) {
+                        setIconInfo(iconInfo);
+                    }
+                })).width(36).height(36)
+                    .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
+                    .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('WORKSPACE').fontSize('1rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
                     .foregroundColor('rgb(21, 23, 25)')
-                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'))
-                    .height()
-                    .padding('6px 10px')
+                    .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height()).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon))
+                    .height().cursor('pointer')
+                    .padding(10)
                     .background({ hover: '#E8EAED' })
-                    .cornerRadius(6)
-                    .cursor('pointer')
-                    .margin('0 8px');
-            })).paddingTop('6px'))
-                //.padding()
-                .height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.organization-space-tree')
-                .config({
-                organizationId: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id,
-                organizationName: domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.name
-            }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)('com.celmino.widget.myspace-tree')
-                .config({}), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.PopupButton)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 6 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)("com.tuvalsoft.widget.icons")
-                .config({
-                readonly: true,
-                selectedIcon: 'bookmark',
-                selectedCategory: 'Icons',
-                width: 32,
-                height: 32,
-                padding: 1,
-                color: '#0E7169',
-                onChange: function (iconInfo) {
-                    setIconInfo(iconInfo);
-                }
-            })).width(36).height(36)
-                .shadow('0px 1px 4px rgba(81,97,108,0.1), 0 0 0 1px rgba(229,232,235,0.5)')
-                .cornerRadius(6), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('WORKSPACE').fontSize('1rem'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm === null || realm === void 0 ? void 0 : realm.name).fontSize(16).fontWeight('500')
-                .foregroundColor('rgb(21, 23, 25)')
-                .fontFamily('ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol')).height()).height(), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)(DownIcon))
-                .height().cursor('pointer')
-                .padding(10)
-                .background({ hover: '#E8EAED' })
-                .cornerRadius(6))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
-                    realmId: workspaceId,
-                    enabled: (organizationId == null && workspaceId != null)
-                }).realm;
-                var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(domainTeam != null /* (organizationId != null || realm?.teamId != null) */, [
-                    _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id)
-                ]).realms;
-                var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
-                return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
-                    .cornerRadius(6)
-                    .background({ hover: '#ECEEEF' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-settings')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Settings'))
-                    .padding(5)
-                    .height()).padding(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('SWITCH WORKSPACES').fontSize(12)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name)).background({ hover: '#E8EAED' })
-                    .cursor('pointer')
-                    .padding(5)
-                    .onClick(function () {
-                    updatePrefs({
-                        prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { workspace: realm.$id })
-                    });
-                    _hideHandle();
-                    navigate("/app/workspace/".concat(realm.$id));
-                })); }), false)).padding()).width(250));
-            }))
-                .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
-                .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM))
-                .height()
-                .padding('8px 8px 8px 0px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
-                //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
-                return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
-            }
-            //    )
-            ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 5 })(documents ? (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ScrollView)({ axes: 'cAll', alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(documents)(function (applet) {
-                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)(applet['opa'])
-                        .config(__assign(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})), { appletId: applet.$id }));
-                })) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)()
-                /*  ...ForEach(spaces)(space =>
-                     Text(space.name)
-                 ), */
-                ).padding(8),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createRealm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateRealm)().createRealm;
-                    var workspace_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)().workspace_id;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('New Applet').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
+                    .cornerRadius(6))((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                    var realm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetRealm)({
+                        realmId: workspaceId,
+                        enabled: (organizationId == null && workspaceId != null)
+                    }).realm;
+                    var realms = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useListRealms)(domainTeam != null /* (organizationId != null || realm?.teamId != null) */, [
+                        _realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.Query.equal('teamId', domainTeam === null || domainTeam === void 0 ? void 0 : domainTeam.$id)
+                    ]).realms;
+                    var me = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useGetMe)('console').me;
+                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)().width(30).height(30).cornerRadius('50%').background('gray'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name).fontSize(14).foregroundColor('#212526'), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(me.email).fontSize(12).foregroundColor('#6d7a83'))).padding(5)
+                        .cornerRadius(6)
+                        .background({ hover: '#ECEEEF' }), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading, spacing: 5 })((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Icon)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SvgIcon)('cu3-icon-settings')), (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Settings'))
+                        .padding(5)
+                        .height()).padding(5), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HDivider)().height(1).background('#ECEDEE'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray([(0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('SWITCH WORKSPACES').fontSize(12)], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(realms)(function (realm) { return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cLeading })((0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)(realm.name)).background({ hover: '#E8EAED' })
                         .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
+                        .padding(5)
                         .onClick(function () {
-                        _realmocean_ui__WEBPACK_IMPORTED_MODULE_6__.DynoDialog.Show((0,_dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_7__.AddAppletDialog)(workspaceId));
-                    }));
-                })).height(),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Install Applet').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
-                        .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
-                        .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
-                            return [2 /*return*/];
+                        updatePrefs({
+                            prefs: __assign(__assign({}, ((me === null || me === void 0 ? void 0 : me.prefs) ? me === null || me === void 0 ? void 0 : me.prefs : {})), { workspace: realm.$id })
                         });
-                    }); }));
-                })).height(),
-                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
-                    var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
-                    return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
-                    //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
-                    (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Templates').fontSize(11).fontWeight('500'))
-                        .margin('5px 20px')
-                        .cornerRadius(5)
-                        .cursor('pointer')
-                        .foregroundColor('#7c828d')
-                        .background({ default: '#f3f4f7', hover: '#e4e4e4' })
-                        .height(24)
-                        .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
-                        .padding('8px 12px 8px 26px')
-                        .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
-                            return [2 /*return*/];
-                        });
-                    }); }));
-                })).height()], false))))
-                .fontFamily(fontFamily)
-                .allWidth(282)
-                .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
-                .background('#F7F8F9')
-                .borderRight('1px solid rgba(0,0,0,0.05)')
-                .transition('width .2s ease-in-out'));
+                        _hideHandle();
+                        navigate("/app/workspace/".concat(realm.$id));
+                    })); }), false)).padding()).width(250));
+                }))
+                    .hideHandle(function (hideHandle) { return _hideHandle = hideHandle; })
+                    .dialogPosition(_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.DialogPosition.BOTTOM))
+                    .height()
+                    .padding('8px 8px 8px 0px'), (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading }).apply(void 0, __spreadArray(__spreadArray([], (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(databases)(function (database) {
+                    //    UIRouteLink(`/app/${getAppFullName()}/database/${database.$id}`)(
+                    return (0,_DatabaseNameView__WEBPACK_IMPORTED_MODULE_4__.DatabaseNameView)(database, false, function () { });
+                }
+                //    )
+                ), false), [(0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                        var _a = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(documents.map(function (document) { return (__assign({ id: document.$id }, document)); })), realms = _a[0], setRealms = _a[1];
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 5 })(documents ?
+                            (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ScrollView)({ axes: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cVertical, alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading })(
+                            // Text(documents[0]['opa']),
+                            isSorting ?
+                                (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.SortableListView)()
+                                    .items(realms)
+                                    .renderItem(function (realm) {
+                                    return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)(realm['opa'])
+                                        .config(__assign(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})), { appletId: realm.$id }));
+                                })
+                                    .onChange(function (realms) { return setRealms(realms); }) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.VStack)({ alignment: _tuval_forms__WEBPACK_IMPORTED_MODULE_2__.cTopLeading, spacing: 5 }).apply(void 0, (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.ForEach)(documents)(function (applet) {
+                                return (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIWidget)(applet['opa'])
+                                    .config(__assign(__assign({}, ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)() || {})), { appletId: applet.$id }));
+                            }))) : (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.Fragment)()
+                        /*  ...ForEach(spaces)(space =>
+                             Text(space.name)
+                         ), */
+                        ).padding(8));
+                    }),
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                        var createRealm = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateRealm)().createRealm;
+                        var workspace_id = (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.useParams)().workspace_id;
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
+                        //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
+                        (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('New Applet').fontSize(11).fontWeight('500'))
+                            .margin('5px 20px')
+                            .cornerRadius(5)
+                            .cursor('pointer')
+                            .foregroundColor('#7c828d')
+                            .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                            .height(24)
+                            .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                            .padding('8px 12px 8px 26px')
+                            .onClick(function () {
+                            _realmocean_ui__WEBPACK_IMPORTED_MODULE_6__.DynoDialog.Show((0,_dialogs_AddAppletDialog__WEBPACK_IMPORTED_MODULE_7__.AddAppletDialog)(workspaceId));
+                        }));
+                    })).height(),
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                        var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
+                        //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
+                        (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Install Applet').fontSize(11).fontWeight('500'))
+                            .margin('5px 20px')
+                            .cornerRadius(5)
+                            .cursor('pointer')
+                            .foregroundColor('#7c828d')
+                            .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                            .height(24)
+                            .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                            .padding('8px 12px 8px 26px')
+                            .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
+                                return [2 /*return*/];
+                            });
+                        }); }));
+                    })).height(),
+                    (0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.UIViewBuilder)(function () {
+                        var createDatabase = (0,_realmocean_sdk__WEBPACK_IMPORTED_MODULE_0__.useCreateDatabase)(workspaceId).createDatabase;
+                        return ((0,_tuval_forms__WEBPACK_IMPORTED_MODULE_2__.HStack)({ spacing: 5 })(
+                        //FontIcon(FontIcons.Add, 'sm', '#656f7d'),
+                        (0,_realmocean_vibe__WEBPACK_IMPORTED_MODULE_5__.Text)('Templates').fontSize(11).fontWeight('500'))
+                            .margin('5px 20px')
+                            .cornerRadius(5)
+                            .cursor('pointer')
+                            .foregroundColor('#7c828d')
+                            .background({ default: '#f3f4f7', hover: '#e4e4e4' })
+                            .height(24)
+                            .transition('background .2s cubic-bezier(.785,.135,.15,.86) 0s')
+                            .padding('8px 12px 8px 26px')
+                            .onClick(function () { return __awaiter(void 0, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                _celmino_ui__WEBPACK_IMPORTED_MODULE_9__.SelectAppletDialog.Show(workspaceId);
+                                return [2 /*return*/];
+                            });
+                        }); }));
+                    })).height()], false))))
+                    .fontFamily(fontFamily)
+                    .allWidth(282)
+                    .transition('width .3s cubic-bezier(.2,0,0,1) 0s')
+                    .background('#F7F8F9')
+                    .borderRight('1px solid rgba(0,0,0,0.05)')
+                    .transition('width .2s ease-in-out'));
         }));
 };
 
